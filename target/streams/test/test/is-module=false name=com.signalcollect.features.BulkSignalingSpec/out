@@ -1,0 +1,11 @@
+[0m[[0minfo[0m] [0mBulkSignalingSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mBulk signaling should[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a 5-cycle graph[0m
+[0m[[0minfo[0m] [0m[32m+[0m handle a bulk size of 1 correctly[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification BulkSignalingSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 339 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m2 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m

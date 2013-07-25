@@ -1,0 +1,17 @@
+[0m[[0minfo[0m] [0mComputationTerminationSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mSteps limit should[0m
+[0m[[0minfo[0m] [0m[32m+[0m work for synchronous computations[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mConvergence detection should[0m
+[0m[[0minfo[0m] [0m[32m+[0m work for asynchronous computations with one worker[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mGlobal convergence should[0m
+[0m[[0minfo[0m] [0m[32m+[0m work for synchronous computations[0m
+[0m[[0minfo[0m] [0m[32m+[0m work for asynchronous computations[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification ComputationTerminationSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 4 seconds, 17 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m4 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m

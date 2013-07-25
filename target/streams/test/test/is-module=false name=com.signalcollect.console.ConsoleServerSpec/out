@@ -1,0 +1,25 @@
+[0m[[0minfo[0m] [0mConsoleServerSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mConsoleServer should[0m
+[0m[[0minfo[0m] [0m[32m+[0m start successfully[0m
+[0m[[0minfo[0m] [0m[32m+[0m start socket successfully[0m
+[0m[[0minfo[0m] [0m[32m+[0m establish websocket connection[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'resources.workerStatistics'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'resources.nodeStatistics'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'configuration.executionConfiguration'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'configuration.graphConfiguration'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'configuration.systemProperties'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'log'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'graph'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'state'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'controls'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'breakconditions'[0m
+[0m[[0minfo[0m] [0m[32m+[0m return valid API result for provider 'invalidDataProvider'[0m
+[0m[[0minfo[0m] [0m[32m+[0m close websocket connection[0m
+[0m[[0minfo[0m] [0m[32m+[0m shutdown successfully[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification ConsoleServerSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 10 seconds, 80 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m16 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m

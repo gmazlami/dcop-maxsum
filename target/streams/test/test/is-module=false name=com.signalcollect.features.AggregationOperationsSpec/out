@@ -1,0 +1,25 @@
+[0m[[0minfo[0m] [0mAggregationOperationsSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mSumOfStates should[0m
+[0m[[0minfo[0m] [0m[32m+[0m sum all states correctly[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mProductOfStates should[0m
+[0m[[0minfo[0m] [0m[32m+[0m multiply all states correctly[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mCountVertices should[0m
+[0m[[0minfo[0m] [0m[32m+[0m count the number of PageRank vertices correctly[0m
+[0m[[0minfo[0m] [0m[32m+[0m count the number of SudokuCell vertices correctly[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mSampleVertexIds should[0m
+[0m[[0minfo[0m] [0m[32m+[0m sample 0 vertex ids correctly[0m
+[0m[[0minfo[0m] [0m[32m+[0m sample 50 vertex ids correctly[0m
+[0m[[0minfo[0m] [0m[32m+[0m sample 50 vertex ids correctly[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTopKFinder should[0m
+[0m[[0minfo[0m] [0m[32m+[0m find the largest vertices in the right order[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification AggregationOperationsSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 898 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m8 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m

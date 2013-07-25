@@ -1,0 +1,30 @@
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.IntegrationSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.features.AggregationOperationsSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.BeforeRemovalSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.GraphResetSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.GraphModificationSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.storage.VertexMapSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.features.SnapshotSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.console.ConsoleServerSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.features.BulkSignalingSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.serialization.SerializerSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.AkkaProxySpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.features.ComputationTerminationSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.storage.VertexStorageSpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0mdebug[0m] [0mRunning Test com.signalcollect.ModularitySpec : subclass(false, org.specs2.specification.SpecificationStructure) with arguments [0m
+[0m[[0minfo[0m] [0mPassed: : Total 66, Failed 0, Errors 0, Passed 66, Skipped 0[0m
+[0m[[0mdebug[0m] [0mPassed tests:[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.features.BulkSignalingSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.serialization.SerializerSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.GraphResetSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.features.SnapshotSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.ModularitySpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.console.ConsoleServerSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.storage.VertexMapSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.GraphModificationSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.features.AggregationOperationsSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.AkkaProxySpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.features.ComputationTerminationSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.BeforeRemovalSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.storage.VertexStorageSpec[0m
+[0m[[0mdebug[0m] [0m	com.signalcollect.IntegrationSpec[0m

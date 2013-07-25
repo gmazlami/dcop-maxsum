@@ -1,0 +1,19 @@
+[0m[[0minfo[0m] [0mVertexMapSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mVertexMap should[0m
+[0m[[0minfo[0m] [0m[32m+[0m support puts[0m
+[0m[[0minfo[0m] [0m[32m+[0m optimize after processing one item[0m
+[0m[[0minfo[0m] [0m[32m+[0m optimize after processing several items[0m
+[0m[[0minfo[0m] [0m[32m+[0m optimize correctly after processing several items[0m
+[0m[[0minfo[0m] [0m[32m+[0m optimize correctly in an edge case[0m
+[0m[[0minfo[0m] [0m[32m+[0m remove all elements via processing[0m
+[0m[[0minfo[0m] [0m[32m+[0m handle special keys[0m
+[0m[[0minfo[0m] [0m[32m+[0m fail to retrieve a vertex with the same hash code and different object[0m
+[0m[[0minfo[0m] [0m[32m+[0m handle hash collisions correctly[0m
+[0m[[0minfo[0m] [0m[32m+[0m stream vertices[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification VertexMapSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 118 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m10 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m

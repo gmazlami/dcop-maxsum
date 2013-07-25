@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.signalcollect"
+		module="signal-collect$sources_javadoc_2.10"
+		revision="2.1.0-SNAPSHOT"
+		conf="test-internal"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom"
+		date="20130527101953"/>
+	<dependencies>
+		<module organisation="org.specs2" name="specs2_2.10">
+			<revision name="2.0-RC1" status="release" pubdate="20130521014935" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://specs2.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="21">
+				<license name="MIT-style" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="3839" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/specs2_2.10/ivy-2.0-RC1.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/specs2_2.10/2.0-RC1/specs2_2.10-2.0-RC1.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.0-RC1" rev-constraint-default="2.0-RC1" rev-constraint-dynamic="2.0-RC1" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="specs2_2.10" type="jar" ext="jar" status="no" details="" size="7574632" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/specs2_2.10/jars/specs2_2.10-2.0-RC1.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/specs2_2.10/2.0-RC1/specs2_2.10-2.0-RC1.jar"/>
+					</artifact>
+					<artifact name="specs2_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="566960" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/specs2_2.10/srcs/specs2_2.10-2.0-RC1-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/specs2_2.10/2.0-RC1/specs2_2.10-2.0-RC1-sources.jar"/>
+					</artifact>
+					<artifact name="specs2_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="4949260" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/specs2_2.10/docs/specs2_2.10-2.0-RC1-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/specs2_2.10/2.0-RC1/specs2_2.10-2.0-RC1-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.specs2" name="classycle">
+			<revision name="1.4.1" status="release" pubdate="20120213061023" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://classycle.sourceforge.net/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="26">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2510" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/classycle/ivy-1.4.1.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/classycle/1.4.1/classycle-1.4.1.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.4.1" rev-constraint-default="1.4.1" rev-constraint-dynamic="1.4.1" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="classycle" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="457108" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/classycle/docs/classycle-1.4.1-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/classycle/1.4.1/classycle-1.4.1-javadoc.jar"/>
+					</artifact>
+					<artifact name="classycle" type="jar" ext="jar" status="no" details="" size="102534" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/classycle/jars/classycle-1.4.1.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/classycle/1.4.1/classycle-1.4.1.jar"/>
+					</artifact>
+					<artifact name="classycle" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="134754" time="0" location="/Users/gmazlami/.ivy2/cache/org.specs2/classycle/srcs/classycle-1.4.1-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/specs2/classycle/1.4.1/classycle-1.4.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.mockito" name="mockito-all">
+			<revision name="1.9.0" status="release" pubdate="20111220022459" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://www.mockito.org" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="27">
+				<license name="The MIT License" url="http://code.google.com/p/mockito/wiki/License"/>
+				<metadata-artifact status="no" details="" size="2352" time="0" location="/Users/gmazlami/.ivy2/cache/org.mockito/mockito-all/ivy-1.9.0.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/mockito/mockito-all/1.9.0/mockito-all-1.9.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.9.0" rev-constraint-default="1.9.0" rev-constraint-dynamic="1.9.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="mockito-all" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="716167" time="0" location="/Users/gmazlami/.ivy2/cache/org.mockito/mockito-all/srcs/mockito-all-1.9.0-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/mockito/mockito-all/1.9.0/mockito-all-1.9.0-sources.jar"/>
+					</artifact>
+					<artifact name="mockito-all" type="jar" ext="jar" status="no" details="" size="1495219" time="0" location="/Users/gmazlami/.ivy2/cache/org.mockito/mockito-all/jars/mockito-all-1.9.0.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/mockito/mockito-all/1.9.0/mockito-all-1.9.0.jar"/>
+					</artifact>
+					<artifact name="mockito-all" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1643751" time="0" location="/Users/gmazlami/.ivy2/cache/org.mockito/mockito-all/docs/mockito-all-1.9.0-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/mockito/mockito-all/1.9.0/mockito-all-1.9.0-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.chuusai" name="shapeless_2.10">
+			<revision name="1.2.3" status="release" pubdate="20121226144111" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="https://github.com/milessabin/shapeless" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="25">
+				<license name="Apache License" url="http://www.apache.org/licenses/"/>
+				<metadata-artifact status="no" details="" size="2634" time="0" location="/Users/gmazlami/.ivy2/cache/com.chuusai/shapeless_2.10/ivy-1.2.3.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/com/chuusai/shapeless_2.10/1.2.3/shapeless_2.10-1.2.3.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.2.3" rev-constraint-default="1.2.3" rev-constraint-dynamic="1.2.3" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="shapeless_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="70297" time="0" location="/Users/gmazlami/.ivy2/cache/com.chuusai/shapeless_2.10/srcs/shapeless_2.10-1.2.3-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/chuusai/shapeless_2.10/1.2.3/shapeless_2.10-1.2.3-sources.jar"/>
+					</artifact>
+					<artifact name="shapeless_2.10" type="jar" ext="jar" status="no" details="" size="1274009" time="0" location="/Users/gmazlami/.ivy2/cache/com.chuusai/shapeless_2.10/jars/shapeless_2.10-1.2.3.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/chuusai/shapeless_2.10/1.2.3/shapeless_2.10-1.2.3.jar"/>
+					</artifact>
+					<artifact name="shapeless_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1546299" time="0" location="/Users/gmazlami/.ivy2/cache/com.chuusai/shapeless_2.10/docs/shapeless_2.10-1.2.3-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/chuusai/shapeless_2.10/1.2.3/shapeless_2.10-1.2.3-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-concurrent_2.10">
+			<revision name="7.0.0" status="release" pubdate="20130421175014" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="23">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2812" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/ivy-7.0.0.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-concurrent_2.10/7.0.0/scalaz-concurrent_2.10-7.0.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="7.0.0" rev-constraint-default="7.0.0" rev-constraint-dynamic="7.0.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalaz-concurrent_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="516797" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/docs/scalaz-concurrent_2.10-7.0.0-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-concurrent_2.10/7.0.0/scalaz-concurrent_2.10-7.0.0-javadoc.jar"/>
+					</artifact>
+					<artifact name="scalaz-concurrent_2.10" type="jar" ext="jar" status="no" details="" size="287554" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/jars/scalaz-concurrent_2.10-7.0.0.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-concurrent_2.10/7.0.0/scalaz-concurrent_2.10-7.0.0.jar"/>
+					</artifact>
+					<artifact name="scalaz-concurrent_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="15966" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/srcs/scalaz-concurrent_2.10-7.0.0-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-concurrent_2.10/7.0.0/scalaz-concurrent_2.10-7.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-effect_2.10">
+			<revision name="7.0.0" status="release" pubdate="20130421175026" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="24">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2659" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-effect_2.10/ivy-7.0.0.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-effect_2.10/7.0.0/scalaz-effect_2.10-7.0.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="7.0.0" rev-constraint-default="7.0.0" rev-constraint-dynamic="7.0.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalaz-effect_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="811740" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-effect_2.10/docs/scalaz-effect_2.10-7.0.0-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-effect_2.10/7.0.0/scalaz-effect_2.10-7.0.0-javadoc.jar"/>
+					</artifact>
+					<artifact name="scalaz-effect_2.10" type="jar" ext="jar" status="no" details="" size="428820" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-effect_2.10/jars/scalaz-effect_2.10-7.0.0.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-effect_2.10/7.0.0/scalaz-effect_2.10-7.0.0.jar"/>
+					</artifact>
+					<artifact name="scalaz-effect_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="21764" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-effect_2.10/srcs/scalaz-effect_2.10-7.0.0-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-effect_2.10/7.0.0/scalaz-effect_2.10-7.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-core_2.10">
+			<revision name="7.0.0" status="release" pubdate="20130421175340" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="22">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2514" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.10/ivy-7.0.0.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-core_2.10/7.0.0/scalaz-core_2.10-7.0.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="7.0.0" rev-constraint-default="7.0.0" rev-constraint-dynamic="7.0.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalaz-core_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="4778577" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.10/docs/scalaz-core_2.10-7.0.0-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-core_2.10/7.0.0/scalaz-core_2.10-7.0.0-javadoc.jar"/>
+					</artifact>
+					<artifact name="scalaz-core_2.10" type="jar" ext="jar" status="no" details="" size="8621005" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.10/jars/scalaz-core_2.10-7.0.0.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-core_2.10/7.0.0/scalaz-core_2.10-7.0.0.jar"/>
+					</artifact>
+					<artifact name="scalaz-core_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="257279" time="0" location="/Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.10/srcs/scalaz-core_2.10-7.0.0-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scalaz/scalaz-core_2.10/7.0.0/scalaz-core_2.10-7.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.java-websocket" name="Java-WebSocket">
+			<revision name="1.3.0" status="release" pubdate="20130424015020" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://java-websocket.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="19">
+				<license name="MIT License" url="http://github.com/TooTallNate/Java-WebSocket/blob/master/LICENSE"/>
+				<metadata-artifact status="no" details="" size="3047" time="0" location="/Users/gmazlami/.ivy2/cache/org.java-websocket/Java-WebSocket/ivy-1.3.0.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/java-websocket/Java-WebSocket/1.3.0/Java-WebSocket-1.3.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.3.0" rev-constraint-default="1.3.0" rev-constraint-dynamic="1.3.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="Java-WebSocket" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="69656" time="0" location="/Users/gmazlami/.ivy2/cache/org.java-websocket/Java-WebSocket/srcs/Java-WebSocket-1.3.0-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/java-websocket/Java-WebSocket/1.3.0/Java-WebSocket-1.3.0-sources.jar"/>
+					</artifact>
+					<artifact name="Java-WebSocket" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="391740" time="0" location="/Users/gmazlami/.ivy2/cache/org.java-websocket/Java-WebSocket/docs/Java-WebSocket-1.3.0-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/java-websocket/Java-WebSocket/1.3.0/Java-WebSocket-1.3.0-javadoc.jar"/>
+					</artifact>
+					<artifact name="Java-WebSocket" type="jar" ext="jar" status="no" details="" size="103165" time="0" location="/Users/gmazlami/.ivy2/cache/org.java-websocket/Java-WebSocket/jars/Java-WebSocket-1.3.0.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/java-websocket/Java-WebSocket/1.3.0/Java-WebSocket-1.3.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-compiler">
+			<revision name="2.10.1" status="release" pubdate="20130313000713" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="16">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2809" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.10.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.1/scala-compiler-2.10.1.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scala-compiler" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2035910" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-compiler/srcs/scala-compiler-2.10.1-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scala-compiler/2.10.1/scala-compiler-2.10.1-sources.jar"/>
+					</artifact>
+					<artifact name="scala-compiler" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="12189879" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-compiler/docs/scala-compiler-2.10.1-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scala-compiler/2.10.1/scala-compiler-2.10.1-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-reflect">
+			<revision name="2.10.1" status="release" pubdate="20130313000549" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="17">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2552" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.10.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.1/scala-reflect-2.10.1.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scala-reflect" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="33578873" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-reflect/docs/scala-reflect-2.10.1-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scala-reflect/2.10.1/scala-reflect-2.10.1-javadoc.jar"/>
+					</artifact>
+					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="427611" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.10.1-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scala-reflect/2.10.1/scala-reflect-2.10.1-sources.jar"/>
+					</artifact>
+					<artifact name="scala-reflect" type="jar" ext="jar" status="no" details="" size="3178531" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.1/scala-reflect-2.10.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-json_2.10">
+			<revision name="2.5-RC4" status="release" pubdate="20130406053159" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="14">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3044" time="0" location="/Users/gmazlami/.ivy2/cache/net.liftweb/lift-json_2.10/ivy-2.5-RC4.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/net/liftweb/lift-json_2.10/2.5-RC4/lift-json_2.10-2.5-RC4.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.5-RC4" rev-constraint-default="2.5-RC4" rev-constraint-dynamic="2.5-RC4" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="lift-json_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="33505" time="0" location="/Users/gmazlami/.ivy2/cache/net.liftweb/lift-json_2.10/srcs/lift-json_2.10-2.5-RC4-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/net/liftweb/lift-json_2.10/2.5-RC4/lift-json_2.10-2.5-RC4-sources.jar"/>
+					</artifact>
+					<artifact name="lift-json_2.10" type="jar" ext="jar" status="no" details="" size="486915" time="0" location="/Users/gmazlami/.ivy2/cache/net.liftweb/lift-json_2.10/jars/lift-json_2.10-2.5-RC4.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/net/liftweb/lift-json_2.10/2.5-RC4/lift-json_2.10-2.5-RC4.jar"/>
+					</artifact>
+					<artifact name="lift-json_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="579910" time="0" location="/Users/gmazlami/.ivy2/cache/net.liftweb/lift-json_2.10/docs/lift-json_2.10-2.5-RC4-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/net/liftweb/lift-json_2.10/2.5-RC4/lift-json_2.10-2.5-RC4-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.thoughtworks.paranamer" name="paranamer">
+			<revision name="2.4.1" status="release" pubdate="20120128103343" resolver="public" artresolver="public" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="18">
+				<metadata-artifact status="no" details="" size="3447" time="0" location="/Users/gmazlami/.ivy2/cache/com.thoughtworks.paranamer/paranamer/ivy-2.4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.4.1" rev-constraint-default="2.4.1" rev-constraint-dynamic="2.4.1" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="paranamer" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="27016" time="0" location="/Users/gmazlami/.ivy2/cache/com.thoughtworks.paranamer/paranamer/srcs/paranamer-2.4.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1-sources.jar"/>
+					</artifact>
+					<artifact name="paranamer" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="69398" time="0" location="/Users/gmazlami/.ivy2/cache/com.thoughtworks.paranamer/paranamer/docs/paranamer-2.4.1-javadoc.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1-javadoc.jar"/>
+					</artifact>
+					<artifact name="paranamer" type="jar" ext="jar" status="no" details="" size="29734" time="0" location="/Users/gmazlami/.ivy2/cache/com.thoughtworks.paranamer/paranamer/jars/paranamer-2.4.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scalap">
+			<revision name="2.10.0" status="release" pubdate="20121220083017" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="15">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2518" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scalap/ivy-2.10.0.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scalap/2.10.0/scalap-2.10.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalap" type="jar" ext="jar" status="no" details="" size="855012" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scalap/jars/scalap-2.10.0.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scalap/2.10.0/scalap-2.10.0.jar"/>
+					</artifact>
+					<artifact name="scalap" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="40814" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scalap/srcs/scalap-2.10.0-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scalap/2.10.0/scalap-2.10.0-sources.jar"/>
+					</artifact>
+					<artifact name="scalap" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1234075" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scalap/docs/scalap-2.10.0-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scalap/2.10.0/scalap-2.10.0-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-codec" name="commons-codec">
+			<revision name="1.7" status="release" pubdate="20120911141418" resolver="public" artresolver="public" homepage="http://commons.apache.org/codec/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="13">
+				<metadata-artifact status="no" details="" size="8018" time="0" location="/Users/gmazlami/.ivy2/cache/commons-codec/commons-codec/ivy-1.7.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/commons-codec/commons-codec/1.7/commons-codec-1.7.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.7" rev-constraint-default="1.7" rev-constraint-dynamic="1.7" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="commons-codec" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="401748" time="0" location="/Users/gmazlami/.ivy2/cache/commons-codec/commons-codec/docs/commons-codec-1.7-javadoc.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-codec/commons-codec/1.7/commons-codec-1.7-javadoc.jar"/>
+					</artifact>
+					<artifact name="commons-codec" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="272575" time="0" location="/Users/gmazlami/.ivy2/cache/commons-codec/commons-codec/srcs/commons-codec-1.7-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-codec/commons-codec/1.7/commons-codec-1.7-sources.jar"/>
+					</artifact>
+					<artifact name="commons-codec" type="jar" ext="jar" status="no" details="" size="259600" time="0" location="/Users/gmazlami/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.7.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-codec/commons-codec/1.7/commons-codec-1.7.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="ch.ethz.ganymed" name="ganymed-ssh2">
+			<revision name="build210" status="release" pubdate="20061116093202" resolver="public" artresolver="public" homepage="http://www.ganymed.ethz.ch/ssh2/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="12">
+				<license name="BSD style license" url="http://www.ganymed.ethz.ch/ssh2/LICENSE.txt"/>
+				<metadata-artifact status="no" details="" size="2425" time="0" location="/Users/gmazlami/.ivy2/cache/ch.ethz.ganymed/ganymed-ssh2/ivy-build210.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/ch/ethz/ganymed/ganymed-ssh2/build210/ganymed-ssh2-build210.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="build210" rev-constraint-default="build210" rev-constraint-dynamic="build210" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="ganymed-ssh2" type="jar" ext="jar" status="no" details="" size="244831" time="0" location="/Users/gmazlami/.ivy2/cache/ch.ethz.ganymed/ganymed-ssh2/jars/ganymed-ssh2-build210.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/ch/ethz/ganymed/ganymed-ssh2/build210/ganymed-ssh2-build210.jar"/>
+					</artifact>
+					<artifact name="ganymed-ssh2" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="188170" time="0" location="/Users/gmazlami/.ivy2/cache/ch.ethz.ganymed/ganymed-ssh2/srcs/ganymed-ssh2-build210-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/ch/ethz/ganymed/ganymed-ssh2/build210/ganymed-ssh2-build210-sources.jar"/>
+					</artifact>
+					<artifact name="ganymed-ssh2" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="674273" time="0" location="/Users/gmazlami/.ivy2/cache/ch.ethz.ganymed/ganymed-ssh2/docs/ganymed-ssh2-build210-javadoc.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/ch/ethz/ganymed/ganymed-ssh2/build210/ganymed-ssh2-build210-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.esotericsoftware.kryo" name="kryo">
+			<revision name="2.21" status="release" pubdate="20130227214753" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://code.google.com/p/kryo/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="7">
+				<license name="New BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="3604" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.kryo/kryo/ivy-2.21.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/kryo/kryo/2.21/kryo-2.21.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.21" rev-constraint-default="2.21" rev-constraint-dynamic="2.21" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="kryo" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="71023" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.kryo/kryo/srcs/kryo-2.21-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/kryo/kryo/2.21/kryo-2.21-sources.jar"/>
+					</artifact>
+					<artifact name="kryo" type="jar" ext="jar" status="no" details="" size="363460" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.kryo/kryo/jars/kryo-2.21.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/kryo/kryo/2.21/kryo-2.21.jar"/>
+					</artifact>
+					<artifact name="kryo" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="520006" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.kryo/kryo/docs/kryo-2.21-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/kryo/kryo/2.21/kryo-2.21-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.objenesis" name="objenesis">
+			<revision name="1.2" status="release" pubdate="20100524102231" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://objenesis.googlecode.com/svn/docs/index.html" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="11">
+				<metadata-artifact status="no" details="" size="3157" time="0" location="/Users/gmazlami/.ivy2/cache/org.objenesis/objenesis/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/objenesis/objenesis/1.2/objenesis-1.2.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="objenesis" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="37786" time="0" location="/Users/gmazlami/.ivy2/cache/org.objenesis/objenesis/srcs/objenesis-1.2-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/objenesis/objenesis/1.2/objenesis-1.2-sources.jar"/>
+					</artifact>
+					<artifact name="objenesis" type="jar" ext="jar" status="no" details="" size="36046" time="0" location="/Users/gmazlami/.ivy2/cache/org.objenesis/objenesis/jars/objenesis-1.2.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/objenesis/objenesis/1.2/objenesis-1.2.jar"/>
+					</artifact>
+					<artifact name="objenesis" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="205838" time="0" location="/Users/gmazlami/.ivy2/cache/org.objenesis/objenesis/docs/objenesis-1.2-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/objenesis/objenesis/1.2/objenesis-1.2-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.esotericsoftware.minlog" name="minlog">
+			<revision name="1.2" status="release" pubdate="20120531142649" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://code.google.com/p/minlog/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="10">
+				<license name="New BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2539" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.minlog/minlog/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="minlog" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2458" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.minlog/minlog/srcs/minlog-1.2-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2-sources.jar"/>
+					</artifact>
+					<artifact name="minlog" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="29161" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.minlog/minlog/docs/minlog-1.2-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2-javadoc.jar"/>
+					</artifact>
+					<artifact name="minlog" type="jar" ext="jar" status="no" details="" size="4965" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.minlog/minlog/jars/minlog-1.2.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.esotericsoftware.reflectasm" name="reflectasm">
+			<revision name="1.07" status="release" pubdate="20120619102452" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://code.google.com/p/reflectasm/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="8">
+				<license name="New BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2937" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.reflectasm/reflectasm/ivy-1.07.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.07" rev-constraint-default="1.07" rev-constraint-dynamic="1.07" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="reflectasm" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="47519" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.reflectasm/reflectasm/docs/reflectasm-1.07-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-javadoc.jar"/>
+					</artifact>
+					<artifact name="reflectasm" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="8990" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.reflectasm/reflectasm/srcs/reflectasm-1.07-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-sources.jar"/>
+					</artifact>
+					<artifact name="reflectasm" type="jar" ext="jar" status="no" details="" size="17672" time="0" location="/Users/gmazlami/.ivy2/cache/com.esotericsoftware.reflectasm/reflectasm/jars/reflectasm-1.07.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="junit" name="junit">
+			<revision name="4.8.2" status="release" pubdate="20101005105127" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://junit.org" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="20">
+				<license name="Common Public License Version 1.0" url="http://www.opensource.org/licenses/cpl1.0.txt"/>
+				<metadata-artifact status="no" details="" size="2420" time="0" location="/Users/gmazlami/.ivy2/cache/junit/junit/ivy-4.8.2.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/junit/junit/4.8.2/junit-4.8.2.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="4.8.2" rev-constraint-default="4.8.2" rev-constraint-dynamic="4.8.2" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="junit" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="147086" time="0" location="/Users/gmazlami/.ivy2/cache/junit/junit/srcs/junit-4.8.2-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/junit/junit/4.8.2/junit-4.8.2-sources.jar"/>
+					</artifact>
+					<artifact name="junit" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="396460" time="0" location="/Users/gmazlami/.ivy2/cache/junit/junit/docs/junit-4.8.2-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/junit/junit/4.8.2/junit-4.8.2-javadoc.jar"/>
+					</artifact>
+					<artifact name="junit" type="jar" ext="jar" status="no" details="" size="237344" time="0" location="/Users/gmazlami/.ivy2/cache/junit/junit/jars/junit-4.8.2.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/junit/junit/4.8.2/junit-4.8.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.ow2.asm" name="asm">
+			<revision name="4.0" status="release" pubdate="20111206202219" resolver="public" artresolver="public" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="9">
+				<metadata-artifact status="no" details="" size="3744" time="0" location="/Users/gmazlami/.ivy2/cache/org.ow2.asm/asm/ivy-4.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="asm" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1512568" time="0" location="/Users/gmazlami/.ivy2/cache/org.ow2.asm/asm/docs/asm-4.0-javadoc.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0-javadoc.jar"/>
+					</artifact>
+					<artifact name="asm" type="jar" ext="jar" status="no" details="" size="46022" time="0" location="/Users/gmazlami/.ivy2/cache/org.ow2.asm/asm/jars/asm-4.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar"/>
+					</artifact>
+					<artifact name="asm" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="979212" time="0" location="/Users/gmazlami/.ivy2/cache/org.ow2.asm/asm/srcs/asm-4.0-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-remote_2.10">
+			<revision name="2.1.4" status="release" pubdate="20130514143951" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://akka.io" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="3">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3755" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/ivy-2.1.4.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-remote_2.10/2.1.4/akka-remote_2.10-2.1.4.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.1.4" rev-constraint-default="2.1.4" rev-constraint-dynamic="2.1.4" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-remote_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="298149" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/docs/akka-remote_2.10-2.1.4-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-remote_2.10/2.1.4/akka-remote_2.10-2.1.4-javadoc.jar"/>
+					</artifact>
+					<artifact name="akka-remote_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="59926" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/srcs/akka-remote_2.10-2.1.4-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-remote_2.10/2.1.4/akka-remote_2.10-2.1.4-sources.jar"/>
+					</artifact>
+					<artifact name="akka-remote_2.10" type="jar" ext="jar" status="no" details="" size="358873" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/jars/akka-remote_2.10-2.1.4.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-remote_2.10/2.1.4/akka-remote_2.10-2.1.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.uncommons.maths" name="uncommons-maths">
+			<revision name="1.2.2a" status="release" pubdate="20110408155605" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://maths.uncommons.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="6">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="2738" time="0" location="/Users/gmazlami/.ivy2/cache/org.uncommons.maths/uncommons-maths/ivy-1.2.2a.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/org/uncommons/maths/uncommons-maths/1.2.2a/uncommons-maths-1.2.2a.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.2.2a" rev-constraint-default="1.2.2a" rev-constraint-dynamic="1.2.2a" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="uncommons-maths" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="158263" time="0" location="/Users/gmazlami/.ivy2/cache/org.uncommons.maths/uncommons-maths/docs/uncommons-maths-1.2.2a-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/uncommons/maths/uncommons-maths/1.2.2a/uncommons-maths-1.2.2a-javadoc.jar"/>
+					</artifact>
+					<artifact name="uncommons-maths" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="61093" time="0" location="/Users/gmazlami/.ivy2/cache/org.uncommons.maths/uncommons-maths/srcs/uncommons-maths-1.2.2a-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/uncommons/maths/uncommons-maths/1.2.2a/uncommons-maths-1.2.2a-sources.jar"/>
+					</artifact>
+					<artifact name="uncommons-maths" type="jar" ext="jar" status="no" details="" size="49019" time="0" location="/Users/gmazlami/.ivy2/cache/org.uncommons.maths/uncommons-maths/jars/uncommons-maths-1.2.2a.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/uncommons/maths/uncommons-maths/1.2.2a/uncommons-maths-1.2.2a.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.netty" name="netty">
+			<revision name="3.5.8.Final" status="release" pubdate="20120929093755" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://netty.io/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="4">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="6423" time="0" location="/Users/gmazlami/.ivy2/cache/io.netty/netty/ivy-3.5.8.Final.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/io/netty/netty/3.5.8.Final/netty-3.5.8.Final.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="3.5.8.Final" rev-constraint-default="3.5.8.Final" rev-constraint-dynamic="3.5.8.Final" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="netty" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="2899045" time="0" location="/Users/gmazlami/.ivy2/cache/io.netty/netty/docs/netty-3.5.8.Final-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/io/netty/netty/3.5.8.Final/netty-3.5.8.Final-javadoc.jar"/>
+					</artifact>
+					<artifact name="netty" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1016327" time="0" location="/Users/gmazlami/.ivy2/cache/io.netty/netty/srcs/netty-3.5.8.Final-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/io/netty/netty/3.5.8.Final/netty-3.5.8.Final-sources.jar"/>
+					</artifact>
+					<artifact name="netty" type="jar" ext="jar" status="no" details="" size="1125370" time="0" location="/Users/gmazlami/.ivy2/cache/io.netty/netty/jars/netty-3.5.8.Final.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/io/netty/netty/3.5.8.Final/netty-3.5.8.Final.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.google.protobuf" name="protobuf-java">
+			<revision name="2.4.1" status="release" pubdate="20110706213342" resolver="public" artresolver="public" homepage="http://code.google.com/p/protobuf" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="5">
+				<license name="New BSD license" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2948" time="0" location="/Users/gmazlami/.ivy2/cache/com.google.protobuf/protobuf-java/ivy-2.4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.4.1" rev-constraint-default="2.4.1" rev-constraint-dynamic="2.4.1" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="protobuf-java" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="200142" time="0" location="/Users/gmazlami/.ivy2/cache/com.google.protobuf/protobuf-java/srcs/protobuf-java-2.4.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-sources.jar"/>
+					</artifact>
+					<artifact name="protobuf-java" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1070255" time="0" location="/Users/gmazlami/.ivy2/cache/com.google.protobuf/protobuf-java/docs/protobuf-java-2.4.1-javadoc.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-javadoc.jar"/>
+					</artifact>
+					<artifact name="protobuf-java" type="jar" ext="jar" status="no" details="" size="450279" time="0" location="/Users/gmazlami/.ivy2/cache/com.google.protobuf/protobuf-java/jars/protobuf-java-2.4.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-actor_2.10">
+			<revision name="2.1.4" status="release" pubdate="20130514143804" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="http://akka.io" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="1">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2641" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/ivy-2.1.4.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-actor_2.10/2.1.4/akka-actor_2.10-2.1.4.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.1.4" rev-constraint-default="2.1.4" rev-constraint-dynamic="2.1.4" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-actor_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="242575" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.1.4-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-actor_2.10/2.1.4/akka-actor_2.10-2.1.4-sources.jar"/>
+					</artifact>
+					<artifact name="akka-actor_2.10" type="jar" ext="jar" status="no" details="" size="1884983" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.1.4.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-actor_2.10/2.1.4/akka-actor_2.10-2.1.4.jar"/>
+					</artifact>
+					<artifact name="akka-actor_2.10" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1584349" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/docs/akka-actor_2.10-2.1.4-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/akka/akka-actor_2.10/2.1.4/akka-actor_2.10-2.1.4-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe" name="config">
+			<revision name="1.0.0" status="release" pubdate="20121015150115" resolver="Scala-Tools Repository" artresolver="Scala-Tools Repository" homepage="https://github.com/typesafehub/config" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="2">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2725" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe/config/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/config/1.0.0/config-1.0.0.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="124199" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe/config/srcs/config-1.0.0-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/config/1.0.0/config-1.0.0-sources.jar"/>
+					</artifact>
+					<artifact name="config" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="149295" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe/config/docs/config-1.0.0-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/config/1.0.0/config-1.0.0-javadoc.jar"/>
+					</artifact>
+					<artifact name="config" type="jar" ext="jar" status="no" details="" size="185676" time="0" location="/Users/gmazlami/.ivy2/cache/com.typesafe/config/jars/config-1.0.0.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/com/typesafe/config/1.0.0/config-1.0.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.10.1" status="release" pubdate="20130313000420" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="0">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html          "/>
+				<metadata-artifact status="no" details="" size="2392" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-library/ivy-2.10.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.1/scala-library-2.10.1.pom"/>
+				<caller organisation="com.signalcollect" name="signal-collect$sources_javadoc_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="2.1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1058917" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.1-sources.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scala-library/2.10.1/scala-library-2.10.1-sources.jar"/>
+					</artifact>
+					<artifact name="scala-library" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="33578873" time="0" location="/Users/gmazlami/.ivy2/cache/org.scala-lang/scala-library/docs/scala-library-2.10.1-javadoc.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/groups/scala-tools/org/scala-lang/scala-library/2.10.1/scala-library-2.10.1-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

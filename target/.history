@@ -1,0 +1,7 @@
+assembly
+assembly -XX:MaxPermGen=128M
+assembly 
+compile
+assembly
+eclipse
+exit

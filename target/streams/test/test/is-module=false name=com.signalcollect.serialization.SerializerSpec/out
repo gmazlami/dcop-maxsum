@@ -1,0 +1,11 @@
+[0m[[0minfo[0m] [0mSerializerSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mDefaultSerializer should[0m
+[0m[[0minfo[0m] [0m[32m+[0m correctly serialize/deserialize a Double[0m
+[0m[[0minfo[0m] [0m[32m+[0m correctly serialize/deserialize a job configuration[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification SerializerSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 19 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m2 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m

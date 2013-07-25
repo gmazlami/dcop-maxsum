@@ -1,0 +1,19 @@
+[0m[[0minfo[0m] [0mVertexStorageSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCustom Vertex Storage should[0m
+[0m[[0minfo[0m] [0m[32m+[0m hold all vertices inserted[0m
+[0m[[0minfo[0m] [0m[32m+[0m not add vertices automatically to the toSignal list[0m
+[0m[[0minfo[0m] [0m[32m+[0m not add vertices automatically to the toCollect list[0m
+[0m[[0minfo[0m] [0m[32m+[0m remove vertices from the store[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mJava Map Vertex Storage should[0m
+[0m[[0minfo[0m] [0m[32m+[0m hold all vertices inserted[0m
+[0m[[0minfo[0m] [0m[32m+[0m not add vertices automatically to the toSignal list[0m
+[0m[[0minfo[0m] [0m[32m+[0m not add vertices automatically to the toCollect list[0m
+[0m[[0minfo[0m] [0m[32m+[0m remove vertices from the store[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification VertexStorageSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 360 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m8 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m

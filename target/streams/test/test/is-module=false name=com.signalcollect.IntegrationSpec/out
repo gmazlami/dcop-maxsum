@@ -1,0 +1,22 @@
+[0m[[0minfo[0m] [0mIntegrationSpec[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mPageRank algorithm should[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a 5-cycle graph[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a 5-star graph[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a 2*2 symmetric grid[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a 5*5 torus[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mVertexColoring algorithm should[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a symmetric 4-cycle[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a symmetric 5-star[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a 2*2 symmetric grid[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mSSSP algorithm should[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a symmetric 4-cycle[0m
+[0m[[0minfo[0m] [0m[32m+[0m deliver correct results on a symmetric 5-star[0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0m [0m
+[0m[[0minfo[0m] [0mTotal for specification IntegrationSpec[0m
+[0m[[0minfo[0m] [0m[34mFinished in 34 seconds, 800 ms[0m[0m
+[0m[[0minfo[0m] [0m[34m9 examples, 0 failure, 0 error[0m[0m
+[0m[[0minfo[0m] [0m[0m
