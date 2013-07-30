@@ -3,9 +3,17 @@ package com.signalcollect.dcop.edges
 import com.signalcollect.DefaultEdge
 import com.signalcollect.dcop.vertices.Function
 
-class FunctionToVariable extends DefaultEdge{
+class FunctionToVariable(utility : (Set[Double]) => Double) extends DefaultEdge{
  
-  type Source = Function
+  override type Source = Function
 
-  def signal = null
+  //utility function is passed on object creation
+  val utilityFunction = utility
+  
+  def signal = {
+    
+    
+  }
+  
+  
 }
