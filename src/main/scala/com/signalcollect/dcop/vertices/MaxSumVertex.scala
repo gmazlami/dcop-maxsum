@@ -28,8 +28,10 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Double) extends DataGr
 	
 	var stepCounter : Int = 0
 	
+	def readyToMessage : Boolean
+	
 	def getNeighborIds : Set[MaxSumId] = {
-	  var resultSet : Set[MaxSumId] = Set()
+	  val resultSet : Set[MaxSumId] = Set()
 	  outgoingEdges.keys.foreach(key => resultSet + key.asInstanceOf[MaxSumId])
 	  resultSet
 	}
