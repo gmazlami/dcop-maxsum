@@ -19,19 +19,16 @@
 
 package com.signalcollect.dcop.vertices
 
-import com.signalcollect.DataGraphVertex
-import com.signalcollect.dcop.MaxSumMessage
-import com.signalcollect.dcop.vertices.id.MaxSumId
-import scala.collection.immutable.HashMap
+import scala.collection.immutable.HashSet
 
-class FunctionVertex(id:MaxSumId, state:Double) extends MaxSumVertex(id, state){
-
-	type Signal = MaxSumMessage
-  	
-	val receivedMessages : HashMap[MaxSumId,MaxSumMessage] = HashMap()
+class SimpleVertex(idNum:Int, neighbors : Set[Int]) {
+	private val id = idNum
 	
-	def collect =  0.0
+	//initialize neighborhood as empty set
+	private var neighborhood = neighbors
 	
-
-
+	
+	def addNeighbor(id : Int) = {
+	  neighborhood + id
+	}
 }

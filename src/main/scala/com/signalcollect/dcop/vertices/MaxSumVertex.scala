@@ -23,16 +23,41 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import com.signalcollect.DataGraphVertex
 import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.Edge
+import scala.collection.immutable.HashMap
 
 abstract class MaxSumVertex(id : MaxSumId, initialState : Double) extends DataGraphVertex(id, initialState) {
 	
 	var stepCounter : Int = 0
 	
-	def readyToMessage : Boolean
+	val receivedMessages : HashMap[MaxSumId,MaxSumMessage]
 	
 	def getNeighborIds : Set[MaxSumId] = {
 	  val resultSet : Set[MaxSumId] = Set()
 	  outgoingEdges.keys.foreach(key => resultSet + key.asInstanceOf[MaxSumId])
+	  resultSet
+	}
+	
+	def readyToMessage : Boolean = {
+	  if(receivedFromAllNeighbors){
+	    true
+	  }else{
+	    false
+	  }
+	}
+	
+	protected def receivedFromAllNeighbors : Boolean = {
+	  var receivedAll : Boolean = true
+	  for(id <- getNeighborIds){
+		  if(!getIdsReceivedFrom.contains(id)){
+		    receivedAll = false;
+		  }
+	  }
+	  receivedAll
+	}
+	
+	protected def getIdsReceivedFrom : Set[MaxSumId] = {
+	  val resultSet : Set[MaxSumId] = Set()
+	  receivedMessages.keys.foreach(m => resultSet + m)
 	  resultSet
 	}
 }

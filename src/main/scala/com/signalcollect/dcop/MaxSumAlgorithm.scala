@@ -19,9 +19,14 @@
 
 package com.signalcollect.dcop
 
+import com.signalcollect.GraphBuilder
+
 
 
 object MaxSumAlgorithm extends App{
 
+  val graph = GraphBuilder.build
+  
+  
   
 }

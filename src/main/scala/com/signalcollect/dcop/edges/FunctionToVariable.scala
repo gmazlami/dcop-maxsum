@@ -27,19 +27,22 @@ class FunctionToVariable(utility : (Set[Double]) => Double) extends DefaultEdge{
  
   override type Source = FunctionVertex
 
-  //utility function is passed on object creation
   
   def signal = {
     //only signal if all necessary messages have arrived at the sending vertex
     if(source.readyToMessage){
-      //TODO: code to compute the message to be sended from function (source vertex) to variable
+      
     }
   }
 
   def R_m_n = {
+    //TODO: code to compute the message to be sended from function (source vertex) to variable
+		 
+    
     
   }
 
+  //utility function is passed on object creation
   private val utilityFunction = utility
   
   private def messageSum = {
