@@ -23,12 +23,23 @@ import scala.collection.mutable.LinkedHashSet
 import java.io.FileNotFoundException
 import com.signalcollect.dcop.vertices.SimpleVertex
 import com.signalcollect.dcop.vertices.SimpleVertex
+import scala.collection.immutable.HashMap
 
 class FileGraphReader {
 
-  def read(fileName : String) : List[SimpleVertex] = {
+  def readToList(fileName : String) : List[SimpleVertex] = {
     val tuple = fromEdgeList(fileName)
     toSimpleGraph(tuple._1, tuple._2)
+  }
+  
+  def readToMap(fileName : String) : HashMap[Int,SimpleVertex] = {
+    val map : HashMap[Int, SimpleVertex] = new HashMap()
+    val list = readToList(fileName)
+    list.foreach{
+    		element =>
+    		  map + (element.id -> element)
+    }
+    map
   }
   
   private def toSimpleGraph(set : LinkedHashSet[Set[Int]], vertices : Set[Int]) = {
@@ -48,7 +59,7 @@ class FileGraphReader {
 	              i => 
 	                if(i != vertexId){
 	                  neighborSet + i
-	                  }
+	                }
 	          )
 	        }
 	  )

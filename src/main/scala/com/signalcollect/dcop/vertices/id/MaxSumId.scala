@@ -19,8 +19,14 @@
 
 package com.signalcollect.dcop.vertices.id
 
-abstract class MaxSumId {
+class MaxSumId(idNum : Int, typeFlag : Int) {
 	
   //Strings will be used as identifiers for vertices
-  val id : String
+  var id : String  =
+    
+  if(typeFlag == 0){ //if flag = 0 then vertex will be variable vertex with id in form of v1234
+    "v" + idNum
+  }else{ //if flag = 1 then vertex will be function vertex with id in form of f1234
+    "f" + idNum
+  }
 }

@@ -19,6 +19,49 @@
 
 package com.signalcollect.dcop.graphs
 
-class FactorGraphTransformer {
+import com.signalcollect.Graph
+import com.signalcollect.dcop.vertices.SimpleVertex
+import com.signalcollect.GraphBuilder
+import com.signalcollect.dcop.edges.FunctionToVariable
+import com.signalcollect.dcop.edges.VariableToFunction
+import com.signalcollect.dcop.vertices.id.MaxSumId
+import scala.collection.immutable.HashMap
 
+class FactorGraphTransformer {
+	
+  
+  def transform(simpleVertexMap : HashMap[Int,SimpleVertex], utilityFunction : (Set[Double] => Double)) ={
+	val graph = GraphBuilder.build
+    val utility = utilityFunction
+    
+    simpleVertexMap.values.foreach{ vertex =>
+	  //expand the simple vertex to function vertex and variable vertex
+      		//and connect them bidirectionally 
+    		graph.addVertex(vertex.functionVertex)
+    		graph.addVertex(vertex.variableVertex)
+    		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(utility, vertex.variableVertex.id))
+    		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(utility, vertex.functionVertex.id))
+    		
+    		//
+    		vertex.neighborhood.foreach{
+    				neighbor =>
+    				  val neighborVertex = simpleVertexMap(neighbor)
+    				  
+    				  //expand to function and variable vertex
+    				  graph.addVertex(neighborVertex.functionVertex)
+    				  graph.addVertex(neighborVertex.variableVertex)
+    				  
+    				  //connect to bidirectionally
+    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(utility, neighborVertex.variableVertex.id))
+    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(utility, neighborVertex.functionVertex.id))
+    		
+    				  //connect function and variable vertex to variable and function vertex of "vertex" from outer loop
+    				  graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(utility, neighborVertex.variableVertex.id))
+    				  graph.addEdge(vertex.variableVertex.id, new VariableToFunction(utility, neighborVertex.functionVertex.id))
+    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(utility, vertex.variableVertex.id))
+    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(utility, vertex.functionVertex.id))
+    		}
+	}
+    graph
+  }
 }

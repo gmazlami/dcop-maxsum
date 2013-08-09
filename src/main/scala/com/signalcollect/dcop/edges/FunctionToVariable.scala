@@ -22,8 +22,9 @@ package com.signalcollect.dcop.edges
 import com.signalcollect.DefaultEdge
 import com.signalcollect.dcop.vertices.FunctionVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
+import com.signalcollect.dcop.vertices.VariableVertex
 
-class FunctionToVariable(utility : (Set[Double]) => Double) extends DefaultEdge{
+class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends DefaultEdge(t){
  
   override type Source = FunctionVertex
 

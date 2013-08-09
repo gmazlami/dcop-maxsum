@@ -21,13 +21,17 @@ package com.signalcollect.dcop.vertices
 
 import com.signalcollect.DataGraphVertex
 import com.signalcollect.dcop.MaxSumMessage
+import com.signalcollect.dcop.vertices.id.MaxSumId
+import scala.collection.immutable.HashMap
 
-class Variable(id:Int, state:List[Double]) extends DataGraphVertex(id,state){
+class VariableVertex(id:MaxSumId, state:Double) extends MaxSumVertex(id,state){
 
   type Signal = MaxSumMessage
   
-  var test = List(1.0,2.0,3.0,4.0)
+  var test = 0.0
   
   def collect = test
   
+  val receivedMessages : HashMap[MaxSumId,MaxSumMessage] = HashMap()
+
 }

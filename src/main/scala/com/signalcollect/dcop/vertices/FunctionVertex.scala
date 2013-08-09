@@ -33,5 +33,4 @@ class FunctionVertex(id:MaxSumId, state:Double) extends MaxSumVertex(id, state){
 	def collect =  0.0
 	
 
-
 }

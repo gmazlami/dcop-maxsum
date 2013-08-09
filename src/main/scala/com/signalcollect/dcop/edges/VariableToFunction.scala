@@ -20,12 +20,32 @@
 package com.signalcollect.dcop.edges
 
 import com.signalcollect.DefaultEdge
-import com.signalcollect.dcop.vertices.Variable
+import com.signalcollect.dcop.vertices.VariableVertex
+import com.signalcollect.dcop.vertices.id.MaxSumId
 
-class VariableToFunction extends DefaultEdge{
+class VariableToFunction(utility : (Set[Double]) => Double, id : MaxSumId) extends DefaultEdge(id){
 
-  type Source = Variable
+  type Source = VariableVertex
   
-  def signal = null
+  def signal = {
+    //only signal if all necessary messages have arrived at the sending vertex
+    if(source.readyToMessage){
+      
+    }
+  }
   
+  def Q_n_m = {
+    //TODO: code to compute the message to be sended from function (source vertex) to variable
+		 
+  }
+  
+    //utility function is passed on object creation
+  private val utilityFunction = utility
+  
+//  private def messageSum = {
+//    var summation = 0.0
+//    val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
+//    //variableIdSet.foreach(v => summation = summation + source.receivedMessages(v).value)
+//    //FIXME: MaxSumMessage has a value of type Array[Double], but how to ADD these values??
+//  }
 }
