@@ -24,13 +24,13 @@ import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.immutable.HashMap
 
-class VariableVertex(id:MaxSumId, state:Double) extends MaxSumVertex(id,state){
+class VariableVertex(id:MaxSumId, state:Double, initial : Array[Double]) extends MaxSumVertex(id,state){
 
   type Signal = MaxSumMessage
   
-  var test = 0.0
+  val initialPreference : Array[Double] = initial
   
-  def collect = test
+  def collect = 0.0
   
   val receivedMessages : HashMap[MaxSumId,MaxSumMessage] = HashMap()
 

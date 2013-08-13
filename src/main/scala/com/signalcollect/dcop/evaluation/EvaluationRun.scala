@@ -20,16 +20,21 @@
 package com.signalcollect.dcop.evaluation
 
 import com.signalcollect.dcop.io.FileGraphReader
+import com.signalcollect.dcop.graphs.FactorGraphTransformer
 
 object EvaluationRun extends App{
 
+  
+  //dummy utility function
+  val utilityFunction = (s : Set[Double]) => 0.0
+  
   val reader : FileGraphReader = new FileGraphReader
+  val transformer : FactorGraphTransformer = new FactorGraphTransformer
   
-  val simpleGraph = reader.read("SOMEFILENAME")
+  val simpleGraph = reader.readToMap("SOMEFILENAME")
+  val signalCollectFactorGraph = transformer.transform(simpleGraph, utilityFunction)
   
-  //TODO: transform the graph into a factor graph
   
-  //TODO: map the factor graph to S/C MaxSum Vertices and Edges
   
   //TODO: run MaxSum with the transformed graph as an input
 }

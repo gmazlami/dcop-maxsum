@@ -22,13 +22,13 @@ package com.signalcollect.dcop.vertices
 import scala.collection.immutable.HashSet
 import com.signalcollect.dcop.vertices.id.MaxSumId
 
-class SimpleVertex(idNum:Int, neighbors : Set[Int]) {
+class SimpleVertex(idNum:Int, neighbors : Set[Int], initial : Array[Double]) {
 	val id = idNum
 	
 	//initialize neighborhood as empty set
 	var neighborhood = neighbors
 	
-	val variableVertex : VariableVertex = new VariableVertex(new MaxSumId(idNum, 0),0)
+	val variableVertex : VariableVertex = new VariableVertex(new MaxSumId(idNum, 0),0, initial)
 	
 	val functionVertex : FunctionVertex = new FunctionVertex(new MaxSumId(idNum, 1),0)
 	

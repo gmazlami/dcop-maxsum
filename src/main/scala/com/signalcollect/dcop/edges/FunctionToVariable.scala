@@ -28,6 +28,10 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
  
   override type Source = FunctionVertex
 
+  //FIXME: how to access target node?? 
+//  val initial = target.initialPreference
+  
+  val initial : Array[Double] = Array(0.1 , -0.1)
   
   def signal = {
     //only signal if all necessary messages have arrived at the sending vertex
@@ -38,7 +42,9 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
 
   def R_m_n = {
     //TODO: code to compute the message to be sended from function (source vertex) to variable
-		 
+	val sumSet = messageSumSet
+	
+	
     
     
   }
@@ -46,11 +52,17 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
   //utility function is passed on object creation
   private val utilityFunction = utility
   
-  private def messageSum = {
-    var summation = 0.0
+  private def messageSumSet = {
+    var summationSet : Array[Array[Double]] = Array()
+    
+    //the sum in the Function-to-variable formula goes over the neighbor ids except the target id:
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
-    //variableIdSet.foreach(v => summation = summation + source.receivedMessages(v).value)
-    //FIXME: MaxSumMessage has a value of type Array[Double], but how to ADD these values??
+
+    //iterate over variable set and gather the messages into a summationSet
+    variableIdSet.foreach{variableId =>
+    		summationSet :+ source.receivedMessages(variableId).value
+    }
+
   }
   
   
