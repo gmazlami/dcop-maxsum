@@ -22,30 +22,32 @@ package com.signalcollect.dcop.edges
 import com.signalcollect.DefaultEdge
 import com.signalcollect.dcop.vertices.VariableVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
+import scala.collection.mutable.ArrayBuffer
 
-class VariableToFunction(utility : (Set[Double]) => Double, id : MaxSumId) extends DefaultEdge(id){
+class VariableToFunction(numColors : Int, id : MaxSumId) extends DefaultEdge(id){
 
   type Source = VariableVertex
   
-  def signal = {
-    //only signal if all necessary messages have arrived at the sending vertex
-    if(source.readyToMessage){
-      
-    }
-  }
+  val numOfColors = numColors
+  
+  def signal = Q_n_m
   
   def Q_n_m = {
-    //TODO: code to compute the message to be sended from function (source vertex) to variable
-		 
+    val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId]
+    var resultMessage : ArrayBuffer[Double] = ArrayBuffer.fill(numOfColors)(0.0)
+	
+    variableIdSet.foreach{ variableId =>
+      val message = source.receivedMessages(variableId).value
+      if(message.length != numOfColors){ //this is not allowed to happen
+        println("FATAL: message length of not equal to number of possible colors! Aborting..")
+        System.exit(-1)
+      }else{
+        for(i <- 0 to numOfColors - 1){
+          resultMessage(i) = resultMessage(i) + message(i)
+        }
+      }
+    }
+    resultMessage
   }
-  
-    //utility function is passed on object creation
-  private val utilityFunction = utility
-  
-//  private def messageSum = {
-//    var summation = 0.0
-//    val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
-//    //variableIdSet.foreach(v => summation = summation + source.receivedMessages(v).value)
-//    //FIXME: MaxSumMessage has a value of type Array[Double], but how to ADD these values??
-//  }
+
 }

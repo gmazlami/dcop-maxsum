@@ -60,4 +60,12 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Double) extends DataGr
 	  receivedMessages.keys.foreach(m => resultSet + m)
 	  resultSet
 	}
+	
+	override def scoreSignal = {
+		  if(readyToMessage){//if its ready to message --> high signaling importance
+		    100000
+		  }else{
+		    -100000		 //if its not ready to message --> low signaling importance
+		  }
+	}
 }

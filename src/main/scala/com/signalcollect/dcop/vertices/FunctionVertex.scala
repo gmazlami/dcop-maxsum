@@ -24,13 +24,21 @@ import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.immutable.HashMap
 
-class FunctionVertex(id:MaxSumId, state:Double) extends MaxSumVertex(id, state){
+class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
 
 	type Signal = MaxSumMessage
   	
 	val receivedMessages : HashMap[MaxSumId,MaxSumMessage] = HashMap()
 	
-	def collect =  0.0
+	def collect =  {
+	  mostRecentSignalMap.foreach{ mapEntry =>
+	    val id = mapEntry._1.asInstanceOf[MaxSumId]
+	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
+	    receivedMessages + (id -> message)
+	  }
+	  //TODO: replace this dummy return value by something that makes sense
+	  0.0
+	}
 	
 
 }

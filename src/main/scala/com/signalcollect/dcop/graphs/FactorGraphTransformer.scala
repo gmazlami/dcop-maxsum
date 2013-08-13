@@ -30,7 +30,7 @@ import scala.collection.immutable.HashMap
 class FactorGraphTransformer {
 	
   
-  def transform(simpleVertexMap : HashMap[Int,SimpleVertex], utilityFunction : (Set[Double] => Double)) ={
+  def transform(simpleVertexMap : HashMap[Int,SimpleVertex], utilityFunction : (Set[Double] => Double), numColors : Int) ={
 	val graph = GraphBuilder.build
     val utility = utilityFunction
     
@@ -40,7 +40,7 @@ class FactorGraphTransformer {
     		graph.addVertex(vertex.functionVertex)
     		graph.addVertex(vertex.variableVertex)
     		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(utility, vertex.variableVertex.id))
-    		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(utility, vertex.functionVertex.id))
+    		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(numColors, vertex.functionVertex.id))
     		
     		//
     		vertex.neighborhood.foreach{
@@ -53,13 +53,13 @@ class FactorGraphTransformer {
     				  
     				  //connect to bidirectionally
     				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(utility, neighborVertex.variableVertex.id))
-    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(utility, neighborVertex.functionVertex.id))
+    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(numColors, neighborVertex.functionVertex.id))
     		
     				  //connect function and variable vertex to variable and function vertex of "vertex" from outer loop
     				  graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(utility, neighborVertex.variableVertex.id))
-    				  graph.addEdge(vertex.variableVertex.id, new VariableToFunction(utility, neighborVertex.functionVertex.id))
+    				  graph.addEdge(vertex.variableVertex.id, new VariableToFunction(numColors, neighborVertex.functionVertex.id))
     				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(utility, vertex.variableVertex.id))
-    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(utility, vertex.functionVertex.id))
+    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(numColors, vertex.functionVertex.id))
     		}
 	}
     graph

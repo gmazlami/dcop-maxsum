@@ -28,17 +28,8 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
  
   override type Source = FunctionVertex
 
-  //FIXME: how to access target node?? 
-//  val initial = target.initialPreference
   
-  val initial : Array[Double] = Array(0.1 , -0.1)
-  
-  def signal = {
-    //only signal if all necessary messages have arrived at the sending vertex
-    if(source.readyToMessage){
-      
-    }
-  }
+  def signal = R_m_n
 
   def R_m_n = {
     //TODO: code to compute the message to be sended from function (source vertex) to variable
@@ -49,8 +40,12 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
     
   }
 
-  //utility function is passed on object creation
-  private val utilityFunction = utility
+  //dummy
+  private def getUtilityFunction(initial:Array[Double]) : Unit => Double = {
+    Unit => initial(0)
+  }
+  
+
   
   private def messageSumSet = {
     var summationSet : Array[Array[Double]] = Array()
@@ -62,7 +57,7 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
     variableIdSet.foreach{variableId =>
     		summationSet :+ source.receivedMessages(variableId).value
     }
-
+    summationSet
   }
   
   
