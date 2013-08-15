@@ -18,7 +18,10 @@
  */
 
 package com.signalcollect.dcop.vertices.id
-
+/*
+ * typeFlag = 1 --> function vertex
+ * typeFlag = 0 --> variable vertex 
+ */
 class MaxSumId(idNum : Int, typeFlag : Int) {
 	
   //Strings will be used as identifiers for vertices

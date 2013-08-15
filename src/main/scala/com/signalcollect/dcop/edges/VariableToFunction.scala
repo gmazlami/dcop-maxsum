@@ -42,7 +42,7 @@ class VariableToFunction(numColors : Int, id : MaxSumId) extends DefaultEdge(id)
         println("FATAL: message length of not equal to number of possible colors! Aborting..")
         System.exit(-1)
       }else{
-        for(i <- 0 to numOfColors - 1){
+        for(i <- 0 to resultMessage.length - 1){
           resultMessage(i) = resultMessage(i) + message(i)
         }
       }

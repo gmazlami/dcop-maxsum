@@ -24,6 +24,8 @@ import java.io.FileNotFoundException
 import com.signalcollect.dcop.vertices.SimpleVertex
 import com.signalcollect.dcop.vertices.SimpleVertex
 import scala.collection.immutable.HashMap
+import com.signalcollect.dcop.util.ProblemConstants
+import com.signalcollect.dcop.vertices.id.MaxSumId
 
 class FileGraphReader {
 
@@ -66,6 +68,31 @@ class FileGraphReader {
 	  neighborSet
   }
   
+  //store neighboring structure of the graph to make it globally accessible, especially when needed during the computation
+  def storeNeighborStructure(simpleGraph : List[SimpleVertex], vertices : HashMap[Int, SimpleVertex]) = {
+    simpleGraph.foreach{current =>
+    
+    var neighborSetForVariable : Set[MaxSumId] = Set()
+    var neighborSetForFunction : Set[MaxSumId] = Set()
+
+    neighborSetForVariable = neighborSetForVariable + current.functionVertex.id
+    neighborSetForFunction = neighborSetForFunction + current.variableVertex.id
+    
+    current.neighborhood.foreach{neighborId =>
+      
+        val simpleVertex = vertices(neighborId)
+        
+        neighborSetForVariable = neighborSetForVariable + simpleVertex.functionVertex.id 
+        neighborSetForFunction = neighborSetForFunction + simpleVertex.variableVertex.id
+        
+      }
+    
+      ProblemConstants.neighborStructure + (current.variableVertex.id -> neighborSetForVariable)
+      ProblemConstants.neighborStructure + (current.functionVertex.id -> neighborSetForFunction)
+    
+    }
+  }
+  
   
     /* 
    * Load a graph from an edge list.
@@ -77,6 +104,8 @@ class FileGraphReader {
    * where the numbers corresponed to the ids of vertices.
    * Two edges on a line mean that these two edges are connected
    * through an edge.
+   * 
+   * Main Author: Robin Hafen, slight modifications by Genc Mazlami
    */
   private def fromEdgeList(filename: String): (LinkedHashSet[Set[Int]],Set[Int]) = {
     val undirectedEdges = LinkedHashSet[Set[Int]]()

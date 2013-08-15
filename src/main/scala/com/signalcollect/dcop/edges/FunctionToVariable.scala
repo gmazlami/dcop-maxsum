@@ -23,32 +23,41 @@ import com.signalcollect.DefaultEdge
 import com.signalcollect.dcop.vertices.FunctionVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import com.signalcollect.dcop.vertices.VariableVertex
+import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.util.ProblemConstants
 
 class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends DefaultEdge(t){
  
   override type Source = FunctionVertex
 
-  
   def signal = R_m_n
 
   def R_m_n = {
-    //TODO: code to compute the message to be sended from function (source vertex) to variable
-	val sumSet = messageSumSet
+    //a set containing all messages Q_n_m for being summed in the computation of R_m_n
+    val sumSet = messageSumSet
 	
+	//a set containing the ids of the niehgbors of this edge's source vertex
+	val neighborSetOfSource = ProblemConstants.neighborStructure(source.id)
 	
+	//a set containing the ids of variables (VariableVertex) over which the maximization in R_m_n is taken
+	val maximizizationVariables = neighborSetOfSource - targetId.asInstanceOf[MaxSumId]
     
     
   }
 
   //dummy
-  private def getUtilityFunction(initial:Array[Double]) : Unit => Double = {
+  private def getUtilityFunction(initial:ArrayBuffer[Double]) : Unit => Double = {
     Unit => initial(0)
+  }
+  
+  private def getStabilizedUtilityFunction(initial:ArrayBuffer[Double]) = {
+    
   }
   
 
   
   private def messageSumSet = {
-    var summationSet : Array[Array[Double]] = Array()
+    var summationSet : ArrayBuffer[ArrayBuffer[Double]] = ArrayBuffer()
     
     //the sum in the Function-to-variable formula goes over the neighbor ids except the target id:
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
