@@ -12,6 +12,6 @@ object ProblemConstants {
   
   var initialPreferences : HashMap[MaxSumId,ArrayBuffer[Double]] = HashMap()
   
-  var neighborStructure : HashMap[MaxSumId,Set[MaxSumId]] = HashMap()
+  var neighborStructure : HashMap[MaxSumId,ArrayBuffer[MaxSumId]] = HashMap()
 
 }

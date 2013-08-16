@@ -22,9 +22,11 @@ package com.signalcollect.dcop
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
 
-class MaxSumMessage(s : MaxSumId, v : ArrayBuffer[Double]) {
+class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) {
 
   val source : MaxSumId = s
+  
+  val target : MaxSumId = t
   
   val value : ArrayBuffer[Double] = v
   

@@ -32,4 +32,11 @@ class MaxSumId(idNum : Int, typeFlag : Int) {
   }else{ //if flag = 1 then vertex will be function vertex with id in form of f1234
     "f" + idNum
   }
+  
+  def isEqual(that : MaxSumId) = {
+    if (that.id == id) true
+    else false
+  }
+  
+  
 }

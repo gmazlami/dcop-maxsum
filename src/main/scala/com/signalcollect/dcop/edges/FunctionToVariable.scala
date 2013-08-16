@@ -25,22 +25,45 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import com.signalcollect.dcop.vertices.VariableVertex
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
+import com.signalcollect.dcop.MaxSumMessage
+import scala.math._
 
 class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends DefaultEdge(t){
  
+  private var variableConfiguration : ArrayBuffer[Tuple3[MaxSumId,Double,Double]] = ArrayBuffer()
+  
   override type Source = FunctionVertex
 
   def signal = R_m_n
+  
+  var maximizationResults : ArrayBuffer[Tuple2[Set[Tuple2[MaxSumId, Int]],Double]] = ArrayBuffer()
 
   def R_m_n = {
+    
+    var messageSum = 0
+    
     //a set containing all messages Q_n_m for being summed in the computation of R_m_n
     val sumSet = messageSumSet
 	
-	//a set containing the ids of the niehgbors of this edge's source vertex
+	//a set containing the ids of the nieghbors of this edge's source vertex
 	val neighborSetOfSource = ProblemConstants.neighborStructure(source.id)
 	
 	//a set containing the ids of variables (VariableVertex) over which the maximization in R_m_n is taken
-	val maximizizationVariables = neighborSetOfSource - targetId.asInstanceOf[MaxSumId]
+	val maximizationVariables = neighborSetOfSource - targetId.asInstanceOf[MaxSumId]
+    
+    val numPossibilities = pow(ProblemConstants.numOfColors, sumSet.length)
+    
+    for(k <- 0 to numPossibilities.asInstanceOf[Int] -1){
+    	for(i <- 0 to sumSet.length - 1){
+    		
+    		val currentMessage = sumSet(i)
+    		val maxVariable = maximizationVariables.find(variable => (currentMessage.source.isEqual(variable)))
+    				
+    		for(color <- 0 to ProblemConstants.numOfColors - 1){
+    					
+    		}
+    	}
+    }
     
     
   }
@@ -55,16 +78,17 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
   }
   
 
+
   
   private def messageSumSet = {
-    var summationSet : ArrayBuffer[ArrayBuffer[Double]] = ArrayBuffer()
+    var summationSet : ArrayBuffer[MaxSumMessage] = ArrayBuffer()
     
     //the sum in the Function-to-variable formula goes over the neighbor ids except the target id:
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
 
     //iterate over variable set and gather the messages into a summationSet
     variableIdSet.foreach{variableId =>
-    		summationSet :+ source.receivedMessages(variableId).value
+    		summationSet :+ source.receivedMessages(variableId)
     }
     summationSet
   }
