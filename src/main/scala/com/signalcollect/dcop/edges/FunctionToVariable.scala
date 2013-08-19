@@ -38,47 +38,53 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
   
   var maximizationResults : ArrayBuffer[Tuple2[Set[Tuple2[MaxSumId, Int]],Double]] = ArrayBuffer()
 
-  def R_m_n = {
+  def R_m_n : MaxSumMessage = {
     
-    var messageSum = 0
+    var messageSum : Double = 0
     
     //a set containing all messages Q_n_m for being summed in the computation of R_m_n
     val sumSet = messageSumSet
 	
 	//a set containing the ids of the nieghbors of this edge's source vertex
-	val neighborSetOfSource = ProblemConstants.neighborStructure(source.id)
+	val neighborSetOfSource : ArrayBuffer[MaxSumId] = ProblemConstants.neighborStructure(source.id)
 	
 	//a set containing the ids of variables (VariableVertex) over which the maximization in R_m_n is taken
-	val maximizationVariables = neighborSetOfSource - targetId.asInstanceOf[MaxSumId]
+	val maximizationVariables : ArrayBuffer[MaxSumId] = neighborSetOfSource - targetId.asInstanceOf[MaxSumId]
     
-    val numPossibilities = pow(ProblemConstants.numOfColors, sumSet.length)
+    val maximizationResults : ArrayBuffer[Tuple3[MaxSumId,Int,Double]] = ArrayBuffer()
+
+    val preference = ProblemConstants.initialPreferences(source.id)
     
-    for(k <- 0 to numPossibilities.asInstanceOf[Int] -1){
-    	for(i <- 0 to sumSet.length - 1){
-    		
-    		val currentMessage = sumSet(i)
-    		val maxVariable = maximizationVariables.find(variable => (currentMessage.source.isEqual(variable)))
-    				
-    		for(color <- 0 to ProblemConstants.numOfColors - 1){
-    					
-    		}
-    	}
+    //sum the maxima of the messages received from neighboring variables
+    sumSet.foreach{message =>
+      val currentVal: ArrayBuffer[Double] = message.value
+      var max: Double = -1000000000
+      
+      //find out index and value of the maximium in this message vector
+      currentVal.foreach { current =>
+        if (current > max) {
+          max = current
+        }
+      }
+    
+      messageSum = messageSum + max
     }
     
+    val result1 = evaluateUtility(neighborSetOfSource, preference)(0) + messageSum
+    val result2 = evaluateUtility(neighborSetOfSource, preference)(1) + messageSum
     
+    val resultingMessage = new MaxSumMessage(source.id,targetId,ArrayBuffer(result1,result2))
+    
+    resultingMessage
   }
 
-  //dummy
-  private def getUtilityFunction(initial:ArrayBuffer[Double]) : Unit => Double = {
-    Unit => initial(0)
+  def evaluateUtility(neighborSetOfSource : ArrayBuffer[MaxSumId], preference : ArrayBuffer[Double]) : ArrayBuffer[Double] = {
+   ArrayBuffer(0.0,0.0) //TODO: finish implementation 
   }
   
-  private def getStabilizedUtilityFunction(initial:ArrayBuffer[Double]) = {
-    
+  def evaluateStabilizedUtility(neighborSetOfSource : ArrayBuffer[MaxSumId], preference : ArrayBuffer[Double]) : ArrayBuffer[Double] = {
+   ArrayBuffer(0.0,0.0) //TODO: finish implementation  
   }
-  
-
-
   
   private def messageSumSet = {
     var summationSet : ArrayBuffer[MaxSumMessage] = ArrayBuffer()

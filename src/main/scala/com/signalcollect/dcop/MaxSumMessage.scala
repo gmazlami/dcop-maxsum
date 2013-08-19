@@ -29,5 +29,5 @@ class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) {
   val target : MaxSumId = t
   
   val value : ArrayBuffer[Double] = v
-  
+    
 }
