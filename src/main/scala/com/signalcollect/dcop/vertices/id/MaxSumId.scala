@@ -24,6 +24,10 @@ package com.signalcollect.dcop.vertices.id
  */
 class MaxSumId(idNum : Int, typeFlag : Int) {
 	
+  var idNumber = idNum
+  
+  var isVariable : Boolean = if(typeFlag == 0) true else false
+  
   //Strings will be used as identifiers for vertices
   var id : String  =
     
