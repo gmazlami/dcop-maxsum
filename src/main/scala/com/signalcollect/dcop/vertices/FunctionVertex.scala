@@ -28,17 +28,18 @@ class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
 
 	type Signal = MaxSumMessage
   	
-	val receivedMessages : HashMap[MaxSumId,MaxSumMessage] = HashMap()
 	
 	def collect =  {
 	  mostRecentSignalMap.foreach{ mapEntry =>
 	    val id = mapEntry._1.asInstanceOf[MaxSumId]
 	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
-	    receivedMessages + (id -> message)
+	    receivedMessages += (id -> message)
 	  }
 	  //TODO: replace this dummy return value by something that makes sense
-	  0.0
+	  0
 	}
 	
 
+	
+  
 }

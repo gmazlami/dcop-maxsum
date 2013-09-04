@@ -36,24 +36,34 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   //the signal that is computed by this edge
   def signal = R_m_n
   
+  //the variable that belongs to the source function vertex of this edge
   private val ownedVariable = ProblemConstants.getOwnedVariable(source.id)
 
+  //the variables that are involved in the computation of the sum of cross-products, which is then subtracted
   private val subtractiveTermVariables = neighborSetOfSource - ownedVariable
   
+  //a table storing the preferences needed in the computation of this message
   private val preferenceTable  = ProblemConstants.getPreferenceTable(ownedVariable)
   
+  // a set containing all neighbor nodes of the source node of this edge
   private val neighborSetOfSource : ArrayBuffer[MaxSumId] = ProblemConstants.neighborStructure(source.id)
   
+  // a structure storing all the messages received by the source node of this edge; the maximum of these is summed in the computation
   private val messageMaximizations : ArrayBuffer[ArrayBuffer[Tuple3[MaxSumId,Int,Double]]] = ArrayBuffer.fill(messageSumSet.length)(null)
   
+  // a structure storing the values of the cross products between the variables in subtractiveTermVariables
   private val tableForSubtractiveTerms : ArrayBuffer[Tuple3[MaxSumId, Int, ArrayBuffer[Tuple3[MaxSumId,Int,Double]]]] = ArrayBuffer.fill(subtractiveTermVariables.length * 2)(null)
   
+  // the variable on which the computed message depends, example : R_3_2(x2) has dependentVariable x2
   private val dependingVariable : MaxSumId = targetId
   
-  
+  // computation of R_m_n 
   def R_m_n : MaxSumMessage = {
 	
+    // fill preference table with needed data
 	preferenceStructure()
+	
+	// aggregate all received messages at source vertex
 	messageStructure()
     
     val variableNames : ArrayBuffer[MaxSumId] = neighborSetOfSource
@@ -64,9 +74,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
       variableNames(0) = dependingVariable
       variableValues(0) = outerColor
-      
       R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
-      
     }
 
     new MaxSumMessage(source.id,targetId,R_m_n)
@@ -75,6 +83,8 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   
   private def backtrack(varnames : ArrayBuffer[MaxSumId], varvalues : ArrayBuffer[Int], indexpos : Int) : Double = {
     var max : Double = Integer.MIN_VALUE
+    
+    // exit condition
     if(indexpos == varnames.length -1){
       max = Integer.MIN_VALUE
       
@@ -83,6 +93,8 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
         max = math.max(max,functionValue(varnames, varvalues)) 
       }
       return max
+    
+    // recursion
     }else{
       max = Integer.MIN_VALUE
       for(color <- 0 to ProblemConstants.numOfColors - 1){
@@ -127,9 +139,13 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   }
   
   private def messageSumSet = {
-    var summationSet : ArrayBuffer[MaxSumMessage] = ArrayBuffer()
+   
     //the sum in the Function-to-variable formula goes over the neighbor ids except the target id:
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
+
+	var summationSet : ArrayBuffer[MaxSumMessage] = ArrayBuffer()
+    
+    
     //iterate over variable set and gather the messages into a summationSet
     variableIdSet.foreach{variableId =>
     		summationSet :+ source.receivedMessages(variableId)
@@ -143,7 +159,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 
     val sumSet = messageSumSet
     
-    //-------------------------------- aggregation of the messages Q_n_m ------------------------------------
+    // aggregation of the messages Q_n_m 
     for(k <- 0 to messageSumSet.length){
       val message = sumSet(k)
       val messageMaximizationResults : ArrayBuffer[Tuple3[MaxSumId,Int,Double]] = ArrayBuffer.fill(message.value.length)(null)
@@ -157,7 +173,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   }
   
   private def preferenceStructure() = {
-      //-------------------------------- store variable color combination rewards in a table ----------------------------------------
+      // store variable color combination rewards in a table 
       
       var index = -1
       for (i <- 0 to subtractiveTermVariables.length) {

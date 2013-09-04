@@ -39,7 +39,7 @@ class FactorGraphTransformer {
       		//and connect them bidirectionally 
     		graph.addVertex(vertex.functionVertex)
     		graph.addVertex(vertex.variableVertex)
-    		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(utility, vertex.variableVertex.id))
+    		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
     		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(numColors, vertex.functionVertex.id))
     		
     		//
@@ -52,13 +52,13 @@ class FactorGraphTransformer {
     				  graph.addVertex(neighborVertex.variableVertex)
     				  
     				  //connect to bidirectionally
-    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(utility, neighborVertex.variableVertex.id))
+    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id))
     				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(numColors, neighborVertex.functionVertex.id))
     		
     				  //connect function and variable vertex to variable and function vertex of "vertex" from outer loop
-    				  graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(utility, neighborVertex.variableVertex.id))
+    				  graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id))
     				  graph.addEdge(vertex.variableVertex.id, new VariableToFunction(numColors, neighborVertex.functionVertex.id))
-    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(utility, vertex.variableVertex.id))
+    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
     				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(numColors, vertex.functionVertex.id))
     		}
 	}

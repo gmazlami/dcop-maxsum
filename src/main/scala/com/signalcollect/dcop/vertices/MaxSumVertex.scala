@@ -23,17 +23,30 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import com.signalcollect.DataGraphVertex
 import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.Edge
-import scala.collection.immutable.HashMap
+import scala.collection.mutable.HashMap
+import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.util.ProblemConstants
 
-abstract class MaxSumVertex(id : MaxSumId, initialState : Double) extends DataGraphVertex(id, initialState) {
+abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
 	
 	var stepCounter : Int = 0
 	
-	val receivedMessages : HashMap[MaxSumId,MaxSumMessage]
+	val receivedMessages : HashMap[MaxSumId,MaxSumMessage] = initializeReceivedMessages
+	  
+	  
+	private def initializeReceivedMessages = {
+	  var map : HashMap[MaxSumId, MaxSumMessage] = HashMap()
+	  getNeighborIds.foreach{currentId =>
+	    val dummyMessage = new MaxSumMessage(currentId,id,ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0))
+	    map += (id -> dummyMessage)
+	  }
+	  map
+	}
 	
-	def getNeighborIds : Set[MaxSumId] = {
-	  val resultSet : Set[MaxSumId] = Set()
-	  outgoingEdges.keys.foreach(key => resultSet + key.asInstanceOf[MaxSumId])
+	
+	def getNeighborIds : ArrayBuffer[MaxSumId] = {
+	  var resultSet : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
+	  outgoingEdges.keys.foreach(key => resultSet += key.asInstanceOf[MaxSumId])
 	  resultSet
 	}
 	
@@ -56,16 +69,9 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Double) extends DataGr
 	}
 	
 	protected def getIdsReceivedFrom : Set[MaxSumId] = {
-	  val resultSet : Set[MaxSumId] = Set()
-	  receivedMessages.keys.foreach(m => resultSet + m)
+	  var resultSet : Set[MaxSumId] = Set()
+	  receivedMessages.keys.foreach(m => resultSet += m)
 	  resultSet
 	}
 	
-	override def scoreSignal = {
-		  if(readyToMessage){//if its ready to message --> high signaling importance
-		    100000
-		  }else{
-		    -100000		 //if its not ready to message --> low signaling importance
-		  }
-	}
 }
