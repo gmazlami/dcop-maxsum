@@ -29,12 +29,11 @@ import com.signalcollect.dcop.MaxSumMessage
 import scala.math._
 import com.signalcollect.dcop.exceptions.TableEntryNotFoundException
 
-class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends DefaultEdge(t){
- 
-  private var variableConfiguration : ArrayBuffer[Tuple3[MaxSumId,Double,Double]] = ArrayBuffer()
+class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   
   override type Source = FunctionVertex
 
+  //the signal that is computed by this edge
   def signal = R_m_n
   
   private val ownedVariable = ProblemConstants.getOwnedVariable(source.id)
@@ -60,14 +59,17 @@ class FunctionToVariable(utility : (Set[Double]) => Double, t: MaxSumId) extends
     val variableNames : ArrayBuffer[MaxSumId] = neighborSetOfSource
     val variableValues : ArrayBuffer[Int] = ArrayBuffer.fill(variableNames.length)(0)
 	
+    val R_m_n : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
+    
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
       variableNames(0) = dependingVariable
       variableValues(0) = outerColor
+      
+      R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
+      
     }
 
-    //TODO: dummy result
-    val resultingMessage = new MaxSumMessage(source.id,targetId,ArrayBuffer(0.0,0.0))
-    resultingMessage
+    new MaxSumMessage(source.id,targetId,R_m_n)
   }
   
   
