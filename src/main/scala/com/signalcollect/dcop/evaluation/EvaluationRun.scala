@@ -32,7 +32,7 @@ object EvaluationRun extends App{
   val transformer : FactorGraphTransformer = new FactorGraphTransformer
   
   val simpleGraph = reader.readToMap("SOMEFILENAME")
-  val signalCollectFactorGraph = transformer.transform(simpleGraph, utilityFunction,2)
+//  val signalCollectFactorGraph = transformer.transform(simpleGraph, utilityFunction,2)
   
   
   

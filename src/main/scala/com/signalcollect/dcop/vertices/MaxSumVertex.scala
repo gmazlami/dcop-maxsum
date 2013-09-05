@@ -46,7 +46,11 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	
 	def getNeighborIds : ArrayBuffer[MaxSumId] = {
 	  var resultSet : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
-	  outgoingEdges.keys.foreach(key => resultSet += key.asInstanceOf[MaxSumId])
+	  var index = 0
+	  outgoingEdges.keys.foreach{key => 
+	    resultSet(index) = key.asInstanceOf[MaxSumId]
+	    index = index + 1
+	  }
 	  resultSet
 	}
 	

@@ -25,25 +25,53 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.io.FileGraphReader
 import com.signalcollect.dcop.graphs.FactorGraphTransformer
+import com.signalcollect.ExecutionConfiguration
+import com.signalcollect.configuration.ExecutionMode
 
 
 
 object MaxSumAlgorithm extends App{
 
-  
-    //dummy utility function
-  val utilityFunction = (s : Set[Double]) => 0.0
+  println("Starting MaxSum Algorithm...")
+  println
   
   val reader : FileGraphReader = new FileGraphReader
   val transformer : FactorGraphTransformer = new FactorGraphTransformer
   
-  val simpleGraph = reader.readToMap("SOMEFILENAME")
-  val signalCollectFactorGraph = transformer.transform(simpleGraph, utilityFunction,2)
+  println("Reading simple graph from txt-File")
   
-  ProblemConstants.numOfColors = 2
+  val simpleGraph = reader.readToMap("rectangle.txt")
+  val simpleGraphList = reader.readToList("rectangle.txt")
+  
+  println("Reading of simple graph succesfully completed.")
+  println
+  println("Transforming simple graph started.")
+  
+  val signalCollectFactorGraph = transformer.transform(simpleGraph)
+  
+  println("Transformation to Signal/Collect graph successfully completed.")
+  println
+  println("Initialization of Problem-Constants:")
+  
+  ProblemConstants.numOfColors = 2 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   ProblemConstants.colors = Set(0,1)
-  ProblemConstants.initialPreferences + (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
-  ProblemConstants.initialPreferences + (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
-  ProblemConstants.initialPreferences + (new MaxSumId(3,0) -> ArrayBuffer(-0.1 , 0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(-0.1 , 0.1))
+  println("Preferences initialized.")
+  
+  reader.storeNeighborStructure(simpleGraphList, simpleGraph)
+  
+  signalCollectFactorGraph.awaitIdle
+  
+  println("EXECUTION STARTED...")
+  
+  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
+      ExecutionMode.ContinuousAsynchronous).withTimeLimit(15000))
+  println(stats)
+
+  signalCollectFactorGraph.foreachVertex(println(_))
+  signalCollectFactorGraph.shutdown
+  println("FINISHED")
   
 }

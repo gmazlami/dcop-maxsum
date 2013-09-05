@@ -22,7 +22,7 @@ package com.signalcollect.dcop.vertices.id
  * typeFlag = 1 --> function vertex
  * typeFlag = 0 --> variable vertex 
  */
-class MaxSumId(idNum : Int, typeFlag : Int) {
+class MaxSumId(idNum : Int, typeFlag : Int) extends Serializable{
 	
   var idNumber = idNum
   
@@ -37,10 +37,19 @@ class MaxSumId(idNum : Int, typeFlag : Int) {
     "f" + idNum
   }
   
-  def isEqual(that : MaxSumId) = {
-    if (that.id == id) true
-    else false
+//  
+//  def ==(that : MaxSumId) : Boolean = {
+//    if (that.idNumber == idNumber && that.isVariable == isVariable) true
+//    else false
+//  }
+  
+  override def equals(other : Any) : Boolean = {
+    other match {
+      case x: MaxSumId => (x.idNumber == idNumber && x.isVariable == isVariable)
+      case _ => false
+    }
   }
   
-  
+  override def hashCode() = (idNumber, isVariable, id).toString.hashCode()
+    
 }

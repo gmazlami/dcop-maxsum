@@ -25,24 +25,39 @@ import com.signalcollect.GraphBuilder
 import com.signalcollect.dcop.edges.FunctionToVariable
 import com.signalcollect.dcop.edges.VariableToFunction
 import com.signalcollect.dcop.vertices.id.MaxSumId
-import scala.collection.immutable.HashMap
+import scala.collection.mutable.HashMap
 
 class FactorGraphTransformer {
 	
   
-  def transform(simpleVertexMap : HashMap[Int,SimpleVertex], utilityFunction : (Set[Double] => Double), numColors : Int) ={
+  def transform(simpleVertexMap : HashMap[Int,SimpleVertex]) ={
 	val graph = GraphBuilder.build
-    val utility = utilityFunction
+	graph.awaitIdle
     
+	println("Iterating through simpleVertexMap:")
+	println
+	
+	if(simpleVertexMap.values.isEmpty){
+	  println("ERROR: simpleVertexMap is empty")
+	  System.exit(-1)
+	}
+	
     simpleVertexMap.values.foreach{ vertex =>
 	  //expand the simple vertex to function vertex and variable vertex
       		//and connect them bidirectionally 
     		graph.addVertex(vertex.functionVertex)
     		graph.addVertex(vertex.variableVertex)
     		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
-    		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(numColors, vertex.functionVertex.id))
-    		
+    		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
+    		println("Expanded Vertices " + vertex.functionVertex.id.id + " and " + vertex.variableVertex.id.id +" and connected them.")
     		//
+    		
+    		println("Iterating through neighborhood of " + vertex.functionVertex.id.id + " and " + vertex.variableVertex.id.id + ":" )
+    		
+    		if(vertex.neighborhood.isEmpty){
+    		  println("ERROR: neighborhood of vertex " + vertex + " is emtpy ")
+    		}
+    		
     		vertex.neighborhood.foreach{
     				neighbor =>
     				  val neighborVertex = simpleVertexMap(neighbor)
@@ -51,16 +66,19 @@ class FactorGraphTransformer {
     				  graph.addVertex(neighborVertex.functionVertex)
     				  graph.addVertex(neighborVertex.variableVertex)
     				  
+    				  println("Current neighbor (variable and function): " +neighborVertex.variableVertex.id.id + " and " + neighborVertex.functionVertex.id.id )
+    				  
     				  //connect to bidirectionally
     				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id))
-    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(numColors, neighborVertex.functionVertex.id))
+    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(neighborVertex.functionVertex.id))
     		
     				  //connect function and variable vertex to variable and function vertex of "vertex" from outer loop
     				  graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id))
-    				  graph.addEdge(vertex.variableVertex.id, new VariableToFunction(numColors, neighborVertex.functionVertex.id))
+    				  graph.addEdge(vertex.variableVertex.id, new VariableToFunction(neighborVertex.functionVertex.id))
     				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
-    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(numColors, vertex.functionVertex.id))
+    				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
     		}
+    		println("---------")
 	}
     graph
   }

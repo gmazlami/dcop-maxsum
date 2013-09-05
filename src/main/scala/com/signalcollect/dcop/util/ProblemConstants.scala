@@ -24,7 +24,10 @@ object ProblemConstants {
   }
 
   def getOwnedVariable(functionNode: MaxSumId) = {
-    neighborStructure(functionNode).find { neighbor => neighbor.idNumber == functionNode.idNumber }.get
+    val neighbor = neighborStructure(functionNode)
+    neighbor.find{ neighbor => 
+      neighbor.idNumber == functionNode.idNumber 
+    }.get
   }
 
 

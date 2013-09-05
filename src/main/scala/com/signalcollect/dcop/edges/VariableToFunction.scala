@@ -23,23 +23,23 @@ import com.signalcollect.DefaultEdge
 import com.signalcollect.dcop.vertices.VariableVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.util.ProblemConstants
 
-class VariableToFunction(numColors : Int, id : MaxSumId) extends DefaultEdge(id){
+class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
 
   type Source = VariableVertex
   
-  val numOfColors = numColors
   
   def signal = Q_n_m
   
   def Q_n_m = {
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId]
-    var resultMessage : ArrayBuffer[Double] = ArrayBuffer.fill(numOfColors)(0.0)
+    var resultMessage : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
 	
     variableIdSet.foreach{ variableId =>
       val message = source.receivedMessages(variableId).value
-      if(message.length != numOfColors){ //this is not allowed to happen
-        println("FATAL: message length of not equal to number of possible colors! Aborting..")
+      if(message.length != ProblemConstants.numOfColors){ //this is not allowed to happen
+        println("FATAL: message length not equal to number of possible colors! Aborting..")
         System.exit(-1)
       }else{
         for(i <- 0 to resultMessage.length - 1){

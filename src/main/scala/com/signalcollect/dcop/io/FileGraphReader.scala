@@ -23,9 +23,10 @@ import scala.collection.mutable.LinkedHashSet
 import java.io.FileNotFoundException
 import com.signalcollect.dcop.vertices.SimpleVertex
 import com.signalcollect.dcop.vertices.SimpleVertex
-import scala.collection.immutable.HashMap
+import scala.collection.mutable.HashMap
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.vertices.id.MaxSumId
+import scala.collection.mutable.ArrayBuffer
 
 class FileGraphReader {
 
@@ -37,16 +38,19 @@ class FileGraphReader {
   def readToMap(fileName : String) : HashMap[Int,SimpleVertex] = {
     val map : HashMap[Int, SimpleVertex] = new HashMap()
     val list = readToList(fileName)
+    println("Read vertices into Vertex-list from file")
+    println("Iterating through vertex-list, putting (id, SimpleVertex) into a map:")
     list.foreach{
     		element =>
-    		  map + (element.id -> element)
+    		  map += (element.id -> element)
+    		  println((element.id -> element))
     }
     map
   }
   
-  private def toSimpleGraph(set : LinkedHashSet[Set[Int]], vertices : Set[Int]) = {
+  private def toSimpleGraph(set : LinkedHashSet[Set[Int]], vertices : scala.collection.mutable.Set[Int]) = {
     var simpleGraph = List[SimpleVertex]()
-    vertices.foreach(v => simpleGraph = new SimpleVertex(v, findNeighbors(v, set)) :: simpleGraph )
+    vertices.foreach(v => simpleGraph = simpleGraph :+ new SimpleVertex(v, findNeighbors(v, set))  )
     simpleGraph
   }
   
@@ -60,7 +64,7 @@ class FileGraphReader {
 	          s.foreach(
 	              i => 
 	                if(i != vertexId){
-	                  neighborSet + i
+	                  neighborSet += i
 	                }
 	          )
 	        }
@@ -72,23 +76,23 @@ class FileGraphReader {
   def storeNeighborStructure(simpleGraph : List[SimpleVertex], vertices : HashMap[Int, SimpleVertex]) = {
     simpleGraph.foreach{current =>
     
-    var neighborSetForVariable : Set[MaxSumId] = Set()
-    var neighborSetForFunction : Set[MaxSumId] = Set()
+    var neighborSetForVariable : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size)(null)
+    var neighborSetForFunction : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size)(null)
 
-    neighborSetForVariable = neighborSetForVariable + current.functionVertex.id
-    neighborSetForFunction = neighborSetForFunction + current.variableVertex.id
+    neighborSetForVariable +=  current.functionVertex.id
+    neighborSetForFunction +=  current.variableVertex.id
     
     current.neighborhood.foreach{neighborId =>
       
         val simpleVertex = vertices(neighborId)
         
-        neighborSetForVariable = neighborSetForVariable + simpleVertex.functionVertex.id 
-        neighborSetForFunction = neighborSetForFunction + simpleVertex.variableVertex.id
+        neighborSetForVariable +=  simpleVertex.functionVertex.id 
+        neighborSetForFunction +=  simpleVertex.variableVertex.id
         
       }
     
-      ProblemConstants.neighborStructure + (current.variableVertex.id -> neighborSetForVariable)
-      ProblemConstants.neighborStructure + (current.functionVertex.id -> neighborSetForFunction)
+      ProblemConstants.neighborStructure += (current.variableVertex.id -> neighborSetForVariable)
+      ProblemConstants.neighborStructure += (current.functionVertex.id -> neighborSetForFunction)
     
     }
   }
@@ -107,9 +111,9 @@ class FileGraphReader {
    * 
    * Main Author: Robin Hafen, slight modifications by Genc Mazlami
    */
-  private def fromEdgeList(filename: String): (LinkedHashSet[Set[Int]],Set[Int]) = {
+  private def fromEdgeList(filename: String): (LinkedHashSet[Set[Int]],scala.collection.mutable.Set[Int]) = {
     val undirectedEdges = LinkedHashSet[Set[Int]]()
-    val vertices = Set[Int]()
+    var vertices = scala.collection.mutable.Set[Int]()
     
     try {
       val src = io.Source.fromFile(filename)
@@ -119,11 +123,11 @@ class FileGraphReader {
           undirectedEdges.add(Set(iStr.toInt, jStr.toInt))
           
           if(!vertices.contains(jStr.toInt)){
-            vertices + jStr.toInt
+            vertices += jStr.toInt
           }
           
           if(!vertices.contains(iStr.toInt)){
-            vertices + iStr.toInt
+            vertices += iStr.toInt
           }
         }
       }
