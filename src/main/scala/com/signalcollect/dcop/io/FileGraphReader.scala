@@ -69,6 +69,7 @@ class FileGraphReader {
 	          )
 	        }
 	  )
+	  println("neighborSet length: " + neighborSet.size)
 	  neighborSet
   }
   
@@ -76,11 +77,12 @@ class FileGraphReader {
   def storeNeighborStructure(simpleGraph : List[SimpleVertex], vertices : HashMap[Int, SimpleVertex]) = {
     simpleGraph.foreach{current =>
     
-    var neighborSetForVariable : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size)(null)
-    var neighborSetForFunction : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size)(null)
+    var neighborSetForVariable : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size-1)(null)
+    var neighborSetForFunction : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size-1)(null)
 
-    neighborSetForVariable +=  current.functionVertex.id
-    neighborSetForFunction +=  current.variableVertex.id
+    
+    neighborSetForVariable(0) =  current.functionVertex.id
+    neighborSetForFunction(0) =  current.variableVertex.id
     
     current.neighborhood.foreach{neighborId =>
       

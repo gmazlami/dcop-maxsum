@@ -58,12 +58,19 @@ object MaxSumAlgorithm extends App{
   ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
   ProblemConstants.initialPreferences += (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
   ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(-0.1 , 0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(4,0) -> ArrayBuffer(0.1 , -0.1))
   println("Preferences initialized.")
   
   reader.storeNeighborStructure(simpleGraphList, simpleGraph)
+  simpleGraph.foreach{entry =>
+    entry._2.functionVertex.initializeReceivedMessages
+    entry._2.variableVertex.initializeReceivedMessages
+  }  
+  
   
   signalCollectFactorGraph.awaitIdle
-  
+  println
+  println("------------------------------------------")
   println("EXECUTION STARTED...")
   
   val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(

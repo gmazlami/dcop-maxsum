@@ -17,7 +17,7 @@ object ProblemConstants {
   def getPreferenceTable(variableNode: MaxSumId): ArrayBuffer[Tuple3[MaxSumId, Int, Double]] = {
     val preferenceTable: ArrayBuffer[Tuple3[MaxSumId, Int, Double]] = ArrayBuffer.fill(numOfColors)(null)
     val preference = initialPreferences(variableNode)
-    for (i <- 0 to preference.length) {
+    for (i <- 0 to preference.length - 1) {
       preferenceTable(i) = (variableNode, i, preference(i))
     }
     preferenceTable

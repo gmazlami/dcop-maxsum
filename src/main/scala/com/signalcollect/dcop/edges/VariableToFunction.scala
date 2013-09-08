@@ -33,7 +33,7 @@ class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
   def signal = Q_n_m
   
   def Q_n_m = {
-    val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId]
+    val variableIdSet = source.getNeighborIds - (targetId.asInstanceOf[MaxSumId])
     var resultMessage : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
 	
     variableIdSet.foreach{ variableId =>

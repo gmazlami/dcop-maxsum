@@ -62,10 +62,15 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   // computation of R_m_n 
   def R_m_n : MaxSumMessage = {
 	
+    
     if(!initializedConstants){
       initializeConstants()
       initializedConstants = true
     }
+    println
+    println("Computing message R_" +source.id.id + "_" + targetId.id)
+    println("OwnedVariable = " + ownedVariable.id)
+    println("DependingVariable = "+ dependingVariable.id)
     
     // fill table with needed data for the cross products in the subtractive part
 	subtractiveStructure()
@@ -73,13 +78,33 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 	// aggregate all received messages at source vertex
 	messageStructure()
     
-    val variableNames : ArrayBuffer[MaxSumId] = neighborSetOfSource
+	var neighborHood = neighborSetOfSource
+    var found : Boolean = false
+    for(i <- 0 to neighborHood.length - 1){
+      if(!found){
+        if(neighborHood(i) == dependingVariable){
+          neighborHood -= neighborHood(i)
+          found = true
+        }
+      }
+    }
+	var variableNames : ArrayBuffer[MaxSumId] = neighborHood
+	dependingVariable +=: variableNames
     val variableValues : ArrayBuffer[Int] = ArrayBuffer.fill(variableNames.length)(0)
 	
     val R_m_n : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
-      variableNames(0) = dependingVariable
+      println("varNames: ")
+      variableNames.foreach{v=>
+        print(v.id + " ")
+      }
+      println
+      println("varValues: ")
+      variableValues.foreach{v=>
+        print(v + " ")
+      }
+      println
       variableValues(0) = outerColor
       R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
     }
@@ -94,7 +119,6 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     // exit condition
     if(indexpos == varnames.length -1){
       max = Integer.MIN_VALUE
-      
       for(color <- 0 to ProblemConstants.numOfColors - 1){
         varvalues(indexpos) = color
         max = math.max(max,functionValue(varnames, varvalues)) 
@@ -122,12 +146,17 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     //subtractive part (the sum of the cross products of the variables)
     var subtractiveTerm = 0.0
     
+    
     for(current <- 0 to varnames.length - 1){
-    	
-      val subTable = tableForSubtractiveTerms.find(entry => entry._1 == varnames(current) && entry._2 == varvalues(current)).get._3
-      val crossValue = subTable.find(entry => entry._1 == ownedVariable && entry._2 == ownedVarValue).get._3
-      subtractiveTerm += crossValue
-      
+      tableForSubtractiveTerms.foreach{ entry =>
+        println(entry._1.id +" "+ entry._2)
+      }
+      println("...." + varvalues(current) +" "+ varnames(current).id)
+      if(varnames(current) != ownedVariable){
+    	val subTable = tableForSubtractiveTerms.find(entry => entry._1 == varnames(current) && entry._2 == varvalues(current)).get._3
+    	val crossValue = subTable.find(entry => entry._1 == ownedVariable && entry._2 == ownedVarValue).get._3
+    	subtractiveTerm += crossValue
+      }
     }
     
     //the aggregated messages Q_n_m
@@ -170,7 +199,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 
     
     // aggregation of the messages Q_n_m 
-    for(k <- 0 to messageSumSet.length){
+    for(k <- 0 to messageSumSet.length - 1){
       val message = sumSet(k)
       val messageMaximizationResults : ArrayBuffer[Tuple3[MaxSumId,Int,Double]] = ArrayBuffer.fill(message.value.length)(null)
       //create table for Q_n_m
@@ -194,11 +223,10 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
       // store variable color combination rewards in a table 
       tableForSubtractiveTerms = ArrayBuffer.fill(subtractiveTermVariables.length * 2)(null)
       var index = -1
-      for (i <- 0 to subtractiveTermVariables.length) {
-        val currentVar = subtractiveTermVariables(i)
+      subtractiveTermVariables.foreach{currentVar =>
         for (color <- 0 to ProblemConstants.numOfColors - 1) {
           index = index + 1
-          val subTable: ArrayBuffer[Tuple3[MaxSumId, Int, Double]] = ArrayBuffer()
+          val subTable: ArrayBuffer[Tuple3[MaxSumId, Int, Double]] = ArrayBuffer.fill(ProblemConstants.numOfColors)(null)
           for (color2 <- 0 to ProblemConstants.numOfColors - 1) {
             if (color == color2) {
               subTable(color2) = (ownedVariable, color2, 1)
@@ -206,9 +234,25 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
               subTable(color2) = (ownedVariable, color2, 0)
             }
           }
-          tableForSubtractiveTerms(index) = (ownedVariable,color,subTable)
+          tableForSubtractiveTerms(index) = (currentVar,color,subTable)
         }
-      }        
+      }
+      
+//      for(i <- 0 to subtractiveTermVariables.length - 1){
+//        val currentVar = subtractiveTermVariables(i)
+//        for (color <- 0 to ProblemConstants.numOfColors - 1) {
+//          index = index + 1
+//          val subTable: ArrayBuffer[Tuple3[MaxSumId, Int, Double]] = ArrayBuffer()
+//          for (color2 <- 0 to ProblemConstants.numOfColors - 1) {
+//            if (color == color2) {
+//              subTable(color2) = (ownedVariable, color2, 1)
+//            } else {
+//              subTable(color2) = (ownedVariable, color2, 0)
+//            }
+//          }
+//          tableForSubtractiveTerms(index) = (ownedVariable,color,subTable)
+//        }
+//      }        
 
   }
   

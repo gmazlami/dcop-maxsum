@@ -31,16 +31,15 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	
 	var stepCounter : Int = 0
 	
-	val receivedMessages : HashMap[MaxSumId,MaxSumMessage] = initializeReceivedMessages
+	var receivedMessages : HashMap[MaxSumId,MaxSumMessage] = null
 	  
-	  
-	private def initializeReceivedMessages = {
+    def initializeReceivedMessages = {
 	  var map : HashMap[MaxSumId, MaxSumMessage] = HashMap()
 	  getNeighborIds.foreach{currentId =>
 	    val dummyMessage = new MaxSumMessage(currentId,id,ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0))
-	    map += (id -> dummyMessage)
+	    map += (currentId -> dummyMessage)
 	  }
-	  map
+	  receivedMessages = map
 	}
 	
 	
