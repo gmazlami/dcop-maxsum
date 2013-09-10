@@ -55,10 +55,10 @@ object MaxSumAlgorithm extends App{
   
   ProblemConstants.numOfColors = 2 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   ProblemConstants.colors = Set(0,1)
-  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(0,0) -> ArrayBuffer(0.1 , -0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(-0.1 , 0.1))
   ProblemConstants.initialPreferences += (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
-  ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(-0.1 , 0.1))
-  ProblemConstants.initialPreferences += (new MaxSumId(4,0) -> ArrayBuffer(0.1 , -0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(0.1 , -0.1))
   println("Preferences initialized.")
   
   reader.storeNeighborStructure(simpleGraphList, simpleGraph)

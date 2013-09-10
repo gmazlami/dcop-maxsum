@@ -39,12 +39,14 @@ class FileGraphReader {
     val map : HashMap[Int, SimpleVertex] = new HashMap()
     val list = readToList(fileName)
     println("Read vertices into Vertex-list from file")
+    println
     println("Iterating through vertex-list, putting (id, SimpleVertex) into a map:")
     list.foreach{
     		element =>
     		  map += (element.id -> element)
     		  println((element.id -> element))
     }
+    println
     map
   }
   
@@ -69,7 +71,6 @@ class FileGraphReader {
 	          )
 	        }
 	  )
-	  println("neighborSet length: " + neighborSet.size)
 	  neighborSet
   }
   

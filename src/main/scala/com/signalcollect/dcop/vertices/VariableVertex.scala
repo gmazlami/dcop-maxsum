@@ -35,8 +35,8 @@ class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
   def collect =  {
 	  mostRecentSignalMap.foreach{ mapEntry =>
 	    val currentId = mapEntry._1.asInstanceOf[MaxSumId]
-	    val values = mapEntry._2.asInstanceOf[ArrayBuffer[Double]]
-	    receivedMessages += (currentId -> new MaxSumMessage(currentId,id,values))
+	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
+	    receivedMessages += (currentId -> message)
 	  }
 
 	  //compute updated marginal with new received messages

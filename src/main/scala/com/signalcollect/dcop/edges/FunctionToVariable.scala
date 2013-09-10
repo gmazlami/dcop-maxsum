@@ -148,10 +148,10 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     
     
     for(current <- 0 to varnames.length - 1){
-      tableForSubtractiveTerms.foreach{ entry =>
-        println(entry._1.id +" "+ entry._2)
-      }
-      println("...." + varvalues(current) +" "+ varnames(current).id)
+//      tableForSubtractiveTerms.foreach{ entry =>
+//        println(entry._1.id +" "+ entry._2)
+//      }
+//      println("...." + varvalues(current) +" "+ varnames(current).id)
       if(varnames(current) != ownedVariable){
     	val subTable = tableForSubtractiveTerms.find(entry => entry._1 == varnames(current) && entry._2 == varvalues(current)).get._3
     	val crossValue = subTable.find(entry => entry._1 == ownedVariable && entry._2 == ownedVarValue).get._3
@@ -170,28 +170,42 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   } 
   
   private def findMessageVal(variable : MaxSumId, color : Int):Double = {
-    val subTable = messageMaximizations.find(subtable => subtable(0)._1 == variable).get
-    subTable.find(entry => entry._2 == color).get._3
+    if(variable != targetId.asInstanceOf[MaxSumId]){
+    	val subTable = messageMaximizations.find(subtable => subtable(0)._1 == variable).get
+    	subTable.find(entry => entry._2 == color).get._3
+    }else{
+      0.0
+    }
   }
   
   private def messageSumSet = {
-   
     //the sum in the Function-to-variable formula goes over the neighbor ids except the target id:
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
-
 	var summationSet : ArrayBuffer[MaxSumMessage] = ArrayBuffer()
-    
-    
+	
+//	println
+//    source.receivedMessages.keys.foreach{m => print(m.id + " ")}
+//    println
+//    println
+//    variableIdSet.foreach(v => print(v.id + " "))
+//    println
+//    println("Iteration...:")
     //iterate over variable set and gather the messages into a summationSet
     variableIdSet.foreach{variableId =>
-    		summationSet :+ source.receivedMessages(variableId)
+//      		println("VarId: " + variableId.id)
+//      		print("Is it in? - ")
+//      		if(source.receivedMessages.contains(variableId)){
+//      		  println("YES, value is: " + source.receivedMessages(variableId).)
+//      		}else{
+//      		  println("NO")
+//      		}
+    		summationSet += source.receivedMessages(variableId)
     }
     summationSet
   }
   
   private def messageStructure() = {
 	val sumSet = messageSumSet
-    
     messageMaximizations = ArrayBuffer.fill(sumSet.length)(null)
     
     //a set containing the ids of variables (VariableVertex) over which the maximization in R_m_n is taken
@@ -203,7 +217,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
       val message = sumSet(k)
       val messageMaximizationResults : ArrayBuffer[Tuple3[MaxSumId,Int,Double]] = ArrayBuffer.fill(message.value.length)(null)
       //create table for Q_n_m
-      for(i <- 0 to message.value.length){
+      for(i <- 0 to message.value.length -1){
         messageMaximizationResults(i) = (message.source,i,message.value(i))
       }
       //store table
