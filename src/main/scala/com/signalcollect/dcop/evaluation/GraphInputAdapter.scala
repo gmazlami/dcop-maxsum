@@ -17,13 +17,16 @@
  *
  */
 
-package com.signalcollect.dcop.util
 
-import com.signalcollect.dcop.MaxSumMessage
-import scala.collection.mutable.ArrayBuffer
-import com.signalcollect.dcop.vertices.id.MaxSumId
+package com.signalcollect.dcop.evaluation
 
-object UtilityFunctions {
+/**
+ * This class is used to adapt the Input graphs such that they can be used
+ * with the implementations of the BR and DSA algorithms, authored by Robin Hafen.
+ * 
+ * 
+ */
+class GraphInputAdapter {
 
-  
+  //look at BinaryConstraintGraphProvider !!
 }

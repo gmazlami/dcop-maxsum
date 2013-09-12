@@ -19,10 +19,8 @@
 
 package com.signalcollect.dcop.evaluation.candidates
 
-import com.signalcollect.dcopthesis._
 import com.signalcollect.Vertex
 import scala.util.Random
-import com.signalcollect.dcopthesis.libra.components._
 import com.signalcollect.dcop.evaluation.candidates.CompleteSearch
 import com.signalcollect.dcop.evaluation.candidates.ExpectedPayoffTarget
 
