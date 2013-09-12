@@ -21,6 +21,7 @@ package com.signalcollect.dcop
 
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.util.ProblemConstants
 
 class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends Serializable{
 
@@ -29,5 +30,17 @@ class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends 
   val target : MaxSumId = t
   
   val value : ArrayBuffer[Double] = v
-    
+ 
+  /**
+   * checks if this MaxSumMessage instance has the equal ArrayBuffer value as "other"
+   */
+  def valueEquals(other : MaxSumMessage) = {
+    var equal : Boolean = true
+    for(i <- 0 to ProblemConstants.numOfColors - 1){
+      if(value(i) != other.value(i)){
+        equal = false
+      }
+    }
+    equal
+  }
 }

@@ -32,26 +32,37 @@ import com.signalcollect.configuration.ExecutionMode
 
 object MaxSumAlgorithm extends App{
 
-  println("Starting MaxSum Algorithm...")
-  println
+  val fileName : String = "rectangle.txt"
+  
+  println("--------------------------------------------------")
+  println("STARTING INITIALIZATION")
+  println("--------------------------------------------------")
   
   val reader : FileGraphReader = new FileGraphReader
   val transformer : FactorGraphTransformer = new FactorGraphTransformer
   
-  println("Reading simple graph from txt-File")
+  println
+  println("--------------------------------------------------")
+  println("Reading simple graph from txt-File: " + fileName)
   
-  val simpleGraph = reader.readToMap("rectangle.txt")
-  val simpleGraphList = reader.readToList("rectangle.txt")
+  val simpleGraph = reader.readToMap(fileName)
+  val simpleGraphList = reader.readToList(fileName)
   
   println("Reading of simple graph succesfully completed.")
+  println("--------------------------------------------------")
   println
-  println("Transforming simple graph started.")
+  println("--------------------------------------------------")
+  println("Transformation of simple graph to Signal-Collect graph started.")
   
   val signalCollectFactorGraph = transformer.transform(simpleGraph)
   
   println("Transformation to Signal/Collect graph successfully completed.")
+  println("--------------------------------------------------")
+  
   println
-  println("Initialization of Problem-Constants:")
+  
+  println("--------------------------------------------------")
+  println("Initialization of Problem-Constants started")
   
   ProblemConstants.numOfColors = 2 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   ProblemConstants.colors = Set(0,1)
@@ -62,23 +73,37 @@ object MaxSumAlgorithm extends App{
   println("Preferences initialized.")
   
   reader.storeNeighborStructure(simpleGraphList, simpleGraph)
+  println("Initializing initial Messages at vertices with values (0.0 , 0.0 , 0.0 ... 0,0)")
   simpleGraph.foreach{entry =>
     entry._2.functionVertex.initializeReceivedMessages
     entry._2.variableVertex.initializeReceivedMessages
   }  
+  println("Initialization of global problem constants successfully completed.")
+  println("--------------------------------------------------")
   
+  println
+  
+  println("------------------------------------------")
+  println("INITIALIZATION COMPLETED.")
+  println("------------------------------------------")
+  
+  println
+  
+  println("------------------------------------------")
+  println("EXECUTION OF MAX-SUM ALGORITHM STARTED:")
+  println("------------------------------------------")
+  println
   
   signalCollectFactorGraph.awaitIdle
-  println
-  println("------------------------------------------")
-  println("EXECUTION STARTED...")
-  
   val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
       ExecutionMode.ContinuousAsynchronous).withTimeLimit(15000))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex(println(_))
   signalCollectFactorGraph.shutdown
-  println("FINISHED")
+  
+  println("------------------------------------------")
+  println("EXECUTION FINISHED")
+  println("------------------------------------------")
   
 }

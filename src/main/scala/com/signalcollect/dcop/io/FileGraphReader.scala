@@ -44,7 +44,7 @@ class FileGraphReader {
     list.foreach{
     		element =>
     		  map += (element.id -> element)
-    		  println((element.id -> element))
+    		  println("(id, simpleVertex) = "+(element.id -> element))
     }
     println
     map
@@ -76,6 +76,7 @@ class FileGraphReader {
   
   //store neighboring structure of the graph to make it globally accessible, especially when needed during the computation
   def storeNeighborStructure(simpleGraph : List[SimpleVertex], vertices : HashMap[Int, SimpleVertex]) = {
+    println("Storing neighborhood structure of the graph to ProblemConstants")
     simpleGraph.foreach{current =>
     
     var neighborSetForVariable : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size-1)(null)
@@ -98,6 +99,7 @@ class FileGraphReader {
       ProblemConstants.neighborStructure += (current.functionVertex.id -> neighborSetForFunction)
     
     }
+    println("Storing of neighborhood structure successfully completed.")
   }
   
   

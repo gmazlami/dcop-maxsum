@@ -26,10 +26,13 @@ import com.signalcollect.Edge
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
+import com.signalcollect.dcop.evaluation.ConvergenceObserver
 
 abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
 	
 	var stepCounter : Int = 0
+	
+	var lastMessage : MaxSumMessage = null
 	
 	var receivedMessages : HashMap[MaxSumId,MaxSumMessage] = null
 	  
@@ -51,6 +54,9 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	    index = index + 1
 	  }
 	  resultSet
+	  
+	  //this doesn't work:
+//	  outgoingEdges.keys.asInstanceOf[ArrayBuffer[MaxSumId]]
 	}
 	
 	def readyToMessage : Boolean = {
@@ -75,6 +81,14 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	  var resultSet : Set[MaxSumId] = Set()
 	  receivedMessages.keys.foreach(m => resultSet += m)
 	  resultSet
+	}
+	
+	protected def checkConvergence(newMessage : MaxSumMessage) = {
+	  if(lastMessage.valueEquals(newMessage)){
+	    ConvergenceObserver.convergedVertices += (id -> true)
+	  }else{
+	    lastMessage = newMessage
+	  }
 	}
 	
 }

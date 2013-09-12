@@ -68,7 +68,9 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
       initializedConstants = true
     }
     println
-    println("Computing message R_" +source.id.id + "_" + targetId.id)
+    println("--------------------------------------------------")
+    println("Computing message R_" +source.id.id + "->" + targetId.id)
+    println("--------------------------------------------------")
     println("OwnedVariable = " + ownedVariable.id)
     println("DependingVariable = "+ dependingVariable.id)
     
@@ -108,7 +110,9 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
       variableValues(0) = outerColor
       R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
     }
-
+    
+	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
+	println("--------------------------------------------------")
     new MaxSumMessage(source.id,targetId,R_m_n)
   }
   
@@ -235,7 +239,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   
   private def subtractiveStructure() = {
       // store variable color combination rewards in a table 
-      tableForSubtractiveTerms = ArrayBuffer.fill(subtractiveTermVariables.length * 2)(null)
+      tableForSubtractiveTerms = ArrayBuffer.fill(subtractiveTermVariables.length * ProblemConstants.numOfColors)(null)
       var index = -1
       subtractiveTermVariables.foreach{currentVar =>
         for (color <- 0 to ProblemConstants.numOfColors - 1) {

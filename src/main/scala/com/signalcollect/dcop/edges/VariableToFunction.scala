@@ -24,6 +24,7 @@ import com.signalcollect.dcop.vertices.VariableVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
+import com.signalcollect.dcop.MaxSumMessage
 
 class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
 
@@ -33,6 +34,10 @@ class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
   def signal = Q_n_m
   
   def Q_n_m = {
+    println
+    println("--------------------------------------------------")
+    println("Computing message Q_" +source.id.id + "->" + targetId.id)
+    println("--------------------------------------------------")
     val variableIdSet = source.getNeighborIds - (targetId.asInstanceOf[MaxSumId])
     var resultMessage : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
 	
@@ -47,7 +52,10 @@ class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
         }
       }
     }
-    resultMessage
+    println("Q_" +source.id.id + "->" + targetId.id + " = " + resultMessage)
+    println("--------------------------------------------------")
+    
+    new MaxSumMessage(source.id, targetId,resultMessage)
   }
 
 }

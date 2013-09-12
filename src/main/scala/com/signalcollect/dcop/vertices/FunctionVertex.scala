@@ -24,23 +24,20 @@ import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.immutable.HashMap
 import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.evaluation.ConvergenceObserver
 
 class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
 
 	type Signal = MaxSumMessage
-  	
 	
 	def collect =  {
 	  mostRecentSignalMap.foreach{ mapEntry =>
 	    val currentId = mapEntry._1.asInstanceOf[MaxSumId]
-	    val values = mapEntry._2.asInstanceOf[ArrayBuffer[Double]]
-	    receivedMessages += (currentId -> new MaxSumMessage(currentId,id,values))
+	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
+	    //checkConvergence(message)
+	    receivedMessages += (currentId -> message)
 	  }
-	  //TODO: replace this dummy return value by something that makes sense
-	  0
+	  0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem
 	}
 	
-
-	
-  
 }
