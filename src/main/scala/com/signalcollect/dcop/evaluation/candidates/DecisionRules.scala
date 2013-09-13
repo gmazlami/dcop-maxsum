@@ -142,14 +142,14 @@ trait SimulatedAnnealingDecision[State] extends DecisionRule[State] {
 trait LogisticDecision[State] extends DecisionRule[State] {
   import scala.math.{pow, E}
 
-  var η: Temperature
-  val ηDecrement: Temperature
+  var eta: Temperature
+  val etaDecrement: Temperature
 
   /**
    * Create a probability distribution according to the Boltzmann function
    */
-  def boltzmannDist[State](evaluatedStates: Seq[(State, Payoff)], η: Double): Seq[(State, Probability)] = {
-    val temp = max(η, 0.01) // otherwise NaN
+  def boltzmannDist[State](evaluatedStates: Seq[(State, Payoff)], eta: Double): Seq[(State, Probability)] = {
+    val temp = max(eta, 0.01) // otherwise NaN
     val enumerators: Seq[Double] = evaluatedStates map {
       case (state, score) => pow(E, 1.0/temp * score)
     }
@@ -180,12 +180,12 @@ trait LogisticDecision[State] extends DecisionRule[State] {
       case Nil => currentState._1
       case xs => {
         val allEvaluatedStates = (currentState +: xs).toSet.toSeq
-        val distribution = boltzmannDist(allEvaluatedStates, η)
+        val distribution = boltzmannDist(allEvaluatedStates, eta)
         drawFrom(distribution)
       }
     }
 
-    η -= ηDecrement // TODO: this should probably be done globally
+    eta -= etaDecrement // TODO: this should probably be done globally
     newState
   }
 }

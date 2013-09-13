@@ -36,7 +36,7 @@ class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
 	  mostRecentSignalMap.foreach{ mapEntry =>
 	    val currentId = mapEntry._1.asInstanceOf[MaxSumId]
 	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
-	    //checkConvergence(message)
+	    checkConvergence(message)
 	    receivedMessages += (currentId -> message)
 	  }
 

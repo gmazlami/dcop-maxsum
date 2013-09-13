@@ -28,14 +28,10 @@ import java.io.PrintWriter
 import java.io.FileNotFoundException
 
 
-import FileDialect._
 import com.signalcollect.dcop.evaluation.candidates.ConstraintGraphProvider
 
 
-object FileDialect extends Enumeration {
-  type FileDialect = Value
-  val XMLFile, EdgeListFile = Value
-}
+
 
 
 /**
@@ -54,7 +50,7 @@ class BinaryConstraintGraphProvider(
     val meanDegree: Double,
     val domainSize: Int,
     val saveTo: Option[String] = None,
-    val loadFrom: Option[(String, FileDialect)] = None)
+    val loadFrom: String )
   extends ConstraintGraphProvider[Any, Any] {
 
   type Degree = Double
@@ -228,12 +224,7 @@ class BinaryConstraintGraphProvider(
 
     // Load a previously computed and saved graph from file
     // or calculate a new one
-    val (undirectedEdges, actualDegree) = {
-      loadFrom map {
-        case (fname, XMLFile) => fromXML(fname)
-        case (fname, EdgeListFile) => fromEdgeList(fname)
-      } getOrElse computeEdgeList()
-    }
+    val (undirectedEdges, actualDegree) = fromEdgeList(loadFrom)
 
     // Save to file if a filename was supplied
     saveTo foreach { fname =>

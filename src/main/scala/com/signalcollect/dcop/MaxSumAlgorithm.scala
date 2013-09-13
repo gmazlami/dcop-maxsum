@@ -27,6 +27,10 @@ import com.signalcollect.dcop.io.FileGraphReader
 import com.signalcollect.dcop.graphs.FactorGraphTransformer
 import com.signalcollect.ExecutionConfiguration
 import com.signalcollect.configuration.ExecutionMode
+import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
+import com.signalcollect.dcop.evaluation.statistics.OptimumObserver
+import scala.collection.mutable.HashMap
+import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 
 
 
@@ -67,7 +71,7 @@ object MaxSumAlgorithm extends App{
   ProblemConstants.numOfColors = 2 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   ProblemConstants.colors = Set(0,1)
   ProblemConstants.initialPreferences += (new MaxSumId(0,0) -> ArrayBuffer(0.1 , -0.1))
-  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(-0.1 , 0.1))
+  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
   ProblemConstants.initialPreferences += (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
   ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(0.1 , -0.1))
   println("Preferences initialized.")
@@ -96,14 +100,50 @@ object MaxSumAlgorithm extends App{
   
   signalCollectFactorGraph.awaitIdle
   val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
-      ExecutionMode.ContinuousAsynchronous).withTimeLimit(15000))
+      ExecutionMode.ContinuousAsynchronous).withTimeLimit(200000))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex(println(_))
-  signalCollectFactorGraph.shutdown
   
   println("------------------------------------------")
   println("EXECUTION FINISHED")
   println("------------------------------------------")
+  println
+  println("------------------------------------------")
+  println("RESULTS:")
+  println("------------------------------------------")
+  println
+  println("Message Convergence: ")
+  println("--------------------")
   
+  ConvergenceObserver.simpleVertices = simpleGraphList
+  
+  ConvergenceObserver.convergedVertices.foreach{ item =>
+  	println(item._1.id + " - " + item._2)
+  }
+  
+  println
+  println("Vertices: ")
+  println("---------")
+  signalCollectFactorGraph.foreachVertex{v => 
+    val vertex = v.id.asInstanceOf[MaxSumId]
+    if(vertex.isVariable){
+    	println(vertex.id + " has state: " + v.state)
+    }
+  }
+  
+  var stateMap : HashMap[MaxSumId,Int] = HashMap() 
+  
+  signalCollectFactorGraph.foreachVertex{ v=>
+    stateMap += (v.id.asInstanceOf[MaxSumId] -> v.state.asInstanceOf[Int])
+  }
+  
+  val observer = new OptimumObserver(stateMap, simpleGraphList)
+  if(observer.optimumFound == true){
+    println("--> Optimal Solution found!")
+  }else{
+    println("--> No optimal Solution found!")
+  }
+  
+  signalCollectFactorGraph.shutdown
 }

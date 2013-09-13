@@ -26,7 +26,7 @@ import com.signalcollect.Edge
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
-import com.signalcollect.dcop.evaluation.ConvergenceObserver
+import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 
 abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
 	
@@ -84,10 +84,14 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	}
 	
 	protected def checkConvergence(newMessage : MaxSumMessage) = {
-	  if(lastMessage.valueEquals(newMessage)){
-	    ConvergenceObserver.convergedVertices += (id -> true)
-	  }else{
+	  if(lastMessage == null){
 	    lastMessage = newMessage
+	  }else{
+		  if(lastMessage.valueEquals(newMessage)){
+			  ConvergenceObserver.convergedVertices += (id -> true)
+		  }else{
+			  lastMessage = newMessage
+		  }
 	  }
 	}
 	
