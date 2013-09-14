@@ -34,7 +34,7 @@ object ConvergenceObserver {
   /* a function that checks wether all vertices have converged (in the sense of message-convergence, as defined in
    * Rogers, Farinelli 2008, Coordination of Low-Power Embedded Devices using the Max-Sum Algorithm)
    */
-  def checkGlobalConvergence() = {
+  def checkGlobalConvergence() : Boolean = {
     var converged = true
     var index = 0
     

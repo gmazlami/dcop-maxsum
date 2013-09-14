@@ -107,19 +107,10 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
      * the result of message R_m_n is a vector of length numOfColors, indexed by the colors of dependent variable
      */
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
-      println("varNames: ")
-      variableNames.foreach{v=>
-        print(v.id + " ")
-      }
-      println
-      println("varValues: ")
-      variableValues.foreach{v=>
-        print(v + " ")
-      }
-      println
       variableValues(0) = outerColor
       R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
     }
+    
     
 	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
 	println("--------------------------------------------------")
@@ -162,10 +153,6 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     
     
     for(current <- 0 to varnames.length - 1){
-//      tableForSubtractiveTerms.foreach{ entry =>
-//        println(entry._1.id +" "+ entry._2)
-//      }
-//      println("...." + varvalues(current) +" "+ varnames(current).id)
       if(varnames(current) != ownedVariable){
     	val subTable = tableForSubtractiveTerms.find(entry => entry._1 == varnames(current) && entry._2 == varvalues(current)).get._3
     	val crossValue = subTable.find(entry => entry._1 == ownedVariable && entry._2 == ownedVarValue).get._3
@@ -179,6 +166,11 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     for(current <- 0 to varnames.length - 1){
       messageSum += findMessageVal(varnames(current), varvalues(current))
     }
+    
+    println("varvalues: ")
+    varvalues.foreach(value => print(value + " "))
+    println
+    
     
     //compute the total value 
     preference - subtractiveTerm + messageSum
@@ -197,23 +189,9 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     //the sum in the Function-to-variable formula goes over the neighbor ids except the target id:
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
 	var summationSet : ArrayBuffer[MaxSumMessage] = ArrayBuffer()
-	
-//	println
-//    source.receivedMessages.keys.foreach{m => print(m.id + " ")}
-//    println
-//    println
-//    variableIdSet.foreach(v => print(v.id + " "))
-//    println
-//    println("Iteration...:")
-    //iterate over variable set and gather the messages into a summationSet
+
+	//iterate over variable set and gather the messages into a summationSet
     variableIdSet.foreach{variableId =>
-//      		println("VarId: " + variableId.id)
-//      		print("Is it in? - ")
-//      		if(source.receivedMessages.contains(variableId)){
-//      		  println("YES, value is: " + source.receivedMessages(variableId).)
-//      		}else{
-//      		  println("NO")
-//      		}
     		summationSet += source.receivedMessages(variableId)
     }
     summationSet
@@ -245,7 +223,6 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 	neighborSetOfSource = ProblemConstants.neighborStructure(source.id)
     subtractiveTermVariables = neighborSetOfSource - ownedVariable
     preferenceTable = ProblemConstants.getPreferenceTable(ownedVariable)
-    
   }
   
   private def subtractiveStructure() = {
@@ -266,23 +243,6 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
           tableForSubtractiveTerms(index) = (currentVar,color,subTable)
         }
       }
-      
-//      for(i <- 0 to subtractiveTermVariables.length - 1){
-//        val currentVar = subtractiveTermVariables(i)
-//        for (color <- 0 to ProblemConstants.numOfColors - 1) {
-//          index = index + 1
-//          val subTable: ArrayBuffer[Tuple3[MaxSumId, Int, Double]] = ArrayBuffer()
-//          for (color2 <- 0 to ProblemConstants.numOfColors - 1) {
-//            if (color == color2) {
-//              subTable(color2) = (ownedVariable, color2, 1)
-//            } else {
-//              subTable(color2) = (ownedVariable, color2, 0)
-//            }
-//          }
-//          tableForSubtractiveTerms(index) = (ownedVariable,color,subTable)
-//        }
-//      }        
-
   }
   
   

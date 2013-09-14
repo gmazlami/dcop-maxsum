@@ -21,8 +21,10 @@
 package com.signalcollect.dcop.evaluation.statistics
 
 import scala.collection.mutable.HashMap
+import com.signalcollect.dcop.vertices.SimpleVertex
+import com.signalcollect.dcop.vertices.id.MaxSumId
 
-class MeasuringInstrument(name : String) {
+class MeasuringInstrument(name : String, graph : List[SimpleVertex], results : HashMap[MaxSumId,Int]) {
 
   //the name of the algorithm being measured
   val algorithmName = name
@@ -33,4 +35,35 @@ class MeasuringInstrument(name : String) {
 
   //incremental counter of cycles until convergence
   var cyclesToConvergence : Int = 0
+  
+  //holds a map <MaxSumId,Int> that has the vertex ids as keys and the respective vertice's state (color) as value
+  val stateMap = results
+  
+  //holds a list containing all vertices of the graph
+  val simpleGraph = graph
+  
+  //a function counting the number of total color conflicts between the vertices in the graph 
+  private def computeConflicts() : Int = {
+    var conflicts = 0
+    simpleGraph.foreach{ simpleVertex =>
+      val vertex = simpleVertex.variableVertex
+      val color = stateMap(vertex.id)
+      
+      simpleVertex.neighborhood.foreach{ neighborNum =>
+        val otherVertex = findSimpleVertex(neighborNum)
+        val otherColor = stateMap(otherVertex.id)
+        
+        if(color == otherColor){
+          conflicts += 1
+        }
+      }
+    }
+    conflicts
+  }
+  
+  //auxiliary function
+  private def findSimpleVertex(idNum : Int) = {
+    simpleGraph.find(element => element.id == idNum).get.variableVertex
+  }
+  
 }

@@ -24,12 +24,12 @@ package com.signalcollect.dcop.evaluation.statistics
 
 object GlobalMeasurer{
 
-  val dsaInstrumentA : MeasuringInstrument = new MeasuringInstrument("DSA-A")
-  
-  val dsaInstrumentB : MeasuringInstrument = new MeasuringInstrument("DSA-B")
-  
-  val brInstrument : MeasuringInstrument = new MeasuringInstrument("BR")
-  
-  val maxsumInstrument : MeasuringInstrument = new MeasuringInstrument("Max-Sum")
-  
+//  val dsaInstrumentA : MeasuringInstrument = new MeasuringInstrument("DSA-A")
+//  
+//  val dsaInstrumentB : MeasuringInstrument = new MeasuringInstrument("DSA-B")
+//  
+//  val brInstrument : MeasuringInstrument = new MeasuringInstrument("BR")
+//  
+//  val maxsumInstrument : MeasuringInstrument = new MeasuringInstrument("Max-Sum")
+//  
 }

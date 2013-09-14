@@ -36,7 +36,7 @@ import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 
 object MaxSumAlgorithm extends App{
 
-  val fileName : String = "rectangle.txt"
+  val fileName : String = "graphs/rectangle.txt"
   
   println("--------------------------------------------------")
   println("STARTING INITIALIZATION")
@@ -70,10 +70,11 @@ object MaxSumAlgorithm extends App{
   
   ProblemConstants.numOfColors = 2 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   ProblemConstants.colors = Set(0,1)
-  ProblemConstants.initialPreferences += (new MaxSumId(0,0) -> ArrayBuffer(0.1 , -0.1))
-  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
-  ProblemConstants.initialPreferences += (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
-  ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(0.1 , -0.1))
+//  ProblemConstants.initialPreferences += (new MaxSumId(0,0) -> ArrayBuffer(-0.1 , 0.1))
+//  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
+//  ProblemConstants.initialPreferences += (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
+//  ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(0.1 , -0.1))
+  initializePrefs()
   println("Preferences initialized.")
   
   reader.storeNeighborStructure(simpleGraphList, simpleGraph)
@@ -100,7 +101,7 @@ object MaxSumAlgorithm extends App{
   
   signalCollectFactorGraph.awaitIdle
   val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
-      ExecutionMode.ContinuousAsynchronous).withTimeLimit(200000))
+      ExecutionMode.ContinuousAsynchronous).withTimeLimit(15000))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex(println(_))
@@ -120,6 +121,12 @@ object MaxSumAlgorithm extends App{
   
   ConvergenceObserver.convergedVertices.foreach{ item =>
   	println(item._1.id + " - " + item._2)
+  }
+  
+  if(ConvergenceObserver.checkGlobalConvergence()){
+    println("--> Messages globally converged!")
+  }else{
+    println("--> No message convergence!")
   }
   
   println
@@ -146,4 +153,16 @@ object MaxSumAlgorithm extends App{
   }
   
   signalCollectFactorGraph.shutdown
+  
+  
+  def initializePrefs() = {
+	var color = 0  
+    simpleGraphList.foreach{el =>
+      val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
+      val variableId = el.variableVertex.id
+	  pref(color) = 0.1
+	  ProblemConstants.initialPreferences += (variableId -> pref)
+      color = (color + 1) % ProblemConstants.numOfColors
+	}
+  }
 }
