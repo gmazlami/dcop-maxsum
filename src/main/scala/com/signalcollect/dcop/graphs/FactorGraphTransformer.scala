@@ -27,6 +27,18 @@ import com.signalcollect.dcop.edges.VariableToFunction
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.HashMap
 
+/**
+ * Transformer class that takes a simple graph as an input, in form of a map of simpleVertices.
+ * The transform method iterates through the simpleVertices, expands each simpleVertex to a variableVertex
+ * and a functionVertex, connects those two, then iterates through the neighborhood of the current simpleVertex,
+ * expands also each neighbor to variable and funcitonVertex, and then builds all necessary connections.
+ * 
+ * At the end, the transform method returns a fully transformed Factor-Graph built up by FunctionVertex, VariableVertex,
+ * FunctionToVariable edges and VariableToFunction edges.
+ * 
+ * The resulting graph is ready to be processed by signal collect.
+ *
+ */
 class FactorGraphTransformer {
 	
   
@@ -43,8 +55,10 @@ class FactorGraphTransformer {
 	}
 	
     simpleVertexMap.values.foreach{ vertex =>
-	  //expand the simple vertex to function vertex and variable vertex
-      		//and connect them bidirectionally 
+	        /*
+	         * expand the simple vertex to function vertex and variable vertex
+      		 * and connect them bidirectionally
+      		 */  
     		graph.addVertex(vertex.functionVertex)
     		graph.addVertex(vertex.variableVertex)
     		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))

@@ -28,8 +28,12 @@ object ConvergenceObserver {
   //this map stores the vertices as keys with a boolean as a value stating wether the messages at that vertex have converged
   var convergedVertices : HashMap[MaxSumId,Boolean] = HashMap()
   
+  //a list containing all vertices of the current problem
   var simpleVertices : List[SimpleVertex] = null
   
+  /* a function that checks wether all vertices have converged (in the sense of message-convergence, as defined in
+   * Rogers, Farinelli 2008, Coordination of Low-Power Embedded Devices using the Max-Sum Algorithm)
+   */
   def checkGlobalConvergence() = {
     var converged = true
     var index = 0
@@ -48,5 +52,6 @@ object ConvergenceObserver {
       }
       index += 1
     }
+    converged
   }
 }

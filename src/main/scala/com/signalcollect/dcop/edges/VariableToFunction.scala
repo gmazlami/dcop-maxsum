@@ -38,9 +38,14 @@ class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
     println("--------------------------------------------------")
     println("Computing message Q_" +source.id.id + "->" + targetId.id)
     println("--------------------------------------------------")
+    
+    //the variables from which the received messages will be summed to compute the new message
     val variableIdSet = source.getNeighborIds - (targetId.asInstanceOf[MaxSumId])
+    
+    //initialize new message to 0.0 
     var resultMessage : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
 	
+    //sum up the received messages component-wise
     variableIdSet.foreach{ variableId =>
       val message = source.receivedMessages(variableId).value
       if(message.length != ProblemConstants.numOfColors){ //this is not allowed to happen

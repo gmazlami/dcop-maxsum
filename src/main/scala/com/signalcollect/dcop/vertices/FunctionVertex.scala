@@ -24,7 +24,6 @@ import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.immutable.HashMap
 import scala.collection.mutable.ArrayBuffer
-import com.signalcollect.dcop.evaluation.ConvergenceObserver
 
 class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
 

@@ -36,6 +36,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   //the signal that is computed by this edge
   def signal = R_m_n
   
+  //helping boolean to tell wether the constants were already initialized
   private var initializedConstants : Boolean = false
   
   //the variable that belongs to the source function vertex of this edge
@@ -62,11 +63,12 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   // computation of R_m_n 
   def R_m_n : MaxSumMessage = {
 	
-    
+    //initialize constants in the first call of R_m_n
     if(!initializedConstants){
       initializeConstants()
       initializedConstants = true
     }
+    
     println
     println("--------------------------------------------------")
     println("Computing message R_" +source.id.id + "->" + targetId.id)
@@ -82,6 +84,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     
 	var neighborHood = neighborSetOfSource
     var found : Boolean = false
+    //rearrange neighborhood so that the dependingVariable is in the first cell of the ArrayBuffer
     for(i <- 0 to neighborHood.length - 1){
       if(!found){
         if(neighborHood(i) == dependingVariable){
@@ -91,11 +94,18 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
       }
     }
 	var variableNames : ArrayBuffer[MaxSumId] = neighborHood
-	dependingVariable +=: variableNames
+	dependingVariable +=: variableNames //dependingVariable in the first cell
+	
+	//initialize variableValues of the variables in variableNames to zero
     val variableValues : ArrayBuffer[Int] = ArrayBuffer.fill(variableNames.length)(0)
 	
     val R_m_n : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     
+    /*
+     * loop over outerColor
+     * outerColor is the color of the dependent variable
+     * the result of message R_m_n is a vector of length numOfColors, indexed by the colors of dependent variable
+     */
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
       println("varNames: ")
       variableNames.foreach{v=>
@@ -169,7 +179,8 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     for(current <- 0 to varnames.length - 1){
       messageSum += findMessageVal(varnames(current), varvalues(current))
     }
-
+    
+    //compute the total value 
     preference - subtractiveTerm + messageSum
   } 
   
