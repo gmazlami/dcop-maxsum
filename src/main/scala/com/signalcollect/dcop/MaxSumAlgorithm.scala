@@ -101,7 +101,7 @@ object MaxSumAlgorithm extends App{
   
   signalCollectFactorGraph.awaitIdle
   val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
-      ExecutionMode.ContinuousAsynchronous).withTimeLimit(15000))
+      ExecutionMode.Synchronous))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex(println(_))
@@ -114,20 +114,23 @@ object MaxSumAlgorithm extends App{
   println("RESULTS:")
   println("------------------------------------------")
   println
-  println("Message Convergence: ")
+  println("Convergence: ")
   println("--------------------")
   
   ConvergenceObserver.simpleVertices = simpleGraphList
   
-  ConvergenceObserver.convergedVertices.foreach{ item =>
-  	println(item._1.id + " - " + item._2)
-  }
-  
-  if(ConvergenceObserver.checkGlobalConvergence()){
+  if(ConvergenceObserver.checkGlobalMessageConvergence()){
     println("--> Messages globally converged!")
   }else{
     println("--> No message convergence!")
   }
+
+  if(ConvergenceObserver.checkGlobalStateConvergence()){
+    println("--> States globally converged!")
+  }else{
+    println("--> No state convergence!")
+  }
+
   
   println
   println("Vertices: ")

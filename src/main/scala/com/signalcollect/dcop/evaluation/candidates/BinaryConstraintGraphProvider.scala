@@ -226,11 +226,7 @@ class BinaryConstraintGraphProvider(
     // or calculate a new one
     val (undirectedEdges, actualDegree) = fromEdgeList(loadFrom)
 
-    // Save to file if a filename was supplied
-    saveTo foreach { fname =>
-      toFile(undirectedEdges, actualDegree, fname)
-    }
-
+    
     // Add vertices to the graph
     for (i <- 0 until graphSize) {
       val id: Int = i

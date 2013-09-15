@@ -33,7 +33,7 @@ class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
 	  mostRecentSignalMap.foreach{ mapEntry =>
 	    val currentId = mapEntry._1.asInstanceOf[MaxSumId]
 	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
-	    checkConvergence(message)
+	    checkMessageConvergence(message)
 	    receivedMessages += (currentId -> message)
 	  }
 	  0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem

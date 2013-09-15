@@ -101,6 +101,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 	
     val R_m_n : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     
+    println("Computing maximization: ")
     /*
      * loop over outerColor
      * outerColor is the color of the dependent variable
@@ -108,6 +109,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
      */
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
       variableValues(0) = outerColor
+      println("R_m_n("+outerColor +") : ")
       R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
     }
     
@@ -166,14 +168,11 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     for(current <- 0 to varnames.length - 1){
       messageSum += findMessageVal(varnames(current), varvalues(current))
     }
-    
-    println("varvalues: ")
-    varvalues.foreach(value => print(value + " "))
-    println
-    
-    
+
     //compute the total value 
-    preference - subtractiveTerm + messageSum
+    val result = preference - subtractiveTerm + messageSum
+    varnames.foreach(n => print(n.id + " ")) ; print(" with config ") ; varvalues.foreach(value => print(value + " ")) ; println(" max = " +  result)
+    result
   } 
   
   private def findMessageVal(variable : MaxSumId, color : Int):Double = {

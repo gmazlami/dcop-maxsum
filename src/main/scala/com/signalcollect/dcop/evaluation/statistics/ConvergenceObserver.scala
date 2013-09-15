@@ -26,7 +26,10 @@ import com.signalcollect.dcop.vertices.SimpleVertex
 object ConvergenceObserver {
 
   //this map stores the vertices as keys with a boolean as a value stating wether the messages at that vertex have converged
-  var convergedVertices : HashMap[MaxSumId,Boolean] = HashMap()
+  var messageConvergedVertices : HashMap[MaxSumId,Boolean] = HashMap()
+  
+  //this map stores the vertices as keys with a boolean as a value stating wether the state at that vertex has converged
+  var stateConvergedVertices : HashMap[MaxSumId,Boolean] = HashMap()
   
   //a list containing all vertices of the current problem
   var simpleVertices : List[SimpleVertex] = null
@@ -34,7 +37,7 @@ object ConvergenceObserver {
   /* a function that checks wether all vertices have converged (in the sense of message-convergence, as defined in
    * Rogers, Farinelli 2008, Coordination of Low-Power Embedded Devices using the Max-Sum Algorithm)
    */
-  def checkGlobalConvergence() : Boolean = {
+  def checkGlobalMessageConvergence() : Boolean = {
     var converged = true
     var index = 0
     
@@ -43,11 +46,29 @@ object ConvergenceObserver {
       val vv = v.variableVertex
       val fv = v.functionVertex
       
-      if(!convergedVertices.contains(vv.id)){
+      if(!messageConvergedVertices.contains(vv.id)){
         converged = false
       }
       
-      if(!convergedVertices.contains(fv.id)){
+      if(!messageConvergedVertices.contains(fv.id)){
+        converged = false
+      }
+      index += 1
+    }
+    converged
+  }
+    /* a function that checks wether all vertices have converged (in the sense of state-convergence, as defined in
+   * Rogers, Farinelli 2008, Coordination of Low-Power Embedded Devices using the Max-Sum Algorithm)
+   */
+  def checkGlobalStateConvergence() : Boolean = {
+    var converged = true
+    var index = 0
+    
+    while(index < simpleVertices.size && converged == true){
+      val v = simpleVertices(index)
+      val vv = v.variableVertex
+
+      if(!stateConvergedVertices.contains(vv.id)){
         converged = false
       }
       index += 1

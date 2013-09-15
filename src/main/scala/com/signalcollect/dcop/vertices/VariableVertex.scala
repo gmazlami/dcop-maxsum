@@ -25,6 +25,7 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.immutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
+import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 
 class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
 
@@ -32,11 +33,13 @@ class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
   
   var marginal : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0) 
   
+  var lastColor : Int = -1
+  
   def collect =  {
 	  mostRecentSignalMap.foreach{ mapEntry =>
 	    val currentId = mapEntry._1.asInstanceOf[MaxSumId]
 	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
-	    checkConvergence(message)
+	    checkMessageConvergence(message)
 	    receivedMessages += (currentId -> message)
 	  }
 
@@ -66,6 +69,18 @@ class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
       }
     }
     maxColor    
+  }
+  
+  private def checkStateConvergence(newColor : Int) = {
+    if(lastColor == -1){
+    	lastColor = newColor
+    }else{
+		  if(lastColor == newColor){
+			  ConvergenceObserver.stateConvergedVertices += (id -> true)
+		  }else{
+			  lastColor = newColor
+		  }
+	  }
   }
 
 }

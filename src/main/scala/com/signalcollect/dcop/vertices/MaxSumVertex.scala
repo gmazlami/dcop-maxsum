@@ -83,12 +83,12 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	  resultSet
 	}
 	
-	protected def checkConvergence(newMessage : MaxSumMessage) = {
+	protected def checkMessageConvergence(newMessage : MaxSumMessage) = {
 	  if(lastMessage == null){
 	    lastMessage = newMessage
 	  }else{
 		  if(lastMessage.valueEquals(newMessage)){
-			  ConvergenceObserver.convergedVertices += (id -> true)
+			  ConvergenceObserver.messageConvergedVertices += (id -> true)
 		  }else{
 			  lastMessage = newMessage
 		  }

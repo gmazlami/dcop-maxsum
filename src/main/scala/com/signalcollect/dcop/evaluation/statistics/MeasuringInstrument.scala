@@ -23,6 +23,7 @@ package com.signalcollect.dcop.evaluation.statistics
 import scala.collection.mutable.HashMap
 import com.signalcollect.dcop.vertices.SimpleVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
+import com.signalcollect.dcop.MaxSumMessage
 
 class MeasuringInstrument(name : String, graph : List[SimpleVertex], results : HashMap[MaxSumId,Int]) {
 
@@ -64,6 +65,13 @@ class MeasuringInstrument(name : String, graph : List[SimpleVertex], results : H
   //auxiliary function
   private def findSimpleVertex(idNum : Int) = {
     simpleGraph.find(element => element.id == idNum).get.variableVertex
+  }
+  
+  def computeMessageSize(m : MaxSumMessage) = {
+//    java.lang.instrument.Instrumentation
+//    java.lang.instrument.Instrumentation.getObjectSize(m)
+    
+	  //TODO: find out how to measure size of object in scala
   }
   
 }

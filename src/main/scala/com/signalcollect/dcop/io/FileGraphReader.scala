@@ -38,13 +38,9 @@ class FileGraphReader {
   def readToMap(fileName: String): HashMap[Int, SimpleVertex] = {
     val map: HashMap[Int, SimpleVertex] = new HashMap()
     val list = readToList(fileName)
-    println("Read vertices into Vertex-list from file")
-    println
-    println("Iterating through vertex-list, putting (id, SimpleVertex) into a map:")
     list.foreach {
       element =>
         map += (element.id -> element)
-        println("(id, simpleVertex) = " + (element.id -> element))
     }
     println
     map
@@ -58,7 +54,6 @@ class FileGraphReader {
 
   private def findNeighbors(vertexId: Int, set: LinkedHashSet[Set[Int]]) = {
     var neighborSet = Set[Int]()
-    println("Finding neighbors of vertex " + vertexId)
     set.foreach(
       s =>
         if (s.contains(vertexId)) {
@@ -66,7 +61,6 @@ class FileGraphReader {
             i =>
               if (i != vertexId) {
                 neighborSet += i
-                println("Vertex " + i)
               })
         })
     neighborSet
@@ -86,31 +80,16 @@ class FileGraphReader {
       neighborSetForVariable += current.functionVertex.id
       neighborSetForFunction += current.variableVertex.id
 
-      println("CurrentVar: " + current.variableVertex.id.id + " CurrentFunct: " + current.functionVertex.id.id)
-
       current.neighborhood.foreach { neighborId =>
 
         val simpleVertex = vertices(neighborId)
 
         neighborSetForVariable += simpleVertex.functionVertex.id
         neighborSetForFunction += simpleVertex.variableVertex.id
-
-        println("neighborVar: " + simpleVertex.variableVertex.id.id + " neighborFunct: " + simpleVertex.functionVertex.id.id)
-
       }
 
       ProblemConstants.neighborStructure += (current.variableVertex.id -> neighborSetForVariable)
       ProblemConstants.neighborStructure += (current.functionVertex.id -> neighborSetForFunction)
-
-      println("Current neighborhood size: " + current.neighborhood.size)
-      println("neighborhoodstructure: " + current.variableVertex.id.id)
-      ProblemConstants.neighborStructure(current.variableVertex.id).foreach { n =>
-        if (n == null) {
-          println("null")
-        } else {
-          println(n.id)
-        }
-      }
 
     }
     println("Storing of neighborhood structure successfully completed.")
