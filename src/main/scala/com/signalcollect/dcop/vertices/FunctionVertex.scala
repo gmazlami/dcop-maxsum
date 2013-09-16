@@ -27,6 +27,8 @@ import scala.collection.mutable.ArrayBuffer
 
 class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
 
+	var stepCounter = 0
+  
 	type Signal = MaxSumMessage
 	
 	def collect =  {
@@ -36,6 +38,7 @@ class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
 	    checkMessageConvergence(message)
 	    receivedMessages += (currentId -> message)
 	  }
+	  stepCounter += 1
 	  0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem
 	}
 	

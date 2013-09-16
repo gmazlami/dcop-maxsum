@@ -30,6 +30,6 @@ object GlobalMeasurer{
 //  
 //  val brInstrument : MeasuringInstrument = new MeasuringInstrument("BR")
 //  
-//  val maxsumInstrument : MeasuringInstrument = new MeasuringInstrument("Max-Sum")
+  var maxsumInstrument : MeasuringInstrument = null
 //  
 }

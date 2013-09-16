@@ -22,9 +22,13 @@ package com.signalcollect.dcop.util
 import scala.collection.mutable.HashMap
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.vertices.SimpleVertex
+import com.signalcollect.dcop.vertices.MaxSumVertex
 
 object ProblemConstants {
 
+  var globalVertexList : List[SimpleVertex] = null
+  
   var colors: Set[Int] = Set()
 
   var numOfColors: Int = 0
@@ -49,5 +53,8 @@ object ProblemConstants {
     }.get
   }
 
+  def findVertexWithId(id : MaxSumId) : MaxSumVertex = {
+    globalVertexList.find(element => element.variableVertex.id == id).get.variableVertex
+  }
 
 }

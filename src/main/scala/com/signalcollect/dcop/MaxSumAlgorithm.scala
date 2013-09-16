@@ -31,12 +31,14 @@ import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 import com.signalcollect.dcop.evaluation.statistics.OptimumObserver
 import scala.collection.mutable.HashMap
 import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
+import com.signalcollect.dcop.evaluation.statistics.GlobalMeasurer
+import com.signalcollect.dcop.evaluation.statistics.MeasuringInstrument
 
 
 
 object MaxSumAlgorithm extends App{
 
-  val fileName : String = "graphs/rectangle.txt"
+  val fileName : String = "graphs/full-graph-20.txt"
   
   println("--------------------------------------------------")
   println("STARTING INITIALIZATION")
@@ -51,6 +53,8 @@ object MaxSumAlgorithm extends App{
   
   val simpleGraph = reader.readToMap(fileName)
   val simpleGraphList = reader.readToList(fileName)
+  
+  ProblemConstants.globalVertexList = simpleGraphList
   
   println("Reading of simple graph succesfully completed.")
   println("--------------------------------------------------")
@@ -68,23 +72,28 @@ object MaxSumAlgorithm extends App{
   println("--------------------------------------------------")
   println("Initialization of Problem-Constants started")
   
-  ProblemConstants.numOfColors = 2 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
-  ProblemConstants.colors = Set(0,1)
-//  ProblemConstants.initialPreferences += (new MaxSumId(0,0) -> ArrayBuffer(-0.1 , 0.1))
-//  ProblemConstants.initialPreferences += (new MaxSumId(1,0) -> ArrayBuffer(0.1 , -0.1))
-//  ProblemConstants.initialPreferences += (new MaxSumId(2,0) -> ArrayBuffer(-0.1 , 0.1))
-//  ProblemConstants.initialPreferences += (new MaxSumId(3,0) -> ArrayBuffer(0.1 , -0.1))
+  ProblemConstants.numOfColors = 3 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   initializePrefs()
+  
   println("Preferences initialized.")
   
   reader.storeNeighborStructure(simpleGraphList, simpleGraph)
+  
   println("Initializing initial Messages at vertices with values (0.0 , 0.0 , 0.0 ... 0,0)")
+  
   simpleGraph.foreach{entry =>
     entry._2.functionVertex.initializeReceivedMessages
     entry._2.variableVertex.initializeReceivedMessages
   }  
+  
   println("Initialization of global problem constants successfully completed.")
   println("--------------------------------------------------")
+  
+  println
+  
+  println("Initializing measuring instruments....")
+  
+  GlobalMeasurer.maxsumInstrument = new MeasuringInstrument("Max-Sum", simpleGraphList)
   
   println
   
@@ -101,7 +110,7 @@ object MaxSumAlgorithm extends App{
   
   signalCollectFactorGraph.awaitIdle
   val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
-      ExecutionMode.Synchronous))
+      ExecutionMode.PureAsynchronous))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex(println(_))
@@ -154,6 +163,21 @@ object MaxSumAlgorithm extends App{
   }else{
     println("--> No optimal Solution found!")
   }
+  
+//  println
+//  println("StepCounter : ")
+//  println("---------")
+//  simpleGraphList.foreach{ el =>
+//    println(el.variableVertex.id.id + " steps: " + el.variableVertex.stepCounter )
+//    println(el.functionVertex.id.id + " steps: " + el.functionVertex.stepCounter )
+//  }  
+  
+  println
+  println("Num of conflicts over time: ")
+  GlobalMeasurer.maxsumInstrument.conflictsOverTime.foreach{ tuple =>
+    println("Step "+tuple._1 + " - " + tuple._2)
+  }
+  
   
   signalCollectFactorGraph.shutdown
   

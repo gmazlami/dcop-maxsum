@@ -25,7 +25,7 @@ import com.signalcollect.dcop.vertices.SimpleVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import com.signalcollect.dcop.MaxSumMessage
 
-class MeasuringInstrument(name : String, graph : List[SimpleVertex], results : HashMap[MaxSumId,Int]) {
+class MeasuringInstrument(name : String, graph : List[SimpleVertex]) {
 
   //the name of the algorithm being measured
   val algorithmName = name
@@ -38,28 +38,44 @@ class MeasuringInstrument(name : String, graph : List[SimpleVertex], results : H
   var cyclesToConvergence : Int = 0
   
   //holds a map <MaxSumId,Int> that has the vertex ids as keys and the respective vertice's state (color) as value
-  val stateMap = results
+//  val stateMap = results
   
   //holds a list containing all vertices of the graph
   val simpleGraph = graph
   
   //a function counting the number of total color conflicts between the vertices in the graph 
   private def computeConflicts() : Int = {
-    var conflicts = 0
-    simpleGraph.foreach{ simpleVertex =>
-      val vertex = simpleVertex.variableVertex
-      val color = stateMap(vertex.id)
-      
-      simpleVertex.neighborhood.foreach{ neighborNum =>
-        val otherVertex = findSimpleVertex(neighborNum)
-        val otherColor = stateMap(otherVertex.id)
-        
-        if(color == otherColor){
-          conflicts += 1
-        }
-      }
-    }
-    conflicts
+//    var conflicts = 0
+//    simpleGraph.foreach{ simpleVertex =>
+//      val vertex = simpleVertex.variableVertex
+//      val color = stateMap(vertex.id)
+//      
+//      simpleVertex.neighborhood.foreach{ neighborNum =>
+//        val otherVertex = findSimpleVertex(neighborNum)
+//        val otherColor = stateMap(otherVertex.id)
+//        
+//        if(color == otherColor){
+//          conflicts += 1
+//        }
+//      }
+//    }
+//    conflicts
+    0
+  }
+  
+  def updateConflictsOverTime(timeStep : Int){
+	var numConflicts = 0  
+    simpleGraph.foreach{ el =>
+	    val vv = el.variableVertex
+	    el.neighborhood.foreach{ neighborNum =>
+	      val neighborVariable = findSimpleVertex(neighborNum)
+	      if(neighborVariable.currentColor == vv.currentColor){
+	        numConflicts += 1
+	      }
+	    }
+	}
+	println("UPDATE conflicts: " +  timeStep + " - " + numConflicts/2)
+	conflictsOverTime += (timeStep -> numConflicts/2)
   }
   
   //auxiliary function

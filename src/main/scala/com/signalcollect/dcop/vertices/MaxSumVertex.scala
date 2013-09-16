@@ -30,8 +30,6 @@ import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 
 abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
 	
-	var stepCounter : Int = 0
-	
 	var lastMessage : MaxSumMessage = null
 	
 	var receivedMessages : HashMap[MaxSumId,MaxSumMessage] = null
@@ -57,6 +55,18 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	  
 	  //this doesn't work:
 //	  outgoingEdges.keys.asInstanceOf[ArrayBuffer[MaxSumId]]
+	}
+	
+	def getNeighborVertices : ArrayBuffer[MaxSumVertex] = {
+	  var resultSet : ArrayBuffer[MaxSumVertex] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
+      var index = 0
+      
+      outgoingEdges.keys.foreach{key =>
+	    val vv = ProblemConstants.findVertexWithId(key.asInstanceOf[MaxSumId])
+	    resultSet(index) = vv
+	    index += 1
+	  }
+	  resultSet
 	}
 	
 	def readyToMessage : Boolean = {
@@ -94,5 +104,15 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 		  }
 	  }
 	}
+	
+	
+	def getNumOfConflicts() : Int = {
+	  0
+	}
+	
+	def getConflictsAndStep() : Map[Int,Int] = {
+	  val dummy : Map[Int,Int] = Map()
+	  dummy
+	} 
 	
 }

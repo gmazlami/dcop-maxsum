@@ -85,4 +85,30 @@ class DSAVertexBuilder(randomInitialState: Boolean, variant: DSAVariant, pSchedu
 abstract class DSAVertex(id: Any, initialState: Int, possibleValues: Array[Int])
   extends ColorConstrainedVertex[Any,Int](id, initialState, possibleValues)
   with RandomStateSearch[Int]
-  with MapUtilityTarget[Int]
+  with MapUtilityTarget[Int] {
+  
+   override def collect = {
+
+    stepCounter += 1
+
+    // Hook for certain algorithms that need to modify their state
+    // For example DSAN needs to lower its temperature or FP needs to
+    // update its neighbourFrequencies.
+    // Default is to to nothing here.
+    doBeforeCollect
+
+    // If the algorithm should even bother to compute a new state
+    val stateToReturn = if (shouldComputeNewState) {
+      val newState = chooseNewState()
+      newState
+    } else {
+      state
+    }
+    
+//    println("Step: " + stepCounter)
+//    println("stateToReturn: " + stateToReturn)
+    
+    stateToReturn
+  }
+  
+}

@@ -26,6 +26,7 @@ import scala.collection.immutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
+import com.signalcollect.dcop.evaluation.statistics.GlobalMeasurer
 
 class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
 
@@ -34,6 +35,10 @@ class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
   var marginal : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0) 
   
   var lastColor : Int = -1
+  
+  var stepCounter = 0
+  
+  var currentColor :Int = -1
   
   def collect =  {
 	  mostRecentSignalMap.foreach{ mapEntry =>
@@ -51,8 +56,13 @@ class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
 		  }
 	    
 	  }
-	  
-	  findResultingColorFromMarginal
+	  stepCounter += 1
+	  println("Collect operation step " + stepCounter)
+	  currentColor = findResultingColorFromMarginal
+	  	  
+	  //record current number of conflicts at this time step (for synchronous mode)
+	  GlobalMeasurer.maxsumInstrument.updateConflictsOverTime(stepCounter)
+	  currentColor
 	}
 
   
@@ -82,5 +92,20 @@ class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
 		  }
 	  }
   }
-
+  
+  override def getNumOfConflicts() : Int = {
+    var conflicts = 0
+    val neighbors = getNeighborVertices
+    neighbors.foreach{n =>
+      val vertex = n.asInstanceOf[VariableVertex]
+      if(vertex.currentColor == currentColor){
+        conflicts += 1
+      }
+    }
+    conflicts
+  }
+  
+  override def getConflictsAndStep() : Map[Int,Int] = {
+    Map(stepCounter -> getNumOfConflicts)
+  }
 }
