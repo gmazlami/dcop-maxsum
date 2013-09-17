@@ -27,7 +27,6 @@ import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.MaxSumMessage
 import scala.math._
-import com.signalcollect.dcop.exceptions.TableEntryNotFoundException
 
 class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   
@@ -109,7 +108,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
      */
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
       variableValues(0) = outerColor
-      println("R_m_n("+outerColor +") : ")
+//      println("R_m_n("+outerColor +") : ")
       R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
     }
     

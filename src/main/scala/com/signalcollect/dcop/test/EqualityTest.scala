@@ -20,6 +20,8 @@
 package com.signalcollect.dcop.test
 
 import com.signalcollect.dcop.vertices.id.MaxSumId
+import com.signalcollect.dcop.MaxSumMessage
+import scala.collection.mutable.ArrayBuffer
 
 object EqualityTest extends App {
 
@@ -40,5 +42,11 @@ object EqualityTest extends App {
   }else{
     println("WRONG! id3 should be equal to id1")
   }
+  
+  val m1 = new MaxSumMessage(id1,id2,ArrayBuffer(0.0,0.0))
+  val m2 = new MaxSumMessage(id1,id2,ArrayBuffer(0.0,0.0))
+  val m3 = new MaxSumMessage(id1,id2,ArrayBuffer(0.0,0.1))
+  
+  if(m1 == m3) println("YES") else println("NO")
   
 }

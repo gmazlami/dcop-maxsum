@@ -1,5 +1,6 @@
 /*
  *  @author Robin Hafen
+ *  @author modified by Genc Mazlami
  *
  *  Copyright 2013 University of Zurich
  *
@@ -105,10 +106,19 @@ abstract class DSAVertex(id: Any, initialState: Int, possibleValues: Array[Int])
       state
     }
     
-//    println("Step: " + stepCounter)
-//    println("stateToReturn: " + stateToReturn)
     
     stateToReturn
+  }
+   
+  def getNumOfConflicts() = {
+    var conflicts = 0
+    val neighborConfig = getNeighbourConfigs
+    neighborConfig.values.foreach{ value =>
+      if(value == state){
+        conflicts += 1
+      }
+    }
+    conflicts
   }
   
 }

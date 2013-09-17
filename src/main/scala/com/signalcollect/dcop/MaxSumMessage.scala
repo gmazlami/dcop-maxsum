@@ -36,11 +36,19 @@ class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends 
    */
   def valueEquals(other : MaxSumMessage) = {
     var equal : Boolean = true
-    for(i <- 0 to ProblemConstants.numOfColors - 1){
+    for(i <- 0 to value.length - 1){
       if(value(i) != other.value(i)){
         equal = false
       }
     }
     equal
   }
+  
+  override def equals(other : Any) : Boolean = {
+    other match {
+      case x: MaxSumMessage => (valueEquals(x) && (x.source == source) && (x.target == target))
+      case _ => false
+    }
+  }
+  
 }

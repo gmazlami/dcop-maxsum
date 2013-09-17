@@ -26,9 +26,8 @@ import com.signalcollect.Edge
 import java.io.File
 import java.io.PrintWriter
 import java.io.FileNotFoundException
-
-
 import com.signalcollect.dcop.evaluation.candidates.ConstraintGraphProvider
+import com.signalcollect.dcop.io.AdoptFileReader
 
 
 
@@ -50,7 +49,7 @@ class BinaryConstraintGraphProvider(
     val meanDegree: Double,
     val domainSize: Int,
     val saveTo: Option[String] = None,
-    val loadFrom: String )
+    val loadFrom: String,val isAdopt : Boolean )
   extends ConstraintGraphProvider[Any, Any] {
 
   type Degree = Double
@@ -88,6 +87,13 @@ class BinaryConstraintGraphProvider(
       case e: FileNotFoundException => throw e
     }
     (undirectedEdges, -1.0)
+  }
+  
+  def fromAdopt(fileName : String) = {
+    val reader = new AdoptFileReader(fileName)
+    reader.read
+    val tuple = reader.getGraphTuple
+    (tuple._1, -1.0)
   }
 
   /*
@@ -224,7 +230,16 @@ class BinaryConstraintGraphProvider(
 
     // Load a previously computed and saved graph from file
     // or calculate a new one
-    val (undirectedEdges, actualDegree) = fromEdgeList(loadFrom)
+    
+    var tuple : Tuple2[LinkedHashSet[Set[Int]],Degree] = null
+    
+    //check which format to load
+    if(isAdopt){
+        tuple = fromAdopt(loadFrom)
+    }else{
+    	tuple = fromEdgeList(loadFrom)
+    }
+    val (undirectedEdges, actualDegree) = tuple
 
     
     // Add vertices to the graph

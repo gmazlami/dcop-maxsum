@@ -22,7 +22,7 @@ package com.signalcollect.dcop.vertices
 import com.signalcollect.DataGraphVertex
 import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.dcop.vertices.id.MaxSumId
-import scala.collection.immutable.HashMap
+import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
@@ -33,7 +33,7 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
   type Signal = MaxSumMessage
 
   var marginal: ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
-
+  
   var lastColor: Int = -1
 
   var stepCounter = 0
@@ -44,7 +44,6 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]
-      checkMessageConvergence(message)
       receivedMessages += (currentId -> message)
     }
 
@@ -59,8 +58,6 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     stepCounter += 1
     currentColor = findResultingColorFromMarginal
     ProblemConstants.setColorToVariableVertex(id, currentColor)
-    //record current number of conflicts at this time step (for synchronous mode)
-    GlobalMeasurer.maxsumInstrument.updateConflictsOverTime(stepCounter)
     currentColor
   }
 
@@ -77,17 +74,6 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     maxColor
   }
 
-  private def checkStateConvergence(newColor: Int) = {
-    if (lastColor == -1) {
-      lastColor = newColor
-    } else {
-      if (lastColor == newColor) {
-        ConvergenceObserver.stateConvergedVertices += (id -> true)
-      } else {
-        lastColor = newColor
-      }
-    }
-  }
 
   override def getNumOfConflicts(): Int = {
     var conflicts = 0
@@ -96,22 +82,19 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     neighbors.foreach { n =>
       val vertex = n.asInstanceOf[VariableVertex]
       if (vertex.id != id.asInstanceOf[MaxSumId]) {
-        println("config:  " + id.id + "=" + currentColor + " -VS- " + vertex.id.id + "=" + vertex.currentColor)
         if (currentColor == vertex.currentColor) {
           conflicts += 1
         }
       }
     }
-    println("GetNumOfConflicts for " + id.id + " = " + conflicts)
-    println
     conflicts
 
   }
 
-  override def getConflictsAndStep(): Map[Int, Int] = {
-    Map(stepCounter -> getNumOfConflicts)
-  }
-
+  override def scoreSignal : Double = 1
+  
+  override def scoreCollect : Double = 1
+  
   private def findColorForPref() = {
     var max = Double.MinValue
     var maxColor = -1
@@ -124,28 +107,6 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
       }
     }
     maxColor
-  }
-
-  override def scoreSignal: Double = {
-//    val con = getNumOfConflicts
-//    if (con > 0) {
-//      println(id.id + " SIGNALS with conflicts " + con)
-//      1
-//    } else {
-//      0
-//    }
-    1
-  }
-
-  override def scoreCollect: Double = {
-//    val con = getNumOfConflicts
-//    if (con > 0) {
-//      println(id.id + " COLLECTS with conflicts " + con)
-//      1
-//    } else {
-//      0
-//    }
-    1
   }
 
 }

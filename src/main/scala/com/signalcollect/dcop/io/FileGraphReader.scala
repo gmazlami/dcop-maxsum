@@ -27,6 +27,7 @@ import scala.collection.mutable.HashMap
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.vertices.SimpleVertex
 
 class FileGraphReader {
 
@@ -42,10 +43,26 @@ class FileGraphReader {
       element =>
         map += (element.id -> element)
     }
-    println
     map
   }
 
+  def readFromAdoptFileToList(fileName : String) = {
+    val reader = new AdoptFileReader(fileName)
+    reader.read()
+    val tuple = reader.getGraphTuple
+    toSimpleGraph(tuple._1,tuple._2)
+  }
+  
+  def readFromAdoptFileToMap(fileName : String) = {
+	val map: HashMap[Int, SimpleVertex] = new HashMap()
+	val list = readFromAdoptFileToList(fileName)
+	 list.foreach {
+      element =>
+        map += (element.id -> element)
+    }
+    map
+  }
+  
   private def toSimpleGraph(set: LinkedHashSet[Set[Int]], vertices: scala.collection.mutable.Set[Int]) = {
     var simpleGraph = List[SimpleVertex]()
     vertices.foreach(v => simpleGraph = simpleGraph :+ new SimpleVertex(v, findNeighbors(v, set)))

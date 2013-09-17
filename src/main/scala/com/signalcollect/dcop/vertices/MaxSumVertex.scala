@@ -27,11 +27,24 @@ import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
+import com.signalcollect.GraphEditor
 
 abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
 	
-	var lastMessage : MaxSumMessage = null
-	
+  
+  var stateUpToDate: Boolean = true
+  
+//  override def deliverSignal(signal: Any, sourceId: Option[Any], graphEditor: GraphEditor[Any, Any]): Boolean = {
+//    val cached = mostRecentSignalMap.get(sourceId.get)
+//    if (signal != cached) {
+//      stateUpToDate = false
+//    }
+//    super.deliverSignal(signal, sourceId, graphEditor)
+//  }
+  
+//  def scoreCollect = if (stateUpToDate) 0 else 1
+  
+  
 	var receivedMessages : HashMap[MaxSumId,MaxSumMessage] = null
 	  
     def initializeReceivedMessages = {
@@ -91,26 +104,9 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	  resultSet
 	}
 	
-	protected def checkMessageConvergence(newMessage : MaxSumMessage) = {
-	  if(lastMessage == null){
-	    lastMessage = newMessage
-	  }else{
-		  if(lastMessage.valueEquals(newMessage)){
-			  ConvergenceObserver.messageConvergedVertices += (id -> true)
-		  }else{
-			  lastMessage = newMessage
-		  }
-	  }
-	}
-	
 	
 	def getNumOfConflicts() : Int = {
 	  0
 	}
-	
-	def getConflictsAndStep() : Map[Int,Int] = {
-	  val dummy : Map[Int,Int] = Map()
-	  dummy
-	} 
 	
 }
