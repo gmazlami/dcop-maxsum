@@ -24,6 +24,7 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.vertices.SimpleVertex
 import com.signalcollect.dcop.vertices.MaxSumVertex
+import com.signalcollect.dcop.vertices.VariableVertex
 
 object ProblemConstants {
 
@@ -53,8 +54,14 @@ object ProblemConstants {
     }.get
   }
 
-  def findVertexWithId(id : MaxSumId) : MaxSumVertex = {
-    globalVertexList.find(element => element.variableVertex.id == id).get.variableVertex
+  def findVariableVertexWithIdNum(idNum : Int) : MaxSumVertex = {
+    globalVertexList.find(element => element.id == idNum).get.variableVertex
   }
+  
+  def setColorToVariableVertex(id : MaxSumId, color : Int) = {
+    val vv = findVariableVertexWithIdNum(id.idNumber).asInstanceOf[VariableVertex]
+    vv.currentColor = color
+  }
+  
 
 }

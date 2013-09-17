@@ -46,8 +46,8 @@ class FactorGraphTransformer {
 	val graph = GraphBuilder.build
 	graph.awaitIdle
     
-	println("Iterating through simpleVertexMap:")
-	println
+//	println("Iterating through simpleVertexMap:")
+//	println
 	
 	if(simpleVertexMap.values.isEmpty){
 	  println("ERROR: simpleVertexMap is empty")
@@ -63,10 +63,10 @@ class FactorGraphTransformer {
     		graph.addVertex(vertex.variableVertex)
     		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
     		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
-    		println("Expanded Vertices " + vertex.functionVertex.id.id + " and " + vertex.variableVertex.id.id +" and connected them.")
+//    		println("Expanded Vertices " + vertex.functionVertex.id.id + " and " + vertex.variableVertex.id.id +" and connected them.")
     		//
     		
-    		println("Iterating through neighborhood of " + vertex.functionVertex.id.id + " and " + vertex.variableVertex.id.id + ":" )
+//    		println("Iterating through neighborhood of " + vertex.functionVertex.id.id + " and " + vertex.variableVertex.id.id + ":" )
     		
     		if(vertex.neighborhood.isEmpty){
     		  println("ERROR: neighborhood of vertex " + vertex + " is emtpy ")
@@ -80,7 +80,7 @@ class FactorGraphTransformer {
     				  graph.addVertex(neighborVertex.functionVertex)
     				  graph.addVertex(neighborVertex.variableVertex)
     				  
-    				  println("Current neighbor (variable and function): " +neighborVertex.variableVertex.id.id + " and " + neighborVertex.functionVertex.id.id )
+//    				  println("Current neighbor (variable and function): " +neighborVertex.variableVertex.id.id + " and " + neighborVertex.functionVertex.id.id )
     				  
     				  //connect to bidirectionally
     				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id))
@@ -92,7 +92,7 @@ class FactorGraphTransformer {
     				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
     				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
     		}
-    		println("---------")
+//    		println("---------")
 	}
     graph
   }

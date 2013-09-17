@@ -74,7 +74,6 @@ class MeasuringInstrument(name : String, graph : List[SimpleVertex]) {
 	      }
 	    }
 	}
-	println("UPDATE conflicts: " +  timeStep + " - " + numConflicts/2)
 	conflictsOverTime += (timeStep -> numConflicts/2)
   }
   

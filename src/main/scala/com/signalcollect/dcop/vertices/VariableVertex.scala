@@ -28,84 +28,124 @@ import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 import com.signalcollect.dcop.evaluation.statistics.GlobalMeasurer
 
-class VariableVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id,state){
+class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
   type Signal = MaxSumMessage
-  
-  var marginal : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0) 
-  
-  var lastColor : Int = -1
-  
+
+  var marginal: ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
+
+  var lastColor: Int = -1
+
   var stepCounter = 0
-  
-  var currentColor :Int = -1
-  
-  def collect =  {
-	  mostRecentSignalMap.foreach{ mapEntry =>
-	    val currentId = mapEntry._1.asInstanceOf[MaxSumId]
-	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
-	    checkMessageConvergence(message)
-	    receivedMessages += (currentId -> message)
-	  }
 
-	  //compute updated marginal with new received messages
-	  marginal = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)  
-	  for(color <- 0 to ProblemConstants.numOfColors - 1){
-		  receivedMessages.values.foreach{message =>
-		  	marginal(color)  +=  message.value(color)
-		  }
-	    
-	  }
-	  stepCounter += 1
-	  println("Collect operation step " + stepCounter)
-	  currentColor = findResultingColorFromMarginal
-	  	  
-	  //record current number of conflicts at this time step (for synchronous mode)
-	  GlobalMeasurer.maxsumInstrument.updateConflictsOverTime(stepCounter)
-	  currentColor
-	}
+  var currentColor: Int = -1
 
-  
-  
-  
-  private def findResultingColorFromMarginal() : Int = {
+  def collect = {
+    mostRecentSignalMap.foreach { mapEntry =>
+      val currentId = mapEntry._1.asInstanceOf[MaxSumId]
+      val message = mapEntry._2.asInstanceOf[MaxSumMessage]
+      checkMessageConvergence(message)
+      receivedMessages += (currentId -> message)
+    }
+
+    //compute updated marginal with new received messages
+    marginal = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
+    for (color <- 0 to ProblemConstants.numOfColors - 1) {
+      receivedMessages.values.foreach { message =>
+        marginal(color) += message.value(color)
+      }
+
+    }
+    stepCounter += 1
+    currentColor = findResultingColorFromMarginal
+    ProblemConstants.setColorToVariableVertex(id, currentColor)
+    //record current number of conflicts at this time step (for synchronous mode)
+    GlobalMeasurer.maxsumInstrument.updateConflictsOverTime(stepCounter)
+    currentColor
+  }
+
+  private def findResultingColorFromMarginal(): Int = {
     var max = Double.MinValue
     var maxColor = -1
-    for(color <- 0 to ProblemConstants.numOfColors - 1){
+    for (color <- 0 to ProblemConstants.numOfColors - 1) {
       val value = marginal(color)
-      if(max < value){
+      if (max < value) {
         max = value
         maxColor = color
       }
     }
-    maxColor    
+    maxColor
   }
-  
-  private def checkStateConvergence(newColor : Int) = {
-    if(lastColor == -1){
-    	lastColor = newColor
-    }else{
-		  if(lastColor == newColor){
-			  ConvergenceObserver.stateConvergedVertices += (id -> true)
-		  }else{
-			  lastColor = newColor
-		  }
-	  }
-  }
-  
-  override def getNumOfConflicts() : Int = {
-    var conflicts = 0
-    val neighbors = getNeighborVertices
-    neighbors.foreach{n =>
-      val vertex = n.asInstanceOf[VariableVertex]
-      if(vertex.currentColor == currentColor){
-        conflicts += 1
+
+  private def checkStateConvergence(newColor: Int) = {
+    if (lastColor == -1) {
+      lastColor = newColor
+    } else {
+      if (lastColor == newColor) {
+        ConvergenceObserver.stateConvergedVertices += (id -> true)
+      } else {
+        lastColor = newColor
       }
     }
-    conflicts
   }
-  
-  override def getConflictsAndStep() : Map[Int,Int] = {
+
+  override def getNumOfConflicts(): Int = {
+    var conflicts = 0
+
+    val neighbors = getNeighborVertices
+    neighbors.foreach { n =>
+      val vertex = n.asInstanceOf[VariableVertex]
+      if (vertex.id != id.asInstanceOf[MaxSumId]) {
+        println("config:  " + id.id + "=" + currentColor + " -VS- " + vertex.id.id + "=" + vertex.currentColor)
+        if (currentColor == vertex.currentColor) {
+          conflicts += 1
+        }
+      }
+    }
+    println("GetNumOfConflicts for " + id.id + " = " + conflicts)
+    println
+    conflicts
+
+  }
+
+  override def getConflictsAndStep(): Map[Int, Int] = {
     Map(stepCounter -> getNumOfConflicts)
   }
+
+  private def findColorForPref() = {
+    var max = Double.MinValue
+    var maxColor = -1
+    val array = ProblemConstants.initialPreferences(id.asInstanceOf[MaxSumId])
+    for (color <- 0 to ProblemConstants.numOfColors - 1) {
+      val value = array(color)
+      if (value > max) {
+        max = value
+        maxColor = color
+      }
+    }
+    maxColor
+  }
+
+  override def scoreSignal: Double = {
+//    val con = getNumOfConflicts
+//    if (con > 0) {
+//      println(id.id + " SIGNALS with conflicts " + con)
+//      1
+//    } else {
+//      0
+//    }
+    1
+  }
+
+  override def scoreCollect: Double = {
+//    val con = getNumOfConflicts
+//    if (con > 0) {
+//      println(id.id + " COLLECTS with conflicts " + con)
+//      1
+//    } else {
+//      0
+//    }
+    1
+  }
+
 }

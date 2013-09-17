@@ -34,10 +34,10 @@ class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
   def signal = Q_n_m
   
   def Q_n_m = {
-    println
-    println("--------------------------------------------------")
-    println("Computing message Q_" +source.id.id + "->" + targetId.id)
-    println("--------------------------------------------------")
+//    println
+//    println("--------------------------------------------------")
+//    println("Computing message Q_" +source.id.id + "->" + targetId.id)
+//    println("--------------------------------------------------")
     
     //the variables from which the received messages will be summed to compute the new message
     val variableIdSet = source.getNeighborIds - (targetId.asInstanceOf[MaxSumId])
@@ -57,8 +57,8 @@ class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
         }
       }
     }
-    println("Q_" +source.id.id + "->" + targetId.id + " = " + resultMessage)
-    println("--------------------------------------------------")
+//    println("Q_" +source.id.id + "->" + targetId.id + " = " + resultMessage)
+//    println("--------------------------------------------------")
     
     new MaxSumMessage(source.id, targetId,resultMessage)
   }

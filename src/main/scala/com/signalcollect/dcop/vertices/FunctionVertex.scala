@@ -22,24 +22,59 @@ package com.signalcollect.dcop.vertices
 import com.signalcollect.DataGraphVertex
 import com.signalcollect.dcop.MaxSumMessage
 import com.signalcollect.dcop.vertices.id.MaxSumId
-import scala.collection.immutable.HashMap
+import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 
-class FunctionVertex(id:MaxSumId, state:Int) extends MaxSumVertex(id, state){
+class FunctionVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
-	var stepCounter = 0
+  var stepCounter = 0
+
+  var lastMessages: HashMap[MaxSumId, MaxSumMessage] = HashMap()
+
+  type Signal = MaxSumMessage
+
+  def collect = {
+    mostRecentSignalMap.foreach { mapEntry =>
+      val currentId = mapEntry._1.asInstanceOf[MaxSumId]
+      val message = mapEntry._2.asInstanceOf[MaxSumMessage]
+      checkMessageConvergence(message)
+      receivedMessages += (currentId -> message)
+      lastMessages = receivedMessages
+    }
+    stepCounter += 1
+    0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem
+  }
+
+  override def scoreSignal: Double = {
+//    if (messagesChanged) {
+//      1
+//    } else {
+//      0
+//    }
+    1
+  }
   
-	type Signal = MaxSumMessage
-	
-	def collect =  {
-	  mostRecentSignalMap.foreach{ mapEntry =>
-	    val currentId = mapEntry._1.asInstanceOf[MaxSumId]
-	    val message = mapEntry._2.asInstanceOf[MaxSumMessage]
-	    checkMessageConvergence(message)
-	    receivedMessages += (currentId -> message)
-	  }
-	  stepCounter += 1
-	  0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem
-	}
-	
+  override def scoreCollect : Double = {
+    1
+  }
+
+  private def messagesChanged(): Boolean = {
+    var result = true
+    if (receivedMessages != null && lastMessages != null) {
+      if (!receivedMessages.isEmpty && !lastMessages.isEmpty) {
+        result = false
+        receivedMessages.foreach { m =>
+          val lastMessageVal = lastMessages(m._1)
+          if (lastMessageVal == null) {
+            result = true
+          } else {
+            if (!lastMessageVal.valueEquals(m._2)) {
+              result = true
+            }
+          }
+        }
+      }
+    }
+    result
+  }
 }

@@ -53,8 +53,6 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	  }
 	  resultSet
 	  
-	  //this doesn't work:
-//	  outgoingEdges.keys.asInstanceOf[ArrayBuffer[MaxSumId]]
 	}
 	
 	def getNeighborVertices : ArrayBuffer[MaxSumVertex] = {
@@ -62,7 +60,7 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
       var index = 0
       
       outgoingEdges.keys.foreach{key =>
-	    val vv = ProblemConstants.findVertexWithId(key.asInstanceOf[MaxSumId])
+	    val vv = ProblemConstants.findVariableVertexWithIdNum(key.asInstanceOf[MaxSumId].idNumber)
 	    resultSet(index) = vv
 	    index += 1
 	  }

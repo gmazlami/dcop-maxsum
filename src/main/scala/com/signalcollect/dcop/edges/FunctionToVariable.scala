@@ -69,12 +69,12 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
       initializedConstants = true
     }
     
-    println
-    println("--------------------------------------------------")
-    println("Computing message R_" +source.id.id + "->" + targetId.id)
-    println("--------------------------------------------------")
-    println("OwnedVariable = " + ownedVariable.id)
-    println("DependingVariable = "+ dependingVariable.id)
+//    println
+//    println("--------------------------------------------------")
+//    println("Computing message R_" +source.id.id + "->" + targetId.id)
+//    println("--------------------------------------------------")
+//    println("OwnedVariable = " + ownedVariable.id)
+//    println("DependingVariable = "+ dependingVariable.id)
     
     // fill table with needed data for the cross products in the subtractive part
 	subtractiveStructure()
@@ -101,7 +101,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 	
     val R_m_n : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     
-    println("Computing maximization: ")
+//    println("Computing maximization: ")
     /*
      * loop over outerColor
      * outerColor is the color of the dependent variable
@@ -114,8 +114,8 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     }
     
     
-	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
-	println("--------------------------------------------------")
+//	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
+//	println("--------------------------------------------------")
     new MaxSumMessage(source.id,targetId,R_m_n)
   }
   
@@ -171,7 +171,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 
     //compute the total value 
     val result = preference - subtractiveTerm + messageSum
-    varnames.foreach(n => print(n.id + " ")) ; print(" with config ") ; varvalues.foreach(value => print(value + " ")) ; println(" max = " +  result)
+//    varnames.foreach(n => print(n.id + " ")) ; print(" with config ") ; varvalues.foreach(value => print(value + " ")) ; println(" max = " +  result)
     result
   } 
   

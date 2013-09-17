@@ -1,40 +1,21 @@
-/*
- *  @author Genc Mazlami
- *
- *  Copyright 2013 University of Zurich
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- *
- */
-
 package com.signalcollect.dcop.evaluation
 
-import com.signalcollect.dcop.io.FileGraphReader
-import com.signalcollect.dcop.graphs.FactorGraphTransformer
+import com.signalcollect.ExecutionConfiguration
+import com.signalcollect.configuration.ExecutionMode
+import com.signalcollect.dcop.termination.OptimalSolutionTerminationCondition
 
-object EvaluationRun extends App{
+object EvaluationRun extends App {
 
+  val asyncExConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withGlobalTerminationCondition(new OptimalSolutionTerminationCondition(100l)).withTimeLimit(5000)
+  val syncExConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withGlobalTerminationCondition(new OptimalSolutionTerminationCondition(1)).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(5)
   
-  //dummy utility function
-  val utilityFunction = (s : Set[Double]) => 0.0
+  val exConfig = asyncExConfig
+  val maxsum = new MaxSum("graphs/full-graph-4.txt", exConfig,3)
   
-  val reader : FileGraphReader = new FileGraphReader
-  val transformer : FactorGraphTransformer = new FactorGraphTransformer
+  maxsum.execute()
+  maxsum.printVertexStates()
+  maxsum.checkOptimalSolution()
+  maxsum.checkConvergence()
   
-  val simpleGraph = reader.readToMap("SOMEFILENAME")
-//  val signalCollectFactorGraph = transformer.transform(simpleGraph, utilityFunction,2)
-  
-  
-  
-  //TODO: run MaxSum with the transformed graph as an input
+  println("Steps: " + maxsum.statistics.executionStatistics.signalSteps)
 }

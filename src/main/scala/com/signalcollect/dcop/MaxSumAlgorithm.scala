@@ -33,6 +33,8 @@ import scala.collection.mutable.HashMap
 import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 import com.signalcollect.dcop.evaluation.statistics.GlobalMeasurer
 import com.signalcollect.dcop.evaluation.statistics.MeasuringInstrument
+import com.signalcollect.dcop.termination.OptimalSolutionTerminationCondition
+import com.signalcollect.dcop.termination.ConflictsOverTimeAggregationOperation
 
 
 
@@ -40,91 +42,94 @@ object MaxSumAlgorithm extends App{
 
   val fileName : String = "graphs/full-graph-20.txt"
   
-  println("--------------------------------------------------")
-  println("STARTING INITIALIZATION")
-  println("--------------------------------------------------")
+//  println("--------------------------------------------------")
+//  println("STARTING INITIALIZATION")
+//  println("--------------------------------------------------")
   
   val reader : FileGraphReader = new FileGraphReader
   val transformer : FactorGraphTransformer = new FactorGraphTransformer
   
-  println
-  println("--------------------------------------------------")
-  println("Reading simple graph from txt-File: " + fileName)
+//  println
+//  println("--------------------------------------------------")
+//  println("Reading simple graph from txt-File: " + fileName)
   
   val simpleGraph = reader.readToMap(fileName)
   val simpleGraphList = reader.readToList(fileName)
   
   ProblemConstants.globalVertexList = simpleGraphList
   
-  println("Reading of simple graph succesfully completed.")
-  println("--------------------------------------------------")
-  println
-  println("--------------------------------------------------")
-  println("Transformation of simple graph to Signal-Collect graph started.")
+//  println("Reading of simple graph succesfully completed.")
+//  println("--------------------------------------------------")
+//  println
+//  println("--------------------------------------------------")
+//  println("Transformation of simple graph to Signal-Collect graph started.")
   
   val signalCollectFactorGraph = transformer.transform(simpleGraph)
   
-  println("Transformation to Signal/Collect graph successfully completed.")
-  println("--------------------------------------------------")
+//  println("Transformation to Signal/Collect graph successfully completed.")
+//  println("--------------------------------------------------")
+//  
+//  println
+//  
+//  println("--------------------------------------------------")
+//  println("Initialization of Problem-Constants started")
   
-  println
-  
-  println("--------------------------------------------------")
-  println("Initialization of Problem-Constants started")
-  
-  ProblemConstants.numOfColors = 3 ; println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
+  ProblemConstants.numOfColors = 2  
+//  println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   initializePrefs()
   
-  println("Preferences initialized.")
+//  println("Preferences initialized.")
   
   reader.storeNeighborStructure(simpleGraphList, simpleGraph)
   
-  println("Initializing initial Messages at vertices with values (0.0 , 0.0 , 0.0 ... 0,0)")
+//  println("Initializing initial Messages at vertices with values (0.0 , 0.0 , 0.0 ... 0,0)")
   
   simpleGraph.foreach{entry =>
     entry._2.functionVertex.initializeReceivedMessages
     entry._2.variableVertex.initializeReceivedMessages
   }  
   
-  println("Initialization of global problem constants successfully completed.")
-  println("--------------------------------------------------")
-  
-  println
-  
-  println("Initializing measuring instruments....")
-  
+//  println("Initialization of global problem constants successfully completed.")
+//  println("--------------------------------------------------")
+//  
+//  println
+//  
+//  println("Initializing measuring instruments....")
+//  
   GlobalMeasurer.maxsumInstrument = new MeasuringInstrument("Max-Sum", simpleGraphList)
   
-  println
-  
-  println("------------------------------------------")
-  println("INITIALIZATION COMPLETED.")
-  println("------------------------------------------")
-  
-  println
-  
-  println("------------------------------------------")
-  println("EXECUTION OF MAX-SUM ALGORITHM STARTED:")
-  println("------------------------------------------")
-  println
-  
+//  println
+//  
+//  println("------------------------------------------")
+//  println("INITIALIZATION COMPLETED.")
+//  println("------------------------------------------")
+//  
+//  println
+//  
+//  println("------------------------------------------")
+//  println("EXECUTION OF MAX-SUM ALGORITHM STARTED:")
+//  println("------------------------------------------")
+//  println
+//  
   signalCollectFactorGraph.awaitIdle
   val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
-      ExecutionMode.PureAsynchronous))
+      ExecutionMode.PureAsynchronous).withGlobalTerminationCondition(new OptimalSolutionTerminationCondition(100l)).withTimeLimit(5000))
   println(stats)
 
-  signalCollectFactorGraph.foreachVertex(println(_))
+  val conflictsOverTime = signalCollectFactorGraph.aggregate(new ConflictsOverTimeAggregationOperation)
+  println("ConflictsOverTime: " +conflictsOverTime)
+//  signalCollectFactorGraph.foreachVertex(println(_))
   
-  println("------------------------------------------")
-  println("EXECUTION FINISHED")
-  println("------------------------------------------")
-  println
-  println("------------------------------------------")
-  println("RESULTS:")
-  println("------------------------------------------")
-  println
-  println("Convergence: ")
-  println("--------------------")
+//  println("------------------------------------------")
+//  println("EXECUTION FINISHED")
+//  println("------------------------------------------")
+//  println
+//  println("------------------------------------------")
+//  println("RESULTS:")
+//  println("------------------------------------------")
+//  println
+//  println("Convergence: ")
+//  println("--------------------")
   
   ConvergenceObserver.simpleVertices = simpleGraphList
   
@@ -190,6 +195,7 @@ object MaxSumAlgorithm extends App{
 	  pref(color) = 0.1
 	  ProblemConstants.initialPreferences += (variableId -> pref)
       color = (color + 1) % ProblemConstants.numOfColors
+      println("CurrentColor : " + el.variableVertex.currentColor)
 	}
   }
 }
