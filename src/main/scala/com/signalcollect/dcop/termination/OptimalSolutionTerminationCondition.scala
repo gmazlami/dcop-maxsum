@@ -20,9 +20,10 @@
 package com.signalcollect.dcop.termination
 
 import com.signalcollect.GlobalTerminationCondition
+import com.signalcollect.dcop.evaluation.maxsum.MaxSumConflictAggregationOperation
 
 class OptimalSolutionTerminationCondition(interval : Long) extends GlobalTerminationCondition[Int](
-     aggregationOperation = new ConflictAggregationOperation,
+     aggregationOperation = new MaxSumConflictAggregationOperation,
      aggregationInterval = interval,
      shouldTerminate = (x : Int) => if(x < 1) true else false){
 

@@ -23,6 +23,7 @@ import com.signalcollect.dcop.vertices.VariableVertex
 import com.signalcollect.dcop.vertices.MaxSumVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import com.signalcollect.dcop.vertices.FunctionVertex
+import com.signalcollect.configuration.ExecutionMode
 
 object DynamicBindingTest extends App {
 
@@ -31,4 +32,5 @@ object DynamicBindingTest extends App {
   
   println(a.getNumOfConflicts)
   println(b.getNumOfConflicts)
+  
 }

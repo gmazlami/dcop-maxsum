@@ -21,13 +21,12 @@ package com.signalcollect.dcop.evaluation
 
 import com.signalcollect.dcop.io.FileGraphReader
 import com.signalcollect.dcop.graphs.FactorGraphTransformer
-import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.ExecutionConfiguration
-import com.signalcollect.dcop.vertices.id.MaxSumId
-import scala.collection.mutable.HashMap
-import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.ExecutionInformation
-import com.signalcollect.dcop.termination.ConflictAggregationOperation
+import com.signalcollect.dcop.util.ProblemConstants
+import com.signalcollect.dcop.vertices.id.MaxSumId
+import scala.collection.mutable.ArrayBuffer
+import com.signalcollect.dcop.evaluation.maxsum.MaxSumConflictAggregationOperation
 
 class MaxSum(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean) {
 
@@ -67,7 +66,6 @@ class MaxSum(file: String, config: ExecutionConfiguration, numOfColors : Int, is
   def run() = {
     signalCollectFactorGraph.awaitIdle
     val stats = signalCollectFactorGraph.execute(executionConfig)
-    signalCollectFactorGraph.aggregate(new ConflictAggregationOperation)
   }
 
 

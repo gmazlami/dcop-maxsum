@@ -22,6 +22,7 @@ package com.signalcollect.dcop.evaluation
 import com.signalcollect.ExecutionConfiguration
 import com.signalcollect.configuration.ExecutionMode
 import com.signalcollect.dcop.termination.OptimalSolutionTerminationCondition
+import com.signalcollect.dcop.evaluation.MaxSum
 
 object EvaluationRun extends App {
 

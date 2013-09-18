@@ -27,7 +27,7 @@ import com.signalcollect.dcop.evaluation.candidates.DSAVariant
 import com.signalcollect.ExecutionConfiguration
 import com.signalcollect.configuration.ExecutionMode
 import com.signalcollect.StateForwarderEdge
-import com.signalcollect.dcop.aggregation.DSAConflictAggregationOperation
+import com.signalcollect.dcop.evaluation.dsa.DSAConflictAggregationOperation
 
 
 object DSAASyncStepsExecution extends App{

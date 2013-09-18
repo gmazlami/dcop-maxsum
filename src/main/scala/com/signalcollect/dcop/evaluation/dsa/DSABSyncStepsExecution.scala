@@ -28,12 +28,12 @@ import com.signalcollect.dcop.evaluation.candidates.DSAVariant
 import com.signalcollect.ExecutionConfiguration
 import com.signalcollect.configuration.ExecutionMode
 import com.signalcollect.StateForwarderEdge
-import com.signalcollect.dcop.aggregation.DSAConflictAggregationOperation
+import com.signalcollect.dcop.evaluation.dsa.DSAConflictAggregationOperation
 
 
 object DSABSyncStepsExecution extends App {
 
-    var graph: Graph[Any, Any] = _
+  var graph: Graph[Any, Any] = _
 
   val DSABalgorithm = new DSAVertexBuilder(false, DSAVariant.B, pSchedule = 0.45)
   
