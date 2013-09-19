@@ -5,7 +5,7 @@ import java.io.PrintWriter
 import java.io.File
 import java.util.Date
 
-class ResultWriter(mode: BenchmarkModes.Value, graphName: String, results: Any) {
+class ResultWriter(mode: BenchmarkModes.Value, graphName: String, algorithm : String , results: Any) {
 
   val path = {
     mode match {
@@ -21,7 +21,7 @@ class ResultWriter(mode: BenchmarkModes.Value, graphName: String, results: Any) 
   val modeName: String = mode.toString()
   val dateTime : Date = new Date(System.currentTimeMillis())
   val timeStamp = dateTime.getDate() +"-"+(dateTime.getMonth()+1)+"-"+(dateTime.getYear()+1900)+"T"+dateTime.getHours()+"-"+dateTime.getMinutes()+"-"+dateTime.getSeconds()
-  val fileName = modeName + "_" + graphName + "_" + timeStamp + ".txt"
+  val fileName = modeName + "_" + algorithm + "_" + graphName + "_" + timeStamp + ".txt"
   val newLine = "\n"
   val tabulator = "\t"
   val writer = new PrintWriter(new File(path + fileName))

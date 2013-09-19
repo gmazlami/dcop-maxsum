@@ -26,14 +26,14 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
 
   
   def executeWithAggregation() : Int = {
-    var conflicts = -1
     if(aggregation != null){
     	signalCollectFactorGraph.execute(executionConfig)
-    	conflicts =  signalCollectFactorGraph.aggregate(new MaxSumConflictAggregationOperation)
-    	conflicts
+    	signalCollectFactorGraph.aggregate(aggregation)
+    }else{
+      -1
     }
-    conflicts
   }
+
   
   def executeWithEndResult() : Int = {
     0

@@ -7,6 +7,7 @@ import com.signalcollect.dcop.evaluation.candidates.DSAVariant
 import com.signalcollect.dcop.evaluation.candidates.DSAVertexBuilder
 import com.signalcollect.dcop.evaluation.candidates.BinaryConstraintGraphProvider
 import com.signalcollect.GraphBuilder
+import com.signalcollect.StateForwarderEdge
 
 class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int], variant : DSAVariant.Value, p : Double) {
 
@@ -23,13 +24,30 @@ class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : In
   val algorithm = new DSAVertexBuilder(false, dsaVariant, pSchedule = pSched)
   val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(4, 2, 2, loadFrom = file, isAdopt = isInputAdopt)
   val graphBuilder = new GraphBuilder[Any, Any]()
-
   
-  def executeWithAggregation : Int = {
-    0
+  var conflictsOverTime : Map[Int,Int] = Map()
+  
+  // What edgeBuilder to use with this algorithm
+  val edgeBuilder = algorithm match {
+    case otherwise => (x: Int, y: Int) => new StateForwarderEdge(y)
+  }
+
+  graph = graphBuilder.build
+  graphProvider.populate(graph, algorithm, edgeBuilder)
+  graph.awaitIdle
+  
+  
+  
+  def executeWithAggregation() : Int = {
+    if(aggregation != null){
+      graph.execute(config)
+      graph.aggregate(aggregation)
+    }else{
+    	-1
+    }
   }
   
-  def executeWithEndResult : Int = {
+  def executeWithEndResult() : Int = {
     0
   }
 

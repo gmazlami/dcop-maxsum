@@ -30,8 +30,7 @@ class BRConflictAggregationOperation extends AggregationOperation[Int] {
    */
   def extract(v: Vertex[_, _]): Int = {
 	val vertex = v.asInstanceOf[BestResponseVertex]
-//	vertex.getNumOfConflicts //TODO: implement extract
-	0
+	vertex.getNumOfConflicts
   }
 
   /**

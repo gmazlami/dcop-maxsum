@@ -7,6 +7,8 @@ import com.signalcollect.ExecutionConfiguration
 import com.signalcollect.configuration.ExecutionMode
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.termination.OptimalSolutionTerminationCondition
+import com.signalcollect.dcop.vertices.MaxSumVertex
+import com.signalcollect.dcop.evaluation.maxsum.MaxSumConflictAggregationOperation
 
 object MaxSumTest extends App {
 
@@ -73,10 +75,16 @@ val fileName : String = "graphs/full-graph-20.txt"
 
   
   signalCollectFactorGraph.awaitIdle
-  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(
-      ExecutionMode.PureAsynchronous).withGlobalTerminationCondition(new OptimalSolutionTerminationCondition(100l)).withTimeLimit(5000))
+  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(100))
   println(stats)
 
+  signalCollectFactorGraph.foreachVertex{vertex =>
+    val msv = vertex.asInstanceOf[MaxSumVertex]
+    if(msv.id.isVariable){
+      println(msv.id.id + "  " + msv.getNumOfConflicts)
+    }
+  }
+  println(signalCollectFactorGraph.aggregate(new MaxSumConflictAggregationOperation))
   signalCollectFactorGraph.foreachVertex(println(_))
   
   println("------------------------------------------")

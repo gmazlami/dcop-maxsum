@@ -46,7 +46,20 @@ class BestResponseVertex(
   with CompleteSearch[Int]
   with ArgmaxBIDecision[Int]
   with MapUtilityTarget[Int]
-  with FloodSchedule
+  with FloodSchedule {
+  
+  def getNumOfConflicts() = {
+    var conflicts = 0
+    val neighborConfig = getNeighbourConfigs
+    neighborConfig.values.foreach{ value =>
+      if(value == state){
+        conflicts += 1
+      }
+    }
+    conflicts
+  }
+  
+}
 
 class BestResponseVertexBuilder(
     randomInitialState: Boolean,

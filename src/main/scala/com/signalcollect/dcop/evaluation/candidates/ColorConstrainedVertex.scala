@@ -123,7 +123,6 @@ abstract class ColorConstrainedVertex[Id, State](
     } else {
       state
     }
-
     stateToReturn
   }
 

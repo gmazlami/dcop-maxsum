@@ -69,17 +69,29 @@ class MaxSumAlgorithm(config : BenchmarkConfiguration) {
       println("Exiting...")
       System.exit(-1)
     }else{
-      //TODO: analyze sync
+      val partialResult = algorithm.executeWithAggregation()
+      if(partialResult == -1){
+         println("ERROR: executeWithAggregation failed, AggregationOperation was null")
+         System.exit(-1)
+      }else{
+    	 resultingConflicts = partialResult
+      }
     }
   }
   
-  private def evaluateAsyncResultingConflicts() {
+  private def evaluateAsyncResultingConflicts() = {
     if(configuration.executionConfiguration.executionMode == ExecutionMode.Synchronous){
       println("ERROR: Can't evaluate AsyncResultingConflicts on Synchronous BenchmarkConfiguration.")
       println("Exiting...")
-      System.exit(-1) 
+      System.exit(-1)
     }else{
-      //TODO: analyze async
+      val partialResult = algorithm.executeWithAggregation()
+      if(partialResult == -1){
+         println("ERROR: executeWithAggregation failed, AggregationOperation was null")
+         System.exit(-1)
+      }else{
+    	 resultingConflicts = partialResult
+      }
     }
   }
   
