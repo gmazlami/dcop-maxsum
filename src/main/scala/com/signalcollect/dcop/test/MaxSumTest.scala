@@ -12,7 +12,7 @@ import com.signalcollect.dcop.evaluation.maxsum.MaxSumConflictAggregationOperati
 
 object MaxSumTest extends App {
 
-val fileName : String = "graphs/full-graph-20.txt"
+val fileName : String = "graphs/full-graph-4.txt"
   
   println("--------------------------------------------------")
   println("STARTING INITIALIZATION")
@@ -27,6 +27,9 @@ val fileName : String = "graphs/full-graph-20.txt"
   
   val simpleGraph = reader.readToMap(fileName)
   val simpleGraphList = reader.readToList(fileName)
+  
+//    val simpleGraph = reader.readFromAdoptFileToMap(fileName)
+//  val simpleGraphList = reader.readFromAdoptFileToList(fileName)
   
   ProblemConstants.globalVertexList = simpleGraphList
   
@@ -75,13 +78,13 @@ val fileName : String = "graphs/full-graph-20.txt"
 
   
   signalCollectFactorGraph.awaitIdle
-  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(100))
+  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withCollectThreshold(0).withSignalThreshold(0).withGlobalTerminationCondition(new OptimalSolutionTerminationCondition(200)).withTimeLimit(10000))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex{vertex =>
     val msv = vertex.asInstanceOf[MaxSumVertex]
     if(msv.id.isVariable){
-      println(msv.id.id + "  " + msv.getNumOfConflicts)
+      println(msv.id.id + "  " + msv.state)
     }
   }
   println(signalCollectFactorGraph.aggregate(new MaxSumConflictAggregationOperation))

@@ -29,20 +29,17 @@ class FunctionVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
   var stepCounter = 0
 
-  var lastMessages: HashMap[MaxSumId, MaxSumMessage] = HashMap()
-
   type Signal = MaxSumMessage
 
-  override def scoreSignal : Double = 1
+//  override def scoreSignal : Double = 1
   
-  override def scoreCollect : Double = 1
+//  override def scoreCollect : Double = 1
   
   def collect = {
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]
       receivedMessages += (currentId -> message)
-      lastMessages = receivedMessages
     }
     stepCounter += 1
     0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem

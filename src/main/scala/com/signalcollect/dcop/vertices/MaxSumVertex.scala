@@ -26,24 +26,38 @@ import com.signalcollect.Edge
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
-import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
 import com.signalcollect.GraphEditor
 
 abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
 	
   
-  var stateUpToDate: Boolean = true
+//  var stateUpToDate: Boolean = false
   
 //  override def deliverSignal(signal: Any, sourceId: Option[Any], graphEditor: GraphEditor[Any, Any]): Boolean = {
 //    val cached = mostRecentSignalMap.get(sourceId.get)
-//    if (signal != cached) {
-//      stateUpToDate = false
+//    var message : MaxSumMessage = null
+//    cached match {
+//      case Some(x) => {
+//        message = x.asInstanceOf[MaxSumMessage]
+//        if(message.source.isVariable){
+//        	println(message.value)
+//        }
+//        if(signal.asInstanceOf[MaxSumMessage] == message){
+//          stateUpToDate = true
+//        }else{
+//          stateUpToDate = false
+//        }
+//      } 
+//      case None => stateUpToDate = false 
 //    }
 //    super.deliverSignal(signal, sourceId, graphEditor)
 //  }
   
-//  def scoreCollect = if (stateUpToDate) 0 else 1
+//  override def scoreCollect = if (stateUpToDate) 0 else 1
   
+  override def scoreCollect = 1
+  
+  override def scoreSignal = 1
   
 	var receivedMessages : HashMap[MaxSumId,MaxSumMessage] = null
 	  

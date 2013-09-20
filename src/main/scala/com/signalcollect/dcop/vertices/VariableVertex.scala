@@ -25,8 +25,6 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.HashMap
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
-import com.signalcollect.dcop.evaluation.statistics.ConvergenceObserver
-import com.signalcollect.dcop.evaluation.statistics.GlobalMeasurer
 
 class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
@@ -56,7 +54,11 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
     }
     stepCounter += 1
+    lastColor = currentColor
     currentColor = findResultingColorFromMarginal
+    if(lastColor != currentColor){
+    	println("Variable " + id.id +" Old color: " + lastColor + " newColor: " + currentColor)
+    }
     ProblemConstants.setColorToVariableVertex(id, currentColor)
     currentColor
   }
@@ -91,9 +93,9 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
   }
 
-  override def scoreSignal : Double = 1
+//  override def scoreSignal : Double = 1
   
-  override def scoreCollect : Double = 1
+//  override def scoreCollect : Double = 1
   
   private def findColorForPref() = {
     var max = Double.MinValue

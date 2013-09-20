@@ -35,9 +35,9 @@ object MaxSumSyncStepsExecution extends App {
   
   
   val maxsum = new MaxSum("graphs/test.txt", syncExConfig,2, isInputAdopt)
-  for(i <- 0 to 20){
-    val conflicts = maxsum.run()
-    println("Conflicts at step " + i + " = " +conflicts)
+  for(i <- 0 to 50){
+     maxsum.run()
+//    println("Conflicts at step " + i + " = " +conflicts)
   }
   maxsum.printVertexStates()
 }

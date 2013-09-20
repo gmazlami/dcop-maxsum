@@ -7,6 +7,7 @@ import com.signalcollect.dcop.graphs.FactorGraphTransformer
 import com.signalcollect.ExecutionInformation
 import com.signalcollect.dcop.util.ProblemConstants
 import scala.collection.mutable.ArrayBuffer
+import scala.util.Random
 
 class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int]) {
 
@@ -22,7 +23,7 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
   val signalCollectFactorGraph = transformer.transform(simpleGraph)
   
   ProblemConstants.globalVertexList = simpleGraphList
-  initialize()
+  initializeRandom()
 
   
   def executeWithAggregation() : Int = {
@@ -39,6 +40,22 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
     0
   }
   
+  private def initializeRandom() = {
+    ProblemConstants.numOfColors = numColors
+    simpleGraphList.foreach { el =>
+      val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
+      val variableId = el.variableVertex.id
+      val index = Random.nextInt(ProblemConstants.numOfColors) 
+      pref(index) = 0.1
+      ProblemConstants.initialPreferences += (variableId -> pref)
+    }
+
+    reader.storeNeighborStructure(simpleGraphList, simpleGraph)
+    simpleGraph.foreach { entry =>
+      entry._2.functionVertex.initializeReceivedMessages
+      entry._2.variableVertex.initializeReceivedMessages
+    }
+  }
   
   
   private def initialize() = {
