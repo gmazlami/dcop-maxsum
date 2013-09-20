@@ -56,9 +56,9 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     stepCounter += 1
     lastColor = currentColor
     currentColor = findResultingColorFromMarginal
-    if(lastColor != currentColor){
-    	println("Variable " + id.id +" Old color: " + lastColor + " newColor: " + currentColor)
-    }
+//    if(lastColor != currentColor){
+//    	println("Variable " + id.id +" Old color: " + lastColor + " newColor: " + currentColor)
+//    }
     ProblemConstants.setColorToVariableVertex(id, currentColor)
     currentColor
   }

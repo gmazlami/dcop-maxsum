@@ -21,7 +21,7 @@ class BRExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int
   var graph: Graph[Any, Any] = _
 
   val algorithm = new BestResponseVertexBuilder(randomInitialState,probability)
-  val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(10, numColors, 2, loadFrom = file, isAdopt = isInputAdopt)
+  val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(40, numColors, 2, loadFrom = file, isAdopt = isInputAdopt)
   val graphBuilder = new GraphBuilder[Any, Any]()
   
   var conflictsOverTime : Map[Int,Int] = Map()

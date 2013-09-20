@@ -18,10 +18,10 @@ object SynchronousConflictsOverTimeBenchmark extends App {
   /*
    * general properties
    */
-  val fileName = "graphs/graph80.txt"
-  val graphName = "test"
-  val isAdopt = false
-  val steps = 30
+  val fileName = "graphs/ADOPT/adopt40.txt"
+  val graphName = "adopt40"
+  val isAdopt = true
+  val steps = 50
   val numColors = 3
   val benchmarkMode = BenchmarkModes.SyncConflictsOverTime
   //------------------------------------------------
@@ -73,39 +73,39 @@ object SynchronousConflictsOverTimeBenchmark extends App {
   storeResultsToFile(maxSumConflicts,maxSumName)
   println("-----------------------")
   
-//  /*
-//   * run evaluation for DSA-A
-//   */
-//  println("Evaluating DSA-A...")
-//  dsaAalgorithm.runEvaluation()
-//  dsaAconflicts = dsaAalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
-//  println("DSA-A evaluated.")
-//  printConflictList(dsaAconflicts)
-//  storeResultsToFile(dsaAconflicts,dsaAname)
-//  println("-----------------------")
-//  
-//  /*
-//   * run evaluation for DSA-B
-//   */
-//  println("Evaluating DSA-B...")
-//  dsaBalgorithm.runEvaluation()
-//  dsaBconflicts = dsaBalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
-//  println("DSA-B evaluated.")
-//  printConflictList(dsaBconflicts)
-//  storeResultsToFile(dsaBconflicts, dsaBname)
-//  println("-----------------------")
-//  
-//  
-//  /*
-//   * run evaluation for Best-Response
-//   */
-//  println("Evaluating Best-Response...")
-//  brAlgorithm.runEvaluation()
-//  bestResponseConflicts = brAlgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
-//  println("Best-Response evaluated.")
-//  printConflictList(bestResponseConflicts)
-//  storeResultsToFile(bestResponseConflicts, brName)
-//  println("-----------------------")
+  /*
+   * run evaluation for DSA-A
+   */
+  println("Evaluating DSA-A...")
+  dsaAalgorithm.runEvaluation()
+  dsaAconflicts = dsaAalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
+  println("DSA-A evaluated.")
+  printConflictList(dsaAconflicts)
+  storeResultsToFile(dsaAconflicts,dsaAname)
+  println("-----------------------")
+  
+  /*
+   * run evaluation for DSA-B
+   */
+  println("Evaluating DSA-B...")
+  dsaBalgorithm.runEvaluation()
+  dsaBconflicts = dsaBalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
+  println("DSA-B evaluated.")
+  printConflictList(dsaBconflicts)
+  storeResultsToFile(dsaBconflicts, dsaBname)
+  println("-----------------------")
+  
+  
+  /*
+   * run evaluation for Best-Response
+   */
+  println("Evaluating Best-Response...")
+  brAlgorithm.runEvaluation()
+  bestResponseConflicts = brAlgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
+  println("Best-Response evaluated.")
+  printConflictList(bestResponseConflicts)
+  storeResultsToFile(bestResponseConflicts, brName)
+  println("-----------------------")
   
   System.exit(0)
   

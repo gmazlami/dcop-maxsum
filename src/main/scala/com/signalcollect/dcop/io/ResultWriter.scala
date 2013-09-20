@@ -9,12 +9,12 @@ class ResultWriter(mode: BenchmarkModes.Value, graphName: String, algorithm : St
 
   val path = {
     mode match {
-      case BenchmarkModes.SyncConflictsOverTime => "results/conflicts/"
-      case BenchmarkModes.AsyncResultingConflicts => "results/conflicts/"
-      case BenchmarkModes.SyncResultingConflicts => "results/conflicts/"
-      case BenchmarkModes.SyncStepsToConvergence => "results/convergence/"
-      case BenchmarkModes.AsyncTimeToConvergence => "results/convergence/"
-      case BenchmarkModes.SyncTimeToConvergence => "results/convergence/"
+      case BenchmarkModes.SyncConflictsOverTime => "results/conflictsOverTime/"
+      case BenchmarkModes.AsyncResultingConflicts => "results/resultingConflicts/"
+      case BenchmarkModes.SyncResultingConflicts => "results/resultingConflicts/"
+      case BenchmarkModes.SyncStepsToConvergence => "results/stepsToConvergence/"
+      case BenchmarkModes.AsyncTimeToConvergence => "results/timeToConvergence/"
+      case BenchmarkModes.SyncTimeToConvergence => "results/timeToConvergence/"
     }
   }
 
