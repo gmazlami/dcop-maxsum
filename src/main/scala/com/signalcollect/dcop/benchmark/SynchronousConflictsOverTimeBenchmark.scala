@@ -21,6 +21,7 @@ object SynchronousConflictsOverTimeBenchmark extends App {
   val fileName = "graphs/ADOPT/adopt40.txt"
   val graphName = "adopt40"
   val isAdopt = true
+  val graphSize = 40
   val steps = 50
   val numColors = 3
   val benchmarkMode = BenchmarkModes.SyncConflictsOverTime
@@ -35,23 +36,23 @@ object SynchronousConflictsOverTimeBenchmark extends App {
   val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig,fileName,isAdopt,steps,new MaxSumConflictAggregationOperation,numColors,benchmarkMode)
   val maxSumAlgorithm = new MaxSumAlgorithm(MSbenchmarkConfig)
   
-  /*
-   * properties for DSA-A and DSA-B
-   */
-  val dsaAname = "DSAA"
-  val dsaBname = "DSAB"
-  val DSAexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-  val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,new DSAConflictAggregationOperation,numColors,benchmarkMode)
-  val dsaAalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.A,0.45)
-  val dsaBalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.B,0.45)
-  
-  /*
-   * properties for Best-Response
-   */
-  val brName = "BestResponse"
-  val BRexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-  val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,new BRConflictAggregationOperation,numColors,benchmarkMode)
-  val brAlgorithm = new BRAlgorithm(BRbenchmarkConfig,true, 0.6)
+//  /*
+//   * properties for DSA-A and DSA-B
+//   */
+//  val dsaAname = "DSAA"
+//  val dsaBname = "DSAB"
+//  val DSAexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
+//  val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,new DSAConflictAggregationOperation,numColors,benchmarkMode)
+//  val dsaAalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.A,0.45, graphSize)
+//  val dsaBalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.B,0.45, graphSize)
+//  
+//  /*
+//   * properties for Best-Response
+//   */
+//  val brName = "BestResponse"
+//  val BRexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
+//  val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,new BRConflictAggregationOperation,numColors,benchmarkMode)
+//  val brAlgorithm = new BRAlgorithm(BRbenchmarkConfig,true, 0.6, graphSize)
   
   
   /*
@@ -73,39 +74,39 @@ object SynchronousConflictsOverTimeBenchmark extends App {
   storeResultsToFile(maxSumConflicts,maxSumName)
   println("-----------------------")
   
-  /*
-   * run evaluation for DSA-A
-   */
-  println("Evaluating DSA-A...")
-  dsaAalgorithm.runEvaluation()
-  dsaAconflicts = dsaAalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
-  println("DSA-A evaluated.")
-  printConflictList(dsaAconflicts)
-  storeResultsToFile(dsaAconflicts,dsaAname)
-  println("-----------------------")
-  
-  /*
-   * run evaluation for DSA-B
-   */
-  println("Evaluating DSA-B...")
-  dsaBalgorithm.runEvaluation()
-  dsaBconflicts = dsaBalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
-  println("DSA-B evaluated.")
-  printConflictList(dsaBconflicts)
-  storeResultsToFile(dsaBconflicts, dsaBname)
-  println("-----------------------")
-  
-  
-  /*
-   * run evaluation for Best-Response
-   */
-  println("Evaluating Best-Response...")
-  brAlgorithm.runEvaluation()
-  bestResponseConflicts = brAlgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
-  println("Best-Response evaluated.")
-  printConflictList(bestResponseConflicts)
-  storeResultsToFile(bestResponseConflicts, brName)
-  println("-----------------------")
+//  /*
+//   * run evaluation for DSA-A
+//   */
+//  println("Evaluating DSA-A...")
+//  dsaAalgorithm.runEvaluation()
+//  dsaAconflicts = dsaAalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
+//  println("DSA-A evaluated.")
+//  printConflictList(dsaAconflicts)
+//  storeResultsToFile(dsaAconflicts,dsaAname)
+//  println("-----------------------")
+//  
+//  /*
+//   * run evaluation for DSA-B
+//   */
+//  println("Evaluating DSA-B...")
+//  dsaBalgorithm.runEvaluation()
+//  dsaBconflicts = dsaBalgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
+//  println("DSA-B evaluated.")
+//  printConflictList(dsaBconflicts)
+//  storeResultsToFile(dsaBconflicts, dsaBname)
+//  println("-----------------------")
+//  
+//  
+//  /*
+//   * run evaluation for Best-Response
+//   */
+//  println("Evaluating Best-Response...")
+//  brAlgorithm.runEvaluation()
+//  bestResponseConflicts = brAlgorithm.getResult.asInstanceOf[List[Tuple2[Int,Int]]]
+//  println("Best-Response evaluated.")
+//  printConflictList(bestResponseConflicts)
+//  storeResultsToFile(bestResponseConflicts, brName)
+//  println("-----------------------")
   
   System.exit(0)
   

@@ -4,7 +4,7 @@ import com.signalcollect.dcop.benchmark.BenchmarkConfiguration
 import com.signalcollect.dcop.benchmark.BenchmarkModes
 import com.signalcollect.configuration.ExecutionMode
 
-class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Double) {
+class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Double, graphSize : Int) {
 
     private val configuration = config
   
@@ -17,7 +17,7 @@ class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Dou
   private var timeToConvergence : Long = 0
   
   //an executable instance of the algorithm
-  val algorithm : BRExecutor = new BRExecutor(configuration.file, configuration.executionConfiguration, configuration.numOfColors, configuration.isAdopt, configuration.aggregationOperation, randomInit, p)
+  val algorithm : BRExecutor = new BRExecutor(configuration.file, configuration.executionConfiguration, configuration.numOfColors, configuration.isAdopt, configuration.aggregationOperation, randomInit, p, graphSize)
   
   def runEvaluation() = {
     configuration.mode match {

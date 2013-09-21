@@ -5,9 +5,10 @@ import com.signalcollect.dcop.benchmark.BenchmarkConfiguration
 import com.signalcollect.dcop.evaluation.candidates.DSAVariant
 import com.signalcollect.configuration.ExecutionMode
 
-class DSAAlgorithm(config : BenchmarkConfiguration, dsaVariant : DSAVariant.Value, pSchedule : Double) {
+class DSAAlgorithm(config : BenchmarkConfiguration, dsaVariant : DSAVariant.Value, pSchedule : Double, graphSize : Int) {
 
     private val configuration = config
+    
   
   /*
    * measurements
@@ -18,7 +19,7 @@ class DSAAlgorithm(config : BenchmarkConfiguration, dsaVariant : DSAVariant.Valu
   private var timeToConvergence : Long = 0
   
   //an executable instance of the algorithm
-  val algorithm : DSAExecutor = new DSAExecutor(configuration.file, configuration.executionConfiguration, configuration.numOfColors, configuration.isAdopt, configuration.aggregationOperation, dsaVariant, pSchedule)
+  val algorithm : DSAExecutor = new DSAExecutor(configuration.file, configuration.executionConfiguration, configuration.numOfColors, configuration.isAdopt, configuration.aggregationOperation, dsaVariant, pSchedule, graphSize)
   
   def runEvaluation() = {
     configuration.mode match {

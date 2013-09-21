@@ -39,7 +39,7 @@ class ResultWriter(mode: BenchmarkModes.Value, graphName: String, algorithm : St
         }
       }
       case num: Int => {
-        writer.write(num)
+        writer.write(num.toString)
       }
       case longNum: Long => {
         val string = longNum.toString

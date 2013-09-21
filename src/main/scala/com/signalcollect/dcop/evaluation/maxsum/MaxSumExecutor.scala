@@ -22,8 +22,8 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
   val simpleGraphList = if(isInputAdopt) reader.readFromAdoptFileToList(fileName) else reader.readToList(fileName)
   val signalCollectFactorGraph = transformer.transform(simpleGraph)
   
-  ProblemConstants.globalVertexList = simpleGraphList
   initializeRandom()
+  ProblemConstants.globalVertexList = simpleGraphList
 
   
   def executeWithAggregation() : Int = {
@@ -41,6 +41,7 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
   }
   
   private def initializeRandom() = {
+    ProblemConstants.reset()
     ProblemConstants.numOfColors = numColors
     simpleGraphList.foreach { el =>
       val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
@@ -59,6 +60,7 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
   
   
   private def initialize() = {
+    ProblemConstants.reset()
     ProblemConstants.numOfColors = numColors
     var color = 0
     simpleGraphList.foreach { el =>

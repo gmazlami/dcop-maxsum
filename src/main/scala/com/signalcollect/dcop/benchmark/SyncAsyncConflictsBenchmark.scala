@@ -11,12 +11,12 @@ object SyncAsyncConflictsBenchmark extends App {
    /*
    * general properties
    */
-  val fileName = "graphs/full-graph-20.txt"
-  val graphName = "test"
-  val isAdopt = false
+  val fileName = "graphs/ADOPT/adopt10.txt"
+  val graphName = "adopt10"
+  val isAdopt = true
   val steps = 5
   val timeLimit = 500
-  val numColors = 2
+  val numColors = 3
   //------------------------------------------------
   
   
@@ -29,14 +29,14 @@ object SyncAsyncConflictsBenchmark extends App {
   val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig,fileName,isAdopt,steps,new MaxSumConflictAggregationOperation,numColors,syncBenchmarkMode)
   val syncMaxSumAlgorithm = new MaxSumAlgorithm(syncMSbenchmarkConfig)
   
-  /*
-   * properties for async MaxSum
-   */
-  val asyncMaxSumName = "MaxSumAsync"
-  val asyncBenchmarkMode = BenchmarkModes.AsyncResultingConflicts  
-  val asyncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(timeLimit)
-  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig,fileName,isAdopt,steps,new MaxSumConflictAggregationOperation,numColors,asyncBenchmarkMode)
-  val asyncMaxSumAlgorithm = new MaxSumAlgorithm(asyncMSbenchmarkConfig)
+//  /*
+//   * properties for async MaxSum
+//   */
+//  val asyncMaxSumName = "MaxSumAsync"
+//  val asyncBenchmarkMode = BenchmarkModes.AsyncResultingConflicts  
+//  val asyncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(timeLimit)
+//  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig,fileName,isAdopt,steps,new MaxSumConflictAggregationOperation,numColors,asyncBenchmarkMode)
+//  val asyncMaxSumAlgorithm = new MaxSumAlgorithm(asyncMSbenchmarkConfig)
   
   /*
    * results
@@ -56,16 +56,16 @@ object SyncAsyncConflictsBenchmark extends App {
   println("-----------------------")
 
   
-  /*
-   * run evaluation for Asynchronous MaxSum:
-   */
-  println("Evaluating Asynchronous Max-Sum...")
-  asyncMaxSumAlgorithm.runEvaluation()
-  asyncMaxSumConflicts  = asyncMaxSumAlgorithm.getResult().asInstanceOf[Int]
-  println(asyncMaxSumConflicts)
-  println("Asynchronous Max-Sum evaluted.")
-  storeResultsToFile(asyncMaxSumConflicts,asyncMaxSumName, asyncBenchmarkMode)
-  println("-----------------------")
+//  /*
+//   * run evaluation for Asynchronous MaxSum:
+//   */
+//  println("Evaluating Asynchronous Max-Sum...")
+//  asyncMaxSumAlgorithm.runEvaluation()
+//  asyncMaxSumConflicts  = asyncMaxSumAlgorithm.getResult().asInstanceOf[Int]
+//  println(asyncMaxSumConflicts)
+//  println("Asynchronous Max-Sum evaluted.")
+//  storeResultsToFile(asyncMaxSumConflicts,asyncMaxSumName, asyncBenchmarkMode)
+//  println("-----------------------")
 
   
   System.exit(0)

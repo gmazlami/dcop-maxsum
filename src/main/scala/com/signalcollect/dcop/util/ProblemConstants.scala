@@ -63,5 +63,12 @@ object ProblemConstants {
     vv.currentColor = color
   }
   
+  def reset() = {
+    globalVertexList = null
+    colors= Set()
+    numOfColors = 0
+    initialPreferences = HashMap()
+    neighborStructure = HashMap()
+  }
 
 }

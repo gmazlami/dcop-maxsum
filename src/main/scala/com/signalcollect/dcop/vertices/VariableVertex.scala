@@ -38,7 +38,8 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
   var currentColor: Int = -1
 
-  def collect = {
+  override def collect = {
+//    super.collect
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]

@@ -26,41 +26,60 @@ import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.MaxSumMessage
 
-class VariableToFunction( id : MaxSumId) extends DefaultEdge(id){
+class VariableToFunction(id: MaxSumId) extends DefaultEdge(id) {
 
   type Source = VariableVertex
-  
-  
+
   def signal = Q_n_m
-  
+
   def Q_n_m = {
 //    println
 //    println("--------------------------------------------------")
-//    println("Computing message Q_" +source.id.id + "->" + targetId.id)
+//    println("Computing message Q_" + source.id.id + "->" + targetId.id)
 //    println("--------------------------------------------------")
-    
+
     //the variables from which the received messages will be summed to compute the new message
     val variableIdSet = source.getNeighborIds - (targetId.asInstanceOf[MaxSumId])
-    
+
+    //the normalization factor (as in Farinelli's Paper: Decentralized Coordination of..... (2008))
+    val alpha_n_m = computeNormalizationFactor(variableIdSet)
+
     //initialize new message to 0.0 
-    var resultMessage : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
-	
+    var resultMessage: ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
+
     //sum up the received messages component-wise
-    variableIdSet.foreach{ variableId =>
+    variableIdSet.foreach { variableId =>
       val message = source.receivedMessages(variableId).value
-      if(message.length != ProblemConstants.numOfColors){ //this is not allowed to happen
+      if (message.length != ProblemConstants.numOfColors) { //this is not allowed to happen
         println("FATAL: message length not equal to number of possible colors! Aborting..")
         System.exit(-1)
-      }else{
-        for(i <- 0 to resultMessage.length - 1){
+      } else {
+        for (i <- 0 to resultMessage.length - 1) {
           resultMessage(i) = resultMessage(i) + message(i)
         }
       }
     }
-//    println("Q_" +source.id.id + "->" + targetId.id + " = " + resultMessage)
+    for (i <- 0 to resultMessage.length - 1) {
+      resultMessage(i) = alpha_n_m + resultMessage(i)
+    }
+//    println("Q_" + source.id.id + "->" + targetId.id + " = " + resultMessage)
 //    println("--------------------------------------------------")
-    
-    new MaxSumMessage(source.id, targetId,resultMessage)
+
+    new MaxSumMessage(source.id, targetId, resultMessage)
+  }
+
+  private def computeNormalizationFactor(neighborIds: ArrayBuffer[MaxSumId]): Double = {
+    var sum = 0.0
+    val v = ProblemConstants.numOfColors
+    for (color <- 0 to v - 1) {
+      neighborIds.foreach { nId =>
+        val message = source.receivedMessages(nId).value
+        sum += message(color)
+      }
+    }
+    sum = sum / v
+    sum = 0 - sum
+    sum
   }
 
 }

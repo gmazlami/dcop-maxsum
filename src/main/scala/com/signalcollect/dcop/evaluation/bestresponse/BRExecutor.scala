@@ -8,7 +8,7 @@ import com.signalcollect.dcop.evaluation.candidates.BestResponseVertexBuilder
 import com.signalcollect.dcop.evaluation.candidates.BinaryConstraintGraphProvider
 import com.signalcollect.GraphBuilder
 
-class BRExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int], randomInit : Boolean, p : Double) {
+class BRExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int], randomInit : Boolean, p : Double, graphSize : Int) {
 
   val fileName = file
   val numColors = numOfColors
@@ -21,7 +21,7 @@ class BRExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int
   var graph: Graph[Any, Any] = _
 
   val algorithm = new BestResponseVertexBuilder(randomInitialState,probability)
-  val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(40, numColors, 2, loadFrom = file, isAdopt = isInputAdopt)
+  val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(graphSize, numColors, 2, loadFrom = file, isAdopt = isInputAdopt)
   val graphBuilder = new GraphBuilder[Any, Any]()
   
   var conflictsOverTime : Map[Int,Int] = Map()

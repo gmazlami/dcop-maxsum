@@ -9,7 +9,7 @@ import com.signalcollect.dcop.evaluation.candidates.BinaryConstraintGraphProvide
 import com.signalcollect.GraphBuilder
 import com.signalcollect.StateForwarderEdge
 
-class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int], variant : DSAVariant.Value, p : Double) {
+class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int], variant : DSAVariant.Value, p : Double, graphSize : Int) {
 
   val fileName = file
   val numColors = numOfColors
@@ -22,7 +22,7 @@ class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : In
   var graph: Graph[Any, Any] = _
 
   val algorithm = new DSAVertexBuilder(false, dsaVariant, pSchedule = pSched)
-  val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(40, 2, numColors, loadFrom = file, isAdopt = isInputAdopt)
+  val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(graphSize, 2, numColors, loadFrom = file, isAdopt = isInputAdopt)
   val graphBuilder = new GraphBuilder[Any, Any]()
   
   var conflictsOverTime : Map[Int,Int] = Map()

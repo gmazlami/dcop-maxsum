@@ -31,28 +31,23 @@ import com.signalcollect.GraphEditor
 abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
 	
   
-//  var stateUpToDate: Boolean = false
-  
+//  var stateUpToDate: Boolean = true
+//  
 //  override def deliverSignal(signal: Any, sourceId: Option[Any], graphEditor: GraphEditor[Any, Any]): Boolean = {
 //    val cached = mostRecentSignalMap.get(sourceId.get)
 //    var message : MaxSumMessage = null
 //    cached match {
 //      case Some(x) => {
 //        message = x.asInstanceOf[MaxSumMessage]
-//        if(message.source.isVariable){
-//        	println(message.value)
-//        }
-//        if(signal.asInstanceOf[MaxSumMessage] == message){
-//          stateUpToDate = true
-//        }else{
+//        if(signal.asInstanceOf[MaxSumMessage] != message){
 //          stateUpToDate = false
 //        }
-//      } 
+//        }
 //      case None => stateUpToDate = false 
 //    }
 //    super.deliverSignal(signal, sourceId, graphEditor)
 //  }
-  
+//  
 //  override def scoreCollect = if (stateUpToDate) 0 else 1
   
   override def scoreCollect = 1
@@ -70,7 +65,8 @@ abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraph
 	  receivedMessages = map
 	}
 	
-	
+//	def collect = {stateUpToDate = true; state}
+  
 	def getNeighborIds : ArrayBuffer[MaxSumId] = {
 	  var resultSet : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
 	  var index = 0
