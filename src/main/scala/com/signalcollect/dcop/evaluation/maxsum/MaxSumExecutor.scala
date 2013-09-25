@@ -8,6 +8,7 @@ import com.signalcollect.ExecutionInformation
 import com.signalcollect.dcop.util.ProblemConstants
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
+import com.signalcollect.configuration.TerminationReason
 
 class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int]) {
 
@@ -22,6 +23,8 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
   val simpleGraphList = if(isInputAdopt) reader.readFromAdoptFileToList(fileName) else reader.readToList(fileName)
   val signalCollectFactorGraph = transformer.transform(simpleGraph)
   
+  val intervalList = List(500,1000,1500,2500,5000,7500,10000)
+  
   initializeRandom()
   ProblemConstants.globalVertexList = simpleGraphList
 
@@ -35,9 +38,35 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
     }
   }
 
+  def executeForConflictsOverTime() = {
+	var resultList : List[Tuple2[Long,Int]] = List()
+    if(aggregation != null){
+        intervalList.foreach{interval =>
+          val longInterval = interval.asInstanceOf[Long]
+          signalCollectFactorGraph.execute(copyExecutionConfigWithTimeLimit(interval, executionConfig))
+          resultList :+= (longInterval,signalCollectFactorGraph.aggregate(aggregation))
+        }
+    }
+  resultList
+  }
   
-  def executeWithEndResult() : Int = {
-    0
+  
+  def executeForConvergenceSteps() : Long = {
+	val executionInfo = signalCollectFactorGraph.execute(executionConfig)
+	if(executionInfo.executionStatistics.terminationReason == TerminationReason.Converged){
+		executionInfo.executionStatistics.signalSteps
+	}else{
+	  -1
+	}
+  }
+
+  def executeForConvergenceTime() : Long = {
+    val executionInfo = signalCollectFactorGraph.execute(executionConfig)
+    if(executionInfo.executionStatistics.terminationReason == TerminationReason.Converged){
+    	executionInfo.executionStatistics.computationTime.toMillis
+    }else{
+      -1
+    }
   }
   
   private def initializeRandom() = {
@@ -76,5 +105,9 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors :
       entry._2.functionVertex.initializeReceivedMessages
       entry._2.variableVertex.initializeReceivedMessages
     }
+  }
+  
+  private def copyExecutionConfigWithTimeLimit(t : Long, config : ExecutionConfiguration) = {
+    new ExecutionConfiguration().withExecutionMode(config.executionMode).withSignalThreshold(config.signalThreshold).withCollectThreshold(config.collectThreshold).withTimeLimit(t)
   }
 }

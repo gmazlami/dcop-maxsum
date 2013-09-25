@@ -31,38 +31,48 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
   type Signal = MaxSumMessage
 
   var marginal: ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
-  
-  var lastColor: Int = -1
 
-  var stepCounter = 0
+//  var lastMarginal : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
+  
+//  var lastColor: Int = -1
 
   var currentColor: Int = -1
 
   override def collect = {
-//    super.collect
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]
       receivedMessages += (currentId -> message)
     }
 
+//    lastMarginal = marginal
     //compute updated marginal with new received messages
     marginal = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     for (color <- 0 to ProblemConstants.numOfColors - 1) {
       receivedMessages.values.foreach { message =>
         marginal(color) += message.value(color)
       }
-
     }
-    stepCounter += 1
-    lastColor = currentColor
+//    lastColor = currentColor
     currentColor = findResultingColorFromMarginal
-//    if(lastColor != currentColor){
-//    	println("Variable " + id.id +" Old color: " + lastColor + " newColor: " + currentColor)
-//    }
     ProblemConstants.setColorToVariableVertex(id, currentColor)
     currentColor
   }
+
+//  override def scoreCollect: Double = {
+//    if (edgesModifiedSinceCollectOperation) {
+//      println("Variable " + id.id + " : COLLECT - lastColor=" + lastColor + " currentColor=" + currentColor + " - marginal=" + marginal + "  lastMarginal="+lastMarginal )
+//      1.0
+//    } else {
+//      if (((lastColor == -1) || (lastColor != currentColor)) && ((isAllZeros(marginal)) || (marginal != lastMarginal))) {
+//        println("Variable " + id.id + " : COLLECT - lastColor=" + lastColor + " currentColor=" + currentColor + " - marginal=" + marginal + "  lastMarginal="+lastMarginal )
+//        1.0
+//      } else {
+//        println("Variable " + id.id + " : NO COLLECT - lastColor=" + lastColor + " currentColor=" + currentColor + " - marginal=" + marginal + "  lastMarginal="+lastMarginal )
+//        0.0
+//      }
+//    }
+//  }
 
   private def findResultingColorFromMarginal(): Int = {
     var max = Double.MinValue
@@ -76,7 +86,6 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     }
     maxColor
   }
-
 
   override def getNumOfConflicts(): Int = {
     var conflicts = 0
@@ -94,10 +103,6 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
   }
 
-//  override def scoreSignal : Double = 1
-  
-//  override def scoreCollect : Double = 1
-  
   private def findColorForPref() = {
     var max = Double.MinValue
     var maxColor = -1
@@ -110,6 +115,18 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
       }
     }
     maxColor
+  }
+  
+  private def isAllZeros(m : ArrayBuffer[Double]) = {
+    var i =0
+    var result = true
+    while(i < m.size && result == true){
+      if(m(i) != 0.0){
+        result = false
+      }
+      i += 1
+    }
+    result
   }
 
 }

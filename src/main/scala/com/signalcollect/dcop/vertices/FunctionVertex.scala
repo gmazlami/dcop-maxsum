@@ -27,22 +27,15 @@ import scala.collection.mutable.ArrayBuffer
 
 class FunctionVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
-  var stepCounter = 0
 
   type Signal = MaxSumMessage
-
-//  override def scoreSignal : Double = 1
-  
-//  override def scoreCollect : Double = 1
   
   override def collect = {
-//    super.collect
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]
       receivedMessages += (currentId -> message)
     }
-    stepCounter += 1
     0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem
   }
 }

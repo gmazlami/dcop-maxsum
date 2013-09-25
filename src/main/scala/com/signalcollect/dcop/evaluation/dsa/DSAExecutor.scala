@@ -8,6 +8,7 @@ import com.signalcollect.dcop.evaluation.candidates.DSAVertexBuilder
 import com.signalcollect.dcop.evaluation.candidates.BinaryConstraintGraphProvider
 import com.signalcollect.GraphBuilder
 import com.signalcollect.StateForwarderEdge
+import com.signalcollect.configuration.TerminationReason
 
 class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int], variant : DSAVariant.Value, p : Double, graphSize : Int) {
 
@@ -47,8 +48,22 @@ class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : In
     }
   }
   
-  def executeWithEndResult() : Int = {
-    0
+  def executeForConvergenceSteps() : Long = {
+	val executionInfo = graph.execute(executionConfig)
+	if(executionInfo.executionStatistics.terminationReason == TerminationReason.Converged){
+		executionInfo.executionStatistics.signalSteps
+	}else{
+	  -1
+	}  
+  }
+  
+  def executeForConvergenceTime() : Long = {
+    val executionInfo = graph.execute(executionConfig)
+    if(executionInfo.executionStatistics.terminationReason == TerminationReason.Converged){
+    	executionInfo.executionStatistics.computationTime.toMillis
+    }else{
+      -1
+    }
   }
 
 }

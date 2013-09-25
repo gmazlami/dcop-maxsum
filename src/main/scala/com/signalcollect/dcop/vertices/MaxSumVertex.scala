@@ -28,95 +28,72 @@ import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.GraphEditor
 
-abstract class MaxSumVertex(id : MaxSumId, initialState : Int) extends DataGraphVertex(id, initialState) {
-	
+abstract class MaxSumVertex(id: MaxSumId, initialState: Int) extends DataGraphVertex(id, initialState) {
+
+  override def scoreSignal = 1.0
+
+  override def scoreCollect = 1.0
   
-//  var stateUpToDate: Boolean = true
-//  
-//  override def deliverSignal(signal: Any, sourceId: Option[Any], graphEditor: GraphEditor[Any, Any]): Boolean = {
-//    val cached = mostRecentSignalMap.get(sourceId.get)
-//    var message : MaxSumMessage = null
-//    cached match {
-//      case Some(x) => {
-//        message = x.asInstanceOf[MaxSumMessage]
-//        if(signal.asInstanceOf[MaxSumMessage] != message){
-//          stateUpToDate = false
-//        }
-//        }
-//      case None => stateUpToDate = false 
-//    }
-//    super.deliverSignal(signal, sourceId, graphEditor)
-//  }
-//  
-//  override def scoreCollect = if (stateUpToDate) 0 else 1
-  
-  override def scoreCollect = 1
-  
-  override def scoreSignal = 1
-  
-	var receivedMessages : HashMap[MaxSumId,MaxSumMessage] = null
-	  
-    def initializeReceivedMessages = {
-	  var map : HashMap[MaxSumId, MaxSumMessage] = HashMap()
-	  getNeighborIds.foreach{currentId =>
-	    val dummyMessage = new MaxSumMessage(currentId,id,ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0))
-	    map += (currentId -> dummyMessage)
-	  }
-	  receivedMessages = map
-	}
-	
-//	def collect = {stateUpToDate = true; state}
-  
-	def getNeighborIds : ArrayBuffer[MaxSumId] = {
-	  var resultSet : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
-	  var index = 0
-	  outgoingEdges.keys.foreach{key => 
-	    resultSet(index) = key.asInstanceOf[MaxSumId]
-	    index = index + 1
-	  }
-	  resultSet
-	  
-	}
-	
-	def getNeighborVertices : ArrayBuffer[MaxSumVertex] = {
-	  var resultSet : ArrayBuffer[MaxSumVertex] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
-      var index = 0
-      
-      outgoingEdges.keys.foreach{key =>
-	    val vv = ProblemConstants.findVariableVertexWithIdNum(key.asInstanceOf[MaxSumId].idNumber)
-	    resultSet(index) = vv
-	    index += 1
-	  }
-	  resultSet
-	}
-	
-	def readyToMessage : Boolean = {
-	  if(receivedFromAllNeighbors){
-	    true
-	  }else{
-	    false
-	  }
-	}
-	
-	protected def receivedFromAllNeighbors : Boolean = {
-	  var receivedAll : Boolean = true
-	  for(id <- getNeighborIds){
-		  if(!getIdsReceivedFrom.contains(id)){
-		    receivedAll = false;
-		  }
-	  }
-	  receivedAll
-	}
-	
-	protected def getIdsReceivedFrom : Set[MaxSumId] = {
-	  var resultSet : Set[MaxSumId] = Set()
-	  receivedMessages.keys.foreach(m => resultSet += m)
-	  resultSet
-	}
-	
-	
-	def getNumOfConflicts() : Int = {
-	  0
-	}
-	
+  var receivedMessages: HashMap[MaxSumId, MaxSumMessage] = null
+
+  def initializeReceivedMessages = {
+    var map: HashMap[MaxSumId, MaxSumMessage] = HashMap()
+    getNeighborIds.foreach { currentId =>
+      val dummyMessage = new MaxSumMessage(currentId, id, ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0))
+      map += (currentId -> dummyMessage)
+    }
+    receivedMessages = map
+  }
+
+  def getNeighborIds: ArrayBuffer[MaxSumId] = {
+    var resultSet: ArrayBuffer[MaxSumId] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
+    var index = 0
+    outgoingEdges.keys.foreach { key =>
+      resultSet(index) = key.asInstanceOf[MaxSumId]
+      index = index + 1
+    }
+    resultSet
+
+  }
+
+  def getNeighborVertices: ArrayBuffer[MaxSumVertex] = {
+    var resultSet: ArrayBuffer[MaxSumVertex] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
+    var index = 0
+
+    outgoingEdges.keys.foreach { key =>
+      val vv = ProblemConstants.findVariableVertexWithIdNum(key.asInstanceOf[MaxSumId].idNumber)
+      resultSet(index) = vv
+      index += 1
+    }
+    resultSet
+  }
+
+  def readyToMessage: Boolean = {
+    if (receivedFromAllNeighbors) {
+      true
+    } else {
+      false
+    }
+  }
+
+  protected def receivedFromAllNeighbors: Boolean = {
+    var receivedAll: Boolean = true
+    for (id <- getNeighborIds) {
+      if (!getIdsReceivedFrom.contains(id)) {
+        receivedAll = false;
+      }
+    }
+    receivedAll
+  }
+
+  protected def getIdsReceivedFrom: Set[MaxSumId] = {
+    var resultSet: Set[MaxSumId] = Set()
+    receivedMessages.keys.foreach(m => resultSet += m)
+    resultSet
+  }
+
+  def getNumOfConflicts(): Int = {
+    0
+  }
+
 }

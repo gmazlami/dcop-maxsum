@@ -11,8 +11,7 @@ class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Dou
   /*
    * measurements
    */
-  private var conflictsOverTime : List[Tuple2[Int,Int]] = List()
-  private var resultingConflicts : Int = 0
+  private var conflictsOverSteps : List[Tuple2[Int,Int]] = List()
   private var stepsToConvergence : Int = 0
   private var timeToConvergence : Long = 0
   
@@ -21,9 +20,7 @@ class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Dou
   
   def runEvaluation() = {
     configuration.mode match {
-      case BenchmarkModes.SyncConflictsOverTime => evaluateSyncConflictsOverTime()
-      case BenchmarkModes.AsyncResultingConflicts => evaluateAsyncResultingConflicts()
-      case BenchmarkModes.SyncResultingConflicts => evaluateSyncResultingConflicts()
+      case BenchmarkModes.SyncConflictsOverSteps => evaluateSyncConflictsOverSteps()
       case BenchmarkModes.SyncStepsToConvergence =>evaluateSyncStepsToConvergence()
       case BenchmarkModes.AsyncTimeToConvergence => evaluateAsyncTimeToConvergence()
       case BenchmarkModes.SyncTimeToConvergence => evaluateSyncTimeToConvergence()
@@ -33,9 +30,7 @@ class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Dou
   
     def getResult() = {
     configuration.mode match {
-      case BenchmarkModes.SyncConflictsOverTime => conflictsOverTime
-      case BenchmarkModes.AsyncResultingConflicts => resultingConflicts
-      case BenchmarkModes.SyncResultingConflicts => resultingConflicts
+      case BenchmarkModes.SyncConflictsOverSteps => conflictsOverSteps
       case BenchmarkModes.SyncStepsToConvergence => stepsToConvergence
       case BenchmarkModes.AsyncTimeToConvergence => timeToConvergence
       case BenchmarkModes.SyncTimeToConvergence => timeToConvergence
@@ -43,7 +38,7 @@ class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Dou
     }
   }
   
-  private def evaluateSyncConflictsOverTime() = {
+  private def evaluateSyncConflictsOverSteps() = {
     if(configuration.executionConfiguration.executionMode != ExecutionMode.Synchronous){
       println("ERROR: Can't evaluate ConflictsOverTime on Asynchronous BenchmarkConfiguration.")
       println("Exiting...")
@@ -55,32 +50,12 @@ class BRAlgorithm(config : BenchmarkConfiguration, randomInit : Boolean, p : Dou
     		  println("ERROR: executeWithAggregation failed, AggregationOperation was null")
     		  System.exit(-1)
     		}else{
-    		  conflictsOverTime :+= (run,partialResult)
+    		  conflictsOverSteps :+= (run,partialResult)
     		}
     	}
     }
   }
-  
-  private def evaluateSyncResultingConflicts() = {
-    if(configuration.executionConfiguration.executionMode != ExecutionMode.Synchronous){
-      println("ERROR: Can't evaluate SyncResultingConflicts on Asynchronous BenchmarkConfiguration.")
-      println("Exiting...")
-      System.exit(-1)
-    }else{
-      //TODO: analyze sync
-    }
-  }
-  
-  private def evaluateAsyncResultingConflicts() {
-    if(configuration.executionConfiguration.executionMode == ExecutionMode.Synchronous){
-      println("ERROR: Can't evaluate AsyncResultingConflicts on Synchronous BenchmarkConfiguration.")
-      println("Exiting...")
-      System.exit(-1) 
-    }else{
-      //TODO: analyze async
-    }
-  }
-  
+
   private def evaluateSyncStepsToConvergence() = {
     if(configuration.executionConfiguration.executionMode != ExecutionMode.Synchronous){
       println("ERROR: Can't evaluate StepsToConvergence on Asynchronous BenchmarkConfiguration.")

@@ -9,10 +9,11 @@ import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.termination.OptimalSolutionTerminationCondition
 import com.signalcollect.dcop.vertices.MaxSumVertex
 import com.signalcollect.dcop.evaluation.maxsum.MaxSumConflictAggregationOperation
+import scala.util.Random
 
 object MaxSumTest extends App {
 
-val fileName : String = "graphs/ADOPT/adopt40.txt"
+val fileName : String = "graphs/example.txt"
   
   println("--------------------------------------------------")
   println("STARTING INITIALIZATION")
@@ -25,11 +26,11 @@ val fileName : String = "graphs/ADOPT/adopt40.txt"
   println("--------------------------------------------------")
   println("Reading simple graph from txt-File: " + fileName)
   
-//  val simpleGraph = reader.readToMap(fileName)
-//  val simpleGraphList = reader.readToList(fileName)
+  val simpleGraph = reader.readToMap(fileName)
+  val simpleGraphList = reader.readToList(fileName)
   
-    val simpleGraph = reader.readFromAdoptFileToMap(fileName)
-  val simpleGraphList = reader.readFromAdoptFileToList(fileName)
+//    val simpleGraph = reader.readFromAdoptFileToMap(fileName)
+//  val simpleGraphList = reader.readFromAdoptFileToList(fileName)
   
   ProblemConstants.globalVertexList = simpleGraphList
   
@@ -49,9 +50,9 @@ val fileName : String = "graphs/ADOPT/adopt40.txt"
   println("--------------------------------------------------")
   println("Initialization of Problem-Constants started")
   
-  ProblemConstants.numOfColors = 3  
+  ProblemConstants.numOfColors = 2  
   println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
-  initializePrefs()
+  initializeRandom()
   
   println("Preferences initialized.")
   
@@ -78,7 +79,7 @@ val fileName : String = "graphs/ADOPT/adopt40.txt"
 
   
   signalCollectFactorGraph.awaitIdle
-  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withCollectThreshold(0).withSignalThreshold(0).withGlobalTerminationCondition(new OptimalSolutionTerminationCondition(200)))
+  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex{vertex =>
@@ -104,10 +105,19 @@ val fileName : String = "graphs/ADOPT/adopt40.txt"
     simpleGraphList.foreach{el =>
       val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
       val variableId = el.variableVertex.id
-	  pref(color) = 0.1
+	  pref(0) = 0.1
 	  ProblemConstants.initialPreferences += (variableId -> pref)
       color = (color + 1) % ProblemConstants.numOfColors
-      println("CurrentColor : " + el.variableVertex.currentColor)
 	}
+  }
+  
+    private def initializeRandom() = {
+    simpleGraphList.foreach { el =>
+      val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
+      val variableId = el.variableVertex.id
+      val index = Random.nextInt(ProblemConstants.numOfColors) 
+      pref(index) = 0.1
+      ProblemConstants.initialPreferences += (variableId -> pref)
+    }
   }
 }
