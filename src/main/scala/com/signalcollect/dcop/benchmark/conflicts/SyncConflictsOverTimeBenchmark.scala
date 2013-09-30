@@ -13,8 +13,8 @@ object SyncConflictsOverTimeBenchmark extends App {
   /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt40.txt"
-  val graphName = "adopt40"
+  val fileName = "graphs/ADOPT/adopt10.txt"
+  val graphName = "adopt10"
   val isAdopt = true
   val steps = 5
   val timeLimit = 10000

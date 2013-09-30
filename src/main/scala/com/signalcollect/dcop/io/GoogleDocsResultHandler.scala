@@ -1,44 +1,44 @@
-///*
-// *  @author Daniel Strebel
-// *  @author Philip Stutz
-// *  
-// *  Copyright 2012 University of Zurich
-// *      
-// *  Licensed under the Apache License, Version 2.0 (the "License");
-// *  you may not use this file except in compliance with the License.
-// *  You may obtain a copy of the License at
-// *  
-// *         http://www.apache.org/licenses/LICENSE-2.0
-// *  
-// *  Unless required by applicable law or agreed to in writing, software
-// *  distributed under the License is distributed on an "AS IS" BASIS,
-// *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// *  See the License for the specific language governing permissions and
-// *  limitations under the License.
-// *  
-// */
-//
-//package com.signalcollect.dcop.io
-//
-//import java.net.URL
-//import scala.collection.JavaConversions._
+/*
+ *  @author Daniel Strebel
+ *  @author Philip Stutz
+ *  
+ *  Copyright 2012 University of Zurich
+ *      
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *  
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *  
+ */
+
+package com.signalcollect.dcop.io
+
+import java.net.URL
+import scala.collection.JavaConversions._
 //import com.google.gdata.client.spreadsheet._
 //import com.google.gdata.data._
 //import com.google.gdata.data.spreadsheet._
-//import com.signalcollect.nodeprovisioning.torque._
+import com.signalcollect.nodeprovisioning.torque._
 //import com.google.gdata.util.InvalidEntryException
-//
-//class GoogleDocsResultHandler(username: String, password: String, spreadsheetName: String, worksheetName: String)
-//  extends Function1[Map[String, String], Unit]
-//  with Serializable {
-//
-//  def apply(data: Map[String, String]) = {
+
+class GoogleDocsResultHandler(username: String, password: String, spreadsheetName: String, worksheetName: String)
+  extends Function1[Map[String, String], Unit]
+  with Serializable {
+
+  def apply(data: Map[String, String]) = {
 //    val service: SpreadsheetService = actionWithExponentialRetry[SpreadsheetService](() => new SpreadsheetService("uzh-signalcollect-2.0.0"))
 //    actionWithExponentialRetry(() => service.setUserCredentials(username, password))
 //    val spreadsheet = actionWithExponentialRetry(() => getSpreadsheet(spreadsheetName, service))
 //    val worksheet = actionWithExponentialRetry(() => getWorksheetInSpreadsheet(worksheetName, spreadsheet))
 //    actionWithExponentialRetry(() => insertRow(worksheet, data, service))
-//  }
+  }
 //
 //  def getWorksheetInSpreadsheet(title: String, spreadsheet: SpreadsheetEntry): WorksheetEntry = {
 //    var result: WorksheetEntry = null.asInstanceOf[WorksheetEntry]
@@ -122,5 +122,5 @@
 //        }
 //    }
 //  }
-//
-//}
+
+}

@@ -31,39 +31,82 @@
 
 package com.signalcollect.dcop.evaluation.candidates
 
-import com.signalcollect.Vertex
 import scala.util.Random
-import com.signalcollect.configuration.ExecutionMode
-import com.signalcollect.dcop.evaluation.candidates.ColorConstrainedVertex
 
+import com.signalcollect.Vertex
+import com.signalcollect.dcop.termination.ConvergenceHistory
 
 class BestResponseVertex(
-    newId: Int,
-    initialState: Int,
-    newDomain: Array[Int],
-    val inertia: Double)
-  extends ColorConstrainedVertex[Int,Int](newId, initialState, newDomain)
+  newId: Int,
+  initialState: Int,
+  newDomain: Array[Int],
+  val inertia: Double)
+  extends ColorConstrainedVertex[Int, Int](newId, initialState, newDomain)
   with CompleteSearch[Int]
   with ArgmaxBIDecision[Int]
   with MapUtilityTarget[Int]
   with FloodSchedule {
+
+  val stateHistory : ConvergenceHistory[Int] = new ConvergenceHistory[Int](4)
+  val utilityHistory : ConvergenceHistory[Double] = new ConvergenceHistory[Double](2)
+  
+  override def collect = {
+
+    stepCounter += 1
+
+    // Hook for certain algorithms that need to modify their state
+    // For example DSAN needs to lower its temperature or FP needs to
+    // update its neighbourFrequencies.
+    // Default is to to nothing here.
+    doBeforeCollect
+
+    // If the algorithm should even bother to compute a new state
+    val stateToReturn = if (shouldComputeNewState) {
+      val newState = chooseNewState()
+      newState
+    } else {
+      state
+    }
+    stateHistory.push(stateToReturn)
+    stateToReturn
+  }
+
+  override def storeUtilityHistory(utility : Double) = {
+	  utilityHistory.push(utility)
+  }
   
   def getNumOfConflicts() = {
     var conflicts = 0
     val neighborConfig = getNeighbourConfigs
-    neighborConfig.values.foreach{ value =>
-      if(value == state){
+    neighborConfig.values.foreach { value =>
+      if (value == state) {
         conflicts += 1
       }
     }
     conflicts
   }
   
+  override def scoreCollect : Double = {
+    if(edgesModifiedSinceCollectOperation){
+      1.0
+    }else{
+      if(stateHistory.hasConverged && utilityHistory.hasConverged){
+        0.0
+      }else{
+        1.0
+      }
+    }
+  }
+  
+  override def scoreSignal = {
+    1.0
+  }
+
 }
 
 class BestResponseVertexBuilder(
-    randomInitialState: Boolean,
-    inertia: Double)
+  randomInitialState: Boolean,
+  inertia: Double)
   extends VertexBuilder {
 
   def apply(id: Int, domain: Array[Int]): Vertex[Any, _] = {

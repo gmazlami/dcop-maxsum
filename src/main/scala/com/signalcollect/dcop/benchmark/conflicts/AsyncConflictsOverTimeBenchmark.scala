@@ -13,7 +13,7 @@ object AsyncConflictsOverTimeBenchmark extends App {
   /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt40.txt"
+  val fileName = "graphs/ADOPT/adopt10.txt"
   val graphName = "adopt10"
   val isAdopt = true
   val steps = 5

@@ -6,21 +6,21 @@ import scala.collection.mutable.ListBuffer
 
 object ListAverageScript extends App {
 
-  var path = "scripts"
+  var path = "results/conflictsOverTime/SYNC/adopt40scripts"
   val files = listFileNames
   var listList: ListBuffer[ListBuffer[Int]] = ListBuffer()
-
+  var timeList = List(500,1000,1500,2500,5000,7500,10000)
   files.foreach { file =>
     listList += fromEdgeList(file)
   }
 
-  new FileWriter(createTupleList(average(listList , 50)), "scripts/adopt10_MaxSum.txt").write
+  new FileWriter(createTupleList(average(listList , 7)), "scripts/adopt40_MaxSumSync.txt").write
   
   
   private def createTupleList(list : ListBuffer[Double]) = {
     var results : ListBuffer[Tuple2[Int,Double]] = ListBuffer.fill(list.size)(null)
     for(i <- 0 to list.size - 1){
-      results(i) = (i, list(i))
+      results(i) = (timeList(i), list(i))
     }
   	results
   }

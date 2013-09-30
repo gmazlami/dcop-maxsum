@@ -35,16 +35,16 @@ package com.signalcollect.dcop.evaluation.candidates
 import com.signalcollect._
 import scala.util._
 import com.signalcollect.configuration.ExecutionMode
+import com.signalcollect.dcop.termination.ConvergenceHistory
+import com.signalcollect.dcop.evaluation.candidates.DSAVariant
 
 object DSAVariant extends Enumeration {
   type DSAVariant = Value
   val A, B, asyncA, asyncB = Value
 }
 
-import DSAVariant._
 
-
-class DSAVertexBuilder(randomInitialState: Boolean, variant: DSAVariant, pSchedule: Double)
+class DSAVertexBuilder(randomInitialState: Boolean, variant: DSAVariant.Value, pSchedule: Double)
   extends VertexBuilder {
 
   def apply(id: Int, domain: Array[Int]): Vertex[Any, _] = {
@@ -88,6 +88,9 @@ abstract class DSAVertex(id: Any, initialState: Int, possibleValues: Array[Int])
   with RandomStateSearch[Int]
   with MapUtilityTarget[Int] {
   
+   val utilityHistory : ConvergenceHistory[Double] = new ConvergenceHistory[Double](2)  
+   val stateHistory : ConvergenceHistory[Int] = new ConvergenceHistory[Int](4)
+  
    override def collect = {
 
     stepCounter += 1
@@ -106,9 +109,13 @@ abstract class DSAVertex(id: Any, initialState: Int, possibleValues: Array[Int])
       state
     }
     
-    
+    stateHistory.push(stateToReturn)
     stateToReturn
   }
+   
+  override def storeUtilityHistory(utility : Double) = {
+	  utilityHistory.push(utility)
+  } 
    
   def getNumOfConflicts() = {
     var conflicts = 0
@@ -121,4 +128,19 @@ abstract class DSAVertex(id: Any, initialState: Int, possibleValues: Array[Int])
     conflicts
   }
   
+  override def scoreCollect : Double = {
+    if(edgesModifiedSinceCollectOperation){
+      1.0
+    }else{
+      if(stateHistory.hasConverged && utilityHistory.hasConverged){
+        0.0
+      }else{
+        1.0
+      }
+    }
+  }
+  
+  override def scoreSignal = {
+    1.0
+  }
 }

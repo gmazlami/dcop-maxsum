@@ -6,15 +6,17 @@ import java.io.File
 
 object CombineListsScript extends App {
 
-  var pathString = "scripts/"
+  var pathString = "scripts"
   val files = listFileNames
   var listList: ListBuffer[ListBuffer[Double]] = ListBuffer()
 
+  var timeList = List(500,1000,1500,2500,5000,7500,10000)
+  
   files.foreach { file =>
     listList += fromEdgeList(file)
   }
 
-  write(listList , 50, "scripts/adopt40.txt")
+  write(listList , 7, "scripts/stepstime.txt")
 
   private def fromEdgeList(filename: String): ListBuffer[Double] = {
     var list: ListBuffer[Double] = ListBuffer()
@@ -22,7 +24,7 @@ object CombineListsScript extends App {
 
     src.getLines foreach { line =>
       val Array(iStr, jStr) = line.split(" ")
-      list += jStr.toFloat
+      list += jStr.toDouble
     }
 
     list
@@ -44,7 +46,7 @@ object CombineListsScript extends App {
     var stringList : ListBuffer[String] = ListBuffer.fill(size)(null)
     		
     for(i <- 0 to size - 1){
-      stringList(i) = (i.toString + " ")
+      stringList(i) = (timeList(i).toString + " ")
     }
     
     for(i <- 0 to size -1){

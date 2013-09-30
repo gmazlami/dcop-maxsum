@@ -106,6 +106,7 @@ abstract class ColorConstrainedVertex[Id, State](
     newDomain: Array[State])
     extends ConstrainedVertex[Id, State](newId, initialState, newDomain) {
 
+  
   def collect = {
 
     stepCounter += 1
@@ -139,9 +140,16 @@ abstract class ColorConstrainedVertex[Id, State](
     // Choose the score according to a certain decision rule.
     val evaluatedCurrentState = evaluate(state)
     val chosenState = decisionRule(evaluatedCurrentState)(evaluatedStates)
+    
+    val currentUtility = evaluate(chosenState)
+    storeUtilityHistory(currentUtility._2.toDouble)
 
     // Change the vertex' state to the newly chosen one.
     chosenState
+  }
+  
+  def storeUtilityHistory(utility : Double) = {
+    //
   }
   
   def satisfiesConstraintsWith(newState: State): Boolean = {

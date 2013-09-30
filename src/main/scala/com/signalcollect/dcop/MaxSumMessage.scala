@@ -22,6 +22,7 @@ package com.signalcollect.dcop
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
+import scala.math._
 
 class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends Serializable{
 
@@ -45,6 +46,23 @@ class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends 
   }
   
   override def equals(other : Any) : Boolean = {
+    other match {
+      case x: MaxSumMessage => (valueEquals(x) && (x.source == source) && (x.target == target))
+      case _ => false
+    }
+  }
+  
+  private def epsilonCompare(other : MaxSumMessage , epsilon : Double) = {
+    var equal : Boolean = true
+    for(i <- 0 to value.length - 1){
+      if(abs(value(i) - other.value(i)) > epsilon){
+        equal = false
+      }
+    }
+    equal
+  }
+  
+  def epsilon(other : Any, e : Double) : Boolean = {
     other match {
       case x: MaxSumMessage => (valueEquals(x) && (x.source == source) && (x.target == target))
       case _ => false
