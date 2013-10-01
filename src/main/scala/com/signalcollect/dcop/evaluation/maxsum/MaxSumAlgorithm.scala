@@ -97,7 +97,7 @@ class MaxSumAlgorithm(config: BenchmarkConfiguration) {
       println("Exiting...")
       System.exit(-1)
     } else {
-      val partialResult = algorithm.executeForConvergenceSteps()
+      val partialResult = algorithm.executeForConvergenceTime()
       if (partialResult == -1) {
         println("ERROR: SyncTimeToConvergence did not terminate because of Convergence.")
         println("Exiting...")
@@ -114,7 +114,7 @@ class MaxSumAlgorithm(config: BenchmarkConfiguration) {
       println("Exiting...")
       System.exit(-1)
     } else {
-      val partialResult = algorithm.executeForConvergenceSteps()
+      val partialResult = algorithm.executeForConvergenceTime()
       if (partialResult == -1) {
         println("ERROR: SyncTimeToConvergence did not terminate because of Convergence.")
         println("Exiting...")

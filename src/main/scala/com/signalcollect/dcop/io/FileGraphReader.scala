@@ -28,6 +28,7 @@ import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.vertices.SimpleVertex
+import com.signalcollect.dcop.vertices.VariableVertex
 
 class FileGraphReader {
 
@@ -85,12 +86,7 @@ class FileGraphReader {
 
   //store neighboring structure of the graph to make it globally accessible, especially when needed during the computation
   def storeNeighborStructure(simpleGraph: List[SimpleVertex], vertices: HashMap[Int, SimpleVertex]) = {
-//    println("Storing neighborhood structure of the graph to ProblemConstants")
     simpleGraph.foreach { current =>
-
-      //    var neighborSetForVariable : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size - 1)(null)
-      //    var neighborSetForFunction : ArrayBuffer[MaxSumId] = ArrayBuffer.fill(current.neighborhood.size - 1)(null)
-
       var neighborSetForVariable: ArrayBuffer[MaxSumId] = ArrayBuffer()
       var neighborSetForFunction: ArrayBuffer[MaxSumId] = ArrayBuffer()
 
@@ -109,7 +105,6 @@ class FileGraphReader {
       ProblemConstants.neighborStructure += (current.functionVertex.id -> neighborSetForFunction)
 
     }
-//    println("Storing of neighborhood structure successfully completed.")
   }
 
   /* 

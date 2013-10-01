@@ -42,9 +42,6 @@ class MaxSum(file: String, config: ExecutionConfiguration, numOfColors : Int, is
   val simpleGraph = if(isInputAdopt) reader.readFromAdoptFileToMap(fileName) else reader.readToMap(fileName)
   val simpleGraphList = if(isInputAdopt) reader.readFromAdoptFileToList(fileName) else reader.readToList(fileName)
 
-  
-  ProblemConstants.globalVertexList = simpleGraphList
-
   val signalCollectFactorGraph = transformer.transform(simpleGraph)
 
   initializePrefs()

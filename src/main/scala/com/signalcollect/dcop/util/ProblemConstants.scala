@@ -28,8 +28,6 @@ import com.signalcollect.dcop.vertices.VariableVertex
 
 object ProblemConstants {
 
-  var globalVertexList : List[SimpleVertex] = null
-  
   var colors: Set[Int] = Set()
 
   var numOfColors: Int = 0
@@ -53,22 +51,4 @@ object ProblemConstants {
       neighbor.idNumber == functionNode.idNumber 
     }.get
   }
-
-  def findVariableVertexWithIdNum(idNum : Int) : MaxSumVertex = {
-    globalVertexList.find(element => element.id == idNum).get.variableVertex
-  }
-  
-  def setColorToVariableVertex(id : MaxSumId, color : Int) = {
-    val vv = findVariableVertexWithIdNum(id.idNumber).asInstanceOf[VariableVertex]
-    vv.currentColor = color
-  }
-  
-  def reset() = {
-    globalVertexList = null
-    colors= Set()
-    numOfColors = 0
-    initialPreferences = HashMap()
-    neighborStructure = HashMap()
-  }
-
 }

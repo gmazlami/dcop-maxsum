@@ -25,6 +25,7 @@ import com.signalcollect.dcop.vertices.MaxSumVertex
 
 class MaxSumConflictAggregationOperation extends AggregationOperation[Int] {
 
+  
     /**
    *  Extracts values of type `ValueType` from vertices.
    */
@@ -56,7 +57,7 @@ class MaxSumConflictAggregationOperation extends AggregationOperation[Int] {
     elements.foreach{el =>
       sum += el
     }
-    sum //TODO: don't know hat "reduce" will be used for
+    sum //TODO: don't know what "reduce" will be used for
   }
   
   /**

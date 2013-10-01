@@ -28,6 +28,7 @@ import com.signalcollect.dcop.util.ProblemConstants
 import scala.collection.mutable.Queue
 import com.signalcollect.dcop.termination.ConvergenceHistory
 import com.signalcollect.dcop.termination.MarginalHistory
+import com.signalcollect.GraphEditor
 
 class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
@@ -39,16 +40,33 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
   
   var marginal: ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
   
+  var neighborColors : Map[MaxSumId,Int] = Map()
+  
   var currentColor: Int = -1
 
+  override def deliverSignal(signal: Any, sourceId: Option[Any], graphEditor: GraphEditor[Any, Any]): Boolean = {
+    signal match {
+      case s : MaxSumMessage => super.deliverSignal(signal, sourceId, graphEditor)
+      case c : Int => {
+    	  neighborColors += (sourceId.get.asInstanceOf[MaxSumId] -> c) 
+    	  false
+      }
+    }
+  }
+  
+  def tellNeighborsAboutColor(graphEditor : GraphEditor[Any,Any]) = {
+    val neighbors = mapToVariableIds(getNeighborIds)
+    neighbors.foreach{neighborId =>
+      graphEditor.sendSignal(currentColor, neighborId, Option(id)) 
+    }
+  }
+  
   override def collect = {
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]
       receivedMessages += (currentId -> message)
     }
-
-    
     //compute updated marginal with new received messages
     marginal = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     marginalHistory.push(marginal)
@@ -59,22 +77,24 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     }
     currentColor = findResultingColorFromMarginal
     stateHistory.push(currentColor)
-//    	println(id.id + "stateHistory = " + stateHistory.toString + " marginalHistory = " + marginalHistory.toString)
-    ProblemConstants.setColorToVariableVertex(id, currentColor)
     currentColor
   }
-
-  override def scoreCollect : Double = {
-    if(edgesModifiedSinceCollectOperation){
-      1.0
-    }else{
-      if(stateHistory.hasConverged){
-        0.0
-      }else{
-        1.0
-      }
-    }
-  }
+  
+  
+/*
+ * TODO:Comment in the function below to enable convergence detection
+ */
+//  override def scoreCollect : Double = {
+//    if(edgesModifiedSinceCollectOperation){
+//      1.0
+//    }else{
+//      if(stateHistory.hasConverged && marginalHistory.hasConverged){
+//        0.0
+//      }else{
+//        1.0
+//      }
+//    }
+//  }
   
   private def findResultingColorFromMarginal(): Int = {
     var max = Double.MinValue
@@ -89,22 +109,16 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     maxColor
   }
 
-  override def getNumOfConflicts(): Int = {
+  override def getNumOfConflicts() : Int = {
     var conflicts = 0
-
-    val neighbors = getNeighborVertices
-    neighbors.foreach { n =>
-      val vertex = n.asInstanceOf[VariableVertex]
-      if (vertex.id != id.asInstanceOf[MaxSumId]) {
-        if (currentColor == vertex.currentColor) {
-          conflicts += 1
-        }
+    neighborColors.foreach{n =>
+      if(n._2 == currentColor){
+        conflicts += 1
       }
     }
-    conflicts
-
+    conflicts / 2
   }
-
+  
   private def findColorForPref() = {
     var max = Double.MinValue
     var maxColor = -1
@@ -118,17 +132,12 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     }
     maxColor
   }
-  
-  private def isAllZeros(m : ArrayBuffer[Double]) = {
-    var i =0
-    var result = true
-    while(i < m.size && result == true){
-      if(m(i) != 0.0){
-        result = false
-      }
-      i += 1
-    }
-    result
-  }
 
+  private def mapToVariableIds(ids : ArrayBuffer[MaxSumId]) = {
+    var variableIds : ArrayBuffer[MaxSumId] = ArrayBuffer()
+    ids.foreach{i =>
+      variableIds += new MaxSumId(i.idNumber, 0)
+    }
+    variableIds
+  }
 }

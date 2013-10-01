@@ -33,8 +33,6 @@ object MaxSumTest extends App {
   val simpleGraph = reader.readFromAdoptFileToMap(fileName)
   val simpleGraphList = reader.readFromAdoptFileToList(fileName)
 
-  ProblemConstants.globalVertexList = simpleGraphList
-
   println("Reading of simple graph succesfully completed.")
   println("--------------------------------------------------")
   println

@@ -15,8 +15,8 @@ object SyncStepsToConvergenceBenchmark extends App {
     /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt10.txt"
-  val graphName = "adopt10"
+  val fileName = "graphs/ADOPT/adopt40.txt"
+  val graphName = "adopt40"
   val isAdopt = true
   val graphSize = 40
   val steps = 50

@@ -56,42 +56,6 @@ abstract class MaxSumVertex(id: MaxSumId, initialState: Int) extends DataGraphVe
 
   }
 
-  def getNeighborVertices: ArrayBuffer[MaxSumVertex] = {
-    var resultSet: ArrayBuffer[MaxSumVertex] = ArrayBuffer.fill(outgoingEdges.keys.size)(null)
-    var index = 0
-
-    outgoingEdges.keys.foreach { key =>
-      val vv = ProblemConstants.findVariableVertexWithIdNum(key.asInstanceOf[MaxSumId].idNumber)
-      resultSet(index) = vv
-      index += 1
-    }
-    resultSet
-  }
-
-  def readyToMessage: Boolean = {
-    if (receivedFromAllNeighbors) {
-      true
-    } else {
-      false
-    }
-  }
-
-  protected def receivedFromAllNeighbors: Boolean = {
-    var receivedAll: Boolean = true
-    for (id <- getNeighborIds) {
-      if (!getIdsReceivedFrom.contains(id)) {
-        receivedAll = false;
-      }
-    }
-    receivedAll
-  }
-
-  protected def getIdsReceivedFrom: Set[MaxSumId] = {
-    var resultSet: Set[MaxSumId] = Set()
-    receivedMessages.keys.foreach(m => resultSet += m)
-    resultSet
-  }
-
   def getNumOfConflicts(): Int = {
     0
   }
