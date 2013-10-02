@@ -77,17 +77,9 @@ object MaxSumTest extends App {
   println
 
   signalCollectFactorGraph.awaitIdle
-  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0))
+  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(5000))
   println(stats)
 
-  signalCollectFactorGraph.foreachVertex { vertex =>
-    val msv = vertex.asInstanceOf[MaxSumVertex]
-    if (msv.id.isVariable) {
-      val variable = msv.asInstanceOf[VariableVertex]
-      println(variable.id.id + "  " + variable.stateHistory)
-    }
-  }
-  println(signalCollectFactorGraph.aggregate(new MaxSumConflictAggregationOperation))
   signalCollectFactorGraph.foreachVertex(println(_))
 
   println("------------------------------------------")
