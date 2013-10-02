@@ -27,8 +27,8 @@ object MaxSumTest extends App {
   println("--------------------------------------------------")
   println("Reading simple graph from txt-File: " + fileName)
 
-  //  val simpleGraph = reader.readToMap(fileName)
-  //  val simpleGraphList = reader.readToList(fileName)
+//    val simpleGraph = reader.readToMap(fileName)
+//    val simpleGraphList = reader.readToList(fileName)
 
   val simpleGraph = reader.readFromAdoptFileToMap(fileName)
   val simpleGraphList = reader.readFromAdoptFileToList(fileName)
@@ -49,7 +49,7 @@ object MaxSumTest extends App {
   println("--------------------------------------------------")
   println("Initialization of Problem-Constants started")
 
-  ProblemConstants.numOfColors = 3
+  ProblemConstants.numOfColors = 2
   println("Number of Colors = " + ProblemConstants.numOfColors + " initialized")
   initializeRandom()
 
@@ -77,7 +77,7 @@ object MaxSumTest extends App {
   println
 
   signalCollectFactorGraph.awaitIdle
-  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(5000))
+  val stats = signalCollectFactorGraph.execute(ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0))
   println(stats)
 
   signalCollectFactorGraph.foreachVertex(println(_))

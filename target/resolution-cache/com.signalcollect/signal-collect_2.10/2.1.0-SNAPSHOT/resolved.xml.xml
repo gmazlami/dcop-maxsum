@@ -4,7 +4,7 @@
 		module="signal-collect_2.10"
 		revision="2.1.0-SNAPSHOT"
 		status="integration"
-		publication="20130526214645"
+		publication="20131002114638"
 	>
 		<description>
 		signal-collect

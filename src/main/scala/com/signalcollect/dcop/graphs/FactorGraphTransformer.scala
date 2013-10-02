@@ -26,6 +26,7 @@ import com.signalcollect.dcop.edges.FunctionToVariable
 import com.signalcollect.dcop.edges.VariableToFunction
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.HashMap
+import akka.event.Logging
 
 /**
  * Transformer class that takes a simple graph as an input, in form of a map of simpleVertices.
@@ -43,12 +44,15 @@ class FactorGraphTransformer {
 	
   
   def transform(simpleVertexMap : HashMap[Int,SimpleVertex]) ={
-	val graph = GraphBuilder.withKryoRegistrations(
-	    List(
-	        "com.signalcollect.dcop.MaxSumMessage",
-	        "com.signalcollect.dcop.vertices.id.MaxSumId",
-	        "scala.collection.mutable.ArrayBuffer"
-	    )).withMessageSerialization(true).build
+	val graph = GraphBuilder.withLoggingLevel(Logging.DebugLevel)
+//	.withKryoRegistrations(
+//	    List(
+//	        "com.signalcollect.dcop.MaxSumMessage",
+//	        "com.signalcollect.dcop.vertices.id.MaxSumId",
+//	        "scala.collection.mutable.ArrayBuffer" 
+//	    ))
+	    .withMessageSerialization(true) //for local serialization test purposes
+	    .build
 	graph.awaitIdle
 	
 	if(simpleVertexMap.values.isEmpty){

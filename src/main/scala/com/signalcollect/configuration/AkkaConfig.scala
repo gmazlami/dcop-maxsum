@@ -68,7 +68,6 @@ akka {
       "scala.Some" = kryo
       "java.util.HashMap" = kryo
       "com.signalcollect.interfaces.EdgeId" = kryo
-      "com.signalcollect.interfaces.SignalMessage" = kryo
       "com.signalcollect.interfaces.BulkSignal" = kryo
       "com.signalcollect.interfaces.WorkerStatus" = kryo
       "com.signalcollect.interfaces.NodeStatus" = kryo

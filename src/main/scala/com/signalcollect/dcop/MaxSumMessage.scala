@@ -23,6 +23,8 @@ import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import scala.math._
+import java.io.ObjectOutputStream
+import java.io.IOException
 
 class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends Serializable{
 
@@ -68,5 +70,4 @@ class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends 
       case _ => false
     }
   }
-  
 }

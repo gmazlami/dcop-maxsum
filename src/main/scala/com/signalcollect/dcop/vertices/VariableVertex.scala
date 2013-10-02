@@ -62,6 +62,7 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
   }
   
   override def collect = {
+    println("COLLECTING")
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]
@@ -84,17 +85,17 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 /*
  * TODO:Comment in the function below to enable convergence detection
  */
-//  override def scoreCollect : Double = {
-//    if(edgesModifiedSinceCollectOperation){
-//      1.0
-//    }else{
-//      if(stateHistory.hasConverged && marginalHistory.hasConverged){
-//        0.0
-//      }else{
-//        1.0
-//      }
-//    }
-//  }
+  override def scoreCollect : Double = {
+    if(edgesModifiedSinceCollectOperation){
+      1.0
+    }else{
+      if(stateHistory.hasConverged && marginalHistory.hasConverged){
+        0.0
+      }else{
+        1.0
+      }
+    }
+  }
   
   private def findResultingColorFromMarginal(): Int = {
     var max = Double.MinValue

@@ -113,7 +113,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     }
     
     
-//	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
+	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
 //	println("--------------------------------------------------")
     new MaxSumMessage(source.id,targetId,R_m_n)
   }

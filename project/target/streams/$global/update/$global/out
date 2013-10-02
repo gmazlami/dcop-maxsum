@@ -1,72 +1,42 @@
-[0m[[0minfo[0m] [0mUpdating {file:/Users/gmazlami/Bachelorthesis/git/signal-collect/project/}default-d12aa9...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/}default-a4c783...[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m:: resolving dependencies :: default#default-d12aa9;0.1-SNAPSHOT[0m
+[0m[[0mdebug[0m] [0m:: resolving dependencies :: default#default-a4c783;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
 [0m[[0mdebug[0m] [0m	refresh = false[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'compile'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [compile][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=compile[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.eed3si9n#sbt-assembly;0.8.8 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve com.eed3si9n#sbt-assembly;0.8.8[0m
 [0m[[0minfo[0m] [0mResolving com.eed3si9n#sbt-assembly;0.8.8 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.eed3si9n#sbt-assembly;0.8.8 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: no namespace defined: using system[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.eed3si9n#sbt-assembly;0.8.8: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
+[0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.eed3si9n#sbt-assembly;0.8.8 (resolved by sbt-plugin-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.eed3si9n#sbt-assembly;0.8.8[0m
 [0m[[0mdebug[0m] [0msbt-chain: no latest strategy defined: using default[0m
 [0m[[0mdebug[0m] [0mtypesafe-ivy-releases: no namespace defined: using system[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.eed3si9n#sbt-assembly;0.8.8: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for com.eed3si9n#sbt-assembly;0.8.8: res=http://repo.typesafe.com/typesafe/ivy-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.eed3si9n#sbt-assembly;0.8.8[0m
-[0m[[0mdebug[0m] [0msbt-plugin-releases: no namespace defined: using system[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.eed3si9n#sbt-assembly;0.8.8: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: found md file for com.eed3si9n#sbt-assembly;0.8.8[0m
-[0m[[0mdebug[0m] [0m		=> http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml (0.8.8)[0m
-[0m[[0mdebug[0m] [0m	parser = ivy parser[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.eed3si9n#sbt-assembly;0.8.8: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml ...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml: checking...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp2194962008816276865sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.eed3si9n#sbt-assembly;0.8.8!ivy.xml(ivy.original) (565ms)[0m
-[0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for com.eed3si9n#sbt-assembly;0.8.8; parsed=com.eed3si9n#sbt-assembly;0.8.8[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.eed3si9n#sbt-assembly;0.8.8 (resolved by sbt-plugin-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/ivy-0.8.8.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: com.eed3si9n#sbt-assembly;0.8.8[0m
 [0m[[0mdebug[0m] [0m	checking com.eed3si9n#sbt-assembly;0.8.8 from sbt-plugin-releases against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: com.eed3si9n#sbt-assembly;0.8.8 from sbt-plugin-releases[0m
 [0m[[0mdebug[0m] [0m	found com.eed3si9n#sbt-assembly;0.8.8 in sbt-plugin-releases[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0[0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: found md file for com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0[0m
-[0m[[0mdebug[0m] [0m		=> http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml (2.2.0)[0m
-[0m[[0mdebug[0m] [0m	parser = ivy parser[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml ...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml: checking...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp6252876451522408279sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0!ivy.xml(ivy.original) (633ms)[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0; parsed=com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 (resolved by typesafe-ivy-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 (resolved by typesafe-ivy-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/ivy-2.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0[0m
 [0m[[0mdebug[0m] [0m	checking com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 from typesafe-ivy-releases against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 from typesafe-ivy-releases[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 in typesafe-ivy-releases[0m
@@ -75,24 +45,13 @@
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve com.typesafe.sbteclipse#sbteclipse-core;2.2.0[0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.sbteclipse#sbteclipse-core;2.2.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.typesafe.sbteclipse#sbteclipse-core;2.2.0 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.typesafe.sbteclipse#sbteclipse-core;2.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.typesafe.sbteclipse#sbteclipse-core;2.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: found md file for com.typesafe.sbteclipse#sbteclipse-core;2.2.0[0m
-[0m[[0mdebug[0m] [0m		=> http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml (2.2.0)[0m
-[0m[[0mdebug[0m] [0m	parser = ivy parser[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.typesafe.sbteclipse#sbteclipse-core;2.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml ...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml: checking...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp1619632854321595278sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.typesafe.sbteclipse#sbteclipse-core;2.2.0!ivy.xml(ivy.original) (630ms)[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for com.typesafe.sbteclipse#sbteclipse-core;2.2.0; parsed=com.typesafe.sbteclipse#sbteclipse-core;2.2.0[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.typesafe.sbteclipse#sbteclipse-core;2.2.0 (resolved by typesafe-ivy-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.sbteclipse#sbteclipse-core;2.2.0[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.typesafe.sbteclipse#sbteclipse-core;2.2.0 (resolved by typesafe-ivy-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/ivy-2.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: com.typesafe.sbteclipse#sbteclipse-core;2.2.0[0m
 [0m[[0mdebug[0m] [0m	checking com.typesafe.sbteclipse#sbteclipse-core;2.2.0 from typesafe-ivy-releases against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: com.typesafe.sbteclipse#sbteclipse-core;2.2.0 from typesafe-ivy-releases[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.sbteclipse#sbteclipse-core;2.2.0 in typesafe-ivy-releases[0m
@@ -101,74 +60,13 @@
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve org.scalaz#scalaz-core_2.9.2;6.0.4[0m
 [0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-core_2.9.2;6.0.4 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scalaz#scalaz-core_2.9.2;6.0.4 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4: tried /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4: tried /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scalaz#scalaz-core_2.9.2;6.0.4[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4: tried /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scalaz#scalaz-core_2.9.2;6.0.4[0m
-[0m[[0mdebug[0m] [0mlocal: no namespace defined: using system[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4: tried /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=/Users/gmazlami/.ivy2/local/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scalaz#scalaz-core_2.9.2;6.0.4[0m
-[0m[[0mdebug[0m] [0martifactory: no namespace defined: using system[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4: tried /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: no ivy file found for org.scalaz#scalaz-core_2.9.2;6.0.4[0m
-[0m[[0mdebug[0m] [0mpublic: no namespace defined: using system[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4: tried /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for org.scalaz#scalaz-core_2.9.2;6.0.4[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom (6.0.4)[0m
-[0m[[0mdebug[0m] [0m	parser = sbt.CustomPomParser@3b5aa5cb[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4: tried /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp4671710425437629461sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scalaz#scalaz-core_2.9.2;6.0.4!scalaz-core_2.9.2.pom(pom.original) (250ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=/Users/gmazlami/.ivy2/local/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for org.scalaz#scalaz-core_2.9.2;6.0.4: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.9.2/6.0.4/jars/scalaz-core_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar[0m
-[0m[[0mdebug[0m] [0mno source artifact found for org.scalaz#scalaz-core_2.9.2;6.0.4[0m
-[0m[[0mdebug[0m] [0mno javadoc artifact found for org.scalaz#scalaz-core_2.9.2;6.0.4[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for org.scalaz#scalaz-core_2.9.2;6.0.4; parsed=org.scalaz#scalaz-core_2.9.2;6.0.4[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
+[0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4 (resolved by public): /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scalaz#scalaz-core_2.9.2;6.0.4[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalaz#scalaz-core_2.9.2;6.0.4 (resolved by public): /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/ivy-6.0.4.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.scalaz#scalaz-core_2.9.2;6.0.4[0m
 [0m[[0mdebug[0m] [0m	checking org.scalaz#scalaz-core_2.9.2;6.0.4 from public against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: org.scalaz#scalaz-core_2.9.2;6.0.4 from public[0m
 [0m[[0mdebug[0m] [0m	found org.scalaz#scalaz-core_2.9.2;6.0.4 in public[0m
@@ -183,8 +81,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-library;2.9.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-lang/scala-library/ivy-2.9.2.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for org.scala-lang#scala-library;2.9.2[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for org.scala-lang#scala-library;2.9.2: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for org.scala-lang#scala-library;2.9.2 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/org.scala-lang/scala-library/ivy-2.9.2.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.9.2[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-lang/scala-library/ivy-2.9.2.xml[0m
@@ -201,154 +97,37 @@
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-core;2.2.0->org.scalaz#scalaz-core_2.9.2;6.0.4 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalaz#scalaz-core_2.9.2;6.0.4 of rootConf=compile[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve net.virtual-void#sbt-dependency-graph;0.7.3[0m
 [0m[[0minfo[0m] [0mResolving net.virtual-void#sbt-dependency-graph;0.7.3 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: net.virtual-void#sbt-dependency-graph;0.7.3 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for net.virtual-void#sbt-dependency-graph;0.7.3[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for net.virtual-void#sbt-dependency-graph;0.7.3[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=/Users/gmazlami/.ivy2/local/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for net.virtual-void#sbt-dependency-graph;0.7.3[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/scala_2.9.2/sbt_0.12/0.7.3/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: no ivy file found for net.virtual-void#sbt-dependency-graph;0.7.3[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for net.virtual-void#sbt-dependency-graph;0.7.3[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom (0.7.3)[0m
-[0m[[0mdebug[0m] [0m	parser = sbt.CustomPomParser@3b5aa5cb[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp5068247485034022462sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] net.virtual-void#sbt-dependency-graph;0.7.3!sbt-dependency-graph.pom(pom.original) (670ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=http://repo.typesafe.com/typesafe/ivy-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=/Users/gmazlami/.ivy2/local/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for net.virtual-void#sbt-dependency-graph;0.7.3: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/net.virtual-void/sbt-dependency-graph/0.7.3/jars/sbt-dependency-graph.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0mdebug[0m] [0m	public: resource not reachable for net/virtual-void#sbt-dependency-graph;0.7.3: res=http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for net.virtual-void#sbt-dependency-graph;0.7.3; parsed=net.virtual-void#sbt-dependency-graph;0.7.3[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
+[0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3 (resolved by public): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: net.virtual-void#sbt-dependency-graph;0.7.3[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for net.virtual-void#sbt-dependency-graph;0.7.3 (resolved by public): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/ivy-0.7.3.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: net.virtual-void#sbt-dependency-graph;0.7.3[0m
 [0m[[0mdebug[0m] [0m	checking net.virtual-void#sbt-dependency-graph;0.7.3 from public against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: net.virtual-void#sbt-dependency-graph;0.7.3 from public[0m
 [0m[[0mdebug[0m] [0m	found net.virtual-void#sbt-dependency-graph;0.7.3 in public[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.virtual-void#sbt-dependency-graph;0.7.3->com.github.mdr#ascii-graphs_2.9.2;0.0.2 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0mloadData of com.github.mdr#ascii-graphs_2.9.2;0.0.2 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
 [0m[[0minfo[0m] [0mResolving com.github.mdr#ascii-graphs_2.9.2;0.0.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.github.mdr#ascii-graphs_2.9.2;0.0.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2: tried /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2: tried /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2: tried /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2: tried /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=/Users/gmazlami/.ivy2/local/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2: tried /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: no ivy file found for com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2: tried /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom (0.0.2)[0m
-[0m[[0mdebug[0m] [0m	parser = sbt.CustomPomParser@3b5aa5cb[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2: tried /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp1103966224305627365sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.github.mdr#ascii-graphs_2.9.2;0.0.2!ascii-graphs_2.9.2.pom(pom.original) (515ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=http://repo.typesafe.com/typesafe/ivy-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=/Users/gmazlami/.ivy2/local/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for com.github.mdr#ascii-graphs_2.9.2;0.0.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.mdr/ascii-graphs_2.9.2/0.0.2/jars/ascii-graphs_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar[0m
-[0m[[0mdebug[0m] [0mno source artifact found for com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
-[0m[[0mdebug[0m] [0mno javadoc artifact found for com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for com.github.mdr#ascii-graphs_2.9.2;0.0.2; parsed=com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
+[0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2 (resolved by public): /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.github.mdr#ascii-graphs_2.9.2;0.0.2 (resolved by public): /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/ivy-0.0.2.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: com.github.mdr#ascii-graphs_2.9.2;0.0.2[0m
 [0m[[0mdebug[0m] [0m	checking com.github.mdr#ascii-graphs_2.9.2;0.0.2 from public against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: com.github.mdr#ascii-graphs_2.9.2;0.0.2 from public[0m
 [0m[[0mdebug[0m] [0m	found com.github.mdr#ascii-graphs_2.9.2;0.0.2 in public[0m
@@ -376,38 +155,20 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.virtual-void#sbt-dependency-graph;0.7.3->com.github.mdr#ascii-graphs_2.9.2;0.0.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0mloadData of com.github.mdr#ascii-graphs_2.9.2;0.0.2 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0mcompile is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle-sbt-plugin;0.2.0 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve org.scalastyle#scalastyle-sbt-plugin;0.2.0[0m
 [0m[[0minfo[0m] [0mResolving org.scalastyle#scalastyle-sbt-plugin;0.2.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scalastyle#scalastyle-sbt-plugin;0.2.0 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle-sbt-plugin;0.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle-sbt-plugin;0.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for org.scalastyle#scalastyle-sbt-plugin;0.2.0: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scalastyle#scalastyle-sbt-plugin;0.2.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle-sbt-plugin;0.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: found md file for org.scalastyle#scalastyle-sbt-plugin;0.2.0[0m
-[0m[[0mdebug[0m] [0m		=> http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml (0.2.0)[0m
-[0m[[0mdebug[0m] [0m	parser = ivy parser[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle-sbt-plugin;0.2.0: tried /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml ...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml: checking...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp891452498283467210sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scalastyle#scalastyle-sbt-plugin;0.2.0!ivy.xml(ivy.original) (573ms)[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for org.scalastyle#scalastyle-sbt-plugin;0.2.0; parsed=org.scalastyle#scalastyle-sbt-plugin;0.2.0[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalastyle#scalastyle-sbt-plugin;0.2.0 (resolved by sbt-plugin-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scalastyle#scalastyle-sbt-plugin;0.2.0[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalastyle#scalastyle-sbt-plugin;0.2.0 (resolved by sbt-plugin-releases): /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/ivy-0.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.scalastyle#scalastyle-sbt-plugin;0.2.0[0m
 [0m[[0mdebug[0m] [0m	checking org.scalastyle#scalastyle-sbt-plugin;0.2.0 from sbt-plugin-releases against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: org.scalastyle#scalastyle-sbt-plugin;0.2.0 from sbt-plugin-releases[0m
 [0m[[0mdebug[0m] [0m	found org.scalastyle#scalastyle-sbt-plugin;0.2.0 in sbt-plugin-releases[0m
@@ -416,84 +177,13 @@
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve org.scalastyle#scalastyle_2.9.2;0.2.0[0m
 [0m[[0minfo[0m] [0mResolving org.scalastyle#scalastyle_2.9.2;0.2.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scalastyle#scalastyle_2.9.2;0.2.0 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0: tried /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0: tried /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scalastyle#scalastyle_2.9.2;0.2.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0: tried /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scalastyle#scalastyle_2.9.2;0.2.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0: tried /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=/Users/gmazlami/.ivy2/local/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scalastyle#scalastyle_2.9.2;0.2.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0: tried /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: no ivy file found for org.scalastyle#scalastyle_2.9.2;0.2.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0: tried /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for org.scalastyle#scalastyle_2.9.2;0.2.0[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom (0.2.0)[0m
-[0m[[0mdebug[0m] [0m	parser = sbt.CustomPomParser@3b5aa5cb[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0: tried /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp7148182256874446439sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scalastyle#scalastyle_2.9.2;0.2.0!scalastyle_2.9.2.pom(pom.original) (500ms)[0m
-[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}[0m
-[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.sonatype.oss/oss-parent/ivy-7.xml[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for org.sonatype.oss#oss-parent;7[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for org.sonatype.oss#oss-parent;7: sbt-chain: saving this data[0m
-[0m[[0mdebug[0m] [0m	found ivy file in cache for org.sonatype.oss#oss-parent;7 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/org.sonatype.oss/oss-parent/ivy-7.xml[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7[0m
-[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.sonatype.oss/oss-parent/ivy-7.xml[0m
-[0m[[0mdebug[0m] [0m	found ivy file in cache for org.sonatype.oss#oss-parent;7 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/org.sonatype.oss/oss-parent/ivy-7.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.sonatype.oss#oss-parent;7[0m
-[0m[[0mdebug[0m] [0m	checking org.sonatype.oss#oss-parent;7 from sbt-chain against [none][0m
-[0m[[0mdebug[0m] [0m	module revision kept as first found: org.sonatype.oss#oss-parent;7 from sbt-chain[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=/Users/gmazlami/.ivy2/local/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for org.scalastyle#scalastyle_2.9.2;0.2.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle_2.9.2/0.2.0/jars/scalastyle_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar[0m
-[0m[[0mdebug[0m] [0mno source artifact found for org.scalastyle#scalastyle_2.9.2;0.2.0[0m
-[0m[[0mdebug[0m] [0mno javadoc artifact found for org.scalastyle#scalastyle_2.9.2;0.2.0[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for org.scalastyle#scalastyle_2.9.2;0.2.0; parsed=org.scalastyle#scalastyle_2.9.2;0.2.0[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0 (resolved by public): /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scalastyle#scalastyle_2.9.2;0.2.0[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalastyle#scalastyle_2.9.2;0.2.0 (resolved by public): /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/ivy-0.2.0.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.scalastyle#scalastyle_2.9.2;0.2.0[0m
 [0m[[0mdebug[0m] [0m	checking org.scalastyle#scalastyle_2.9.2;0.2.0 from public against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: org.scalastyle#scalastyle_2.9.2;0.2.0 from public[0m
 [0m[[0mdebug[0m] [0m	found org.scalastyle#scalastyle_2.9.2;0.2.0 in public[0m
@@ -506,71 +196,13 @@
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve org.scalariform#scalariform_2.9.2;0.1.2[0m
 [0m[[0minfo[0m] [0mResolving org.scalariform#scalariform_2.9.2;0.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scalariform#scalariform_2.9.2;0.1.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2: tried /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2: tried /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scalariform#scalariform_2.9.2;0.1.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2: tried /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scalariform#scalariform_2.9.2;0.1.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2: tried /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=/Users/gmazlami/.ivy2/local/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scalariform#scalariform_2.9.2;0.1.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2: tried /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: no ivy file found for org.scalariform#scalariform_2.9.2;0.1.2[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2: tried /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for org.scalariform#scalariform_2.9.2;0.1.2[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom (0.1.2)[0m
-[0m[[0mdebug[0m] [0m	parser = sbt.CustomPomParser@3b5aa5cb[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2: tried /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp7839118432781706295sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scalariform#scalariform_2.9.2;0.1.2!scalariform_2.9.2.pom(pom.original) (269ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=http://repo.typesafe.com/typesafe/ivy-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=/Users/gmazlami/.ivy2/local/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for org.scalariform#scalariform_2.9.2;0.1.2: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalariform/scalariform_2.9.2/0.1.2/jars/scalariform_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar[0m
-[0m[[0mdebug[0m] [0mno source artifact found for org.scalariform#scalariform_2.9.2;0.1.2[0m
-[0m[[0mdebug[0m] [0mno javadoc artifact found for org.scalariform#scalariform_2.9.2;0.1.2[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for org.scalariform#scalariform_2.9.2;0.1.2; parsed=org.scalariform#scalariform_2.9.2;0.1.2[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
+[0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2 (resolved by public): /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scalariform#scalariform_2.9.2;0.1.2[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for org.scalariform#scalariform_2.9.2;0.1.2 (resolved by public): /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/ivy-0.1.2.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.scalariform#scalariform_2.9.2;0.1.2[0m
 [0m[[0mdebug[0m] [0m	checking org.scalariform#scalariform_2.9.2;0.1.2 from public against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: org.scalariform#scalariform_2.9.2;0.1.2 from public[0m
 [0m[[0mdebug[0m] [0m	found org.scalariform#scalariform_2.9.2;0.1.2 in public[0m
@@ -597,71 +229,13 @@
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve com.github.scopt#scopt_2.9.2;2.1.0[0m
 [0m[[0minfo[0m] [0mResolving com.github.scopt#scopt_2.9.2;2.1.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.github.scopt#scopt_2.9.2;2.1.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0: tried /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0: tried /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0: tried /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0: tried /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=/Users/gmazlami/.ivy2/local/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0: tried /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	artifactory: no ivy file found for com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0: tried /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom (2.1.0)[0m
-[0m[[0mdebug[0m] [0m	parser = sbt.CustomPomParser@3b5aa5cb[0m
-[0m[[0mdebug[0m] [0m	no ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0: tried /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml.original.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp5760080902016403918sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.github.scopt#scopt_2.9.2;2.1.0!scopt_2.9.2.pom(pom.original) (484ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=http://repo.typesafe.com/typesafe/ivy-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying /Users/gmazlami/.ivy2/local/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried /Users/gmazlami/.ivy2/local/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	local: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=/Users/gmazlami/.ivy2/local/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mHTTP response status: 404 url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	artifactory: resource not reachable for com.github.scopt#scopt_2.9.2;2.1.0: res=http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.scopt/scopt_2.9.2/2.1.0/jars/scopt_2.9.2.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar[0m
-[0m[[0mdebug[0m] [0mno source artifact found for com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0mno javadoc artifact found for com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	default-cache: parsed downloaded md file for com.github.scopt#scopt_2.9.2;2.1.0; parsed=com.github.scopt#scopt_2.9.2;2.1.0[0m
+[0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
+[0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0 (resolved by public): /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.github.scopt#scopt_2.9.2;2.1.0[0m
+[0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
+[0m[[0mdebug[0m] [0m	found ivy file in cache for com.github.scopt#scopt_2.9.2;2.1.0 (resolved by public): /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/ivy-2.1.0.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: com.github.scopt#scopt_2.9.2;2.1.0[0m
 [0m[[0mdebug[0m] [0m	checking com.github.scopt#scopt_2.9.2;2.1.0 from public against [none][0m
 [0m[[0mdebug[0m] [0m	module revision kept as first found: com.github.scopt#scopt_2.9.2;2.1.0 from public[0m
 [0m[[0mdebug[0m] [0m	found com.github.scopt#scopt_2.9.2;2.1.0 in public[0m
@@ -698,14 +272,14 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=compile[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [runtime][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=runtime[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [compile][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=runtime[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=runtime[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0mruntime is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.eed3si9n#sbt-assembly;0.8.8 of rootConf=runtime[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0->com.typesafe.sbteclipse#sbteclipse-core;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-core;2.2.0 of rootConf=runtime[0m
@@ -731,12 +305,12 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-core;2.2.0->org.scalaz#scalaz-core_2.9.2;6.0.4 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalaz#scalaz-core_2.9.2;6.0.4 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0mruntime is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0mruntime is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0mruntime is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.virtual-void#sbt-dependency-graph;0.7.3->com.github.mdr#ascii-graphs_2.9.2;0.0.2 [compile->master(*)][0m
@@ -762,10 +336,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.github.mdr#ascii-graphs_2.9.2;0.0.2->org.scala-lang#scala-library;2.9.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0mruntime is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0mruntime is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle-sbt-plugin;0.2.0 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=runtime[0m
@@ -825,17 +399,17 @@
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=runtime[0m
 [0m[[0mdebug[0m] [0mruntime is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [test][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [runtime][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [test][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [compile][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.eed3si9n#sbt-assembly;0.8.8 of rootConf=test[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 of rootConf=test[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0->com.typesafe.sbteclipse#sbteclipse-core;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-core;2.2.0 of rootConf=test[0m
@@ -861,12 +435,12 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-core;2.2.0->org.scalaz#scalaz-core_2.9.2;6.0.4 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalaz#scalaz-core_2.9.2;6.0.4 of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.virtual-void#sbt-dependency-graph;0.7.3->com.github.mdr#ascii-graphs_2.9.2;0.0.2 [compile->master(*)][0m
@@ -892,10 +466,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.github.mdr#ascii-graphs_2.9.2;0.0.2->org.scala-lang#scala-library;2.9.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle-sbt-plugin;0.2.0 of rootConf=test[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=test[0m
@@ -955,9 +529,9 @@
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=test[0m
 [0m[[0mdebug[0m] [0mtest is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'provided'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [provided][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=provided[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-sbt#sbt;0.12.2 [provided->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [provided][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=provided[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-sbt#sbt;0.12.2 [provided->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-sbt#sbt;0.12.2 of rootConf=provided[0m
 [0m[[0mdebug[0m] [0m	using sbt-chain to resolve org.scala-sbt#sbt;0.12.2[0m
 [0m[[0minfo[0m] [0mResolving org.scala-sbt#sbt;0.12.2 ...[0m
@@ -1140,8 +714,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-compiler;2.9.2 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.9.2.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for org.scala-lang#scala-compiler;2.9.2[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for org.scala-lang#scala-compiler;2.9.2: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for org.scala-lang#scala-compiler;2.9.2 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.9.2.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-compiler;2.9.2[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.9.2.xml[0m
@@ -1235,8 +807,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: jline#jline;1.0 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/jline/jline/ivy-1.0.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for jline#jline;1.0[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for jline#jline;1.0: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for jline#jline;1.0 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/jline/jline/ivy-1.0.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: jline#jline;1.0[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/jline/jline/ivy-1.0.xml[0m
@@ -1474,8 +1044,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-tools.sbinary#sbinary_2.9.0;0.4.0 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-tools.sbinary/sbinary_2.9.0/ivy-0.4.0.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for org.scala-tools.sbinary#sbinary_2.9.0;0.4.0[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for org.scala-tools.sbinary#sbinary_2.9.0;0.4.0: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for org.scala-tools.sbinary#sbinary_2.9.0;0.4.0 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/org.scala-tools.sbinary/sbinary_2.9.0/ivy-0.4.0.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-tools.sbinary#sbinary_2.9.0;0.4.0[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-tools.sbinary/sbinary_2.9.0/ivy-0.4.0.xml[0m
@@ -1602,8 +1170,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.ivy#ivy;2.3.0-rc1 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.apache.ivy/ivy/ivy-2.3.0-rc1.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for org.apache.ivy#ivy;2.3.0-rc1[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for org.apache.ivy#ivy;2.3.0-rc1: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for org.apache.ivy#ivy;2.3.0-rc1 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/org.apache.ivy/ivy/ivy-2.3.0-rc1.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache.ivy#ivy;2.3.0-rc1[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.apache.ivy/ivy/ivy-2.3.0-rc1.xml[0m
@@ -1625,8 +1191,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.jcraft#jsch;0.1.46 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/com.jcraft/jsch/ivy-0.1.46.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for com.jcraft#jsch;0.1.46[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for com.jcraft#jsch;0.1.46: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for com.jcraft#jsch;0.1.46 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/com.jcraft/jsch/ivy-0.1.46.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.jcraft#jsch;0.1.46[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/com.jcraft/jsch/ivy-0.1.46.xml[0m
@@ -1648,8 +1212,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: commons-httpclient#commons-httpclient;3.1 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/commons-httpclient/commons-httpclient/ivy-3.1.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for commons-httpclient#commons-httpclient;3.1[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for commons-httpclient#commons-httpclient;3.1: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for commons-httpclient#commons-httpclient;3.1 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/commons-httpclient/commons-httpclient/ivy-3.1.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: commons-httpclient#commons-httpclient;3.1[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/commons-httpclient/commons-httpclient/ivy-3.1.xml[0m
@@ -1669,8 +1231,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: commons-logging#commons-logging;1.0.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/commons-logging/commons-logging/ivy-1.0.4.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for commons-logging#commons-logging;1.0.4[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for commons-logging#commons-logging;1.0.4: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for commons-logging#commons-logging;1.0.4 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/commons-logging/commons-logging/ivy-1.0.4.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: commons-logging#commons-logging;1.0.4[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/commons-logging/commons-logging/ivy-1.0.4.xml[0m
@@ -1688,8 +1248,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: commons-codec#commons-codec;1.2 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/commons-codec/commons-codec/ivy-1.2.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for commons-codec#commons-codec;1.2[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for commons-codec#commons-codec;1.2: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for commons-codec#commons-codec;1.2 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/commons-codec/commons-codec/ivy-1.2.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: commons-codec#commons-codec;1.2[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/commons-codec/commons-codec/ivy-1.2.xml[0m
@@ -1990,8 +1548,6 @@
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-tools.testing#test-interface;0.5 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0mNo entry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-tools.testing/test-interface/ivy-0.5.xml[0m
 [0m[[0mdebug[0m] [0mpost 1.3 ivy file: using exact as default matcher[0m
-[0m[[0mdebug[0m] [0m	resolver not found: Maven Central => trying to use the one configured for org.scala-tools.testing#test-interface;0.5[0m
-[0m[[0mdebug[0m] [0m	configured resolver found for org.scala-tools.testing#test-interface;0.5: sbt-chain: saving this data[0m
 [0m[[0mdebug[0m] [0m	found ivy file in cache for org.scala-tools.testing#test-interface;0.5 (resolved by sbt-chain): /Users/gmazlami/.ivy2/cache/org.scala-tools.testing/test-interface/ivy-0.5.xml[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-tools.testing#test-interface;0.5[0m
 [0m[[0mdebug[0m] [0mEntry is found in the ModuleDescriptorCache : /Users/gmazlami/.ivy2/cache/org.scala-tools.testing/test-interface/ivy-0.5.xml[0m
@@ -2274,30 +1830,30 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#sbt;0.12.2->org.scala-lang#scala-library;2.9.2 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=provided[0m
 [0m[[0mdebug[0m] [0mprovided is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=provided[0m
 [0m[[0mdebug[0m] [0mprovided is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=provided[0m
 [0m[[0mdebug[0m] [0mprovided is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=provided[0m
 [0m[[0mdebug[0m] [0mprovided is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=provided[0m
 [0m[[0mdebug[0m] [0mprovided is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'optional'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [optional][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=optional[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=optional[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'compile-internal'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [compile-internal][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=compile-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [compile][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=compile-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [compile-internal][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=compile-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.eed3si9n#sbt-assembly;0.8.8 of rootConf=compile-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0->com.typesafe.sbteclipse#sbteclipse-core;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-core;2.2.0 of rootConf=compile-internal[0m
@@ -2323,12 +1879,12 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-core;2.2.0->org.scalaz#scalaz-core_2.9.2;6.0.4 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalaz#scalaz-core_2.9.2;6.0.4 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.virtual-void#sbt-dependency-graph;0.7.3->com.github.mdr#ascii-graphs_2.9.2;0.0.2 [compile->master(*)][0m
@@ -2354,10 +1910,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.github.mdr#ascii-graphs_2.9.2;0.0.2->org.scala-lang#scala-library;2.9.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle-sbt-plugin;0.2.0 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=compile-internal[0m
@@ -2416,13 +1972,13 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [optional][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=compile-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [provided][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=compile-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [provided][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-sbt#sbt;0.12.2 [provided->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-sbt#sbt;0.12.2 [provided->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-sbt#sbt;0.12.2 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#sbt;0.12.2->org.scala-sbt#main;0.12.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-sbt#main;0.12.2 of rootConf=compile-internal[0m
@@ -3232,30 +2788,30 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#sbt;0.12.2->org.scala-lang#scala-library;2.9.2 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=compile-internal[0m
 [0m[[0mdebug[0m] [0mcompile-internal is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime-internal'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [runtime-internal][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=runtime-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [runtime][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=runtime-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [runtime-internal][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=runtime-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [compile][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=runtime-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.eed3si9n#sbt-assembly;0.8.8 of rootConf=runtime-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0->com.typesafe.sbteclipse#sbteclipse-core;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-core;2.2.0 of rootConf=runtime-internal[0m
@@ -3281,12 +2837,12 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-core;2.2.0->org.scalaz#scalaz-core_2.9.2;6.0.4 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalaz#scalaz-core_2.9.2;6.0.4 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.virtual-void#sbt-dependency-graph;0.7.3->com.github.mdr#ascii-graphs_2.9.2;0.0.2 [compile->master(*)][0m
@@ -3312,10 +2868,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.github.mdr#ascii-graphs_2.9.2;0.0.2->org.scala-lang#scala-library;2.9.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle-sbt-plugin;0.2.0 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=runtime-internal[0m
@@ -3374,24 +2930,24 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [optional][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=runtime-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=runtime-internal[0m
 [0m[[0mdebug[0m] [0mruntime-internal is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test-internal'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [test-internal][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [test][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [test-internal][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [test][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [runtime][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [runtime][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [compile][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [compile][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.eed3si9n#sbt-assembly;0.8.8 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.eed3si9n#sbt-assembly;0.8.8 of rootConf=test-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0->com.typesafe.sbteclipse#sbteclipse-core;2.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of com.typesafe.sbteclipse#sbteclipse-core;2.2.0 of rootConf=test-internal[0m
@@ -3417,12 +2973,12 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.sbteclipse#sbteclipse-core;2.2.0->org.scalaz#scalaz-core_2.9.2;6.0.4 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalaz#scalaz-core_2.9.2;6.0.4 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test-internal[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->compile][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.virtual-void#sbt-dependency-graph;0.7.3->com.github.mdr#ascii-graphs_2.9.2;0.0.2 [compile->master(*)][0m
@@ -3448,10 +3004,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.github.mdr#ascii-graphs_2.9.2;0.0.2->org.scala-lang#scala-library;2.9.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->net.virtual-void#sbt-dependency-graph;0.7.3 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of net.virtual-void#sbt-dependency-graph;0.7.3 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scalastyle#scalastyle-sbt-plugin;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle-sbt-plugin;0.2.0 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=test-internal[0m
@@ -3510,13 +3066,13 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalastyle#scalastyle-sbt-plugin;0.2.0->org.scalastyle#scalastyle_2.9.2;0.2.0 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scalastyle#scalastyle_2.9.2;0.2.0 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [optional][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [optional][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [provided][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=test-internal[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [provided][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-sbt#sbt;0.12.2 [provided->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-sbt#sbt;0.12.2 [provided->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-sbt#sbt;0.12.2 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#sbt;0.12.2->org.scala-sbt#main;0.12.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-sbt#main;0.12.2 of rootConf=test-internal[0m
@@ -4326,30 +3882,30 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#sbt;0.12.2->org.scala-lang#scala-library;2.9.2 [compile->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->default(compile)][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->runtime][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->compile][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies default#default-d12aa9;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#default-a4c783;0.1-SNAPSHOT->org.scala-lang#scala-library;2.9.2 [provided->master][0m
 [0m[[0mdebug[0m] [0mloadData of org.scala-lang#scala-library;2.9.2 of rootConf=test-internal[0m
 [0m[[0mdebug[0m] [0mtest-internal is loaded and no conf to load.  Skip loading[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'plugin'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [plugin][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=plugin[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [plugin][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=plugin[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'sources'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [sources][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=sources[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [sources][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=sources[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'docs'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [docs][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=docs[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [docs][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=docs[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'pom'[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-d12aa9;0.1-SNAPSHOT [pom][0m
-[0m[[0mdebug[0m] [0mloadData of default#default-d12aa9;0.1-SNAPSHOT of rootConf=pom[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies for default#default-a4c783;0.1-SNAPSHOT [pom][0m
+[0m[[0mdebug[0m] [0mloadData of default#default-a4c783;0.1-SNAPSHOT of rootConf=pom[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 51[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : com.eed3si9n#sbt-assembly;0.8.8 / Number of dependencies = 2[0m
 [0m[[0mdebug[0m] [0mNon matching revision detected when sorting.  com.eed3si9n#sbt-assembly depends on org.scala-sbt#sbt;0.12.1, doesn't match org.scala-sbt#sbt;0.12.2[0m
@@ -4635,68 +4191,14 @@
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-compiler;2.9.2 in test-internal: excluding org.scala-lang#scala-compiler;2.9.2!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-compiler;2.9.2 in provided: excluding org.scala-lang#scala-compiler;2.9.2!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-compiler;2.9.2 in compile-internal: excluding org.scala-lang#scala-compiler;2.9.2!scala-compiler.jar[0m
-[0m[[0mdebug[0m] [0m	resolved ivy file produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/default/default-d12aa9/scala_2.9.2/sbt_0.12/0.1-SNAPSHOT/resolved.xml.xml[0m
+[0m[[0mdebug[0m] [0m	resolved ivy file produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/default/default-a4c783/scala_2.9.2/sbt_0.12/0.1-SNAPSHOT/resolved.xml.xml[0m
 [0m[[0mdebug[0m] [0m:: downloading artifacts ::[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/jars/sbt-assembly.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/jars/sbt-assembly.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/jars/sbt-assembly.jar ...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/jars/sbt-assembly.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.eed3si9n/sbt-assembly/jars/sbt-assembly-0.8.8.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/jars/sbt-assembly.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/jars/sbt-assembly.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp2273337094703790885sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.9.2/sbt_0.12/0.8.8/jars/sbt-assembly.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.eed3si9n#sbt-assembly;0.8.8!sbt-assembly.jar (1183ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-plugin.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-plugin.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-plugin.jar ...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-plugin.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-plugin/jars/sbteclipse-plugin-2.2.0.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-plugin.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-plugin.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp4027210744392328102sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-plugin.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0!sbteclipse-plugin.jar (919ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/net.virtual-void/sbt-dependency-graph/jars/sbt-dependency-graph-0.7.3.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp5259280663752735388sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/net/virtual-void/sbt-dependency-graph_2.9.2_0.12/0.7.3/sbt-dependency-graph-0.7.3.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] net.virtual-void#sbt-dependency-graph;0.7.3!sbt-dependency-graph.jar (628ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/jars/scalastyle-sbt-plugin.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/jars/scalastyle-sbt-plugin.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/jars/scalastyle-sbt-plugin.jar ...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/jars/scalastyle-sbt-plugin.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/org.scalastyle/scalastyle-sbt-plugin/jars/scalastyle-sbt-plugin-0.2.0.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/jars/scalastyle-sbt-plugin.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/jars/scalastyle-sbt-plugin.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp146433118654937306sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/org.scalastyle/scalastyle-sbt-plugin/scala_2.9.2/sbt_0.12/0.2.0/jars/scalastyle-sbt-plugin.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalastyle#scalastyle-sbt-plugin;0.2.0!scalastyle-sbt-plugin.jar (953ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-core.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-core.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-core.jar ...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-core.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/scala_2.9.2/sbt_0.12/com.typesafe.sbteclipse/sbteclipse-core/jars/sbteclipse-core-2.2.0.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-core.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: downloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-core.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp6326229908686777364sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.9.2/sbt_0.12/2.2.0/jars/sbteclipse-core.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbteclipse#sbteclipse-core;2.2.0!sbteclipse-core.jar (1566ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/org.scalaz/scalaz-core_2.9.2/jars/scalaz-core_2.9.2-6.0.4.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp7633493549545836250sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.9.2/6.0.4/scalaz-core_2.9.2-6.0.4.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalaz#scalaz-core_2.9.2;6.0.4!scalaz-core_2.9.2.jar (7684ms)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.eed3si9n#sbt-assembly;0.8.8!sbt-assembly.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.sbteclipse#sbteclipse-plugin;2.2.0!sbteclipse-plugin.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] net.virtual-void#sbt-dependency-graph;0.7.3!sbt-dependency-graph.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalastyle#scalastyle-sbt-plugin;0.2.0!scalastyle-sbt-plugin.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.sbteclipse#sbteclipse-core;2.2.0!sbteclipse-core.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalaz#scalaz-core_2.9.2;6.0.4!scalaz-core_2.9.2.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.2 in test-internal: excluding org.scala-lang#scala-library;2.9.2!scala-library.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.2 in test: excluding org.scala-lang#scala-library;2.9.2!scala-library.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.2 in compile: excluding org.scala-lang#scala-library;2.9.2!scala-library.jar[0m
@@ -4711,46 +4213,10 @@
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.2 in runtime: excluding org.scala-lang#scala-library;2.9.2!scala-library.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.2 in runtime-internal: excluding org.scala-lang#scala-library;2.9.2!scala-library.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.2 in compile-internal: excluding org.scala-lang#scala-library;2.9.2!scala-library.jar[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/com.github.mdr/ascii-graphs_2.9.2/jars/ascii-graphs_2.9.2-0.0.2.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp7744047977183002131sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/github/mdr/ascii-graphs_2.9.2/0.0.2/ascii-graphs_2.9.2-0.0.2.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.github.mdr#ascii-graphs_2.9.2;0.0.2!ascii-graphs_2.9.2.jar (1095ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/org.scalastyle/scalastyle_2.9.2/jars/scalastyle_2.9.2-0.2.0.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp8799622753480776611sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalastyle/scalastyle_2.9.2/0.2.0/scalastyle_2.9.2-0.2.0.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalastyle#scalastyle_2.9.2;0.2.0!scalastyle_2.9.2.jar (1435ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/org.scalariform/scalariform_2.9.2/jars/scalariform_2.9.2-0.1.2.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp8139785635424833560sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalariform/scalariform_2.9.2/0.1.2/scalariform_2.9.2-0.1.2.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalariform#scalariform_2.9.2;0.1.2!scalariform_2.9.2.jar (3220ms)[0m
-[0m[[0mdebug[0m] [0m	 trying http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar[0m
-[0m[[0mdebug[0m] [0m		to /Users/gmazlami/.ivy2/cache/com.github.scopt/scopt_2.9.2/jars/scopt_2.9.2-2.1.0.jar.part[0m
-[0m[[0mdebug[0m] [0msha1 file found for http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar: checking...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar.sha1[0m
-[0m[[0mdebug[0m] [0m		to /var/folders/14/9rcg0k716cz2hqm30v28kflc0000gn/T/ivytmp4677453469459696380sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/com/github/scopt/scopt_2.9.2/2.1.0/scopt_2.9.2-2.1.0.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.github.scopt#scopt_2.9.2;2.1.0!scopt_2.9.2.jar (808ms)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.github.mdr#ascii-graphs_2.9.2;0.0.2!ascii-graphs_2.9.2.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalastyle#scalastyle_2.9.2;0.2.0!scalastyle_2.9.2.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalariform#scalariform_2.9.2;0.1.2!scalariform_2.9.2.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.github.scopt#scopt_2.9.2;2.1.0!scopt_2.9.2.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#sbt;0.12.2!sbt.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#main;0.12.2!main.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#compiler-interface;0.12.2!compiler-interface-src.jar[0m
@@ -4797,7 +4263,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#cache;0.12.2!cache.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#test-agent;0.12.2!test-agent.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-tools.testing#test-interface;0.5!test-interface.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 18303ms :: artifacts dl 19539ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 7326ms :: artifacts dl 141ms[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 11[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : com.eed3si9n#sbt-assembly;0.8.8 / Number of dependencies = 2[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : org.scala-lang#scala-library;2.9.2 / Number of dependencies = 0[0m
@@ -4836,7 +4302,7 @@
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalastyle#scalastyle_2.9.2;0.2.0[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalariform#scalariform_2.9.2;0.1.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT compile produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/compile-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT compile produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/compile-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 11[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : com.eed3si9n#sbt-assembly;0.8.8 / Number of dependencies = 2[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : org.scala-lang#scala-library;2.9.2 / Number of dependencies = 0[0m
@@ -4875,7 +4341,7 @@
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalastyle#scalastyle_2.9.2;0.2.0[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalariform#scalariform_2.9.2;0.1.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT runtime produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/runtime-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT runtime produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/runtime-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 11[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : com.eed3si9n#sbt-assembly;0.8.8 / Number of dependencies = 2[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : org.scala-lang#scala-library;2.9.2 / Number of dependencies = 0[0m
@@ -4914,7 +4380,7 @@
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalastyle#scalastyle_2.9.2;0.2.0[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalariform#scalariform_2.9.2;0.1.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT test produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/test-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT test produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/test-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 41[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : org.scala-sbt#sbt;0.12.2 / Number of dependencies = 6[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : org.scala-sbt#main;0.12.2 / Number of dependencies = 12[0m
@@ -5150,9 +4616,9 @@
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#compiler-interface;0.12.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#precompiled-2_8_2;0.12.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#precompiled-2_10_0;0.12.2[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT provided produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/provided-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT provided produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/provided-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT optional produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/optional-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT optional produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/optional-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 51[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : com.eed3si9n#sbt-assembly;0.8.8 / Number of dependencies = 2[0m
 [0m[[0mdebug[0m] [0mNon matching revision detected when sorting.  com.eed3si9n#sbt-assembly depends on org.scala-sbt#sbt;0.12.1, doesn't match org.scala-sbt#sbt;0.12.2[0m
@@ -5428,7 +4894,7 @@
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#compiler-interface;0.12.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#precompiled-2_8_2;0.12.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#precompiled-2_10_0;0.12.2[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT compile-internal produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/compile-internal-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT compile-internal produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/compile-internal-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 11[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : com.eed3si9n#sbt-assembly;0.8.8 / Number of dependencies = 2[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : org.scala-lang#scala-library;2.9.2 / Number of dependencies = 0[0m
@@ -5467,7 +4933,7 @@
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalastyle#scalastyle_2.9.2;0.2.0[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scalariform#scalariform_2.9.2;0.1.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : com.github.scopt#scopt_2.9.2;2.1.0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT runtime-internal produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/runtime-internal-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT runtime-internal produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/runtime-internal-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 51[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : com.eed3si9n#sbt-assembly;0.8.8 / Number of dependencies = 2[0m
 [0m[[0mdebug[0m] [0mNon matching revision detected when sorting.  com.eed3si9n#sbt-assembly depends on org.scala-sbt#sbt;0.12.1, doesn't match org.scala-sbt#sbt;0.12.2[0m
@@ -5743,14 +5209,14 @@
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#compiler-interface;0.12.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#precompiled-2_8_2;0.12.2[0m
 [0m[[0mdebug[0m] [0mModule descriptor is processed : org.scala-sbt#precompiled-2_10_0;0.12.2[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT test-internal produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/test-internal-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT test-internal produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/test-internal-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT plugin produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/plugin-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT plugin produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/plugin-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT sources produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/sources-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT sources produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/sources-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT docs produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/docs-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT docs produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/docs-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 0[0m
-[0m[[0mdebug[0m] [0m	report for default#default-d12aa9;0.1-SNAPSHOT pom produced in /Users/gmazlami/Bachelorthesis/git/signal-collect/project/target/resolution-cache/reports/default-default-d12aa9/pom-resolved.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (18303ms resolve - 19539ms download)[0m
+[0m[[0mdebug[0m] [0m	report for default#default-a4c783;0.1-SNAPSHOT pom produced in /Users/gmazlami/Bachelorthesis/git/signal-collect-maxsum/signal-collect/project/target/resolution-cache/reports/default-default-a4c783/pom-resolved.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (7326ms resolve - 141ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
