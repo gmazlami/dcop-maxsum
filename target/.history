@@ -6,3 +6,4 @@ assembly
 eclipse
 exit
 compile
+last compile:compile

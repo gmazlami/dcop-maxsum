@@ -21,7 +21,6 @@ class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : In
   
   
   var graph: Graph[Any, Any] = _
-
   val algorithm = new DSAVertexBuilder(false, dsaVariant, pSchedule = pSched)
   val graphProvider: BinaryConstraintGraphProvider = new BinaryConstraintGraphProvider(graphSize, 2, numColors, loadFrom = file, isAdopt = isInputAdopt)
   val graphBuilder = new GraphBuilder[Any, Any]()

@@ -42,6 +42,7 @@ import akka.event.Logging
  */
 class FactorGraphTransformer {
 	
+ 
   
   def transform(simpleVertexMap : HashMap[Int,SimpleVertex]) ={
 	val graph = GraphBuilder.withLoggingLevel(Logging.DebugLevel)
