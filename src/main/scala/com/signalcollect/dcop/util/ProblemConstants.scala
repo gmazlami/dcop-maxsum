@@ -30,6 +30,6 @@ object ProblemConstants {
 
   val convergenceEnabled = false
   
-  val numOfColors: Int = 2
+  val numOfColors: Int = 3
 
 }

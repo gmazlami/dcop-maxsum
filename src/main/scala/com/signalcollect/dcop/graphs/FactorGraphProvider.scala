@@ -30,15 +30,7 @@ class FactorGraphProvider(val reader : FileGraphReader, val fileName : String) e
 	
     override def construct(nodeProvisioner : TorqueNodeProvisioner) = {
     computeAllConstants  
-    val graph = GraphBuilder
-    .withNodeProvisioner(nodeProvisioner)
-//	.withKryoRegistrations(
-//	    List(
-//	        "com.signalcollect.dcop.MaxSumMessage",
-//	        "com.signalcollect.dcop.vertices.id.MaxSumId",
-//	        "scala.collection.mutable.ArrayBuffer" 
-//	    ))
-	.build
+    val graph = GraphBuilder.withNodeProvisioner(nodeProvisioner).build
 	graph.awaitIdle
 	
 	if(simpleVertexMap.values.isEmpty){
@@ -78,43 +70,18 @@ class FactorGraphProvider(val reader : FileGraphReader, val fileName : String) e
     				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
     		}
 	}
-//    initializeConstants(graph)
+    initilalizeMessages
     graph
   }
     
-//  	private def initializeConstants(graph : Graph[Any,Any]) = {
-//  		graph.foreachVertexWithGraphEditor(ge => { vertex =>
-//          {
-//            vertex match {
-//              case v: FunctionVertex => {
-//                val triple = getConstants(v.id.idNumber)
-//                v.neighborSet = triple._3 
-//                v.ownedVariable = triple._1
-//                v.preferenceTable = triple._2
-//              }
-//              case f: Any =>
-//            }
-//          }
-//        })
-//  	}
-
-//  def initializeRandom(n: Int) = {
-//    ProblemConstants.numOfColors = n
-//    simpleGraphList.foreach { el =>
-//      val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
-//      val variableId = el.variableVertex.id
-//      val index = Random.nextInt(ProblemConstants.numOfColors)
-//      pref(index) = 0.1
-//      ProblemConstants.initialPreferences += (variableId -> pref)
-//    }
-//
-//    reader.storeNeighborStructure(simpleGraphList, simpleVertexMap)
-//    simpleVertexMap.foreach { entry =>
-//      entry._2.functionVertex.initializeReceivedMessages
-//      entry._2.variableVertex.initializeReceivedMessages
-//    }
-//  }
   
+   def initilalizeMessages() = {
+    simpleVertexMap.foreach { entry =>
+      entry._2.functionVertex.initializeReceivedMessages
+      entry._2.variableVertex.initializeReceivedMessages
+    }
+  }  
+    
   private def getConstants(idNum : Int) = {
     val ownedVariable : MaxSumId = new MaxSumId(idNum , 0)
     val randomPreferenceTable = getRandomPreference(ownedVariable)
