@@ -11,6 +11,10 @@ import scala.util.Random
 import com.signalcollect.configuration.TerminationReason
 import com.signalcollect.dcop.vertices.VariableVertex
 import com.signalcollect.dcop.vertices.MaxSumVertex
+import com.signalcollect.dcop.vertices.id.MaxSumId
+import com.signalcollect.Graph
+import com.signalcollect.dcop.vertices.FunctionVertex
+import scala.collection.mutable.HashMap
 
 class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors: Int, isAdopt: Boolean, aggregation: AggregationOperation[Int]) {
 
@@ -23,11 +27,14 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors: 
   val isInputAdopt = isAdopt
   val simpleGraph = if (isInputAdopt) reader.readFromAdoptFileToMap(fileName) else reader.readToMap(fileName)
   val simpleGraphList = if (isInputAdopt) reader.readFromAdoptFileToList(fileName) else reader.readToList(fileName)
-  val signalCollectFactorGraph = transformer.transform(simpleGraph)
+  var constants = computeAllConstants()
+  val signalCollectFactorGraph = transformer.transform(simpleGraph, constants)
 
   val intervalList = List(500, 1000, 1500, 2500, 5000, 7500, 10000)
 
-  initializeRandom()
+
+  signalCollectFactorGraph.awaitIdle
+  initilalizeMessages()
 
   def executeWithAggregation(): Int = {
     if (aggregation != null) {
@@ -56,6 +63,7 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors: 
           {
             vertex match {
               case v: VariableVertex => v.tellNeighborsAboutColor(ge)
+              case x: Any =>
             }
           }
         })
@@ -83,42 +91,44 @@ class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors: 
     }
   }
 
-  private def initializeRandom() = {
-    ProblemConstants.numOfColors = numColors
-    simpleGraphList.foreach { el =>
-      val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
-      val variableId = el.variableVertex.id
-      val index = Random.nextInt(ProblemConstants.numOfColors)
-      pref(index) = 0.1
-      ProblemConstants.initialPreferences += (variableId -> pref)
-    }
-
-    reader.storeNeighborStructure(simpleGraphList, simpleGraph)
-    simpleGraph.foreach { entry =>
-      entry._2.functionVertex.initializeReceivedMessages
-      entry._2.variableVertex.initializeReceivedMessages
-    }
-  }
-
-  private def initialize() = {
-    ProblemConstants.numOfColors = numColors
-    var color = 0
-    simpleGraphList.foreach { el =>
-      val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
-      val variableId = el.variableVertex.id
-      pref(color) = 0.1
-      ProblemConstants.initialPreferences += (variableId -> pref)
-      color = (color + 1) % ProblemConstants.numOfColors
-    }
-
-    reader.storeNeighborStructure(simpleGraphList, simpleGraph)
-    simpleGraph.foreach { entry =>
-      entry._2.functionVertex.initializeReceivedMessages
-      entry._2.variableVertex.initializeReceivedMessages
-    }
-  }
 
   private def copyExecutionConfigWithTimeLimit(t: Long, config: ExecutionConfiguration) = {
     new ExecutionConfiguration().withExecutionMode(config.executionMode).withSignalThreshold(config.signalThreshold).withCollectThreshold(config.collectThreshold).withTimeLimit(t)
+  }
+
+  def initilalizeMessages() = {
+    simpleGraph.foreach { entry =>
+      entry._2.functionVertex.initializeReceivedMessages
+      entry._2.variableVertex.initializeReceivedMessages
+    }
+  }
+
+  def getRandomPreference(ownedVar: MaxSumId) = {
+    val pref = ArrayBuffer.fill(ProblemConstants.numOfColors)(-0.1)
+    val variableId = ownedVar
+    val index = Random.nextInt(ProblemConstants.numOfColors)
+    pref(index) = 0.1
+    pref
+  }
+
+  def getNeighborSet(functionIdNum: Int, ownedVar: MaxSumId) = {
+    var neighborSetForFunction: ArrayBuffer[MaxSumId] = reader.getNeighbors(functionIdNum, simpleGraph)
+    neighborSetForFunction += ownedVar
+    neighborSetForFunction
+  }
+
+  def getConstants(idNum: Int) = {
+    val ownedVariable: MaxSumId = new MaxSumId(idNum, 0)
+    val randomPreferenceTable = getRandomPreference(ownedVariable)
+    val neighborSet = getNeighborSet(idNum, ownedVariable)
+    (ownedVariable, randomPreferenceTable, neighborSet)
+  }
+
+  def computeAllConstants() = {
+    var allConstants : HashMap[MaxSumId, Tuple3[MaxSumId, ArrayBuffer[Double], ArrayBuffer[MaxSumId]]] = HashMap()
+    simpleGraphList.foreach { s =>
+      allConstants += (s.functionVertex.id -> getConstants(s.functionVertex.id.idNumber))
+    }
+    allConstants
   }
 }

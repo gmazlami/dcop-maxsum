@@ -27,7 +27,12 @@ import scala.collection.mutable.ArrayBuffer
 
 class FunctionVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
 
-
+//  val ownedVariable : MaxSumId = triple._1
+//  
+//  val neighborSet : ArrayBuffer[MaxSumId] = triple._3
+//  
+//  val preferenceTable : ArrayBuffer[Double] = triple._2
+  
   type Signal = MaxSumMessage
   
   override def collect = {
@@ -37,5 +42,9 @@ class FunctionVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
       receivedMessages += (currentId -> message)
     }
     0 //return value of FunctionVertex.collect is of no importance, since only the VariableVertex instances state matters to the problem
+  }
+  
+  def initConstants(triple : Tuple3[MaxSumId,ArrayBuffer[Double],ArrayBuffer[MaxSumId]]) = {
+    println("initing constants")
   }
 }

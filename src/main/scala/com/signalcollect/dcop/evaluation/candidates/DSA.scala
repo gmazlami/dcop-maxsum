@@ -37,6 +37,7 @@ import scala.util._
 import com.signalcollect.configuration.ExecutionMode
 import com.signalcollect.dcop.termination.ConvergenceHistory
 import com.signalcollect.dcop.evaluation.candidates.DSAVariant
+import com.signalcollect.dcop.util.ProblemConstants
 
 object DSAVariant extends Enumeration {
   type DSAVariant = Value
@@ -129,14 +130,18 @@ abstract class DSAVertex(id: Any, initialState: Int, possibleValues: Array[Int])
   }
   
   override def scoreCollect : Double = {
-    if(edgesModifiedSinceCollectOperation){
-      1.0
+    if(ProblemConstants.convergenceEnabled){
+    	if(edgesModifiedSinceCollectOperation){
+    		1.0
+    	}else{
+    		if(stateHistory.hasConverged && utilityHistory.hasConverged){
+    			0.0
+    		}else{
+    			1.0
+    		}
+    	}
     }else{
-      if(stateHistory.hasConverged && utilityHistory.hasConverged){
-        0.0
-      }else{
-        1.0
-      }
+      1.0
     }
   }
   

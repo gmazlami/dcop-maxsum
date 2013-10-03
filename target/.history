@@ -7,3 +7,5 @@ eclipse
 exit
 compile
 last compile:compile
+assemble
+assembly

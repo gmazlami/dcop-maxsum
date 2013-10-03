@@ -32,9 +32,9 @@
 package com.signalcollect.dcop.evaluation.candidates
 
 import scala.util.Random
-
 import com.signalcollect.Vertex
 import com.signalcollect.dcop.termination.ConvergenceHistory
+import com.signalcollect.dcop.util.ProblemConstants
 
 class BestResponseVertex(
   newId: Int,
@@ -87,14 +87,18 @@ class BestResponseVertex(
   }
   
   override def scoreCollect : Double = {
-    if(edgesModifiedSinceCollectOperation){
-      1.0
+    if(ProblemConstants.convergenceEnabled){
+    	if(edgesModifiedSinceCollectOperation){
+    		1.0
+    	}else{
+    		if(stateHistory.hasConverged && utilityHistory.hasConverged){
+    			0.0
+    		}else{
+    			1.0
+    		}
+    	}
     }else{
-      if(stateHistory.hasConverged && utilityHistory.hasConverged){
-        0.0
-      }else{
-        1.0
-      }
+      1.0
     }
   }
   

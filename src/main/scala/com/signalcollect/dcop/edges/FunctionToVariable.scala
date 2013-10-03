@@ -28,7 +28,7 @@ import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.MaxSumMessage
 import scala.math._
 
-class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
+class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Double], ArrayBuffer[MaxSumId]]) extends DefaultEdge(t){
   
   override type Source = FunctionVertex
 
@@ -39,16 +39,16 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   private var initializedConstants : Boolean = false
   
   //the variable that belongs to the source function vertex of this edge
-  private var ownedVariable : MaxSumId = null
+  private var ownedVariable : MaxSumId = triple._1
 
   // a set containing all neighbor nodes of the source node of this edge
-  private var neighborSetOfSource : ArrayBuffer[MaxSumId] = null
+  private var neighborSetOfSource : ArrayBuffer[MaxSumId] = triple._3
 
   //the variables that are involved in the computation of the sum of cross-products, which is then subtracted
-  private var subtractiveTermVariables : ArrayBuffer[MaxSumId]= null
+  private var subtractiveTermVariables : ArrayBuffer[MaxSumId]= neighborSetOfSource - ownedVariable
   
   //a table storing the preferences needed in the computation of this message
-  private var preferenceTable : ArrayBuffer[Tuple3[MaxSumId,Int,Double]] = null
+  private var preferenceTable : ArrayBuffer[Double] = triple._2
   
   // a structure storing all the messages received by the source node of this edge; the maximum of these is summed in the computation
   private var messageMaximizations : ArrayBuffer[ArrayBuffer[Tuple3[MaxSumId,Int,Double]]] = null
@@ -62,12 +62,6 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   // computation of R_m_n 
   def R_m_n : MaxSumMessage = {
 	
-    //initialize constants in the first call of R_m_n
-    if(!initializedConstants){
-      initializeConstants()
-      initializedConstants = true
-    }
-    
 //    println
 //    println("--------------------------------------------------")
 //    println("Computing message R_" +source.id.id + "->" + targetId.id)
@@ -80,7 +74,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
 	
 	// aggregate all received messages at source vertex
 	messageStructure()
-    
+//    println;print("neighborSetOfSource:  "); neighborSetOfSource.foreach(v => print(v.id + "-"));println
 	var neighborHood = neighborSetOfSource
     var found : Boolean = false
     //rearrange neighborhood so that the dependingVariable is in the first cell of the ArrayBuffer
@@ -94,7 +88,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     }
 	var variableNames : ArrayBuffer[MaxSumId] = neighborHood
 	dependingVariable +=: variableNames //dependingVariable in the first cell
-	
+//	println;print("variableNames:  "); variableNames.foreach(v => print(v.id + "-"));println
 	//initialize variableValues of the variables in variableNames to zero
     val variableValues : ArrayBuffer[Int] = ArrayBuffer.fill(variableNames.length)(0)
 	
@@ -113,7 +107,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     }
     
     
-	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
+//	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
 //	println("--------------------------------------------------")
     new MaxSumMessage(source.id,targetId,R_m_n)
   }
@@ -147,7 +141,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
     val ownedVarValue = varvalues(ownedVarIndex)
     
     //preference
-    val preference = preferenceTable(ownedVarValue)._3
+    val preference = preferenceTable(ownedVarValue)
     
     //subtractive part (the sum of the cross products of the variables)
     var subtractiveTerm = 0.0
@@ -217,10 +211,7 @@ class FunctionToVariable(t: MaxSumId) extends DefaultEdge(t){
   }
   
   private def initializeConstants() = {
-	ownedVariable = ProblemConstants.getOwnedVariable(source.id)
-	neighborSetOfSource = ProblemConstants.neighborStructure(source.id)
     subtractiveTermVariables = neighborSetOfSource - ownedVariable
-    preferenceTable = ProblemConstants.getPreferenceTable(ownedVariable)
   }
   
   private def subtractiveStructure() = {

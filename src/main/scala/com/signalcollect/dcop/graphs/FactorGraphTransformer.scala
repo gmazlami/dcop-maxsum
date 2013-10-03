@@ -27,6 +27,7 @@ import com.signalcollect.dcop.edges.VariableToFunction
 import com.signalcollect.dcop.vertices.id.MaxSumId
 import scala.collection.mutable.HashMap
 import akka.event.Logging
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * Transformer class that takes a simple graph as an input, in form of a map of simpleVertices.
@@ -44,7 +45,7 @@ class FactorGraphTransformer {
 	
  
   
-  def transform(simpleVertexMap : HashMap[Int,SimpleVertex]) ={
+  def transform(simpleVertexMap : HashMap[Int,SimpleVertex], constants : HashMap[MaxSumId, Tuple3[MaxSumId, ArrayBuffer[Double], ArrayBuffer[MaxSumId]]]) ={
 	val graph = GraphBuilder.withLoggingLevel(Logging.DebugLevel)
 //	.withKryoRegistrations(
 //	    List(
@@ -68,7 +69,7 @@ class FactorGraphTransformer {
       		 */  
     		graph.addVertex(vertex.functionVertex)
     		graph.addVertex(vertex.variableVertex)
-    		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
+    		graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id,constants(vertex.functionVertex.id)))
     		graph.addEdge(vertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
     		
     		if(vertex.neighborhood.isEmpty){
@@ -84,13 +85,13 @@ class FactorGraphTransformer {
     				  graph.addVertex(neighborVertex.variableVertex)
     				  
     				  //connect to bidirectionally
-    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id))
+    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id,constants(neighborVertex.functionVertex.id)))
     				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(neighborVertex.functionVertex.id))
     		
     				  //connect function and variable vertex to variable and function vertex of "vertex" from outer loop
-    				  graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id))
+    				  graph.addEdge(vertex.functionVertex.id, new FunctionToVariable(neighborVertex.variableVertex.id, constants(vertex.functionVertex.id)))
     				  graph.addEdge(vertex.variableVertex.id, new VariableToFunction(neighborVertex.functionVertex.id))
-    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id))
+    				  graph.addEdge(neighborVertex.functionVertex.id, new FunctionToVariable(vertex.variableVertex.id, constants(neighborVertex.functionVertex.id)))
     				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
     		}
 	}

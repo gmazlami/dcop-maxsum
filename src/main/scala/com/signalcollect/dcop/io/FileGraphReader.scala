@@ -84,27 +84,37 @@ class FileGraphReader {
     neighborSet
   }
 
-  //store neighboring structure of the graph to make it globally accessible, especially when needed during the computation
-  def storeNeighborStructure(simpleGraph: List[SimpleVertex], vertices: HashMap[Int, SimpleVertex]) = {
-    simpleGraph.foreach { current =>
-      var neighborSetForVariable: ArrayBuffer[MaxSumId] = ArrayBuffer()
-      var neighborSetForFunction: ArrayBuffer[MaxSumId] = ArrayBuffer()
-
-      neighborSetForVariable += current.functionVertex.id
-      neighborSetForFunction += current.variableVertex.id
-
-      current.neighborhood.foreach { neighborId =>
-
-        val simpleVertex = vertices(neighborId)
-
-        neighborSetForVariable += simpleVertex.functionVertex.id
-        neighborSetForFunction += simpleVertex.variableVertex.id
-      }
-
-      ProblemConstants.neighborStructure += (current.variableVertex.id -> neighborSetForVariable)
-      ProblemConstants.neighborStructure += (current.functionVertex.id -> neighborSetForFunction)
-
+//  //store neighboring structure of the graph to make it globally accessible, especially when needed during the computation
+//  def storeNeighborStructure(simpleGraph: List[SimpleVertex], vertices: HashMap[Int, SimpleVertex]) = {
+//    simpleGraph.foreach { current =>
+//      var neighborSetForVariable: ArrayBuffer[MaxSumId] = ArrayBuffer()
+//      var neighborSetForFunction: ArrayBuffer[MaxSumId] = ArrayBuffer()
+//
+//      neighborSetForVariable += current.functionVertex.id
+//      neighborSetForFunction += current.variableVertex.id
+//
+//      current.neighborhood.foreach { neighborId =>
+//
+//        val simpleVertex = vertices(neighborId)
+//
+//        neighborSetForVariable += simpleVertex.functionVertex.id
+//        neighborSetForFunction += simpleVertex.variableVertex.id
+//      }
+//
+//      ProblemConstants.neighborStructure += (current.variableVertex.id -> neighborSetForVariable)
+//      ProblemConstants.neighborStructure += (current.functionVertex.id -> neighborSetForFunction)
+//
+//    }
+//  }
+  
+  def getNeighbors(functionIdNum : Int, vertices: HashMap[Int, SimpleVertex]) = {
+    val simpleVertex = vertices(functionIdNum)
+    var neighborSetForFunction: ArrayBuffer[MaxSumId] = ArrayBuffer()
+    simpleVertex.neighborhood.foreach{ neighborId =>
+      val neighbor = vertices(neighborId)
+      neighborSetForFunction += neighbor.variableVertex.id
     }
+    neighborSetForFunction
   }
 
   /* 

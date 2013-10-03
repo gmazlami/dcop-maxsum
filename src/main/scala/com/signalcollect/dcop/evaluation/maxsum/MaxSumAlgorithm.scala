@@ -1,7 +1,6 @@
 package com.signalcollect.dcop.evaluation.maxsum
 
 import com.signalcollect.dcop.benchmark.BenchmarkConfiguration
-import com.signalcollect.dcop.evaluation.MaxSum
 import com.signalcollect.configuration.ExecutionMode
 import com.signalcollect.dcop.benchmark.BenchmarkModes
 import scala.collection.mutable.ListBuffer

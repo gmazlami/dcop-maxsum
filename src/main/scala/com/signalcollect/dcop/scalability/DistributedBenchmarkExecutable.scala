@@ -20,6 +20,10 @@ import com.signalcollect.configuration.TerminationReason
 import com.signalcollect.dcop.graphs.FactorGraphProvider
 import com.signalcollect.dcop.graphs.DSAGraphProvider
 import com.signalcollect.dcop.graphs.BRGraphProvider
+import scala.collection.mutable.HashMap
+import com.signalcollect.dcop.vertices.id.MaxSumId
+import com.signalcollect.dcop.vertices.id.MaxSumId
+import scala.collection.mutable.ArrayBuffer
 
 class DistributedBenchmarkExecutable(val algorithmName: String,
   val executionConfig: ExecutionConfiguration,
@@ -38,9 +42,9 @@ class DistributedBenchmarkExecutable(val algorithmName: String,
     " -XX:-UseBiasedLocking" +
     " -XX:MaxInlineSize=1024"
 
-  def assemblyPath = "./target/scala-2.10/signal-collect-2.1-SNAPSHOT.jar.jar" //TODO: assemble and change to path for this project
+  def assemblyPath = "./target/scala-2.10/signal-collect-2.1-SNAPSHOT.jar" //TODO: assemble and change to path for this project
   val assemblyFile = new File(assemblyPath)
-  val jdkPath = "/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home/bin/"
+  val jdkPath = ""
   val userName = "mazlami"
   val password = "YL3vVWcU"
   val hostName = "kraken.ifi.uzh.ch"
@@ -56,7 +60,7 @@ class DistributedBenchmarkExecutable(val algorithmName: String,
   var graph: Graph[Any, Any] = null
 
   algorithmType match {
-    case AlgorithmType.MS => { graph = graphProvider.asInstanceOf[FactorGraphProvider].construct(nodeProvisioner); graphProvider.asInstanceOf[FactorGraphProvider].initializeRandom(benchmarkConfig.numOfColors) }
+    case AlgorithmType.MS => graph = graphProvider.asInstanceOf[FactorGraphProvider].construct(nodeProvisioner) 
     case AlgorithmType.DSAA => graph = graphProvider.asInstanceOf[DSAGraphProvider].construct(nodeProvisioner)
     case AlgorithmType.DSAB => graph = graphProvider.asInstanceOf[DSAGraphProvider].construct(nodeProvisioner)
     case AlgorithmType.BR => graph = graphProvider.asInstanceOf[BRGraphProvider].construct(nodeProvisioner)
@@ -155,8 +159,12 @@ class DistributedBenchmarkExecutable(val algorithmName: String,
   /*
    * Auxiliary methods:
    */
-
+  
   private def copyExecutionConfigWithTimeLimit(t: Long, config: ExecutionConfiguration) = {
     new ExecutionConfiguration().withExecutionMode(config.executionMode).withSignalThreshold(config.signalThreshold).withCollectThreshold(config.collectThreshold).withTimeLimit(t)
+  }
+  
+  private def initializeFunctionConstantsOnMaxSum() = {
+    
   }
 }

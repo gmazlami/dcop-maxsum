@@ -62,7 +62,6 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
   }
   
   override def collect = {
-    println("COLLECTING")
     mostRecentSignalMap.foreach { mapEntry =>
       val currentId = mapEntry._1.asInstanceOf[MaxSumId]
       val message = mapEntry._2.asInstanceOf[MaxSumMessage]
@@ -82,18 +81,19 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
   }
   
   
-/*
- * TODO:Comment in the function below to enable convergence detection
- */
   override def scoreCollect : Double = {
-    if(edgesModifiedSinceCollectOperation){
-      1.0
+    if(ProblemConstants.convergenceEnabled){
+    	if(edgesModifiedSinceCollectOperation){
+    		1.0
+    	}else{
+    		if(stateHistory.hasConverged && marginalHistory.hasConverged){
+    			0.0
+    		}else{
+    			1.0
+    		}
+    	}
     }else{
-      if(stateHistory.hasConverged && marginalHistory.hasConverged){
-        0.0
-      }else{
-        1.0
-      }
+      1.0
     }
   }
   
@@ -119,20 +119,7 @@ class VariableVertex(id: MaxSumId, state: Int) extends MaxSumVertex(id, state) {
     }
     conflicts / 2
   }
-  
-  private def findColorForPref() = {
-    var max = Double.MinValue
-    var maxColor = -1
-    val array = ProblemConstants.initialPreferences(id.asInstanceOf[MaxSumId])
-    for (color <- 0 to ProblemConstants.numOfColors - 1) {
-      val value = array(color)
-      if (value > max) {
-        max = value
-        maxColor = color
-      }
-    }
-    maxColor
-  }
+
 
   private def mapToVariableIds(ids : ArrayBuffer[MaxSumId]) = {
     var variableIds : ArrayBuffer[MaxSumId] = ArrayBuffer()
