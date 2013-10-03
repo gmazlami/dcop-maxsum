@@ -18,38 +18,40 @@
  */
 
 package com.signalcollect.dcop.vertices.id
-/*
- * typeFlag = 1 --> function vertex
- * typeFlag = 0 --> variable vertex 
+/**
+ * class that represents the unique id's used throughout the Max-Sum algorithm.
+ * The MaxSumId's can identify two types of vertices: VariableVertex and FunctionVertex
+ * @param typeFlag = 1 --> function vertex
+ * @param typeFlag = 0 --> variable vertex
+ * @param idNum: the number to append to the typeString ('v + idNum' for variables and 'f + idNum' for functions) 
  */
-class MaxSumId(idNum : Int, typeFlag : Int) extends Serializable{
-	
+class MaxSumId(idNum: Int, typeFlag: Int) extends Serializable {
+
   var idNumber = idNum
-  
-  var isVariable : Boolean = if(typeFlag == 0) true else false
-  
+
+  var isVariable: Boolean = if (typeFlag == 0) true else false
+
   //Strings will be used as identifiers for vertices
-  var id : String  =
-    
-  if(typeFlag == 0){ //if flag = 0 then vertex will be variable vertex with id in form of v1234
-    "v" + idNum
-  }else{ //if flag = 1 then vertex will be function vertex with id in form of f1234
-    "f" + idNum
-  }
-  
-//  
-//  def ==(that : MaxSumId) : Boolean = {
-//    if (that.idNumber == idNumber && that.isVariable == isVariable) true
-//    else false
-//  }
-  
-  override def equals(other : Any) : Boolean = {
+  var id: String =
+    if (typeFlag == 0) { //if flag = 0 then vertex will be variable vertex with id in form of v1234
+      "v" + idNum
+    } else { //if flag = 1 then vertex will be function vertex with id in form of f1234
+      "f" + idNum
+    }
+
+  /**
+   * custom equals function so that MaxSumId's can be compared by '==' correctly
+   */
+  override def equals(other: Any): Boolean = {
     other match {
       case x: MaxSumId => (x.idNumber == idNumber && x.isVariable == isVariable)
       case _ => false
     }
   }
-  
+
+  /**
+   * custom hashCode function so that MaxSumId's can be used as keys to a map datastructure
+   */
   override def hashCode() = (idNumber, isVariable, id).toString.hashCode()
-    
+
 }

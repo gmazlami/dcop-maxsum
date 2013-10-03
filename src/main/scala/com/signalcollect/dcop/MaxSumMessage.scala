@@ -26,6 +26,13 @@ import scala.math._
 import java.io.ObjectOutputStream
 import java.io.IOException
 
+/**
+ * This class represents the container type for the messages being exchanged by the Max-Sum 
+ * algorithm.
+ * 
+ *  @param s: an instance of MaxSumId that uniquely identifies the sender of the message
+ *  @param t: an instance of MaxSumId that uniquely identifies the target/receiver of this message 
+ */
 class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends Serializable{
 
   val source : MaxSumId = s
@@ -46,25 +53,11 @@ class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends 
     }
     equal
   }
-  
+
+  /**
+   * overrides the default equality method
+   */
   override def equals(other : Any) : Boolean = {
-    other match {
-      case x: MaxSumMessage => (valueEquals(x) && (x.source == source) && (x.target == target))
-      case _ => false
-    }
-  }
-  
-  private def epsilonCompare(other : MaxSumMessage , epsilon : Double) = {
-    var equal : Boolean = true
-    for(i <- 0 to value.length - 1){
-      if(abs(value(i) - other.value(i)) > epsilon){
-        equal = false
-      }
-    }
-    equal
-  }
-  
-  def epsilon(other : Any, e : Double) : Boolean = {
     other match {
       case x: MaxSumMessage => (valueEquals(x) && (x.source == source) && (x.target == target))
       case _ => false

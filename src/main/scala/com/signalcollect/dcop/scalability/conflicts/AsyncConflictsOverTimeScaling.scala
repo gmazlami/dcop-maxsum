@@ -16,13 +16,13 @@ object AsyncConflictsOverTimeScaling extends App {
     /*
    * general properties
    */
-  val fileName = "graphs/example.txt"
+  val fileName = "graphs/scaling/infoviscitations.txt"
   val graphName = "example"
   val isAdopt = false
   val steps = 5
   val timeLimit = 10000
   val numColors = 3
-  val intervalList = List(500L, 1000L, 1500L, 2500L, 5000L, 7500L, 10000L)
+  val intervalList = List(250L, 300L, 350L, 400L, 450L, 500L, 625L, 750L, 875L, 1000L, 1500L, 2500L, 5000L, 7500L, 10000L)
   //------------------------------------------------
 
   /*

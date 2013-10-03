@@ -1,3 +1,22 @@
+/*
+ *  @author Genc Mazlami
+ *
+ *  Copyright 2013 University of Zurich
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+
 package com.signalcollect.dcop.benchmark.convergence
 
 import com.signalcollect.dcop.io.ResultWriter
@@ -9,6 +28,12 @@ import com.signalcollect.dcop.evaluation.bestresponse.BRAlgorithm
 import com.signalcollect.dcop.evaluation.candidates.DSAVariant
 import com.signalcollect.dcop.benchmark.BenchmarkConfiguration
 import com.signalcollect.dcop.benchmark.BenchmarkModes
+import com.signalcollect.dcop.io.DropboxResultHandler
+
+/**
+ * Scala Application that executes a benchmark on the steps until convergence for synchronous Max-Sum, DSA-A,DSA-B, BestResponse.
+ * The Results are stored to DropBox.
+ */
 
 object SyncStepsToConvergenceBenchmark extends App {
 
@@ -68,7 +93,7 @@ object SyncStepsToConvergenceBenchmark extends App {
   maxSumSteps  = maxSumAlgorithm.getResult().asInstanceOf[Long]
   println("Max-Sum evaluted.")
   println(maxSumSteps)
-//  storeResultsToFile(maxSumConflicts,maxSumName)
+  handleResult(maxSumName,maxSumSteps,benchmarkMode)
   println("-----------------------")
   
   /*
@@ -79,7 +104,7 @@ object SyncStepsToConvergenceBenchmark extends App {
   dsaAsteps = dsaAalgorithm.getResult.asInstanceOf[Long]
   println("DSA-A evaluated.")
   println(dsaAsteps)
-//  storeResultsToFile(dsaAconflicts,dsaAname)
+  handleResult(dsaAname,dsaAsteps,benchmarkMode)
   println("-----------------------")
   
   
@@ -91,7 +116,7 @@ object SyncStepsToConvergenceBenchmark extends App {
   dsaBsteps = dsaBalgorithm.getResult.asInstanceOf[Long]
   println("DSA-B evaluated.")
   println(dsaBsteps)
-//  storeResultsToFile(dsaBconflicts, dsaBname)
+  handleResult(dsaBname,dsaBsteps,benchmarkMode)
   println("-----------------------")
   
   
@@ -103,15 +128,16 @@ object SyncStepsToConvergenceBenchmark extends App {
   bestResponseSteps = brAlgorithm.getResult.asInstanceOf[Long]
   println("Best-Response evaluated.")
   println(bestResponseSteps)
-//  storeResultsToFile(bestResponseConflicts, brName)
+  handleResult(brName,bestResponseSteps,benchmarkMode)
   println("-----------------------")
   
   System.exit(0)
   
-  
-//  def storeResultsToFile(results : Any, algorithm : String) = {
-//    val resultWriter = new ResultWriter(benchmarkMode, graphName ,algorithm , results)
-//    resultWriter.write()
-//  }
-  
+    /**
+   * stores results to a file on dropbox with corresponding timestamp, filename and folder
+   */
+  def handleResult(string : String,results : Any, mode : BenchmarkModes.Value) = {
+    val dbx = new DropboxResultHandler(string, "benchmark/syncconflictsoversteps",mode)
+    dbx.handleResult(results)
+  }
 }

@@ -76,6 +76,7 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
 	messageStructure()
 	var neighborHood = neighborSetOfSource
     var found : Boolean = false
+    
     //rearrange neighborhood so that the dependingVariable is in the first cell of the ArrayBuffer
     for(i <- 0 to neighborHood.length - 1){
       if(!found){
@@ -87,13 +88,14 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
     }
 	var variableNames : ArrayBuffer[MaxSumId] = neighborHood
 	dependingVariable +=: variableNames //dependingVariable in the first cell
-//	println;print("variableNames:  "); variableNames.foreach(v => print(v.id + "-"));println
+
 	//initialize variableValues of the variables in variableNames to zero
     val variableValues : ArrayBuffer[Int] = ArrayBuffer.fill(variableNames.length)(0)
 	
     val R_m_n : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     
 //    println("Computing maximization: ")
+    
     /*
      * loop over outerColor
      * outerColor is the color of the dependent variable
@@ -163,7 +165,6 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
 
     //compute the total value 
     val result = preference - subtractiveTerm + messageSum
-//    varnames.foreach(n => print(n.id + " ")) ; print(" with config ") ; varvalues.foreach(value => print(value + " ")) ; println(" max = " +  result)
     result
   } 
   
@@ -232,7 +233,4 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
         }
       }
   }
-  
-  
-  
 }

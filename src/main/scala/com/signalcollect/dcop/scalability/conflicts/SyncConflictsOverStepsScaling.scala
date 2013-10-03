@@ -18,16 +18,17 @@ import com.signalcollect.dcop.scalability.DistributedBenchmarkExecutable
 import com.signalcollect.dcop.scalability.AlgorithmType
 import com.signalcollect.dcop.graphs.DSAGraphProvider
 import com.signalcollect.dcop.graphs.BRGraphProvider
+import com.signalcollect.dcop.io.DropboxResultHandler
 
 object SyncConflictsOverStepsScaling extends App {
 
   /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt40.txt"
-  val graphName = "adopt40"
+  val fileName = "graphs/ADOPT/adopt10.txt"
+  val graphName = "adopt10"
   val isAdopt = true
-  val graphSize = 40
+  val graphSize = 10
   val steps = 50
   val numColors = 3
   val benchmarkMode = BenchmarkModes.SyncConflictsOverSteps
@@ -111,6 +112,7 @@ object SyncConflictsOverStepsScaling extends App {
   maxSumConflicts = maxSumExecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
   println("Max-Sum evaluted.")
   printConflictList(maxSumConflicts)
+  handleResult(maxSumConflicts, benchmarkMode)
   println("-----------------------")
 
   /*
@@ -120,6 +122,7 @@ object SyncConflictsOverStepsScaling extends App {
   dsaAconflicts = dsaAexecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
   println("DSA-A evaluated.")
   printConflictList(dsaAconflicts)
+  handleResult(dsaAconflicts, benchmarkMode)
   println("-----------------------")
 
   /*
@@ -129,6 +132,7 @@ object SyncConflictsOverStepsScaling extends App {
   dsaBconflicts = dsaBexecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
   println("DSA-B evaluated.")
   printConflictList(dsaBconflicts)
+  handleResult(dsaBconflicts, benchmarkMode)
   println("-----------------------")
 
   /*
@@ -138,6 +142,7 @@ object SyncConflictsOverStepsScaling extends App {
   bestResponseConflicts = brExecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
   println("Best-Response evaluated.")
   printConflictList(bestResponseConflicts)
+  handleResult(bestResponseConflicts, benchmarkMode)
   println("-----------------------")
 
   System.exit(0)
@@ -153,4 +158,8 @@ object SyncConflictsOverStepsScaling extends App {
     }
   }
  
+  def handleResult(results : Any, mode : BenchmarkModes.Value) = {
+    val dbx = new DropboxResultHandler("adopt10AsyncConflicts", "benchmark/asyncconflicts",mode)
+    dbx.handleResult(results)
+  }
 }
