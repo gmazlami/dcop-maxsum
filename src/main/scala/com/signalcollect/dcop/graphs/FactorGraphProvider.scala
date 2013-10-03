@@ -13,6 +13,7 @@ import com.signalcollect.dcop.io.FileGraphReader
 import com.signalcollect.Graph
 import com.signalcollect.dcop.vertices.FunctionVertex
 import com.signalcollect.dcop.vertices.id.MaxSumId
+import com.signalcollect.dcop.vertices.MaxSumVertex
 
 class FactorGraphProvider(val reader : FileGraphReader, val fileName : String) extends GraphProvider{
 
@@ -70,17 +71,21 @@ class FactorGraphProvider(val reader : FileGraphReader, val fileName : String) e
     				  graph.addEdge(neighborVertex.variableVertex.id, new VariableToFunction(vertex.functionVertex.id))
     		}
 	}
-    initilalizeMessages
+    graph.awaitIdle
+    graph.foreachVertex{v =>
+      val vertex = v.asInstanceOf[MaxSumVertex]
+      vertex.initializeReceivedMessages
+    }
     graph
   }
     
   
-   def initilalizeMessages() = {
-    simpleVertexMap.foreach { entry =>
-      entry._2.functionVertex.initializeReceivedMessages
-      entry._2.variableVertex.initializeReceivedMessages
-    }
-  }  
+//   def initializeMessages() = {
+//    simpleVertexMap.foreach { entry =>
+//      entry._2.functionVertex.initializeReceivedMessages
+//      entry._2.variableVertex.initializeReceivedMessages
+//    }
+//  }  
     
   private def getConstants(idNum : Int) = {
     val ownedVariable : MaxSumId = new MaxSumId(idNum , 0)

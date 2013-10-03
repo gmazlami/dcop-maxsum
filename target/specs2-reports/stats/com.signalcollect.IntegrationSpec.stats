@@ -2,3 +2,6 @@
 <com.signalcollect.IntegrationSpec-stats timestamp="1369643867579"><stats time="28112" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
 <com.signalcollect.IntegrationSpec-stats timestamp="1380791481780"><stats time="39527" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
 <com.signalcollect.IntegrationSpec-stats timestamp="1380810467533"><stats time="29817" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
+<com.signalcollect.IntegrationSpec-stats timestamp="1380813328364"><stats time="28444" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
+<com.signalcollect.IntegrationSpec-stats timestamp="1380814917850"><stats time="27522" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
+<com.signalcollect.IntegrationSpec-stats timestamp="1380816526880"><stats time="27112" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>

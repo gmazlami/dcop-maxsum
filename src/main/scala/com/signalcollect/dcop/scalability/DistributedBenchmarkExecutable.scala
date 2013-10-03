@@ -60,7 +60,7 @@ class DistributedBenchmarkExecutable(val algorithmName: String,
   var graph: Graph[Any, Any] = null
 
   algorithmType match {
-    case AlgorithmType.MS => graph = graphProvider.asInstanceOf[FactorGraphProvider].construct(nodeProvisioner) 
+    case AlgorithmType.MS => graph = graphProvider.asInstanceOf[FactorGraphProvider].construct(nodeProvisioner)
     case AlgorithmType.DSAA => graph = graphProvider.asInstanceOf[DSAGraphProvider].construct(nodeProvisioner)
     case AlgorithmType.DSAB => graph = graphProvider.asInstanceOf[DSAGraphProvider].construct(nodeProvisioner)
     case AlgorithmType.BR => graph = graphProvider.asInstanceOf[BRGraphProvider].construct(nodeProvisioner)

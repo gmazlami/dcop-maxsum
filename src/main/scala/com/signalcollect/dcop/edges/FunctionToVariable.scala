@@ -74,7 +74,6 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
 	
 	// aggregate all received messages at source vertex
 	messageStructure()
-//    println;print("neighborSetOfSource:  "); neighborSetOfSource.foreach(v => print(v.id + "-"));println
 	var neighborHood = neighborSetOfSource
     var found : Boolean = false
     //rearrange neighborhood so that the dependingVariable is in the first cell of the ArrayBuffer
