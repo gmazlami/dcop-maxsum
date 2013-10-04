@@ -16,9 +16,9 @@ object AsyncTimeToConvergenceScaling extends App {
     /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt10.txt"
-  val graphName = "adopt10"
-  val isAdopt = true
+  val fileName = "graphs/scaling/carnegieMellonRepository/cgmTest.txt"
+  val graphName = "test"
+  val isAdopt = false
   val steps = 5
   val timeLimit = 10000
   val numColors = 3

@@ -10,19 +10,20 @@ import com.signalcollect.dcop.scalability.DistributedBenchmarkExecutable
 import com.signalcollect.dcop.graphs.FactorGraphProvider
 import com.signalcollect.dcop.io.FileGraphReader
 import com.signalcollect.dcop.scalability.AlgorithmType
+import com.signalcollect.dcop.io.DropboxResultHandler
 
 object SyncConflictsOverTimeScaling extends App {
 
     /*
    * general properties
    */
-  val fileName = "graphs/example.txt"
-  val graphName = "adopt10"
+  val fileName = "graphs/scaling/synthetic/graph300.txt"
+  val graphName = "graph300"
   val isAdopt = false
   val steps = 5
   val timeLimit = 10000
   val numColors = 3
-  val intervalList = List(500L, 1000L, 1500L, 2500L, 5000L, 7500L, 10000L)
+  val intervalList = List(250L, 300L, 350L, 400L, 450L, 500L, 625L, 750L, 875L, 1000L, 1500L, 2500L, 5000L, 7500L, 10000L)
   //------------------------------------------------
 
   /*
@@ -39,7 +40,7 @@ object SyncConflictsOverTimeScaling extends App {
   val syncMaxSumName = "MaxSumSync"
   val syncBenchmarkMode = BenchmarkModes.SyncConflictsOverTime
   val syncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(timeLimit)
-  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, null, numColors, syncBenchmarkMode)
+  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, numColors, syncBenchmarkMode)
   //------------------------------------------------
 
   val executable = new DistributedBenchmarkExecutable("SyncMaxSum",
@@ -53,6 +54,7 @@ object SyncConflictsOverTimeScaling extends App {
   
   
   private def handleResult(result : List[Tuple2[Long,Int]]) = {
-    println(result)
+        val dbx = new DropboxResultHandler("graph300SyncConflicts", "results/scaling/syncconflicts",syncBenchmarkMode)
+        dbx.handleResult(result)
   }
 }

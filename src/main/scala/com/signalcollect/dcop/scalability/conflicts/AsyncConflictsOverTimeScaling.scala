@@ -9,6 +9,7 @@ import com.signalcollect.dcop.benchmark.BenchmarkConfiguration
 import com.signalcollect.configuration.ExecutionMode
 import com.signalcollect.dcop.evaluation.maxsum.MaxSumConflictAggregationOperation
 import com.signalcollect.dcop.scalability.DistributedBenchmarkExecutable
+import com.signalcollect.dcop.io.DropboxResultHandler
 
 object AsyncConflictsOverTimeScaling extends App {
 
@@ -16,13 +17,13 @@ object AsyncConflictsOverTimeScaling extends App {
     /*
    * general properties
    */
-  val fileName = "graphs/scaling/infoviscitations.txt"
-  val graphName = "example"
+  val fileName = "graphs/scaling/synthetic/623.txt"
+  val graphName = "623"
   val isAdopt = false
   val steps = 5
-  val timeLimit = 10000
+  val timeLimit = 1500
   val numColors = 3
-  val intervalList = List(250L, 300L, 350L, 400L, 450L, 500L, 625L, 750L, 875L, 1000L, 1500L, 2500L, 5000L, 7500L, 10000L)
+  val intervalList = List(250L, 300L, 350L, 400L, 450L, 500L, 625L, 750L, 875L, 1000L, 1500L)
   //------------------------------------------------
 
   /*
@@ -52,6 +53,7 @@ object AsyncConflictsOverTimeScaling extends App {
   
   
   private def handleResult(result : List[Tuple2[Long,Int]]) = {
-    println(result)
+        val dbx = new DropboxResultHandler("graph623AsyncConflicts", "results/scaling/asyncconflicts",asyncBenchmarkMode)
+        dbx.handleResult(result)
   }
 }

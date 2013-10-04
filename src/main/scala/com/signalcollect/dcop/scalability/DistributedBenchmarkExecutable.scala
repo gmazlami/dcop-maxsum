@@ -42,13 +42,13 @@ class DistributedBenchmarkExecutable(val algorithmName: String,
     " -XX:-UseBiasedLocking" +
     " -XX:MaxInlineSize=1024"
 
-  def assemblyPath = "./target/scala-2.10/signal-collect-2.1-SNAPSHOT.jar" //TODO: assemble and change to path for this project
+  def assemblyPath = "./target/scala-2.10/signal-collect-2.1-SNAPSHOT.jar"
   val assemblyFile = new File(assemblyPath)
   val jdkPath = ""
   val userName = "mazlami"
   val password = "YL3vVWcU"
   val hostName = "kraken.ifi.uzh.ch"
-  val numOfMachines = 1
+  val numOfMachines = 4
   val submitter = new TorqueJobSubmitter(username = userName, hostname = hostName)
   val prio = TorquePriority.fast
   val kraken = new TorqueHost(jobSubmitter = submitter,

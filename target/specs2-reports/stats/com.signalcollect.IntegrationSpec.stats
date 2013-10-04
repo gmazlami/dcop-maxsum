@@ -5,3 +5,17 @@
 <com.signalcollect.IntegrationSpec-stats timestamp="1380813328364"><stats time="28444" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
 <com.signalcollect.IntegrationSpec-stats timestamp="1380814917850"><stats time="27522" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
 <com.signalcollect.IntegrationSpec-stats timestamp="1380816526880"><stats time="27112" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
+<com.signalcollect.IntegrationSpec-stats timestamp="1380885444228"><stats time="32789" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
+<com.signalcollect.IntegrationSpec-stats timestamp="1380886550600"><stats time="26824" expectations="9" successes="9" examples="9"></stats></com.signalcollect.IntegrationSpec-stats>
+<com.signalcollect.IntegrationSpec-results timestamp="1380895347312"><result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:112)" id="917423351"><stats time="3209" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:126)" id="172081725"><stats time="653" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:140)" id="627477082"><stats time="588" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:154)" id="-1900286768"><stats time="559" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:185)" id="1895311775"><stats time="586" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:190)" id="-186854632"><stats time="559" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:194)" id="627477082"><stats time="559" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:201)" id="1895311775"><stats time="560" expectations="1" errors="1" examples="1"></stats></result>
+<result location="com.signalcollect.IntegrationSpec (IntegrationSpec.scala:215)" id="-186854632"><stats time="560" expectations="1" errors="1" examples="1"></stats></result>
+</com.signalcollect.IntegrationSpec-results>
+<com.signalcollect.IntegrationSpec-stats timestamp="1380895347329"><stats time="7843" expectations="9" errors="9" examples="9"><trend><stats time="7843" errors="9" successes="-9"></stats></trend></stats></com.signalcollect.IntegrationSpec-stats>
+<com.signalcollect.IntegrationSpec-stats timestamp="1380896679789"><stats time="29863" expectations="9" successes="9" examples="9"><trend><stats time="29863" errors="-9" successes="9"></stats></trend></stats></com.signalcollect.IntegrationSpec-stats>

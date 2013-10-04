@@ -4,3 +4,6 @@
 <com.signalcollect.GraphResetSpec-stats timestamp="1380813526022"><stats time="1734" expectations="1" successes="1" examples="1"></stats></com.signalcollect.GraphResetSpec-stats>
 <com.signalcollect.GraphResetSpec-stats timestamp="1380814711411"><stats time="1881" expectations="1" successes="1" examples="1"></stats></com.signalcollect.GraphResetSpec-stats>
 <com.signalcollect.GraphResetSpec-stats timestamp="1380816493124"><stats time="9126" expectations="1" successes="1" examples="1"></stats></com.signalcollect.GraphResetSpec-stats>
+<com.signalcollect.GraphResetSpec-stats timestamp="1380885447210"><stats time="1702" expectations="1" successes="1" examples="1"></stats></com.signalcollect.GraphResetSpec-stats>
+<com.signalcollect.GraphResetSpec-stats timestamp="1380886344617"><stats time="1967" expectations="1" successes="1" examples="1"></stats></com.signalcollect.GraphResetSpec-stats>
+<com.signalcollect.GraphResetSpec-stats timestamp="1380896851042"><stats time="1735" expectations="1" successes="1" examples="1"></stats></com.signalcollect.GraphResetSpec-stats>

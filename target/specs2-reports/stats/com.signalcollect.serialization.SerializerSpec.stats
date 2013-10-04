@@ -5,3 +5,5 @@
 <com.signalcollect.serialization.SerializerSpec-stats timestamp="1380813292091"><stats time="606" expectations="2" successes="2" examples="2"></stats></com.signalcollect.serialization.SerializerSpec-stats>
 <com.signalcollect.serialization.SerializerSpec-stats timestamp="1380814889885"><stats time="34" expectations="2" successes="2" examples="2"></stats></com.signalcollect.serialization.SerializerSpec-stats>
 <com.signalcollect.serialization.SerializerSpec-stats timestamp="1380816540688"><stats time="20" expectations="2" successes="2" examples="2"></stats></com.signalcollect.serialization.SerializerSpec-stats>
+<com.signalcollect.serialization.SerializerSpec-stats timestamp="1380886523325"><stats time="31" expectations="2" successes="2" examples="2"></stats></com.signalcollect.serialization.SerializerSpec-stats>
+<com.signalcollect.serialization.SerializerSpec-stats timestamp="1380896851114"><stats time="31" expectations="2" successes="2" examples="2"></stats></com.signalcollect.serialization.SerializerSpec-stats>

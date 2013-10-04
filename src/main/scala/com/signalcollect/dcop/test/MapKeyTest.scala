@@ -17,8 +17,6 @@
  *
  */
 
-package com.signalcollect.dcop.test
-
 import scala.collection.mutable.HashMap
 import com.signalcollect.dcop.vertices.id.MaxSumId
 

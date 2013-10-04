@@ -5,3 +5,7 @@
 <com.signalcollect.storage.VertexStorageSpec-stats timestamp="1380814596000"><stats time="555" expectations="8" successes="8" examples="8"></stats></com.signalcollect.storage.VertexStorageSpec-stats>
 <com.signalcollect.storage.VertexStorageSpec-stats timestamp="1380814708349"><stats time="778" expectations="8" successes="8" examples="8"></stats></com.signalcollect.storage.VertexStorageSpec-stats>
 <com.signalcollect.storage.VertexStorageSpec-stats timestamp="1380816496968"><stats time="1370" expectations="8" successes="8" examples="8"></stats></com.signalcollect.storage.VertexStorageSpec-stats>
+<com.signalcollect.storage.VertexStorageSpec-stats timestamp="1380885445380"><stats time="481" expectations="8" successes="8" examples="8"></stats></com.signalcollect.storage.VertexStorageSpec-stats>
+<com.signalcollect.storage.VertexStorageSpec-stats timestamp="1380886351041"><stats time="506" expectations="8" successes="8" examples="8"></stats></com.signalcollect.storage.VertexStorageSpec-stats>
+<com.signalcollect.storage.VertexStorageSpec-stats timestamp="1380895338770"><stats time="999" expectations="8" successes="8" examples="8"></stats></com.signalcollect.storage.VertexStorageSpec-stats>
+<com.signalcollect.storage.VertexStorageSpec-stats timestamp="1380896680369"><stats time="370" expectations="8" successes="8" examples="8"></stats></com.signalcollect.storage.VertexStorageSpec-stats>

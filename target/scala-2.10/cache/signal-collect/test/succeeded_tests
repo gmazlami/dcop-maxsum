@@ -1,16 +1,16 @@
 #Successful Tests
-#Thu Oct 03 18:13:09 CEST 2013
-com.signalcollect.GraphResetSpec=1380816493203
-com.signalcollect.AkkaProxySpec=1380816493814
-com.signalcollect.GraphModificationSpec=1380816495080
-com.signalcollect.features.BulkSignalingSpec=1380816785519
-com.signalcollect.features.AggregationOperationsSpec=1380816499577
-com.signalcollect.features.SnapshotSpec=1380816540580
-com.signalcollect.storage.VertexMapSpec=1380816527517
-com.signalcollect.console.ConsoleServerSpec=1380816540275
-com.signalcollect.features.ComputationTerminationSpec=1380816789875
-com.signalcollect.storage.VertexStorageSpec=1380816497079
-com.signalcollect.BeforeRemovalSpec=1380816527901
-com.signalcollect.serialization.SerializerSpec=1380816540702
-com.signalcollect.IntegrationSpec=1380816526935
-com.signalcollect.ModularitySpec=1380816784916
+#Fri Oct 04 16:27:42 CEST 2013
+com.signalcollect.GraphResetSpec=1380896851047
+com.signalcollect.AkkaProxySpec=1380896849048
+com.signalcollect.GraphModificationSpec=1380896852402
+com.signalcollect.features.BulkSignalingSpec=1380896681727
+com.signalcollect.features.AggregationOperationsSpec=1380896851891
+com.signalcollect.features.SnapshotSpec=1380896680707
+com.signalcollect.storage.VertexMapSpec=1380896849253
+com.signalcollect.console.ConsoleServerSpec=1380896862016
+com.signalcollect.features.ComputationTerminationSpec=1380896848623
+com.signalcollect.storage.VertexStorageSpec=1380896680390
+com.signalcollect.BeforeRemovalSpec=1380896649641
+com.signalcollect.serialization.SerializerSpec=1380896851119
+com.signalcollect.IntegrationSpec=1380896679811
+com.signalcollect.ModularitySpec=1380896844847

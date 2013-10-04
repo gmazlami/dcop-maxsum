@@ -4,3 +4,5 @@
 <com.signalcollect.console.ConsoleServerSpec-stats timestamp="1380813338416"><stats time="9516" expectations="16" successes="16" examples="16"></stats></com.signalcollect.console.ConsoleServerSpec-stats>
 <com.signalcollect.console.ConsoleServerSpec-stats timestamp="1380814721997"><stats time="8716" expectations="16" successes="16" examples="16"></stats></com.signalcollect.console.ConsoleServerSpec-stats>
 <com.signalcollect.console.ConsoleServerSpec-stats timestamp="1380816540214"><stats time="12108" expectations="16" successes="16" examples="16"></stats></com.signalcollect.console.ConsoleServerSpec-stats>
+<com.signalcollect.console.ConsoleServerSpec-stats timestamp="1380886523204"><stats time="8853" expectations="16" successes="16" examples="16"></stats></com.signalcollect.console.ConsoleServerSpec-stats>
+<com.signalcollect.console.ConsoleServerSpec-stats timestamp="1380896861985"><stats time="9463" expectations="16" successes="16" examples="16"></stats></com.signalcollect.console.ConsoleServerSpec-stats>

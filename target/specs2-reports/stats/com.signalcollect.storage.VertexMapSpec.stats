@@ -6,3 +6,6 @@
 <com.signalcollect.storage.VertexMapSpec-stats timestamp="1380814595128"><stats time="536" expectations="10" successes="10" examples="10"></stats></com.signalcollect.storage.VertexMapSpec-stats>
 <com.signalcollect.storage.VertexMapSpec-stats timestamp="1380814921902"><stats time="34" expectations="10" successes="10" examples="10"></stats></com.signalcollect.storage.VertexMapSpec-stats>
 <com.signalcollect.storage.VertexMapSpec-stats timestamp="1380816527435"><stats time="338" expectations="10" successes="10" examples="10"></stats></com.signalcollect.storage.VertexMapSpec-stats>
+<com.signalcollect.storage.VertexMapSpec-stats timestamp="1380885616223"><stats time="77" expectations="10" successes="10" examples="10"></stats></com.signalcollect.storage.VertexMapSpec-stats>
+<com.signalcollect.storage.VertexMapSpec-stats timestamp="1380886551753"><stats time="77" expectations="10" successes="10" examples="10"></stats></com.signalcollect.storage.VertexMapSpec-stats>
+<com.signalcollect.storage.VertexMapSpec-stats timestamp="1380896849231"><stats time="85" expectations="10" successes="10" examples="10"></stats></com.signalcollect.storage.VertexMapSpec-stats>
