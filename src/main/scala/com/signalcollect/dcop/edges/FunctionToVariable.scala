@@ -28,6 +28,24 @@ import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.MaxSumMessage
 import scala.math._
 
+/**
+ * Edge type that computes messages from FunctionVertex instances to VariableVertex instances.
+ * Computes messages R_m_n(x_n) according to specification of the Max-Sum algorithm and its (non-stabilized)
+ * utility function in Farinelli's Paper: Decentralised coordination of low-power embedded devices using the max-sum algorithm.
+ * 
+ * @param t: The MaxSumId of the target VariableVertex
+ * @param triple: A 3-tuple containing the following values:
+ * 
+ * 					- triple._1 : The ownedVariable of this FunctionToVariable edge. This is the VariableVertex that has the
+ *      						  same id-number as the source FunctionVertex of this edge (e.g. source = f2 --> ownedVar = v2).
+ *              
+ *                  - triple._2 : An ArrayBuffer[Double] that contains the initial preferences of the ownedVariable of this edge.
+ *                  			  The double value at index i represents the preference of the variable for the color i.
+ *                  
+ *                  - triple._3 : An ArrayBuffer[MaxSumId] that contains all the MaxSumId's of the neighbor VariableVertex instances
+ *                  		      of this edges source FunctionVertex instance. 
+ *                   
+ */
 class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Double], ArrayBuffer[MaxSumId]]) extends DefaultEdge(t){
   
   override type Source = FunctionVertex
@@ -39,16 +57,16 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
   private var initializedConstants : Boolean = false
   
   //the variable that belongs to the source function vertex of this edge
-  private var ownedVariable : MaxSumId = triple._1
+  private val ownedVariable : MaxSumId = triple._1
 
   // a set containing all neighbor nodes of the source node of this edge
-  private var neighborSetOfSource : ArrayBuffer[MaxSumId] = triple._3
+  private val neighborSetOfSource : ArrayBuffer[MaxSumId] = triple._3
 
   //the variables that are involved in the computation of the sum of cross-products, which is then subtracted
-  private var subtractiveTermVariables : ArrayBuffer[MaxSumId]= neighborSetOfSource - ownedVariable
+  private val subtractiveTermVariables : ArrayBuffer[MaxSumId]= neighborSetOfSource - ownedVariable
   
   //a table storing the preferences needed in the computation of this message
-  private var preferenceTable : ArrayBuffer[Double] = triple._2
+  private val preferenceTable : ArrayBuffer[Double] = triple._2
   
   // a structure storing all the messages received by the source node of this edge; the maximum of these is summed in the computation
   private var messageMaximizations : ArrayBuffer[ArrayBuffer[Tuple3[MaxSumId,Int,Double]]] = null
@@ -57,27 +75,21 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
   private var tableForSubtractiveTerms : ArrayBuffer[Tuple3[MaxSumId, Int, ArrayBuffer[Tuple3[MaxSumId,Int,Double]]]] = null
   
   // the variable on which the computed message depends, example : R_3_2(x2) has dependentVariable x2
-  private var dependingVariable : MaxSumId = targetId
+  private val dependingVariable : MaxSumId = targetId
   
   // computation of R_m_n 
   def R_m_n : MaxSumMessage = {
-	
-//    println
-//    println("--------------------------------------------------")
-//    println("Computing message R_" +source.id.id + "->" + targetId.id)
-//    println("--------------------------------------------------")
-//    println("OwnedVariable = " + ownedVariable.id)
-//    println("DependingVariable = "+ dependingVariable.id)
     
     // fill table with needed data for the cross products in the subtractive part
 	subtractiveStructure()
 	
 	// aggregate all received messages at source vertex
 	messageStructure()
+	
+	//------------------------------------------------------------------------------------------------
+	//rearrange neighborhood so that the dependingVariable is in the first cell of the ArrayBuffer
 	var neighborHood = neighborSetOfSource
     var found : Boolean = false
-    
-    //rearrange neighborhood so that the dependingVariable is in the first cell of the ArrayBuffer
     for(i <- 0 to neighborHood.length - 1){
       if(!found){
         if(neighborHood(i) == dependingVariable){
@@ -88,13 +100,14 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
     }
 	var variableNames : ArrayBuffer[MaxSumId] = neighborHood
 	dependingVariable +=: variableNames //dependingVariable in the first cell
-
+	//------------------------------------------------------------------------------------------------
+	
 	//initialize variableValues of the variables in variableNames to zero
     val variableValues : ArrayBuffer[Int] = ArrayBuffer.fill(variableNames.length)(0)
 	
+    // container buffer for the resulting preferences in the resulting 
     val R_m_n : ArrayBuffer[Double] = ArrayBuffer.fill(ProblemConstants.numOfColors)(0.0)
     
-//    println("Computing maximization: ")
     
     /*
      * loop over outerColor
@@ -103,17 +116,17 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
      */
     for(outerColor <- 0 to ProblemConstants.numOfColors - 1){
       variableValues(0) = outerColor
-//      println("R_m_n("+outerColor +") : ")
       R_m_n(outerColor) = backtrack(variableNames, variableValues, 1)
     }
     
-    
-//	println("R_" +source.id.id + "->" + targetId.id + " = " + R_m_n)
-//	println("--------------------------------------------------")
+	//the resulting message of this edge
     new MaxSumMessage(source.id,targetId,R_m_n)
   }
   
-  
+  /*
+   * Backtracking heuristic according to section 4.3.2 in the thesis. This function computes the maxima
+   * according to Equation (15) from Farinellis Paper.
+   */
   private def backtrack(varnames : ArrayBuffer[MaxSumId], varvalues : ArrayBuffer[Int], indexpos : Int) : Double = {
     var max : Double = Integer.MIN_VALUE
     
@@ -137,6 +150,9 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
     }
   }
   
+  /*
+   * compute the value of R_m_n for the respective varvalues configuration of varnames
+   */
   private def functionValue(varnames : ArrayBuffer[MaxSumId], varvalues : ArrayBuffer[Int]):Double = {
     val ownedVarIndex = varnames.indexOf(ownedVariable)
     val ownedVarValue = varvalues(ownedVarIndex)
@@ -177,6 +193,10 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
     }
   }
   
+  /*
+   * This function gathers together all the messages at the source VariableVertex into
+   * a sumSet.
+   */
   private def messageSumSet = {
     //the sum in the Function-to-variable formula goes over the neighbor ids except the target id:
     val variableIdSet = source.getNeighborIds - targetId.asInstanceOf[MaxSumId] 
@@ -210,10 +230,10 @@ class FunctionToVariable(t: MaxSumId, triple : Tuple3[MaxSumId, ArrayBuffer[Doub
     }
   }
   
-  private def initializeConstants() = {
-    subtractiveTermVariables = neighborSetOfSource - ownedVariable
-  }
-  
+  /*
+   * Generates the table containing the structure of the olor combination rewards x_i (x) x_m  used in the
+   * utility function.
+   */
   private def subtractiveStructure() = {
       // store variable color combination rewards in a table 
       tableForSubtractiveTerms = ArrayBuffer.fill(subtractiveTermVariables.length * ProblemConstants.numOfColors)(null)

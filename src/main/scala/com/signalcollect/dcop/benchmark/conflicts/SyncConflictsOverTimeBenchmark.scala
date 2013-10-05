@@ -38,21 +38,32 @@ object SyncConflictsOverTimeBenchmark extends App {
   /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt40.txt"
-  val graphName = "adopt40"
+  // path to the input graph
+  val fileName = "graphs/ADOPT/adopt10.txt"
+  
+  // name of the input graph (Does not necessarily have to be the filename, will only be used to store the result)  
+  val graphName = "adopt10"
+  
+  // is the input Graph in ADOPT-format or in EDGELIST format?
   val isAdopt = true
-  val steps = 5
+  
+  // maximum time the benchmark is allowed to run
   val timeLimit = 10000
-  val numColors = 3
   //------------------------------------------------
 
   /*
    * properties for sync MaxSum
    */
-  val syncMaxSumName = "MaxSumSync"
+  // benchmarkMode for this benchmark  
   val syncBenchmarkMode = BenchmarkModes.SyncConflictsOverTime
+  
+  // S/C execution configuration for this benchmark
   val syncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(timeLimit)
-  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, numColors, syncBenchmarkMode)
+  
+  // becnhmarkCofiguration holding all necesarry information for the benchmark  
+  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, 0, new MaxSumConflictAggregationOperation, syncBenchmarkMode)
+  
+  // executable Algorithm instance
   val syncMaxSumAlgorithm = new MaxSumAlgorithm(syncMSbenchmarkConfig)
 
   
@@ -75,6 +86,9 @@ object SyncConflictsOverTimeBenchmark extends App {
 
   System.exit(0)
   
+  /**
+   * stores results to a file on dropbox with corresponding timestamp, filename and folder
+   */
   def handleResult(results : Any) = {
     val dbx = new DropboxResultHandler("adopt10SyncConflicts", "benchmark/syncconflicts",syncBenchmarkMode)
     dbx.handleResult(results)

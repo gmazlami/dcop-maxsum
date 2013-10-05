@@ -16,10 +16,10 @@ import com.signalcollect.Graph
 import com.signalcollect.dcop.vertices.FunctionVertex
 import scala.collection.mutable.HashMap
 
-class MaxSumExecutor(file: String, config: ExecutionConfiguration, numOfColors: Int, isAdopt: Boolean, aggregation: AggregationOperation[Int]) {
+class MaxSumExecutor(file: String, config: ExecutionConfiguration, isAdopt: Boolean, aggregation: AggregationOperation[Int]) {
 
   val fileName = file
-  val numColors = numOfColors
+  val numColors = ProblemConstants.numOfColors
   val executionConfig = config
   val reader: FileGraphReader = new FileGraphReader
   val transformer: FactorGraphTransformer = new FactorGraphTransformer

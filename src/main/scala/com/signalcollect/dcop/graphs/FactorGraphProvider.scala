@@ -79,13 +79,6 @@ class FactorGraphProvider(val reader : FileGraphReader, val fileName : String) e
     graph
   }
     
-  
-//   def initializeMessages() = {
-//    simpleVertexMap.foreach { entry =>
-//      entry._2.functionVertex.initializeReceivedMessages
-//      entry._2.variableVertex.initializeReceivedMessages
-//    }
-//  }  
     
   private def getConstants(idNum : Int) = {
     val ownedVariable : MaxSumId = new MaxSumId(idNum , 0)

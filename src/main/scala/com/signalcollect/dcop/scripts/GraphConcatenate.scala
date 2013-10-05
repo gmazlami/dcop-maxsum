@@ -13,19 +13,21 @@ object GraphConcatenate extends App {
   val graph200 = reader.fromEdgeList("graphs/scaling/synthetic/500_3.txt")._1
   val graph300 = reader.fromEdgeList("graphs/scaling/synthetic/graph300.txt")._1
   
-  val tmpList = doPrefix(222)
+//  val tmpList = doPrefix(222)
   
-  val c = concatenate
+//  val c = concatenate
+  
+  val c = toListBuffer(graph300)
   c.foreach(ce => println(ce._1 + " " + ce._2))
   println("Nodes: " + countNodes(c))
   
   
   
-  def concatenate()= {
-    var newList : ListBuffer[Tuple2[String,String]] = ListBuffer()
-    newList = toListBuffer(graph300) ++: tmpList
-    newList 
-  }
+//  def concatenate()= {
+//    var newList : ListBuffer[Tuple2[String,String]] = ListBuffer()
+//    newList = toListBuffer(graph300) ++: tmpList
+//    newList 
+//  }
   
   def doPrefix(prefix : Int) = {
 	  var list : ListBuffer[Tuple2[String,String]] = ListBuffer()
@@ -48,7 +50,7 @@ object GraphConcatenate extends App {
   
   def toListBuffer(graph: LinkedHashSet[Set[Int]]) = {
     	  var list : ListBuffer[Tuple2[String,String]] = ListBuffer()
-	  graph200.foreach{set =>
+	  graph.foreach{set =>
 	    val array : ArrayBuffer[String] = ArrayBuffer.fill(2)("")
 	    var index = 0
 	    set.foreach{s =>

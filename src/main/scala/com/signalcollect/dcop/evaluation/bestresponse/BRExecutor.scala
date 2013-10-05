@@ -8,11 +8,12 @@ import com.signalcollect.dcop.evaluation.candidates.BestResponseVertexBuilder
 import com.signalcollect.dcop.evaluation.candidates.BinaryConstraintGraphProvider
 import com.signalcollect.GraphBuilder
 import com.signalcollect.configuration.TerminationReason
+import com.signalcollect.dcop.util.ProblemConstants
 
-class BRExecutor(file: String, config: ExecutionConfiguration, numOfColors: Int, isAdopt: Boolean, aggregation: AggregationOperation[Int], randomInit: Boolean, p: Double, graphSize: Int) {
+class BRExecutor(file: String, config: ExecutionConfiguration,  isAdopt: Boolean, aggregation: AggregationOperation[Int], randomInit: Boolean, p: Double, graphSize: Int) {
 
   val fileName = file
-  val numColors = numOfColors
+  val numColors = ProblemConstants.numOfColors
   val executionConfig = config
   val isInputAdopt = isAdopt
   val randomInitialState = randomInit

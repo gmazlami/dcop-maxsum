@@ -29,6 +29,8 @@ import com.signalcollect.dcop.io.DropboxResultHandler
 /**
  * Scala Application that executes a benchmark on the time until convergence for synchronous Max-Sum.
  * The Results are stored to DropBox.
+ * 
+ * IMPORTANT: To run this benchmark correctly, activate Convergence Detection in com.signalcollect.dcop.util.ProblemConstants !!!
  */
 
 object SyncTimeToConvergence extends App {
@@ -36,11 +38,11 @@ object SyncTimeToConvergence extends App {
   /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt40.txt"
-  val graphName = "adopt40"
+  // path to the input graph
+  val fileName = "graphs/ADOPT/adopt20.txt"
+    
+  // is the input Graph in ADOPT-format or in EDGELIST format?
   val isAdopt = true
-  val steps = 5
-  val numColors = 3
   //------------------------------------------------
 
   /*
@@ -49,7 +51,7 @@ object SyncTimeToConvergence extends App {
   val syncMaxSumName = "MaxSumSync"
   val syncBenchmarkMode = BenchmarkModes.SyncTimeToConvergence
   val syncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, null, numColors, syncBenchmarkMode)
+  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, 0, null, syncBenchmarkMode)
   val syncMaxSumAlgorithm = new MaxSumAlgorithm(syncMSbenchmarkConfig)
 
   

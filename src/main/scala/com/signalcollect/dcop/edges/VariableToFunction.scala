@@ -26,17 +26,19 @@ import scala.collection.mutable.ArrayBuffer
 import com.signalcollect.dcop.util.ProblemConstants
 import com.signalcollect.dcop.MaxSumMessage
 
+/**
+ * Edge type that computes messages from VariableVertex instances to FunctionVertex instances.
+ * Computes messages Q_m_n according to specification of the Max-Sum algorithm in Farinelli's Paper: 
+ * Decentralised coordination of low-power embedded devices using the max-sum algorithm.
+ */
 class VariableToFunction(id: MaxSumId) extends DefaultEdge(id) {
 
   type Source = VariableVertex
 
+  //the signal that is computed by this edge
   def signal = Q_n_m
 
   def Q_n_m = {
-//    println
-//    println("--------------------------------------------------")
-//    println("Computing message Q_" + source.id.id + "->" + targetId.id)
-//    println("--------------------------------------------------")
 
     //the variables from which the received messages will be summed to compute the new message
     val variableIdSet = source.getNeighborIds - (targetId.asInstanceOf[MaxSumId])
@@ -59,15 +61,19 @@ class VariableToFunction(id: MaxSumId) extends DefaultEdge(id) {
         }
       }
     }
+    
+    // normalize the values to avoid indefinitely increasing preferences
     for (i <- 0 to resultMessage.length - 1) {
       resultMessage(i) = alpha_n_m + resultMessage(i)
     }
-//    println("Q_" + source.id.id + "->" + targetId.id + " = " + resultMessage)
-//    println("--------------------------------------------------")
 
+    //the resulting message of this edge
     new MaxSumMessage(source.id, targetId, resultMessage)
   }
 
+  /*
+   * computes the normalization factor
+   */
   private def computeNormalizationFactor(neighborIds: ArrayBuffer[MaxSumId]): Double = {
     var sum = 0.0
     val v = ProblemConstants.numOfColors

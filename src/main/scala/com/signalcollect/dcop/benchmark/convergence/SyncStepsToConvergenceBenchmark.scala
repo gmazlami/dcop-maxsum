@@ -33,6 +33,8 @@ import com.signalcollect.dcop.io.DropboxResultHandler
 /**
  * Scala Application that executes a benchmark on the steps until convergence for synchronous Max-Sum, DSA-A,DSA-B, BestResponse.
  * The Results are stored to DropBox.
+ * 
+ * IMPORTANT: To run this benchmark correctly, activate Convergence Detection in com.signalcollect.dcop.util.ProblemConstants !!!
  */
 
 object SyncStepsToConvergenceBenchmark extends App {
@@ -45,7 +47,6 @@ object SyncStepsToConvergenceBenchmark extends App {
   val isAdopt = true
   val graphSize = 40
   val steps = 50
-  val numColors = 3
   val benchmarkMode = BenchmarkModes.SyncStepsToConvergence
   //------------------------------------------------
   
@@ -55,7 +56,7 @@ object SyncStepsToConvergenceBenchmark extends App {
    */
   val maxSumName = "MaxSum"
   val MSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig,fileName,isAdopt,steps,null,numColors,benchmarkMode)
+  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig,fileName,isAdopt,steps,null,benchmarkMode)
   val maxSumAlgorithm = new MaxSumAlgorithm(MSbenchmarkConfig)
   
   /*
@@ -64,7 +65,7 @@ object SyncStepsToConvergenceBenchmark extends App {
   val dsaAname = "DSAA"
   val dsaBname = "DSAB"
   val DSAexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-  val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,null,numColors,benchmarkMode)
+  val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,null,benchmarkMode)
   val dsaAalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.A,0.45, graphSize)
   val dsaBalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.B,0.45, graphSize)
   
@@ -73,7 +74,7 @@ object SyncStepsToConvergenceBenchmark extends App {
    */
   val brName = "BestResponse"
   val BRexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-  val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,null,numColors,benchmarkMode)
+  val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,null,benchmarkMode)
   val brAlgorithm = new BRAlgorithm(BRbenchmarkConfig,true, 0.6, graphSize)
   
   

@@ -38,21 +38,32 @@ object AsyncConflictsOverTimeBenchmark extends App {
   /*
    * general properties
    */
+  // path to the input graph
   val fileName = "graphs/ADOPT/adopt10.txt"
+  
+  // name of the input graph (Does not necessarily have to be the filename, will only be used to store the result)  
   val graphName = "adopt10"
+  
+  // is the input Graph in ADOPT-format or in EDGELIST format?
   val isAdopt = true
-  val steps = 5
+  
+  // maximum time the benchmark is allowed to run
   val timeLimit = 10000
-  val numColors = 2
   //------------------------------------------------
 
   /*
    * properties for async MaxSum
    */
-  val asyncMaxSumName = "MaxSumAsync"
+  // benchmarkMode for this benchmark
   val asyncBenchmarkMode = BenchmarkModes.AsyncConflictsOverTime
+  
+  // S/C execution configuration for this benchmark
   val asyncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(timeLimit)
-  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, numColors, asyncBenchmarkMode)
+  
+  // becnhmarkCofiguration holding all necesarry information for the benchmark
+  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig, fileName, isAdopt, 0, new MaxSumConflictAggregationOperation, asyncBenchmarkMode)
+  
+  // executable Algorithm instance
   val asyncMaxSumAlgorithm = new MaxSumAlgorithm(asyncMSbenchmarkConfig)
 
   /*

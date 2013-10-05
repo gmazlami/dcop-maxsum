@@ -9,11 +9,12 @@ import com.signalcollect.dcop.evaluation.candidates.BinaryConstraintGraphProvide
 import com.signalcollect.GraphBuilder
 import com.signalcollect.StateForwarderEdge
 import com.signalcollect.configuration.TerminationReason
+import com.signalcollect.dcop.util.ProblemConstants
 
-class DSAExecutor(file: String, config: ExecutionConfiguration, numOfColors : Int, isAdopt : Boolean, aggregation : AggregationOperation[Int], variant : DSAVariant.Value, p : Double, graphSize : Int) {
+class DSAExecutor(file: String, config: ExecutionConfiguration, isAdopt : Boolean, aggregation : AggregationOperation[Int], variant : DSAVariant.Value, p : Double, graphSize : Int) {
 
   val fileName = file
-  val numColors = numOfColors
+  val numColors = ProblemConstants.numOfColors
   val executionConfig = config
   val isInputAdopt = isAdopt
   val dsaVariant = variant

@@ -76,9 +76,18 @@ class BinaryConstraintGraphProvider(
   def fromEdgeList(filename: String): (LinkedHashSet[Set[Int]], Degree) = {
     val undirectedEdges = LinkedHashSet[Set[Int]]()
     try {
+      var iStr, jStr, kStr = ""
       val src = io.Source.fromFile(filename)
       src.getLines foreach { line =>
-        val Array(iStr, jStr) = line.split(" ")
+        val array = line.split(" ")
+        if(array.length == 2){
+          iStr = array(0)
+          jStr  = array(1)
+        }else if(array.length == 3){
+          kStr = array(0)
+          iStr  = array(1)
+          jStr  = array(2)
+        }
         if (iStr != jStr) {
           undirectedEdges.add(Set(iStr.toInt, jStr.toInt))
         }

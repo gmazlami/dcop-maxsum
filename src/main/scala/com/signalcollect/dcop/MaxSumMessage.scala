@@ -35,10 +35,13 @@ import java.io.IOException
  */
 class MaxSumMessage(s : MaxSumId, t: MaxSumId, v : ArrayBuffer[Double]) extends Serializable{
 
+  // MaxSumId of the source vertex of this message
   val source : MaxSumId = s
   
+  // MaxSumId of the target vertex of this message
   val target : MaxSumId = t
   
+  // The contained preference values in this message
   val value : ArrayBuffer[Double] = v
  
   /**

@@ -21,7 +21,6 @@ object AsyncTimeToConvergenceScaling extends App {
   val isAdopt = false
   val steps = 5
   val timeLimit = 10000
-  val numColors = 3
   //------------------------------------------------
 
   /*
@@ -37,7 +36,7 @@ object AsyncTimeToConvergenceScaling extends App {
   val asyncMaxSumName = "MaxSumAsync"
   val asyncBenchmarkMode = BenchmarkModes.AsyncTimeToConvergence
   val asyncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withCollectThreshold(0).withSignalThreshold(0)
-  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, numColors, asyncBenchmarkMode)
+  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation,asyncBenchmarkMode)
   //------------------------------------------------
 
   val executable = new DistributedBenchmarkExecutable("SyncMaxSum",

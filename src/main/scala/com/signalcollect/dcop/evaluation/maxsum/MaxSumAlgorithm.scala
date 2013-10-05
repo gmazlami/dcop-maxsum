@@ -18,7 +18,7 @@ class MaxSumAlgorithm(config: BenchmarkConfiguration) {
   private var timeToConvergence: Long = 0
 
   //an executable instance of the algorithm
-  val algorithm: MaxSumExecutor = new MaxSumExecutor(configuration.file, configuration.executionConfiguration, configuration.numOfColors, configuration.isAdopt, configuration.aggregationOperation)
+  val algorithm: MaxSumExecutor = new MaxSumExecutor(configuration.file, configuration.executionConfiguration, configuration.isAdopt, configuration.aggregationOperation)
 
   def runEvaluation() = {
     configuration.mode match {

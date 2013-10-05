@@ -13,18 +13,15 @@ class BRAlgorithm(config: BenchmarkConfiguration, randomInit: Boolean, p: Double
    */
   private var conflictsOverSteps: List[Tuple2[Int, Int]] = List()
   private var stepsToConvergence: Long = 0
-  private var timeToConvergence: Long = 0
 
   //an executable instance of the algorithm
-  val algorithm: BRExecutor = new BRExecutor(configuration.file, configuration.executionConfiguration, configuration.numOfColors, configuration.isAdopt, configuration.aggregationOperation, randomInit, p, graphSize)
+  val algorithm: BRExecutor = new BRExecutor(configuration.file, configuration.executionConfiguration, configuration.isAdopt, configuration.aggregationOperation, randomInit, p, graphSize)
 
   def runEvaluation() = {
     configuration.mode match {
       case BenchmarkModes.SyncConflictsOverSteps => evaluateSyncConflictsOverSteps()
       case BenchmarkModes.SyncStepsToConvergence => evaluateSyncStepsToConvergence()
-      case BenchmarkModes.AsyncTimeToConvergence => evaluateAsyncTimeToConvergence()
-      case BenchmarkModes.SyncTimeToConvergence => evaluateSyncTimeToConvergence()
-      case _ => println("Unknown BenchmarkMode. Exiting.."); System.exit(-1)
+      case _ => println("Invalid BenchmarkMode. Exiting.."); System.exit(-1)
     }
   }
 
@@ -32,9 +29,7 @@ class BRAlgorithm(config: BenchmarkConfiguration, randomInit: Boolean, p: Double
     configuration.mode match {
       case BenchmarkModes.SyncConflictsOverSteps => conflictsOverSteps
       case BenchmarkModes.SyncStepsToConvergence => stepsToConvergence
-      case BenchmarkModes.AsyncTimeToConvergence => timeToConvergence
-      case BenchmarkModes.SyncTimeToConvergence => timeToConvergence
-      case _ => println("Unknown BenchmarkMode. Exiting.."); System.exit(-1)
+      case _ => println("Invalid BenchmarkMode. Exiting.."); System.exit(-1)
     }
   }
 
@@ -72,25 +67,4 @@ class BRAlgorithm(config: BenchmarkConfiguration, randomInit: Boolean, p: Double
       }
     }
   }
-
-  private def evaluateSyncTimeToConvergence() = {
-    if (configuration.executionConfiguration.executionMode != ExecutionMode.Synchronous) {
-      println("ERROR: Can't evaluate SyncTimeToConvergence on Asynchronous BenchmarkConfiguration.")
-      println("Exiting...")
-      System.exit(-1)
-    } else {
-      //TODO: analyze sync
-    }
-  }
-
-  private def evaluateAsyncTimeToConvergence() = {
-    if (configuration.executionConfiguration.executionMode == ExecutionMode.Synchronous) {
-      println("ERROR: Can't evaluate AsyncTimeToConvergence on Synchronous BenchmarkConfiguration.")
-      println("Exiting...")
-      System.exit(-1)
-    } else {
-      //TODO: analyze async
-    }
-  }
-
 }

@@ -37,7 +37,7 @@ object SyncTimeToConvergenceScaling extends App {
   val syncMaxSumName = "MaxSumSync"
   val syncBenchmarkMode = BenchmarkModes.SyncTimeToConvergence
   val syncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, null, numColors, syncBenchmarkMode)
+  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, null, syncBenchmarkMode)
   //------------------------------------------------
 
   val executable = new DistributedBenchmarkExecutable("SyncMaxSum",

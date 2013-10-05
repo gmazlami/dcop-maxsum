@@ -25,37 +25,36 @@ object SyncConflictsOverStepsScaling extends App {
   /*
    * general properties
    */
-  val fileName = "graphs/ADOPT/adopt10.txt"
-  val graphName = "adopt10"
-  val isAdopt = true
-  val graphSize = 10
-  val steps = 50
-  val numColors = 3
+  val fileName = "graphs/scaling/synthetic/graph300.txt"
+  val graphName = "graph300"
+  val isAdopt = false
+  val graphSize = 300
+  val steps = 2
   val benchmarkMode = BenchmarkModes.SyncConflictsOverSteps
   //------------------------------------------------
 
   /*
    * Properties for Graph loading
    */
-  val factorGraphProvider = new FactorGraphProvider(new FileGraphReader, fileName)
-  val dsaaGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.A,numColors,fileName, isAdopt)
-  val dsabGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.B,numColors,fileName, isAdopt)
-  val brGraphProvider = new BRGraphProvider(graphSize,0.6,numColors,fileName, isAdopt)
+//  val factorGraphProvider = new FactorGraphProvider(new FileGraphReader, fileName)
+  val dsaaGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.A,fileName, isAdopt)
+//  val dsabGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.B,fileName, isAdopt)
+//  val brGraphProvider = new BRGraphProvider(graphSize,0.6,fileName, isAdopt)
   //------------------------------------------------
 
   
-  /*
-   * properties for MaxSum
-   */
-  val maxSumName = "MaxSum"
-  val MSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, numColors, benchmarkMode)
-  val maxSumExecutable =  new DistributedBenchmarkExecutable("SyncMaxSum",
-		  											  MSexecutionConfig,
-		  											  MSbenchmarkConfig,
-		  											  factorGraphProvider,
-		  											  AlgorithmType.MS,
-		  											  null)
+//  /*
+//   * properties for MaxSum
+//   */
+//  val maxSumName = "MaxSum"
+//  val MSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
+//  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, benchmarkMode)
+//  val maxSumExecutable =  new DistributedBenchmarkExecutable("SyncMaxSum",
+//		  											  MSexecutionConfig,
+//		  											  MSbenchmarkConfig,
+//		  											  factorGraphProvider,
+//		  											  AlgorithmType.MS,
+//		  											  null)
 
     /*
      * properties for DSA-A and DSA-B
@@ -63,7 +62,7 @@ object SyncConflictsOverStepsScaling extends App {
     val dsaAname = "DSAA"
     val dsaBname = "DSAB"
     val DSAexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-    val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,new DSAConflictAggregationOperation,numColors,benchmarkMode)
+    val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,new DSAConflictAggregationOperation,benchmarkMode)
   	val dsaAexecutable =  new DistributedBenchmarkExecutable("DSA-A",
 		  											  DSAexecutionConfig,
 		  											  DSAbenchmarkConfig,
@@ -72,30 +71,30 @@ object SyncConflictsOverStepsScaling extends App {
 		  											  null,
 		  											  graphSize,
 		  											  0.45)
-    val dsaBexecutable =  new DistributedBenchmarkExecutable("DSA-B",
-		  											  DSAexecutionConfig,
-		  											  DSAbenchmarkConfig,
-		  											  dsabGraphProvider,
-		  											  AlgorithmType.DSAB,
-		  											  null,
-		  											  graphSize,
-		  											  0.45)
-  
-    
-    /*
-     * properties for Best-Response
-     */
-    val brName = "BestResponse"
-    val BRexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-    val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,new BRConflictAggregationOperation,numColors,benchmarkMode)
-  	val brExecutable = new DistributedBenchmarkExecutable("SyncMaxSum",
-		  											  BRexecutionConfig,
-		  											  BRbenchmarkConfig,
-		  											  brGraphProvider,
-		  											  AlgorithmType.BR,
-		  											  null,
-		  											  graphSize,
-		  											  0.6)
+//    val dsaBexecutable =  new DistributedBenchmarkExecutable("DSA-B",
+//		  											  DSAexecutionConfig,
+//		  											  DSAbenchmarkConfig,
+//		  											  dsabGraphProvider,
+//		  											  AlgorithmType.DSAB,
+//		  											  null,
+//		  											  graphSize,
+//		  											  0.45)
+//  
+//    
+//    /*
+//     * properties for Best-Response
+//     */
+//    val brName = "BestResponse"
+//    val BRexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
+//    val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,new BRConflictAggregationOperation,benchmarkMode)
+//  	val brExecutable = new DistributedBenchmarkExecutable("SyncMaxSum",
+//		  											  BRexecutionConfig,
+//		  											  BRbenchmarkConfig,
+//		  											  brGraphProvider,
+//		  											  AlgorithmType.BR,
+//		  											  null,
+//		  											  graphSize,
+//		  											  0.6)
 
   /*
    * result Containers
@@ -105,15 +104,15 @@ object SyncConflictsOverStepsScaling extends App {
   var dsaBconflicts: List[Tuple2[Long, Int]] = null
   var bestResponseConflicts: List[Tuple2[Long, Int]] = null
 
-  /*
-   * run evaluation for MaxSum:
-   */
-  println("Evaluating Max-Sum...")
-  maxSumConflicts = maxSumExecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
-  println("Max-Sum evaluted.")
-  printConflictList(maxSumConflicts)
-  handleResult(maxSumConflicts, benchmarkMode)
-  println("-----------------------")
+//  /*
+//   * run evaluation for MaxSum:
+//   */
+//  println("Evaluating Max-Sum...")
+//  maxSumConflicts = maxSumExecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
+//  println("Max-Sum evaluted.")
+//  printConflictList(maxSumConflicts)
+//  handleResult(maxSumConflicts, benchmarkMode)
+//  println("-----------------------")
 
   /*
      * run evaluation for DSA-A
@@ -125,25 +124,25 @@ object SyncConflictsOverStepsScaling extends App {
   handleResult(dsaAconflicts, benchmarkMode)
   println("-----------------------")
 
-  /*
-     * run evaluation for DSA-B
-     */
-  println("Evaluating DSA-B...")
-  dsaBconflicts = dsaBexecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
-  println("DSA-B evaluated.")
-  printConflictList(dsaBconflicts)
-  handleResult(dsaBconflicts, benchmarkMode)
-  println("-----------------------")
-
-  /*
-     * run evaluation for Best-Response
-     */
-  println("Evaluating Best-Response...")
-  bestResponseConflicts = brExecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
-  println("Best-Response evaluated.")
-  printConflictList(bestResponseConflicts)
-  handleResult(bestResponseConflicts, benchmarkMode)
-  println("-----------------------")
+//  /*
+//     * run evaluation for DSA-B
+//     */
+//  println("Evaluating DSA-B...")
+//  dsaBconflicts = dsaBexecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
+//  println("DSA-B evaluated.")
+//  printConflictList(dsaBconflicts)
+//  handleResult(dsaBconflicts, benchmarkMode)
+//  println("-----------------------")
+//
+//  /*
+//     * run evaluation for Best-Response
+//     */
+//  println("Evaluating Best-Response...")
+//  bestResponseConflicts = brExecutable.run.asInstanceOf[List[Tuple2[Long, Int]]]
+//  println("Best-Response evaluated.")
+//  printConflictList(bestResponseConflicts)
+//  handleResult(bestResponseConflicts, benchmarkMode)
+//  println("-----------------------")
 
   System.exit(0)
 
@@ -159,7 +158,7 @@ object SyncConflictsOverStepsScaling extends App {
   }
  
   def handleResult(results : Any, mode : BenchmarkModes.Value) = {
-    val dbx = new DropboxResultHandler("adopt10AsyncConflicts", "benchmark/asyncconflicts",mode)
+    val dbx = new DropboxResultHandler("graph300SyncConflictsSteps", "scaling/steps/conflicts",mode)
     dbx.handleResult(results)
   }
 }

@@ -25,7 +25,7 @@ import com.signalcollect.ExecutionConfiguration
 
 
 /**
- * container class used to hold different configuration parameters passed to the benchmark exeuctions
+ * A container class used to hold different configuration parameters passed to the benchmark exeuctions.
  * 
  * @param exConfig: S/C ExecutionConfiguration for the benchmark
  * @param fileName: path to the file where the input graph is stored
@@ -35,14 +35,7 @@ import com.signalcollect.ExecutionConfiguration
  * @param numColors: the number of colors in the graph coloring problem
  * @param benchmarkMode : enumeration value stating which of the 6 benchmark modes is used
  */
-class BenchmarkConfiguration(exConfig : ExecutionConfiguration, fileName : String, adopt : Boolean, steps : Int, aggregator : AggregationOperation[Int], numColors : Int , benchmarkMode : BenchmarkModes.Value) {
+class BenchmarkConfiguration(val executionConfiguration : ExecutionConfiguration, val file : String, val isAdopt : Boolean, val stepsLimit : Int, val aggregationOperation : AggregationOperation[Int], val mode : BenchmarkModes.Value) 
 
-  val executionConfiguration = exConfig
-  val file = fileName
-  val isAdopt = adopt
-  val stepsLimit = steps
-  val aggregationOperation = aggregator
-  val numOfColors = numColors
-  val mode = benchmarkMode 
+
   
-}

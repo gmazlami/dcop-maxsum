@@ -22,7 +22,6 @@ object AsyncConflictsOverTimeScaling extends App {
   val isAdopt = false
   val steps = 5
   val timeLimit = 1500
-  val numColors = 3
   val intervalList = List(250L, 300L, 350L, 400L, 450L, 500L, 625L, 750L, 875L, 1000L, 1500L)
   //------------------------------------------------
 
@@ -39,7 +38,7 @@ object AsyncConflictsOverTimeScaling extends App {
   val asyncMaxSumName = "MaxSumAsync"
   val asyncBenchmarkMode = BenchmarkModes.AsyncConflictsOverTime
   val asyncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.PureAsynchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(timeLimit)
-  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, numColors, asyncBenchmarkMode)
+  val asyncMSbenchmarkConfig = new BenchmarkConfiguration(asyncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, asyncBenchmarkMode)
   //------------------------------------------------
 
   val executable = new DistributedBenchmarkExecutable("SyncMaxSum",

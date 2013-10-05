@@ -32,9 +32,9 @@ object SyncStepsToConvergenceScaling extends App {
    * Properties for Graph loading
    */
   val factorGraphProvider = new FactorGraphProvider(new FileGraphReader, fileName)
-  val dsaaGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.A,numColors,fileName, isAdopt)
-  val dsabGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.B,numColors,fileName, isAdopt)
-  val brGraphProvider = new BRGraphProvider(graphSize,0.6,numColors,fileName, isAdopt)
+  val dsaaGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.A,fileName, isAdopt)
+  val dsabGraphProvider = new DSAGraphProvider(graphSize,0.45, DSAVariant.B,fileName, isAdopt)
+  val brGraphProvider = new BRGraphProvider(graphSize,0.6,fileName, isAdopt)
   //------------------------------------------------
 
   
@@ -43,7 +43,7 @@ object SyncStepsToConvergenceScaling extends App {
    */
   val maxSumName = "MaxSum"
   val MSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig, fileName, isAdopt, steps, null, numColors, benchmarkMode)
+  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig, fileName, isAdopt, steps, null, benchmarkMode)
   val maxSumExecutable =  new DistributedBenchmarkExecutable("SyncMaxSum",
 		  											  MSexecutionConfig,
 		  											  MSbenchmarkConfig,
@@ -57,7 +57,7 @@ object SyncStepsToConvergenceScaling extends App {
     val dsaAname = "DSAA"
     val dsaBname = "DSAB"
     val DSAexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-    val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,null,numColors,benchmarkMode)
+    val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,null,benchmarkMode)
   	val dsaAexecutable =  new DistributedBenchmarkExecutable("DSA-A",
 		  											  DSAexecutionConfig,
 		  											  DSAbenchmarkConfig,
@@ -81,7 +81,7 @@ object SyncStepsToConvergenceScaling extends App {
      */
     val brName = "BestResponse"
     val BRexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0)
-    val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,null,numColors,benchmarkMode)
+    val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,null,benchmarkMode)
   	val brExecutable = new DistributedBenchmarkExecutable("SyncMaxSum",
 		  											  BRexecutionConfig,
 		  											  BRbenchmarkConfig,

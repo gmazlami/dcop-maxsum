@@ -18,7 +18,7 @@ class DSAAlgorithm(config: BenchmarkConfiguration, dsaVariant: DSAVariant.Value,
   private var timeToConvergence: Long = 0
 
   //an executable instance of the algorithm
-  val algorithm: DSAExecutor = new DSAExecutor(configuration.file, configuration.executionConfiguration, configuration.numOfColors, configuration.isAdopt, configuration.aggregationOperation, dsaVariant, pSchedule, graphSize)
+  val algorithm: DSAExecutor = new DSAExecutor(configuration.file, configuration.executionConfiguration, configuration.isAdopt, configuration.aggregationOperation, dsaVariant, pSchedule, graphSize)
 
   def runEvaluation() = {
     configuration.mode match {

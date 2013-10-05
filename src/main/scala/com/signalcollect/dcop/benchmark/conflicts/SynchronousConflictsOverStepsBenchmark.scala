@@ -48,7 +48,6 @@ object SynchronousConflictsOverStepsBenchmark extends App {
   val isAdopt = true
   val graphSize = 40
   val steps = 50
-  val numColors = 3
   val benchmarkMode = BenchmarkModes.SyncConflictsOverSteps
   //------------------------------------------------
   
@@ -58,7 +57,7 @@ object SynchronousConflictsOverStepsBenchmark extends App {
    */
   val maxSumName = "MaxSum"
   val MSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig,fileName,isAdopt,steps,new MaxSumConflictAggregationOperation,numColors,benchmarkMode)
+  val MSbenchmarkConfig = new BenchmarkConfiguration(MSexecutionConfig,fileName,isAdopt,steps,new MaxSumConflictAggregationOperation,benchmarkMode)
   val maxSumAlgorithm = new MaxSumAlgorithm(MSbenchmarkConfig)
   
   /*
@@ -67,7 +66,7 @@ object SynchronousConflictsOverStepsBenchmark extends App {
   val dsaAname = "DSAA"
   val dsaBname = "DSAB"
   val DSAexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-  val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,new DSAConflictAggregationOperation,numColors,benchmarkMode)
+  val DSAbenchmarkConfig = new BenchmarkConfiguration(DSAexecutionConfig,fileName,isAdopt,steps,new DSAConflictAggregationOperation,benchmarkMode)
   val dsaAalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.A,0.45, graphSize)
   val dsaBalgorithm = new DSAAlgorithm(DSAbenchmarkConfig,DSAVariant.B,0.45, graphSize)
   
@@ -76,7 +75,7 @@ object SynchronousConflictsOverStepsBenchmark extends App {
    */
   val brName = "BestResponse"
   val BRexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withStepsLimit(1)
-  val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,new BRConflictAggregationOperation,numColors,benchmarkMode)
+  val BRbenchmarkConfig = new BenchmarkConfiguration(BRexecutionConfig,fileName,isAdopt,steps,new BRConflictAggregationOperation,benchmarkMode)
   val brAlgorithm = new BRAlgorithm(BRbenchmarkConfig,true, 0.6, graphSize)
   
   

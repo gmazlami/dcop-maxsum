@@ -22,7 +22,6 @@ object SyncConflictsOverTimeScaling extends App {
   val isAdopt = false
   val steps = 5
   val timeLimit = 10000
-  val numColors = 3
   val intervalList = List(250L, 300L, 350L, 400L, 450L, 500L, 625L, 750L, 875L, 1000L, 1500L, 2500L, 5000L, 7500L, 10000L)
   //------------------------------------------------
 
@@ -40,7 +39,7 @@ object SyncConflictsOverTimeScaling extends App {
   val syncMaxSumName = "MaxSumSync"
   val syncBenchmarkMode = BenchmarkModes.SyncConflictsOverTime
   val syncMSexecutionConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Synchronous).withCollectThreshold(0).withSignalThreshold(0).withTimeLimit(timeLimit)
-  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, numColors, syncBenchmarkMode)
+  val syncMSbenchmarkConfig = new BenchmarkConfiguration(syncMSexecutionConfig, fileName, isAdopt, steps, new MaxSumConflictAggregationOperation, syncBenchmarkMode)
   //------------------------------------------------
 
   val executable = new DistributedBenchmarkExecutable("SyncMaxSum",
